@@ -1,1 +1,1 @@
-# ColorPanel
+# ColorPalette

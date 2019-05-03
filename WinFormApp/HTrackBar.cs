@@ -27,6 +27,23 @@ namespace WinFormApp
     {
         #region 私有成员与内部成员
 
+        internal Color MeaningfulBackColor
+        {
+            get
+            {
+                Control Ctrl = this;
+
+                while (Ctrl.BackColor.A == Color.Transparent.A && Ctrl.Parent != null)
+                {
+                    Ctrl = Ctrl.Parent;
+                }
+
+                return Ctrl.BackColor;
+            }
+        }
+
+        //
+
         private Color[] _Colors = new Color[0];
 
         private double _Minimum = 0;
@@ -49,21 +66,6 @@ namespace WinFormApp
             }
         }
 
-        private Color _MeaningfulBackColor
-        {
-            get
-            {
-                Control Ctrl = this;
-
-                while (Ctrl.BackColor == Color.Transparent && Ctrl.Parent != null)
-                {
-                    Ctrl = Ctrl.Parent;
-                }
-
-                return Ctrl.BackColor;
-            }
-        }
-
         private void _UpdateTrackBarImage()
         {
             if (_TrackBarImage != null)
@@ -78,7 +80,7 @@ namespace WinFormApp
 
             using (Graphics Grap = Graphics.FromImage(_TrackBarImage))
             {
-                Color meaningfulBackColor = _MeaningfulBackColor;
+                Color meaningfulBackColor = MeaningfulBackColor;
 
                 //
 
@@ -152,6 +154,8 @@ namespace WinFormApp
 
                 //
 
+                Color SliderBorderColor = BarBorderColor;
+
                 Color SliderColor;
 
                 if (ColorNum > 0)
@@ -185,28 +189,45 @@ namespace WinFormApp
 
                 SliderColor = Com.ColorManipulation.ShiftLightnessByHSL(SliderColor, +0.3);
 
-                Color SliderBorderColor = Com.ColorManipulation.ShiftLightnessByHSL(SliderColor, -0.6);
-
                 float SliderX = (_Minimum == _Maximum ? trackBarBounds.X : (float)(trackBarBounds.X + (_Value - _Minimum) / (_Maximum - _Minimum) * trackBarBounds.Width));
                 float SliderHeight = 0.2F * wholeBounds.Height;
 
-                PointF[] PolygonTop = new PointF[] { new PointF(SliderX, wholeBounds.Y + 1 + SliderHeight), new PointF(SliderX - SliderHeight, wholeBounds.Y + 1), new PointF(SliderX + SliderHeight, wholeBounds.Y + 1) };
-                PointF[] PolygonBottom = new PointF[] { new PointF(SliderX, wholeBounds.Bottom - 1 - SliderHeight), new PointF(SliderX - SliderHeight, wholeBounds.Bottom - 1), new PointF(SliderX + SliderHeight, wholeBounds.Bottom - 1) };
+                PointF[] PolygonTop = new PointF[] {
+                    new PointF(SliderX, wholeBounds.Y + 1 + SliderHeight),
+                    new PointF(SliderX - SliderHeight, wholeBounds.Y + 1),
+                    new PointF(SliderX + SliderHeight, wholeBounds.Y + 1)
+                };
+                PointF[] PolygonBottom = new PointF[] {
+                    new PointF(SliderX, wholeBounds.Bottom - 1 - SliderHeight),
+                    new PointF(SliderX - SliderHeight, wholeBounds.Bottom - 1),
+                    new PointF(SliderX + SliderHeight, wholeBounds.Bottom - 1)
+                };
 
-                using (Pen Pn = new Pen(Color.FromArgb(48, SliderBorderColor), 3))
+                using (Pen Pn = new Pen(Color.FromArgb(32, SliderBorderColor), 5))
                 {
                     Grap.DrawLine(Pn, new PointF(SliderX, trackBarBounds.Y), new PointF(SliderX, trackBarBounds.Bottom));
                 }
 
-                using (Pen Pn = new Pen(Color.FromArgb(192, SliderBorderColor), 1))
-                {
-                    Grap.DrawLine(Pn, new PointF(SliderX, trackBarBounds.Y), new PointF(SliderX, trackBarBounds.Bottom));
-                }
-
-                using (Pen Pn = new Pen(Color.FromArgb(96, SliderBorderColor), 2))
+                using (Pen Pn = new Pen(Color.FromArgb(32, SliderBorderColor), 4))
                 {
                     Grap.DrawPolygon(Pn, PolygonTop);
                     Grap.DrawPolygon(Pn, PolygonBottom);
+                }
+
+                using (Pen Pn = new Pen(Color.FromArgb(64, SliderBorderColor), 3))
+                {
+                    Grap.DrawLine(Pn, new PointF(SliderX, trackBarBounds.Y), new PointF(SliderX, trackBarBounds.Bottom));
+                }
+
+                using (Pen Pn = new Pen(Color.FromArgb(64, SliderBorderColor), 2))
+                {
+                    Grap.DrawPolygon(Pn, PolygonTop);
+                    Grap.DrawPolygon(Pn, PolygonBottom);
+                }
+
+                using (Pen Pn = new Pen(SliderColor, 1))
+                {
+                    Grap.DrawLine(Pn, new PointF(SliderX, trackBarBounds.Y), new PointF(SliderX, trackBarBounds.Bottom));
                 }
 
                 using (SolidBrush Br = new SolidBrush(SliderColor))
@@ -316,11 +337,14 @@ namespace WinFormApp
 
         private void Panel_Main_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (_MousePressed)
             {
                 _MousePressed = false;
 
-                _OnClick();
+                if (e.Button == MouseButtons.Left)
+                {
+                    _OnClick();
+                }
             }
         }
 

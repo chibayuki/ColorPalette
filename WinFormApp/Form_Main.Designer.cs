@@ -32,6 +32,14 @@
             this.Panel_Main = new System.Windows.Forms.Panel();
             this.Panel_LeftArea = new System.Windows.Forms.Panel();
             this.Panel_ColorSpaces = new System.Windows.Forms.Panel();
+            this.Panel_Transparency = new System.Windows.Forms.Panel();
+            this.Label_Transparency = new System.Windows.Forms.Label();
+            this.Label_Abbr_Opacity = new System.Windows.Forms.Label();
+            this.Label_Abbr_Alpha = new System.Windows.Forms.Label();
+            this.Label_Opacity = new System.Windows.Forms.Label();
+            this.Label_Alpha = new System.Windows.Forms.Label();
+            this.HTrackBar_Opacity = new WinFormApp.HTrackBar();
+            this.HTrackBar_Alpha = new WinFormApp.HTrackBar();
             this.Panel_RGB = new System.Windows.Forms.Panel();
             this.Label_RGB = new System.Windows.Forms.Label();
             this.Label_Abbr_RGB_R = new System.Windows.Forms.Label();
@@ -107,6 +115,7 @@
             this.Panel_Main.SuspendLayout();
             this.Panel_LeftArea.SuspendLayout();
             this.Panel_ColorSpaces.SuspendLayout();
+            this.Panel_Transparency.SuspendLayout();
             this.Panel_RGB.SuspendLayout();
             this.Panel_HSV.SuspendLayout();
             this.Panel_HSL.SuspendLayout();
@@ -125,7 +134,7 @@
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Main.Location = new System.Drawing.Point(0, 0);
             this.Panel_Main.Name = "Panel_Main";
-            this.Panel_Main.Size = new System.Drawing.Size(820, 470);
+            this.Panel_Main.Size = new System.Drawing.Size(820, 405);
             this.Panel_Main.TabIndex = 0;
             // 
             // Panel_LeftArea
@@ -135,12 +144,13 @@
             this.Panel_LeftArea.Controls.Add(this.Panel_ColorSpaces);
             this.Panel_LeftArea.Location = new System.Drawing.Point(0, 0);
             this.Panel_LeftArea.Name = "Panel_LeftArea";
-            this.Panel_LeftArea.Size = new System.Drawing.Size(620, 470);
+            this.Panel_LeftArea.Size = new System.Drawing.Size(620, 405);
             this.Panel_LeftArea.TabIndex = 0;
             // 
             // Panel_ColorSpaces
             // 
             this.Panel_ColorSpaces.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_ColorSpaces.Controls.Add(this.Panel_Transparency);
             this.Panel_ColorSpaces.Controls.Add(this.Panel_RGB);
             this.Panel_ColorSpaces.Controls.Add(this.Panel_HSV);
             this.Panel_ColorSpaces.Controls.Add(this.Panel_HSL);
@@ -149,8 +159,124 @@
             this.Panel_ColorSpaces.Controls.Add(this.Panel_YUV);
             this.Panel_ColorSpaces.Location = new System.Drawing.Point(0, 0);
             this.Panel_ColorSpaces.Name = "Panel_ColorSpaces";
-            this.Panel_ColorSpaces.Size = new System.Drawing.Size(600, 965);
+            this.Panel_ColorSpaces.Size = new System.Drawing.Size(600, 1020);
             this.Panel_ColorSpaces.TabIndex = 0;
+            // 
+            // Panel_Transparency
+            // 
+            this.Panel_Transparency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_Transparency.Controls.Add(this.Label_Transparency);
+            this.Panel_Transparency.Controls.Add(this.Label_Abbr_Opacity);
+            this.Panel_Transparency.Controls.Add(this.Label_Abbr_Alpha);
+            this.Panel_Transparency.Controls.Add(this.Label_Opacity);
+            this.Panel_Transparency.Controls.Add(this.Label_Alpha);
+            this.Panel_Transparency.Controls.Add(this.HTrackBar_Opacity);
+            this.Panel_Transparency.Controls.Add(this.HTrackBar_Alpha);
+            this.Panel_Transparency.Location = new System.Drawing.Point(20, 20);
+            this.Panel_Transparency.Name = "Panel_Transparency";
+            this.Panel_Transparency.Size = new System.Drawing.Size(560, 105);
+            this.Panel_Transparency.TabIndex = 0;
+            // 
+            // Label_Transparency
+            // 
+            this.Label_Transparency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_Transparency.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Label_Transparency.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Transparency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Label_Transparency.Location = new System.Drawing.Point(0, 0);
+            this.Label_Transparency.Name = "Label_Transparency";
+            this.Label_Transparency.Size = new System.Drawing.Size(560, 25);
+            this.Label_Transparency.TabIndex = 0;
+            this.Label_Transparency.Text = "Transparency";
+            this.Label_Transparency.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Abbr_Opacity
+            // 
+            this.Label_Abbr_Opacity.AutoSize = true;
+            this.Label_Abbr_Opacity.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_Opacity.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_Opacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Abbr_Opacity.Location = new System.Drawing.Point(20, 35);
+            this.Label_Abbr_Opacity.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_Opacity.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_Opacity.Name = "Label_Abbr_Opacity";
+            this.Label_Abbr_Opacity.Size = new System.Drawing.Size(21, 25);
+            this.Label_Abbr_Opacity.TabIndex = 0;
+            this.Label_Abbr_Opacity.Text = "%";
+            this.Label_Abbr_Opacity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Abbr_Alpha
+            // 
+            this.Label_Abbr_Alpha.AutoSize = true;
+            this.Label_Abbr_Alpha.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_Alpha.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_Alpha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Abbr_Alpha.Location = new System.Drawing.Point(20, 70);
+            this.Label_Abbr_Alpha.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_Alpha.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_Alpha.Name = "Label_Abbr_Alpha";
+            this.Label_Abbr_Alpha.Size = new System.Drawing.Size(19, 25);
+            this.Label_Abbr_Alpha.TabIndex = 0;
+            this.Label_Abbr_Alpha.Text = "A";
+            this.Label_Abbr_Alpha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Opacity
+            // 
+            this.Label_Opacity.AutoSize = true;
+            this.Label_Opacity.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Opacity.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Opacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Opacity.Location = new System.Drawing.Point(50, 35);
+            this.Label_Opacity.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Opacity.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Opacity.Name = "Label_Opacity";
+            this.Label_Opacity.Size = new System.Drawing.Size(57, 25);
+            this.Label_Opacity.TabIndex = 0;
+            this.Label_Opacity.Text = "Opacity";
+            this.Label_Opacity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Alpha
+            // 
+            this.Label_Alpha.AutoSize = true;
+            this.Label_Alpha.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Alpha.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Alpha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Alpha.Location = new System.Drawing.Point(50, 70);
+            this.Label_Alpha.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Alpha.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Alpha.Name = "Label_Alpha";
+            this.Label_Alpha.Size = new System.Drawing.Size(44, 25);
+            this.Label_Alpha.TabIndex = 0;
+            this.Label_Alpha.Text = "Alpha";
+            this.Label_Alpha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // HTrackBar_Opacity
+            // 
+            this.HTrackBar_Opacity.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_Opacity.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_Opacity.Delta = 5D;
+            this.HTrackBar_Opacity.Location = new System.Drawing.Point(180, 35);
+            this.HTrackBar_Opacity.Maximum = 100D;
+            this.HTrackBar_Opacity.Minimum = 0D;
+            this.HTrackBar_Opacity.Name = "HTrackBar_Opacity";
+            this.HTrackBar_Opacity.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_Opacity.TabIndex = 0;
+            this.HTrackBar_Opacity.TabStop = false;
+            this.HTrackBar_Opacity.Value = 0D;
+            // 
+            // HTrackBar_Alpha
+            // 
+            this.HTrackBar_Alpha.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_Alpha.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_Alpha.Delta = 5D;
+            this.HTrackBar_Alpha.Location = new System.Drawing.Point(180, 70);
+            this.HTrackBar_Alpha.Maximum = 100D;
+            this.HTrackBar_Alpha.Minimum = 0D;
+            this.HTrackBar_Alpha.Name = "HTrackBar_Alpha";
+            this.HTrackBar_Alpha.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_Alpha.TabIndex = 0;
+            this.HTrackBar_Alpha.TabStop = false;
+            this.HTrackBar_Alpha.Value = 0D;
             // 
             // Panel_RGB
             // 
@@ -165,7 +291,7 @@
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_R);
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_G);
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_B);
-            this.Panel_RGB.Location = new System.Drawing.Point(20, 20);
+            this.Panel_RGB.Location = new System.Drawing.Point(20, 125);
             this.Panel_RGB.Name = "Panel_RGB";
             this.Panel_RGB.Size = new System.Drawing.Size(560, 140);
             this.Panel_RGB.TabIndex = 0;
@@ -328,7 +454,7 @@
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_H);
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_S);
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_V);
-            this.Panel_HSV.Location = new System.Drawing.Point(20, 170);
+            this.Panel_HSV.Location = new System.Drawing.Point(20, 265);
             this.Panel_HSV.Name = "Panel_HSV";
             this.Panel_HSV.Size = new System.Drawing.Size(560, 140);
             this.Panel_HSV.TabIndex = 0;
@@ -491,7 +617,7 @@
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_H);
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_S);
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_L);
-            this.Panel_HSL.Location = new System.Drawing.Point(20, 320);
+            this.Panel_HSL.Location = new System.Drawing.Point(20, 405);
             this.Panel_HSL.Name = "Panel_HSL";
             this.Panel_HSL.Size = new System.Drawing.Size(560, 140);
             this.Panel_HSL.TabIndex = 0;
@@ -657,7 +783,7 @@
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_M);
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_Y);
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_K);
-            this.Panel_CMYK.Location = new System.Drawing.Point(20, 470);
+            this.Panel_CMYK.Location = new System.Drawing.Point(20, 545);
             this.Panel_CMYK.Name = "Panel_CMYK";
             this.Panel_CMYK.Size = new System.Drawing.Size(560, 175);
             this.Panel_CMYK.TabIndex = 0;
@@ -864,7 +990,7 @@
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_L);
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_A);
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_B);
-            this.Panel_LAB.Location = new System.Drawing.Point(20, 655);
+            this.Panel_LAB.Location = new System.Drawing.Point(20, 720);
             this.Panel_LAB.Name = "Panel_LAB";
             this.Panel_LAB.Size = new System.Drawing.Size(560, 140);
             this.Panel_LAB.TabIndex = 0;
@@ -1027,7 +1153,7 @@
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_Y);
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_U);
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_V);
-            this.Panel_YUV.Location = new System.Drawing.Point(20, 805);
+            this.Panel_YUV.Location = new System.Drawing.Point(20, 860);
             this.Panel_YUV.Name = "Panel_YUV";
             this.Panel_YUV.Size = new System.Drawing.Size(560, 140);
             this.Panel_YUV.TabIndex = 0;
@@ -1183,7 +1309,7 @@
             this.Panel_RightArea.Controls.Add(this.Panel_Preview);
             this.Panel_RightArea.Location = new System.Drawing.Point(620, 0);
             this.Panel_RightArea.Name = "Panel_RightArea";
-            this.Panel_RightArea.Size = new System.Drawing.Size(200, 470);
+            this.Panel_RightArea.Size = new System.Drawing.Size(200, 405);
             this.Panel_RightArea.TabIndex = 0;
             // 
             // Panel_Preview
@@ -1208,7 +1334,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(820, 470);
+            this.ClientSize = new System.Drawing.Size(820, 405);
             this.Controls.Add(this.Panel_Main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1216,6 +1342,8 @@
             this.Panel_Main.ResumeLayout(false);
             this.Panel_LeftArea.ResumeLayout(false);
             this.Panel_ColorSpaces.ResumeLayout(false);
+            this.Panel_Transparency.ResumeLayout(false);
+            this.Panel_Transparency.PerformLayout();
             this.Panel_RGB.ResumeLayout(false);
             this.Panel_RGB.PerformLayout();
             this.Panel_HSV.ResumeLayout(false);
@@ -1311,5 +1439,13 @@
         private System.Windows.Forms.Label Label_Abbr_YUV_Y;
         private System.Windows.Forms.Label Label_Abbr_YUV_U;
         private System.Windows.Forms.Label Label_Abbr_YUV_V;
+        private System.Windows.Forms.Panel Panel_Transparency;
+        private System.Windows.Forms.Label Label_Transparency;
+        private System.Windows.Forms.Label Label_Abbr_Opacity;
+        private System.Windows.Forms.Label Label_Abbr_Alpha;
+        private System.Windows.Forms.Label Label_Opacity;
+        private System.Windows.Forms.Label Label_Alpha;
+        private HTrackBar HTrackBar_Opacity;
+        private HTrackBar HTrackBar_Alpha;
     }
 }

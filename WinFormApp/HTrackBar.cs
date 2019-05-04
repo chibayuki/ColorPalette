@@ -48,8 +48,8 @@ namespace WinFormApp
 
         private double _Minimum = 0;
         private double _Maximum = 100;
-        private double _Value = 0;
         private double _Delta = 5;
+        private double _Value = 0;
 
         //
 
@@ -532,6 +532,32 @@ namespace WinFormApp
             }
         }
 
+        // 获取或设置通过鼠标滚轮或键盘方向键修改此 TrackBar 的值的步长。
+        public double Delta
+        {
+            get
+            {
+                return _Delta;
+            }
+
+            set
+            {
+                if (double.IsNaN(value) || double.IsInfinity(value))
+                {
+                    throw new ArgumentException();
+                }
+
+                if (value < _Minimum || value > _Maximum)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+
+                //
+
+                _Delta = value;
+            }
+        }
+
         // 获取或设置此 TrackBar 的值。
         public double Value
         {
@@ -559,32 +585,6 @@ namespace WinFormApp
                 _RepaintTrackBarImage();
 
                 _OnValueChanged();
-            }
-        }
-
-        // 获取或设置通过鼠标滚轮或键盘方向键修改此 TrackBar 的值的步长。
-        public double Delta
-        {
-            get
-            {
-                return _Delta;
-            }
-
-            set
-            {
-                if (double.IsNaN(value) || double.IsInfinity(value))
-                {
-                    throw new ArgumentException();
-                }
-
-                if (value < _Minimum || value > _Maximum)
-                {
-                    throw new ArgumentOutOfRangeException();
-                }
-
-                //
-
-                _Delta = value;
             }
         }
 

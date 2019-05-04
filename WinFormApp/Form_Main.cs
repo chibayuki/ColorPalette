@@ -44,6 +44,9 @@ namespace WinFormApp
 
         private static class _ColorsKey
         {
+            public static readonly object Opacity = new object();
+            public static readonly object Alpha = new object();
+
             public static readonly object RGB_R = new object();
             public static readonly object RGB_G = new object();
             public static readonly object RGB_B = new object();
@@ -121,7 +124,7 @@ namespace WinFormApp
             Me.EnableFullScreen = false;
             Me.Theme = Com.WinForm.Theme.Black;
             Me.ThemeColor = Com.ColorManipulation.GetRandomColorX();
-            Me.MinimumSize = new Size(820, 470 + Me.CaptionBarHeight);
+            Me.MinimumSize = new Size(820, 405 + Me.CaptionBarHeight);
 
             Me.Loaded += LoadedEvents;
             Me.Resize += ResizeEvents;
@@ -142,6 +145,8 @@ namespace WinFormApp
 
             //
 
+            _ColorsTable.Add(_ColorsKey.Opacity, new Color[_ColorsNum]);
+            _ColorsTable.Add(_ColorsKey.Alpha, new Color[_ColorsNum]);
             _ColorsTable.Add(_ColorsKey.RGB_R, new Color[_ColorsNum]);
             _ColorsTable.Add(_ColorsKey.RGB_G, new Color[_ColorsNum]);
             _ColorsTable.Add(_ColorsKey.RGB_B, new Color[_ColorsNum]);
@@ -163,6 +168,13 @@ namespace WinFormApp
             _ColorsTable.Add(_ColorsKey.YUV_V, new Color[_ColorsNum]);
 
             //
+
+            HTrackBar_Opacity.Minimum = 0;
+            HTrackBar_Opacity.Maximum = 100;
+            HTrackBar_Opacity.Delta = 2;
+            HTrackBar_Alpha.Minimum = 0;
+            HTrackBar_Alpha.Maximum = 255;
+            HTrackBar_Alpha.Delta = 4;
 
             HTrackBar_RGB_R.Minimum = 0;
             HTrackBar_RGB_R.Maximum = 255;
@@ -229,7 +241,7 @@ namespace WinFormApp
 
             //
 
-            SetColor(Me.ThemeColor);
+            CurrentColor = Me.ThemeColor;
 
             RegisterEvents();
         }
@@ -246,12 +258,22 @@ namespace WinFormApp
             Panel_RightArea.Left = Panel_LeftArea.Right;
 
             Panel_ColorSpaces.Width = Panel_LeftArea.Width - 20;
-            Panel_RGB.Width = Panel_ColorSpaces.Width - 2 * Panel_RGB.Left;
-            Panel_HSV.Width = Panel_RGB.Width;
-            Panel_HSL.Width = Panel_RGB.Width;
-            Panel_CMYK.Width = Panel_RGB.Width;
-            Panel_LAB.Width = Panel_RGB.Width;
-            Panel_YUV.Width = Panel_RGB.Width;
+            Panel_Transparency.Width = Panel_ColorSpaces.Width - 2 * Panel_RGB.Left;
+            Panel_RGB.Width = Panel_Transparency.Width;
+            Panel_HSV.Width = Panel_Transparency.Width;
+            Panel_HSL.Width = Panel_Transparency.Width;
+            Panel_CMYK.Width = Panel_Transparency.Width;
+            Panel_LAB.Width = Panel_Transparency.Width;
+            Panel_YUV.Width = Panel_Transparency.Width;
+        }
+
+        // 在窗体的大小更改时发生。
+        private void SizeChangedEvents(object sender, EventArgs e)
+        {
+            ResizeEvents(sender, e);
+
+            HTrackBar_Opacity.Width = Panel_Transparency.Width - HTrackBar_Opacity.Left - 20;
+            HTrackBar_Alpha.Width = HTrackBar_Opacity.Width;
 
             HTrackBar_RGB_R.Width = Panel_RGB.Width - HTrackBar_RGB_R.Left - 20;
             HTrackBar_RGB_G.Width = HTrackBar_RGB_R.Width;
@@ -279,12 +301,6 @@ namespace WinFormApp
             HTrackBar_YUV_V.Width = HTrackBar_YUV_Y.Width;
         }
 
-        // 在窗体的大小更改时发生。
-        private void SizeChangedEvents(object sender, EventArgs e)
-        {
-            ResizeEvents(sender, e);
-        }
-
         // 在窗体的主题色更改时发生。
         private void ThemeColorChangedEvents(object sender, EventArgs e)
         {
@@ -297,86 +313,64 @@ namespace WinFormApp
 
         private void RegisterEvents()
         {
-            HTrackBar_RGB_R.ValueChanged += HTrackBar_RGB_R_ValueChanged;
-            HTrackBar_RGB_G.ValueChanged += HTrackBar_RGB_G_ValueChanged;
-            HTrackBar_RGB_B.ValueChanged += HTrackBar_RGB_B_ValueChanged;
+            HTrackBar_Opacity.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_Alpha.ValueChanged += HTrackBar_ValueChanged;
 
-            HTrackBar_HSV_H.ValueChanged += HTrackBar_HSV_H_ValueChanged;
-            HTrackBar_HSV_S.ValueChanged += HTrackBar_HSV_S_ValueChanged;
-            HTrackBar_HSV_V.ValueChanged += HTrackBar_HSV_V_ValueChanged;
+            HTrackBar_RGB_R.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_RGB_G.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_RGB_B.ValueChanged += HTrackBar_ValueChanged;
 
-            HTrackBar_HSL_H.ValueChanged += HTrackBar_HSL_H_ValueChanged;
-            HTrackBar_HSL_S.ValueChanged += HTrackBar_HSL_S_ValueChanged;
-            HTrackBar_HSL_L.ValueChanged += HTrackBar_HSL_L_ValueChanged;
+            HTrackBar_HSV_H.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_HSV_S.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_HSV_V.ValueChanged += HTrackBar_ValueChanged;
 
-            HTrackBar_CMYK_C.ValueChanged += HTrackBar_CMYK_C_ValueChanged;
-            HTrackBar_CMYK_M.ValueChanged += HTrackBar_CMYK_M_ValueChanged;
-            HTrackBar_CMYK_Y.ValueChanged += HTrackBar_CMYK_Y_ValueChanged;
-            HTrackBar_CMYK_K.ValueChanged += HTrackBar_CMYK_K_ValueChanged;
+            HTrackBar_HSL_H.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_HSL_S.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_HSL_L.ValueChanged += HTrackBar_ValueChanged;
 
-            HTrackBar_LAB_L.ValueChanged += HTrackBar_LAB_L_ValueChanged;
-            HTrackBar_LAB_A.ValueChanged += HTrackBar_LAB_A_ValueChanged;
-            HTrackBar_LAB_B.ValueChanged += HTrackBar_LAB_B_ValueChanged;
+            HTrackBar_CMYK_C.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_CMYK_M.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_CMYK_Y.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_CMYK_K.ValueChanged += HTrackBar_ValueChanged;
 
-            HTrackBar_YUV_Y.ValueChanged += HTrackBar_YUV_Y_ValueChanged;
-            HTrackBar_YUV_U.ValueChanged += HTrackBar_YUV_U_ValueChanged;
-            HTrackBar_YUV_V.ValueChanged += HTrackBar_YUV_V_ValueChanged;
+            HTrackBar_LAB_L.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_LAB_A.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_LAB_B.ValueChanged += HTrackBar_ValueChanged;
+
+            HTrackBar_YUV_Y.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_YUV_U.ValueChanged += HTrackBar_ValueChanged;
+            HTrackBar_YUV_V.ValueChanged += HTrackBar_ValueChanged;
         }
 
         private void UnregisterEvents()
         {
-            HTrackBar_RGB_R.ValueChanged -= HTrackBar_RGB_R_ValueChanged;
-            HTrackBar_RGB_G.ValueChanged -= HTrackBar_RGB_G_ValueChanged;
-            HTrackBar_RGB_B.ValueChanged -= HTrackBar_RGB_B_ValueChanged;
+            HTrackBar_Opacity.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_Alpha.ValueChanged -= HTrackBar_ValueChanged;
 
-            HTrackBar_HSV_H.ValueChanged -= HTrackBar_HSV_H_ValueChanged;
-            HTrackBar_HSV_S.ValueChanged -= HTrackBar_HSV_S_ValueChanged;
-            HTrackBar_HSV_V.ValueChanged -= HTrackBar_HSV_V_ValueChanged;
+            HTrackBar_RGB_R.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_RGB_G.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_RGB_B.ValueChanged -= HTrackBar_ValueChanged;
 
-            HTrackBar_HSL_H.ValueChanged -= HTrackBar_HSL_H_ValueChanged;
-            HTrackBar_HSL_S.ValueChanged -= HTrackBar_HSL_S_ValueChanged;
-            HTrackBar_HSL_L.ValueChanged -= HTrackBar_HSL_L_ValueChanged;
+            HTrackBar_HSV_H.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_HSV_S.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_HSV_V.ValueChanged -= HTrackBar_ValueChanged;
 
-            HTrackBar_CMYK_C.ValueChanged -= HTrackBar_CMYK_C_ValueChanged;
-            HTrackBar_CMYK_M.ValueChanged -= HTrackBar_CMYK_M_ValueChanged;
-            HTrackBar_CMYK_Y.ValueChanged -= HTrackBar_CMYK_Y_ValueChanged;
-            HTrackBar_CMYK_K.ValueChanged -= HTrackBar_CMYK_K_ValueChanged;
+            HTrackBar_HSL_H.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_HSL_S.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_HSL_L.ValueChanged -= HTrackBar_ValueChanged;
 
-            HTrackBar_LAB_L.ValueChanged -= HTrackBar_LAB_L_ValueChanged;
-            HTrackBar_LAB_A.ValueChanged -= HTrackBar_LAB_A_ValueChanged;
-            HTrackBar_LAB_B.ValueChanged -= HTrackBar_LAB_B_ValueChanged;
+            HTrackBar_CMYK_C.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_CMYK_M.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_CMYK_Y.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_CMYK_K.ValueChanged -= HTrackBar_ValueChanged;
 
-            HTrackBar_YUV_Y.ValueChanged -= HTrackBar_YUV_Y_ValueChanged;
-            HTrackBar_YUV_U.ValueChanged -= HTrackBar_YUV_U_ValueChanged;
-            HTrackBar_YUV_V.ValueChanged -= HTrackBar_YUV_V_ValueChanged;
-        }
+            HTrackBar_LAB_L.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_LAB_A.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_LAB_B.ValueChanged -= HTrackBar_ValueChanged;
 
-        private void ChoseColor(_ColorTags colorTag)
-        {
-            _ColorTag = colorTag;
-
-            UpdateTrackBar(GetColor());
-        }
-
-        private Com.ColorX GetColor()
-        {
-            switch (_ColorTag)
-            {
-                case _ColorTags.BackColor: return _BackColor;
-                default: return Com.ColorX.Empty;
-            }
-        }
-
-        private void SetColor(Com.ColorX color)
-        {
-            switch (_ColorTag)
-            {
-                case _ColorTags.BackColor: _BackColor = color; break;
-            }
-
-            Label_Preview.BackColor = color.ToColor();
-
-            UpdateTrackBar(color);
+            HTrackBar_YUV_Y.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_YUV_U.ValueChanged -= HTrackBar_ValueChanged;
+            HTrackBar_YUV_V.ValueChanged -= HTrackBar_ValueChanged;
         }
 
         private void UpdateTrackBar(Com.ColorX color)
@@ -385,6 +379,8 @@ namespace WinFormApp
             {
                 double Pct = (double)i / (_ColorsNum - 1);
 
+                (_ColorsTable[_ColorsKey.Opacity] as Color[])[i] = color.AtOpacity(Pct * 100).ToColor();
+                (_ColorsTable[_ColorsKey.Alpha] as Color[])[i] = color.AtAlpha(Pct * 255).ToColor();
                 (_ColorsTable[_ColorsKey.RGB_R] as Color[])[i] = color.AtRed(Pct * 255).ToColor();
                 (_ColorsTable[_ColorsKey.RGB_G] as Color[])[i] = color.AtGreen(Pct * 255).ToColor();
                 (_ColorsTable[_ColorsKey.RGB_B] as Color[])[i] = color.AtBlue(Pct * 255).ToColor();
@@ -406,6 +402,8 @@ namespace WinFormApp
                 (_ColorsTable[_ColorsKey.YUV_V] as Color[])[i] = color.AtChrominanceRed(-0.5 + Pct * 1.0).ToColor();
             }
 
+            HTrackBar_Opacity.Colors = _ColorsTable[_ColorsKey.Opacity] as Color[];
+            HTrackBar_Alpha.Colors = _ColorsTable[_ColorsKey.Alpha] as Color[];
             HTrackBar_RGB_R.Colors = _ColorsTable[_ColorsKey.RGB_R] as Color[];
             HTrackBar_RGB_G.Colors = _ColorsTable[_ColorsKey.RGB_G] as Color[];
             HTrackBar_RGB_B.Colors = _ColorsTable[_ColorsKey.RGB_B] as Color[];
@@ -426,6 +424,8 @@ namespace WinFormApp
             HTrackBar_YUV_U.Colors = _ColorsTable[_ColorsKey.YUV_U] as Color[];
             HTrackBar_YUV_V.Colors = _ColorsTable[_ColorsKey.YUV_V] as Color[];
 
+            HTrackBar_Opacity.Value = color.Opacity;
+            HTrackBar_Alpha.Value = color.Alpha;
             HTrackBar_RGB_R.Value = color.Red;
             HTrackBar_RGB_G.Value = color.Green;
             HTrackBar_RGB_B.Value = color.Blue;
@@ -447,184 +447,143 @@ namespace WinFormApp
             HTrackBar_YUV_V.Value = color.ChrominanceRed;
         }
 
+        private Com.ColorX CurrentColor
+        {
+            get
+            {
+                switch (_ColorTag)
+                {
+                    case _ColorTags.BackColor: return _BackColor;
+                    default: return Com.ColorX.Empty;
+                }
+            }
+
+            set
+            {
+                switch (_ColorTag)
+                {
+                    case _ColorTags.BackColor: _BackColor = value; break;
+                }
+
+                Label_Preview.BackColor = value.ToColor();
+
+                UpdateTrackBar(value);
+            }
+        }
+
+        private void ChoseColor(_ColorTags colorTag)
+        {
+            _ColorTag = colorTag;
+
+            UpdateTrackBar(CurrentColor);
+        }
+
         #endregion
 
         #region 分量调节
 
-        private void HTrackBar_RGB_R_ValueChanged(object sender, EventArgs e)
+        private void HTrackBar_ValueChanged(object sender, EventArgs e)
         {
-            UnregisterEvents();
+            HTrackBar trackBar = sender as HTrackBar;
 
-            SetColor(GetColor().AtRed(((HTrackBar)sender).Value));
+            if (trackBar != null)
+            {
+                UnregisterEvents();
 
-            RegisterEvents();
+                Com.ColorX color = CurrentColor;
+
+                double channel = trackBar.Value;
+
+                if (trackBar == HTrackBar_Opacity)
+                {
+                    color.Opacity = channel;
+                }
+                else if (trackBar == HTrackBar_Alpha)
+                {
+                    color.Alpha = channel;
+                }
+                else if (trackBar == HTrackBar_RGB_R)
+                {
+                    color.Red = channel;
+                }
+                else if (trackBar == HTrackBar_RGB_G)
+                {
+                    color.Green = channel;
+                }
+                else if (trackBar == HTrackBar_RGB_B)
+                {
+                    color.Blue = channel;
+                }
+                else if (trackBar == HTrackBar_HSV_H)
+                {
+                    color.Hue_HSV = channel;
+                }
+                else if (trackBar == HTrackBar_HSV_S)
+                {
+                    color.Saturation_HSV = channel;
+                }
+                else if (trackBar == HTrackBar_HSV_V)
+                {
+                    color.Brightness = channel;
+                }
+                else if (trackBar == HTrackBar_HSL_H)
+                {
+                    color.Hue_HSL = channel;
+                }
+                else if (trackBar == HTrackBar_HSL_S)
+                {
+                    color.Saturation_HSL = channel;
+                }
+                else if (trackBar == HTrackBar_HSL_L)
+                {
+                    color.Lightness_HSL = channel;
+                }
+                else if (trackBar == HTrackBar_CMYK_C)
+                {
+                    color.Cyan = channel;
+                }
+                else if (trackBar == HTrackBar_CMYK_M)
+                {
+                    color.Magenta = channel;
+                }
+                else if (trackBar == HTrackBar_CMYK_Y)
+                {
+                    color.Yellow = channel;
+                }
+                else if (trackBar == HTrackBar_CMYK_K)
+                {
+                    color.Black = channel;
+                }
+                else if (trackBar == HTrackBar_LAB_L)
+                {
+                    color.Lightness_LAB = channel;
+                }
+                else if (trackBar == HTrackBar_LAB_A)
+                {
+                    color.GreenRed = channel;
+                }
+                else if (trackBar == HTrackBar_LAB_B)
+                {
+                    color.BlueYellow = channel;
+                }
+                else if (trackBar == HTrackBar_YUV_Y)
+                {
+                    color.Luminance = channel;
+                }
+                else if (trackBar == HTrackBar_YUV_U)
+                {
+                    color.ChrominanceBlue = channel;
+                }
+                else if (trackBar == HTrackBar_YUV_V)
+                {
+                    color.ChrominanceRed = channel;
+                }
+
+                CurrentColor = color;
+
+                RegisterEvents();
+            }
         }
-
-        private void HTrackBar_RGB_G_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtGreen(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_RGB_B_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtBlue(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_HSV_H_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtHue_HSV(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_HSV_S_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtSaturation_HSV(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_HSV_V_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtBrightness(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_HSL_H_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtHue_HSL(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_HSL_S_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtSaturation_HSL(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_HSL_L_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtLightness_HSL(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_CMYK_C_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtCyan(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_CMYK_M_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtMagenta(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_CMYK_Y_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtYellow(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_CMYK_K_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtBlack(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_LAB_L_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtLightness_LAB(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_LAB_A_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtGreenRed(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_LAB_B_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtBlueYellow(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_YUV_Y_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtLuminance(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_YUV_U_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtChrominanceBlue(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        private void HTrackBar_YUV_V_ValueChanged(object sender, EventArgs e)
-        {
-            UnregisterEvents();
-
-            SetColor(GetColor().AtChrominanceRed(((HTrackBar)sender).Value));
-
-            RegisterEvents();
-        }
-
-        #endregion
-
-        #region 分量编辑
 
         #endregion
     }

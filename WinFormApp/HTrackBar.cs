@@ -27,23 +27,6 @@ namespace WinFormApp
     {
         #region 私有成员与内部成员
 
-        internal Color MeaningfulBackColor
-        {
-            get
-            {
-                Control Ctrl = this;
-
-                while (Ctrl.BackColor.A == Color.Transparent.A && Ctrl.Parent != null)
-                {
-                    Ctrl = Ctrl.Parent;
-                }
-
-                return Ctrl.BackColor;
-            }
-        }
-
-        //
-
         private Color[] _Colors = new Color[0];
 
         private double _Minimum = 0;
@@ -66,6 +49,21 @@ namespace WinFormApp
             }
         }
 
+        private Color _MeaningfulBackColor
+        {
+            get
+            {
+                Control Ctrl = this;
+
+                while (Ctrl.BackColor.A == Color.Transparent.A && Ctrl.Parent != null)
+                {
+                    Ctrl = Ctrl.Parent;
+                }
+
+                return Ctrl.BackColor;
+            }
+        }
+
         private void _UpdateTrackBarImage()
         {
             if (_TrackBarImage != null)
@@ -80,7 +78,7 @@ namespace WinFormApp
 
             using (Graphics Grap = Graphics.FromImage(_TrackBarImage))
             {
-                Color meaningfulBackColor = MeaningfulBackColor;
+                Color meaningfulBackColor = _MeaningfulBackColor;
 
                 //
 

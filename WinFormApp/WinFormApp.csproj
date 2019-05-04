@@ -69,11 +69,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextBox.cs">
+    <Compile Include="NumEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TextBox.Designer.cs">
-      <DependentUpon>TextBox.cs</DependentUpon>
+    <Compile Include="NumEditor.Designer.cs">
+      <DependentUpon>NumEditor.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
@@ -91,8 +91,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TextBox.resx">
-      <DependentUpon>TextBox.cs</DependentUpon>
+    <EmbeddedResource Include="NumEditor.resx">
+      <DependentUpon>NumEditor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -44,6 +44,23 @@ namespace WinFormApp
 
         //
 
+        private Color _MeaningfulBackColor
+        {
+            get
+            {
+                Control Ctrl = this;
+
+                while (Ctrl.BackColor.A == 0 && Ctrl.Parent != null)
+                {
+                    Ctrl = Ctrl.Parent;
+                }
+
+                return Ctrl.BackColor;
+            }
+        }
+
+        //
+
         private bool _Validate(out double value)
         {
             value = 0;
@@ -188,17 +205,22 @@ namespace WinFormApp
         {
             using (Pen Pn = new Pen(Color.FromArgb(24, _BorderColor), 2))
             {
-                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(TextBox_Num.Left - 2, TextBox_Num.Top - 2), new SizeF(TextBox_Num.Width + 4, TextBox_Num.Height + 4)) });
+                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(TextBox_Num.Left - 3, TextBox_Num.Top - 3), new SizeF(TextBox_Num.Width + 6, TextBox_Num.Height + 6)) });
             }
 
             using (Pen Pn = new Pen(Color.FromArgb(48, _BorderColor), 2))
             {
-                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(TextBox_Num.Left - 1, TextBox_Num.Top - 1), new SizeF(TextBox_Num.Width + 2, TextBox_Num.Height + 2)) });
+                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(TextBox_Num.Left - 2, TextBox_Num.Top - 2), new SizeF(TextBox_Num.Width + 4, TextBox_Num.Height + 4)) });
             }
 
             using (Pen Pn = new Pen(Color.FromArgb(96, _BorderColor), 2))
             {
-                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(TextBox_Num.Location, TextBox_Num.Size) });
+                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(TextBox_Num.Left - 1, TextBox_Num.Top - 1), new SizeF(TextBox_Num.Width + 2, TextBox_Num.Height + 2)) });
+            }
+
+            using (Pen Pn = new Pen(TextBox_Num.BackColor, 1))
+            {
+                e.Graphics.DrawRectangle(Pn, new Rectangle(new Point(TextBox_Num.Left - 1, TextBox_Num.Top - 1), new Size(TextBox_Num.Width + 1, TextBox_Num.Height + 1)));
             }
         }
 
@@ -210,9 +232,12 @@ namespace WinFormApp
 
             if (_Validate(out double val))
             {
-                _LastValidText = TextBox_Num.Text;
+                if (_LastValidText != TextBox_Num.Text)
+                {
+                    _LastValidText = TextBox_Num.Text;
 
-                _OnTextChanged();
+                    _OnTextChanged();
+                }
 
                 if (_Value != val)
                 {
@@ -402,7 +427,25 @@ namespace WinFormApp
 
                 //
 
-                TextBox_Num.Text = value.ToString();
+                string text = value.ToString();
+
+                int dotId = text.IndexOf('.');
+
+                if (dotId > 0)
+                {
+                    if (_Precision > 0)
+                    {
+                        TextBox_Num.Text = text.Substring(0, Math.Min(dotId + 1 + _Precision, text.Length));
+                    }
+                    else
+                    {
+                        TextBox_Num.Text = text.Substring(0, dotId);
+                    }
+                }
+                else
+                {
+                    TextBox_Num.Text = text;
+                }
             }
         }
 
@@ -432,7 +475,14 @@ namespace WinFormApp
             {
                 _BackColor = value;
 
-                TextBox_Num.BackColor = _BackColor;
+                Color meaningfulBackColor = _BackColor;
+
+                if (meaningfulBackColor.A == 0)
+                {
+                    meaningfulBackColor = _MeaningfulBackColor;
+                }
+
+                TextBox_Num.BackColor = Color.FromArgb(meaningfulBackColor.R, meaningfulBackColor.G, meaningfulBackColor.B);
             }
         }
 

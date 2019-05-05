@@ -55,7 +55,7 @@ namespace WinFormApp
             {
                 Control Ctrl = this;
 
-                while (Ctrl.BackColor.A == Color.Transparent.A && Ctrl.Parent != null)
+                while (Ctrl.BackColor.A == 0 && Ctrl.Parent != null)
                 {
                     Ctrl = Ctrl.Parent;
                 }

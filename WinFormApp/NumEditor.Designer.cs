@@ -59,6 +59,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.Panel_Main);
             this.Name = "NumEditor";
             this.Load += new System.EventHandler(this.NumEditor_Load);

@@ -404,16 +404,15 @@ namespace WinFormApp
         // 在窗体的主题色更改时发生。
         private void ThemeColorChangedEvents(object sender, EventArgs e)
         {
-            Panel_LeftArea.BackColor = Me.RecommendColors.Background.ToColor();
-            Panel_RightArea.BackColor = Me.RecommendColors.Background.ToColor();
+            Panel_Main.BackColor = Me.RecommendColors.Background_DEC.ToColor();
 
             //
 
-            Panel_Preview.BackColor = Me.RecommendColors.Background_INC.ToColor();
+            Panel_Preview.BackColor = Me.RecommendColors.Background.ToColor();
 
             //
 
-            Color spaceContainerBackColor = Me.RecommendColors.Background_INC.ToColor();
+            Color spaceContainerBackColor = Me.RecommendColors.Background.ToColor();
 
             Panel_Transparency.BackColor = spaceContainerBackColor;
             Panel_RGB.BackColor = spaceContainerBackColor;

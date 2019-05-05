@@ -149,7 +149,7 @@
             // 
             // Panel_Main
             // 
-            this.Panel_Main.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_Main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.Panel_Main.Controls.Add(this.Panel_LeftArea);
             this.Panel_Main.Controls.Add(this.Panel_RightArea);
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -161,7 +161,7 @@
             // Panel_LeftArea
             // 
             this.Panel_LeftArea.AutoScroll = true;
-            this.Panel_LeftArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.Panel_LeftArea.BackColor = System.Drawing.Color.Transparent;
             this.Panel_LeftArea.Controls.Add(this.Panel_ColorSpaces);
             this.Panel_LeftArea.Location = new System.Drawing.Point(0, 0);
             this.Panel_LeftArea.Name = "Panel_LeftArea";
@@ -180,7 +180,7 @@
             this.Panel_ColorSpaces.Controls.Add(this.Panel_YUV);
             this.Panel_ColorSpaces.Location = new System.Drawing.Point(0, 0);
             this.Panel_ColorSpaces.Name = "Panel_ColorSpaces";
-            this.Panel_ColorSpaces.Size = new System.Drawing.Size(680, 1020);
+            this.Panel_ColorSpaces.Size = new System.Drawing.Size(680, 1080);
             this.Panel_ColorSpaces.TabIndex = 0;
             // 
             // Panel_Transparency
@@ -289,7 +289,7 @@
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_R);
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_G);
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_B);
-            this.Panel_RGB.Location = new System.Drawing.Point(20, 125);
+            this.Panel_RGB.Location = new System.Drawing.Point(20, 135);
             this.Panel_RGB.Name = "Panel_RGB";
             this.Panel_RGB.Size = new System.Drawing.Size(640, 140);
             this.Panel_RGB.TabIndex = 0;
@@ -413,7 +413,7 @@
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_H);
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_S);
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_V);
-            this.Panel_HSV.Location = new System.Drawing.Point(20, 265);
+            this.Panel_HSV.Location = new System.Drawing.Point(20, 285);
             this.Panel_HSV.Name = "Panel_HSV";
             this.Panel_HSV.Size = new System.Drawing.Size(640, 140);
             this.Panel_HSV.TabIndex = 0;
@@ -537,7 +537,7 @@
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_H);
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_S);
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_L);
-            this.Panel_HSL.Location = new System.Drawing.Point(20, 405);
+            this.Panel_HSL.Location = new System.Drawing.Point(20, 435);
             this.Panel_HSL.Name = "Panel_HSL";
             this.Panel_HSL.Size = new System.Drawing.Size(640, 140);
             this.Panel_HSL.TabIndex = 0;
@@ -665,7 +665,7 @@
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_M);
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_Y);
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_K);
-            this.Panel_CMYK.Location = new System.Drawing.Point(20, 545);
+            this.Panel_CMYK.Location = new System.Drawing.Point(20, 585);
             this.Panel_CMYK.Name = "Panel_CMYK";
             this.Panel_CMYK.Size = new System.Drawing.Size(640, 175);
             this.Panel_CMYK.TabIndex = 0;
@@ -819,7 +819,7 @@
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_L);
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_A);
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_B);
-            this.Panel_LAB.Location = new System.Drawing.Point(20, 720);
+            this.Panel_LAB.Location = new System.Drawing.Point(20, 770);
             this.Panel_LAB.Name = "Panel_LAB";
             this.Panel_LAB.Size = new System.Drawing.Size(640, 140);
             this.Panel_LAB.TabIndex = 0;
@@ -943,7 +943,7 @@
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_Y);
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_U);
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_V);
-            this.Panel_YUV.Location = new System.Drawing.Point(20, 860);
+            this.Panel_YUV.Location = new System.Drawing.Point(20, 920);
             this.Panel_YUV.Name = "Panel_YUV";
             this.Panel_YUV.Size = new System.Drawing.Size(640, 140);
             this.Panel_YUV.TabIndex = 0;
@@ -1053,7 +1053,7 @@
             // 
             // Panel_RightArea
             // 
-            this.Panel_RightArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_RightArea.BackColor = System.Drawing.Color.Transparent;
             this.Panel_RightArea.Controls.Add(this.Panel_Preview);
             this.Panel_RightArea.Location = new System.Drawing.Point(700, 0);
             this.Panel_RightArea.Name = "Panel_RightArea";

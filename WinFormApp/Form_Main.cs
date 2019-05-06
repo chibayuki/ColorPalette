@@ -422,25 +422,57 @@ namespace WinFormApp
             Panel_LAB.BackColor = spaceContainerBackColor;
             Panel_YUV.BackColor = spaceContainerBackColor;
 
-            Color spaceBackColor = Me.RecommendColors.Button.ToColor();
+            //
 
-            Label_Transparency.BackColor = spaceBackColor;
-            Label_RGB.BackColor = spaceBackColor;
-            Label_HSV.BackColor = spaceBackColor;
-            Label_HSL.BackColor = spaceBackColor;
-            Label_CMYK.BackColor = spaceBackColor;
-            Label_LAB.BackColor = spaceBackColor;
-            Label_YUV.BackColor = spaceBackColor;
+            Color spaceButtonForeColor = Me.RecommendColors.Text_INC.ToColor();
 
-            Color spaceForeColor = Me.RecommendColors.Text_INC.ToColor();
+            Button_Transparency.ForeColor = spaceButtonForeColor;
+            Button_RGB.ForeColor = spaceButtonForeColor;
+            Button_HSV.ForeColor = spaceButtonForeColor;
+            Button_HSL.ForeColor = spaceButtonForeColor;
+            Button_CMYK.ForeColor = spaceButtonForeColor;
+            Button_LAB.ForeColor = spaceButtonForeColor;
+            Button_YUV.ForeColor = spaceButtonForeColor;
 
-            Label_Transparency.ForeColor = Me.RecommendColors.Text_INC.ToColor();
-            Label_RGB.ForeColor = spaceForeColor;
-            Label_HSV.ForeColor = spaceForeColor;
-            Label_HSL.ForeColor = spaceForeColor;
-            Label_CMYK.ForeColor = spaceForeColor;
-            Label_LAB.ForeColor = spaceForeColor;
-            Label_YUV.ForeColor = spaceForeColor;
+            Color spaceButtonBackColor = Me.RecommendColors.Button.ToColor();
+
+            Button_Transparency.BackColor = spaceButtonBackColor;
+            Button_RGB.BackColor = spaceButtonBackColor;
+            Button_HSV.BackColor = spaceButtonBackColor;
+            Button_HSL.BackColor = spaceButtonBackColor;
+            Button_CMYK.BackColor = spaceButtonBackColor;
+            Button_LAB.BackColor = spaceButtonBackColor;
+            Button_YUV.BackColor = spaceButtonBackColor;
+
+            Color spaceButtonBorderColor = Me.RecommendColors.Button.ToColor();
+
+            Button_Transparency.FlatAppearance.BorderColor = spaceButtonBorderColor;
+            Button_RGB.FlatAppearance.BorderColor = spaceButtonBorderColor;
+            Button_HSV.FlatAppearance.BorderColor = spaceButtonBorderColor;
+            Button_HSL.FlatAppearance.BorderColor = spaceButtonBorderColor;
+            Button_CMYK.FlatAppearance.BorderColor = spaceButtonBorderColor;
+            Button_LAB.FlatAppearance.BorderColor = spaceButtonBorderColor;
+            Button_YUV.FlatAppearance.BorderColor = spaceButtonBorderColor;
+
+            Color spaceButtonMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
+
+            Button_Transparency.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
+            Button_RGB.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
+            Button_HSV.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
+            Button_HSL.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
+            Button_CMYK.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
+            Button_LAB.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
+            Button_YUV.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
+
+            Color spaceButtonMouseDownBackColor = Me.RecommendColors.Button.ToColor();
+
+            Button_Transparency.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
+            Button_RGB.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
+            Button_HSV.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
+            Button_HSL.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
+            Button_CMYK.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
+            Button_LAB.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
+            Button_YUV.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
 
             //
 
@@ -494,30 +526,6 @@ namespace WinFormApp
 
             //
 
-            Color numEditorBackColor = Me.RecommendColors.Background_INC.ToColor();
-
-            NumEditor_Opacity.BackColor = numEditorBackColor;
-            NumEditor_Alpha.BackColor = numEditorBackColor;
-            NumEditor_RGB_R.BackColor = numEditorBackColor;
-            NumEditor_RGB_G.BackColor = numEditorBackColor;
-            NumEditor_RGB_B.BackColor = numEditorBackColor;
-            NumEditor_HSV_H.BackColor = numEditorBackColor;
-            NumEditor_HSV_S.BackColor = numEditorBackColor;
-            NumEditor_HSV_V.BackColor = numEditorBackColor;
-            NumEditor_HSL_H.BackColor = numEditorBackColor;
-            NumEditor_HSL_S.BackColor = numEditorBackColor;
-            NumEditor_HSL_L.BackColor = numEditorBackColor;
-            NumEditor_CMYK_C.BackColor = numEditorBackColor;
-            NumEditor_CMYK_M.BackColor = numEditorBackColor;
-            NumEditor_CMYK_Y.BackColor = numEditorBackColor;
-            NumEditor_CMYK_K.BackColor = numEditorBackColor;
-            NumEditor_LAB_L.BackColor = numEditorBackColor;
-            NumEditor_LAB_A.BackColor = numEditorBackColor;
-            NumEditor_LAB_B.BackColor = numEditorBackColor;
-            NumEditor_YUV_Y.BackColor = numEditorBackColor;
-            NumEditor_YUV_U.BackColor = numEditorBackColor;
-            NumEditor_YUV_V.BackColor = numEditorBackColor;
-
             Color numEditorForeColor = Me.RecommendColors.Text.ToColor();
 
             NumEditor_Opacity.ForeColor = numEditorForeColor;
@@ -541,6 +549,30 @@ namespace WinFormApp
             NumEditor_YUV_Y.ForeColor = numEditorForeColor;
             NumEditor_YUV_U.ForeColor = numEditorForeColor;
             NumEditor_YUV_V.ForeColor = numEditorForeColor;
+
+            Color numEditorBackColor = Me.RecommendColors.Background.ToColor();
+
+            NumEditor_Opacity.BackColor = numEditorBackColor;
+            NumEditor_Alpha.BackColor = numEditorBackColor;
+            NumEditor_RGB_R.BackColor = numEditorBackColor;
+            NumEditor_RGB_G.BackColor = numEditorBackColor;
+            NumEditor_RGB_B.BackColor = numEditorBackColor;
+            NumEditor_HSV_H.BackColor = numEditorBackColor;
+            NumEditor_HSV_S.BackColor = numEditorBackColor;
+            NumEditor_HSV_V.BackColor = numEditorBackColor;
+            NumEditor_HSL_H.BackColor = numEditorBackColor;
+            NumEditor_HSL_S.BackColor = numEditorBackColor;
+            NumEditor_HSL_L.BackColor = numEditorBackColor;
+            NumEditor_CMYK_C.BackColor = numEditorBackColor;
+            NumEditor_CMYK_M.BackColor = numEditorBackColor;
+            NumEditor_CMYK_Y.BackColor = numEditorBackColor;
+            NumEditor_CMYK_K.BackColor = numEditorBackColor;
+            NumEditor_LAB_L.BackColor = numEditorBackColor;
+            NumEditor_LAB_A.BackColor = numEditorBackColor;
+            NumEditor_LAB_B.BackColor = numEditorBackColor;
+            NumEditor_YUV_Y.BackColor = numEditorBackColor;
+            NumEditor_YUV_U.BackColor = numEditorBackColor;
+            NumEditor_YUV_V.BackColor = numEditorBackColor;
 
             Color numEditorBorderColor = Me.RecommendColors.Border.ToColor();
 
@@ -1011,6 +1043,111 @@ namespace WinFormApp
                 CurrentColor = color;
 
                 RegisterEvents();
+            }
+        }
+
+        #endregion
+
+        #region 卡片折叠
+
+        // 反转卡片的折叠状态。
+        private void ReverseTabFoldingState(Button btn)
+        {
+            if (btn.ImageIndex == 0)
+            {
+                int MaxHeight = btn.Bottom;
+
+                foreach (object obj in btn.Parent.Controls)
+                {
+                    if (((Control)obj).Bottom > MaxHeight)
+                    {
+                        MaxHeight = ((Control)obj).Bottom;
+                    }
+                }
+
+                int TopDist = MaxHeight;
+
+                foreach (object obj in btn.Parent.Controls)
+                {
+                    if (!Control.Equals((Control)obj, btn) && ((Control)obj).Top < TopDist)
+                    {
+                        TopDist = ((Control)obj).Top;
+                    }
+                }
+
+                btn.ImageIndex = 1;
+
+                btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+            }
+            else
+            {
+                btn.ImageIndex = 0;
+
+                btn.Parent.Height = btn.Bottom;
+            }
+
+            Panel_RGB.Top = Panel_Transparency.Bottom + 10;
+            Panel_HSV.Top = Panel_RGB.Bottom + 10;
+            Panel_HSL.Top = Panel_HSV.Bottom + 10;
+            Panel_CMYK.Top = Panel_HSL.Bottom + 10;
+            Panel_LAB.Top = Panel_CMYK.Bottom + 10;
+            Panel_YUV.Top = Panel_LAB.Bottom + 10;
+            Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
+        }
+
+        private void Button_Transparency_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseTabFoldingState((Button)sender);
+            }
+        }
+
+        private void Button_RGB_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseTabFoldingState((Button)sender);
+            }
+        }
+
+        private void Button_HSV_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseTabFoldingState((Button)sender);
+            }
+        }
+
+        private void Button_HSL_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseTabFoldingState((Button)sender);
+            }
+        }
+
+        private void Button_CMYK_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseTabFoldingState((Button)sender);
+            }
+        }
+
+        private void Button_LAB_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseTabFoldingState((Button)sender);
+            }
+        }
+
+        private void Button_YUV_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseTabFoldingState((Button)sender);
             }
         }
 

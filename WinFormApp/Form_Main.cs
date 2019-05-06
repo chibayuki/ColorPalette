@@ -838,7 +838,7 @@ namespace WinFormApp
 
         #endregion
 
-        #region 分量调节
+        #region 分量编辑
 
         private void HTrackBar_ValueChanged(object sender, EventArgs e)
         {
@@ -1048,7 +1048,7 @@ namespace WinFormApp
 
         #endregion
 
-        #region 卡片折叠
+        #region 卡片控制
 
         // 反转卡片的折叠状态。
         private void ReverseTabFoldingState(Button btn)
@@ -1148,6 +1148,65 @@ namespace WinFormApp
             if (e.Button == MouseButtons.Left)
             {
                 ReverseTabFoldingState((Button)sender);
+            }
+        }
+
+        #endregion
+
+        #region 背景绘图
+
+        private void Panel_ColorSpaces_Paint(object sender, PaintEventArgs e)
+        {
+            Control[] spaceContainers = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
+
+            Color borderColor = Me.RecommendColors.Border.ToColor();
+
+            foreach (Control ctrl in spaceContainers)
+            {
+                using (Pen Pn = new Pen(Color.FromArgb(24, borderColor), 2))
+                {
+                    e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(ctrl.Left - 3, ctrl.Top - 3), new SizeF(ctrl.Width + 6, ctrl.Height + 6)) });
+                }
+
+                using (Pen Pn = new Pen(Color.FromArgb(48, borderColor), 2))
+                {
+                    e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(ctrl.Left - 2, ctrl.Top - 2), new SizeF(ctrl.Width + 4, ctrl.Height + 4)) });
+                }
+
+                using (Pen Pn = new Pen(Color.FromArgb(96, borderColor), 2))
+                {
+                    e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(ctrl.Left - 1, ctrl.Top - 1), new SizeF(ctrl.Width + 2, ctrl.Height + 2)) });
+                }
+
+                using (Pen Pn = new Pen(borderColor, 1))
+                {
+                    e.Graphics.DrawRectangle(Pn, new Rectangle(new Point(ctrl.Left - 1, ctrl.Top - 1), new Size(ctrl.Width + 1, ctrl.Height + 1)));
+                }
+            }
+        }
+
+        private void Panel_Preview_Paint(object sender, PaintEventArgs e)
+        {
+            Color borderColor = Me.RecommendColors.Border.ToColor();
+
+            using (Pen Pn = new Pen(Color.FromArgb(24, borderColor), 2))
+            {
+                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(Label_Preview.Left - 3, Label_Preview.Top - 3), new SizeF(Label_Preview.Width + 6, Label_Preview.Height + 6)) });
+            }
+
+            using (Pen Pn = new Pen(Color.FromArgb(48, borderColor), 2))
+            {
+                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(Label_Preview.Left - 2, Label_Preview.Top - 2), new SizeF(Label_Preview.Width + 4, Label_Preview.Height + 4)) });
+            }
+
+            using (Pen Pn = new Pen(Color.FromArgb(96, borderColor), 2))
+            {
+                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(Label_Preview.Left - 1, Label_Preview.Top - 1), new SizeF(Label_Preview.Width + 2, Label_Preview.Height + 2)) });
+            }
+
+            using (Pen Pn = new Pen(borderColor, 1))
+            {
+                e.Graphics.DrawRectangle(Pn, new Rectangle(new Point(Label_Preview.Left - 1, Label_Preview.Top - 1), new Size(Label_Preview.Width + 1, Label_Preview.Height + 1)));
             }
         }
 

@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Collections;
+using System.Drawing.Drawing2D;
 
 namespace WinFormApp
 {
@@ -1159,29 +1160,34 @@ namespace WinFormApp
         {
             Control[] spaceContainers = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
 
-            Color borderColor = Me.RecommendColors.Border.ToColor();
+            Color borderColor = Me.RecommendColors.Border.AtAlpha(32).ToColor();
+
+            Graphics grap = e.Graphics;
+
+            grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+            Action<Graphics, Color, Rectangle, int> PaintShadow = (graphics, color, bounds, radius) =>
+            {
+                for (int i = 0; i < radius; i++)
+                {
+                    using (Pen Pn = new Pen(Color.FromArgb(color.A * (i + 1) * (i + 1) / radius / radius, color), Math.Max(1F, Math.Min(radius - i, 3F))))
+                    {
+                        using (GraphicsPath Path = Com.Geometry.CreateRoundedRectanglePath(new Rectangle(new Point(bounds.X - radius + i, bounds.Y - radius + i), new Size(bounds.Width + 2 * radius - 2 * i - 1, bounds.Height + 2 * radius - 2 * i - 1)), radius - i + 2))
+                        {
+                            int N = (Pn.Width >= 3F ? 1 : (Pn.Width == 2F ? 2 : (Pn.Width == 1 ? 3 : 0)));
+
+                            for (int j = 0; j < N; j++)
+                            {
+                                graphics.DrawPath(Pn, Path);
+                            }
+                        }
+                    }
+                }
+            };
 
             foreach (Control ctrl in spaceContainers)
             {
-                using (Pen Pn = new Pen(Color.FromArgb(24, borderColor), 2))
-                {
-                    e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(ctrl.Left - 3, ctrl.Top - 3), new SizeF(ctrl.Width + 6, ctrl.Height + 6)) });
-                }
-
-                using (Pen Pn = new Pen(Color.FromArgb(48, borderColor), 2))
-                {
-                    e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(ctrl.Left - 2, ctrl.Top - 2), new SizeF(ctrl.Width + 4, ctrl.Height + 4)) });
-                }
-
-                using (Pen Pn = new Pen(Color.FromArgb(96, borderColor), 2))
-                {
-                    e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(ctrl.Left - 1, ctrl.Top - 1), new SizeF(ctrl.Width + 2, ctrl.Height + 2)) });
-                }
-
-                using (Pen Pn = new Pen(borderColor, 1))
-                {
-                    e.Graphics.DrawRectangle(Pn, new Rectangle(new Point(ctrl.Left - 1, ctrl.Top - 1), new Size(ctrl.Width + 1, ctrl.Height + 1)));
-                }
+                PaintShadow(grap, borderColor, ctrl.Bounds, 8);
             }
         }
 

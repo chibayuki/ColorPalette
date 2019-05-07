@@ -203,17 +203,12 @@ namespace WinFormApp
 
         private void Panel_Main_Paint(object sender, PaintEventArgs e)
         {
-            using (Pen Pn = new Pen(Color.FromArgb(24, _BorderColor), 2))
-            {
-                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(TextBox_Num.Left - 3, TextBox_Num.Top - 3), new SizeF(TextBox_Num.Width + 6, TextBox_Num.Height + 6)) });
-            }
-
-            using (Pen Pn = new Pen(Color.FromArgb(48, _BorderColor), 2))
+            using (Pen Pn = new Pen(Color.FromArgb(64, _BorderColor), 2))
             {
                 e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(TextBox_Num.Left - 2, TextBox_Num.Top - 2), new SizeF(TextBox_Num.Width + 4, TextBox_Num.Height + 4)) });
             }
 
-            using (Pen Pn = new Pen(Color.FromArgb(96, _BorderColor), 2))
+            using (Pen Pn = new Pen(Color.FromArgb(128, _BorderColor), 2))
             {
                 e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(TextBox_Num.Left - 1, TextBox_Num.Top - 1), new SizeF(TextBox_Num.Width + 2, TextBox_Num.Height + 2)) });
             }

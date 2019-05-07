@@ -45,7 +45,7 @@ namespace WinFormApp
         {
             get
             {
-                RectangleF wholeBounds = _WholeBounds; return new RectangleF(new PointF(0.15F * wholeBounds.Height, 0.15F * wholeBounds.Height), new SizeF(Math.Max(0, Panel_Main.Width - 0.3F * wholeBounds.Height - 1), Math.Max(0, 0.7F * wholeBounds.Height - 1)));
+                RectangleF wholeBounds = _WholeBounds; return new RectangleF(new PointF(0.25F * wholeBounds.Height, 0.15F * wholeBounds.Height), new SizeF(Math.Max(0, Panel_Main.Width - 0.5F * wholeBounds.Height - 1), Math.Max(0, 0.7F * wholeBounds.Height - 1)));
             }
         }
 
@@ -98,17 +98,12 @@ namespace WinFormApp
 
                 Color BarBorderColor = Com.ColorManipulation.ShiftLightnessByHSL(meaningfulBackColor, -0.5);
 
-                using (Pen Pn = new Pen(Color.FromArgb(24, BarBorderColor), 2))
-                {
-                    Grap.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(BarImgBounds.X - 2, BarImgBounds.Y - 2), new SizeF(BarImgBounds.Width + 4, BarImgBounds.Height + 4)) });
-                }
-
-                using (Pen Pn = new Pen(Color.FromArgb(48, BarBorderColor), 2))
+                using (Pen Pn = new Pen(Color.FromArgb(64, BarBorderColor), 2))
                 {
                     Grap.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(BarImgBounds.X - 1, BarImgBounds.Y - 1), new SizeF(BarImgBounds.Width + 2, BarImgBounds.Height + 2)) });
                 }
 
-                using (Pen Pn = new Pen(Color.FromArgb(96, BarBorderColor), 2))
+                using (Pen Pn = new Pen(Color.FromArgb(128, BarBorderColor), 2))
                 {
                     Grap.DrawRectangles(Pn, new RectangleF[] { BarImgBounds });
                 }
@@ -185,7 +180,7 @@ namespace WinFormApp
                     SliderColor = meaningfulBackColor;
                 }
 
-                SliderColor = Com.ColorManipulation.ShiftLightnessByHSL(SliderColor, +0.3);
+                SliderColor = Com.ColorManipulation.ShiftLightnessByHSL(SliderColor, +0.5);
 
                 float SliderX = (_Minimum == _Maximum ? trackBarBounds.X : (float)(trackBarBounds.X + (_Value - _Minimum) / (_Maximum - _Minimum) * trackBarBounds.Width));
                 float SliderHeight = 0.2F * wholeBounds.Height;
@@ -201,23 +196,12 @@ namespace WinFormApp
                     new PointF(SliderX + SliderHeight, wholeBounds.Bottom - 1)
                 };
 
-                using (Pen Pn = new Pen(Color.FromArgb(32, SliderBorderColor), 5))
+                using (Pen Pn = new Pen(Color.FromArgb(128, SliderBorderColor), 3))
                 {
                     Grap.DrawLine(Pn, new PointF(SliderX, trackBarBounds.Y), new PointF(SliderX, trackBarBounds.Bottom));
                 }
 
-                using (Pen Pn = new Pen(Color.FromArgb(32, SliderBorderColor), 4))
-                {
-                    Grap.DrawPolygon(Pn, PolygonTop);
-                    Grap.DrawPolygon(Pn, PolygonBottom);
-                }
-
-                using (Pen Pn = new Pen(Color.FromArgb(64, SliderBorderColor), 3))
-                {
-                    Grap.DrawLine(Pn, new PointF(SliderX, trackBarBounds.Y), new PointF(SliderX, trackBarBounds.Bottom));
-                }
-
-                using (Pen Pn = new Pen(Color.FromArgb(64, SliderBorderColor), 2))
+                using (Pen Pn = new Pen(Color.FromArgb(128, SliderBorderColor), 2))
                 {
                     Grap.DrawPolygon(Pn, PolygonTop);
                     Grap.DrawPolygon(Pn, PolygonBottom);

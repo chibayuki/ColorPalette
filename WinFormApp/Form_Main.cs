@@ -704,54 +704,76 @@ namespace WinFormApp
 
         private void UpdateTrackBarAndNumEditor(Com.ColorX color)
         {
+            Color[] Colors_Opacity = _ColorsTable[_ColorsKey.Opacity] as Color[];
+            Color[] Colors_Alpha = _ColorsTable[_ColorsKey.Alpha] as Color[];
+            Color[] Colors_RGB_R = _ColorsTable[_ColorsKey.RGB_R] as Color[];
+            Color[] Colors_RGB_G = _ColorsTable[_ColorsKey.RGB_G] as Color[];
+            Color[] Colors_RGB_B = _ColorsTable[_ColorsKey.RGB_B] as Color[];
+            Color[] Colors_HSV_H = _ColorsTable[_ColorsKey.HSV_H] as Color[];
+            Color[] Colors_HSV_S = _ColorsTable[_ColorsKey.HSV_S] as Color[];
+            Color[] Colors_HSV_V = _ColorsTable[_ColorsKey.HSV_V] as Color[];
+            Color[] Colors_HSL_H = _ColorsTable[_ColorsKey.HSL_H] as Color[];
+            Color[] Colors_HSL_S = _ColorsTable[_ColorsKey.HSL_S] as Color[];
+            Color[] Colors_HSL_L = _ColorsTable[_ColorsKey.HSL_L] as Color[];
+            Color[] Colors_CMYK_C = _ColorsTable[_ColorsKey.CMYK_C] as Color[];
+            Color[] Colors_CMYK_M = _ColorsTable[_ColorsKey.CMYK_M] as Color[];
+            Color[] Colors_CMYK_Y = _ColorsTable[_ColorsKey.CMYK_Y] as Color[];
+            Color[] Colors_CMYK_K = _ColorsTable[_ColorsKey.CMYK_K] as Color[];
+            Color[] Colors_LAB_L = _ColorsTable[_ColorsKey.LAB_L] as Color[];
+            Color[] Colors_LAB_A = _ColorsTable[_ColorsKey.LAB_A] as Color[];
+            Color[] Colors_LAB_B = _ColorsTable[_ColorsKey.LAB_B] as Color[];
+            Color[] Colors_YUV_Y = _ColorsTable[_ColorsKey.YUV_Y] as Color[];
+            Color[] Colors_YUV_U = _ColorsTable[_ColorsKey.YUV_U] as Color[];
+            Color[] Colors_YUV_V = _ColorsTable[_ColorsKey.YUV_V] as Color[];
+
             for (int i = 0; i < _ColorsNum; i++)
             {
                 double Pct = (double)i / (_ColorsNum - 1);
 
-                (_ColorsTable[_ColorsKey.Opacity] as Color[])[i] = color.AtOpacity(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.Alpha] as Color[])[i] = color.AtAlpha(Pct * 255).ToColor();
-                (_ColorsTable[_ColorsKey.RGB_R] as Color[])[i] = color.AtRed(Pct * 255).ToColor();
-                (_ColorsTable[_ColorsKey.RGB_G] as Color[])[i] = color.AtGreen(Pct * 255).ToColor();
-                (_ColorsTable[_ColorsKey.RGB_B] as Color[])[i] = color.AtBlue(Pct * 255).ToColor();
-                (_ColorsTable[_ColorsKey.HSV_H] as Color[])[i] = color.AtHue_HSV(Pct * 360).ToColor();
-                (_ColorsTable[_ColorsKey.HSV_S] as Color[])[i] = color.AtSaturation_HSV(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.HSV_V] as Color[])[i] = color.AtBrightness(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.HSL_H] as Color[])[i] = color.AtHue_HSL(Pct * 360).ToColor();
-                (_ColorsTable[_ColorsKey.HSL_S] as Color[])[i] = color.AtSaturation_HSL(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.HSL_L] as Color[])[i] = color.AtLightness_HSL(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.CMYK_C] as Color[])[i] = color.AtCyan(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.CMYK_M] as Color[])[i] = color.AtMagenta(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.CMYK_Y] as Color[])[i] = color.AtYellow(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.CMYK_K] as Color[])[i] = color.AtBlack(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.LAB_L] as Color[])[i] = color.AtLightness_LAB(Pct * 100).ToColor();
-                (_ColorsTable[_ColorsKey.LAB_A] as Color[])[i] = color.AtGreenRed(-128 + Pct * 256).ToColor();
-                (_ColorsTable[_ColorsKey.LAB_B] as Color[])[i] = color.AtBlueYellow(-128 + Pct * 256).ToColor();
-                (_ColorsTable[_ColorsKey.YUV_Y] as Color[])[i] = color.AtLuminance(Pct * 1.0).ToColor();
-                (_ColorsTable[_ColorsKey.YUV_U] as Color[])[i] = color.AtChrominanceBlue(-0.5 + Pct * 1.0).ToColor();
-                (_ColorsTable[_ColorsKey.YUV_V] as Color[])[i] = color.AtChrominanceRed(-0.5 + Pct * 1.0).ToColor();
+                Colors_Opacity[i] = color.AtOpacity(Pct * 100).ToColor();
+                Colors_Alpha[i] = color.AtAlpha(Pct * 255).ToColor();
+                Colors_RGB_R[i] = color.AtRed(Pct * 255).ToColor();
+                Colors_RGB_G[i] = color.AtGreen(Pct * 255).ToColor();
+                Colors_RGB_B[i] = color.AtBlue(Pct * 255).ToColor();
+                Colors_HSV_H[i] = color.AtHue_HSV(Pct * 360).ToColor();
+                Colors_HSV_S[i] = color.AtSaturation_HSV(Pct * 100).ToColor();
+                Colors_HSV_V[i] = color.AtBrightness(Pct * 100).ToColor();
+                Colors_HSL_H[i] = color.AtHue_HSL(Pct * 360).ToColor();
+                Colors_HSL_S[i] = color.AtSaturation_HSL(Pct * 100).ToColor();
+                Colors_HSL_L[i] = color.AtLightness_HSL(Pct * 100).ToColor();
+                Colors_CMYK_C[i] = color.AtCyan(Pct * 100).ToColor();
+                Colors_CMYK_M[i] = color.AtMagenta(Pct * 100).ToColor();
+                Colors_CMYK_Y[i] = color.AtYellow(Pct * 100).ToColor();
+                Colors_CMYK_K[i] = color.AtBlack(Pct * 100).ToColor();
+                Colors_LAB_L[i] = color.AtLightness_LAB(Pct * 100).ToColor();
+                Colors_LAB_A[i] = color.AtGreenRed(-128 + Pct * 256).ToColor();
+                Colors_LAB_B[i] = color.AtBlueYellow(-128 + Pct * 256).ToColor();
+                Colors_YUV_Y[i] = color.AtLuminance(Pct * 1.0).ToColor();
+                Colors_YUV_U[i] = color.AtChrominanceBlue(-0.5 + Pct * 1.0).ToColor();
+                Colors_YUV_V[i] = color.AtChrominanceRed(-0.5 + Pct * 1.0).ToColor();
             }
 
-            HTrackBar_Opacity.Colors = _ColorsTable[_ColorsKey.Opacity] as Color[];
-            HTrackBar_Alpha.Colors = _ColorsTable[_ColorsKey.Alpha] as Color[];
-            HTrackBar_RGB_R.Colors = _ColorsTable[_ColorsKey.RGB_R] as Color[];
-            HTrackBar_RGB_G.Colors = _ColorsTable[_ColorsKey.RGB_G] as Color[];
-            HTrackBar_RGB_B.Colors = _ColorsTable[_ColorsKey.RGB_B] as Color[];
-            HTrackBar_HSV_H.Colors = _ColorsTable[_ColorsKey.HSV_H] as Color[];
-            HTrackBar_HSV_S.Colors = _ColorsTable[_ColorsKey.HSV_S] as Color[];
-            HTrackBar_HSV_V.Colors = _ColorsTable[_ColorsKey.HSV_V] as Color[];
-            HTrackBar_HSL_H.Colors = _ColorsTable[_ColorsKey.HSL_H] as Color[];
-            HTrackBar_HSL_S.Colors = _ColorsTable[_ColorsKey.HSL_S] as Color[];
-            HTrackBar_HSL_L.Colors = _ColorsTable[_ColorsKey.HSL_L] as Color[];
-            HTrackBar_CMYK_C.Colors = _ColorsTable[_ColorsKey.CMYK_C] as Color[];
-            HTrackBar_CMYK_M.Colors = _ColorsTable[_ColorsKey.CMYK_M] as Color[];
-            HTrackBar_CMYK_Y.Colors = _ColorsTable[_ColorsKey.CMYK_Y] as Color[];
-            HTrackBar_CMYK_K.Colors = _ColorsTable[_ColorsKey.CMYK_K] as Color[];
-            HTrackBar_LAB_L.Colors = _ColorsTable[_ColorsKey.LAB_L] as Color[];
-            HTrackBar_LAB_A.Colors = _ColorsTable[_ColorsKey.LAB_A] as Color[];
-            HTrackBar_LAB_B.Colors = _ColorsTable[_ColorsKey.LAB_B] as Color[];
-            HTrackBar_YUV_Y.Colors = _ColorsTable[_ColorsKey.YUV_Y] as Color[];
-            HTrackBar_YUV_U.Colors = _ColorsTable[_ColorsKey.YUV_U] as Color[];
-            HTrackBar_YUV_V.Colors = _ColorsTable[_ColorsKey.YUV_V] as Color[];
+            HTrackBar_Opacity.Colors = Colors_Opacity;
+            HTrackBar_Alpha.Colors = Colors_Alpha;
+            HTrackBar_RGB_R.Colors = Colors_RGB_R;
+            HTrackBar_RGB_G.Colors = Colors_RGB_G;
+            HTrackBar_RGB_B.Colors = Colors_RGB_B;
+            HTrackBar_HSV_H.Colors = Colors_HSV_H;
+            HTrackBar_HSV_S.Colors = Colors_HSV_S;
+            HTrackBar_HSV_V.Colors = Colors_HSV_V;
+            HTrackBar_HSL_H.Colors = Colors_HSL_H;
+            HTrackBar_HSL_S.Colors = Colors_HSL_S;
+            HTrackBar_HSL_L.Colors = Colors_HSL_L;
+            HTrackBar_CMYK_C.Colors = Colors_CMYK_C;
+            HTrackBar_CMYK_M.Colors = Colors_CMYK_M;
+            HTrackBar_CMYK_Y.Colors = Colors_CMYK_Y;
+            HTrackBar_CMYK_K.Colors = Colors_CMYK_K;
+            HTrackBar_LAB_L.Colors = Colors_LAB_L;
+            HTrackBar_LAB_A.Colors = Colors_LAB_A;
+            HTrackBar_LAB_B.Colors = Colors_LAB_B;
+            HTrackBar_YUV_Y.Colors = Colors_YUV_Y;
+            HTrackBar_YUV_U.Colors = Colors_YUV_U;
+            HTrackBar_YUV_V.Colors = Colors_YUV_V;
 
             HTrackBar_Opacity.Value = color.Opacity;
             HTrackBar_Alpha.Value = color.Alpha;
@@ -1160,7 +1182,7 @@ namespace WinFormApp
         {
             Control[] spaceContainers = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
 
-            Color borderColor = Me.RecommendColors.Border.AtAlpha(32).ToColor();
+            Color borderColor =  Color.FromArgb(24, Color.Black);
 
             Graphics grap = e.Graphics;
 

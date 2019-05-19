@@ -28,14 +28,21 @@ namespace WinFormApp
     {
         #region 私有成员与内部成员
 
-        private Com.ColorX _BackColor;
+        private Com.ColorX _BackgroundColor;
+        private Com.ColorX _BorderColor;
+        private Com.ColorX _LabelColor;
+        private Com.ColorX _TextColor;
 
         private enum _ColorTags
         {
-            BackColor
+            None = -1,
+            Background,
+            Border,
+            Label,
+            Text
         }
 
-        private _ColorTags _ColorTag = _ColorTags.BackColor;
+        private _ColorTags _ColorTag = _ColorTags.None;
 
         //
 
@@ -337,7 +344,16 @@ namespace WinFormApp
 
             //
 
-            CurrentColor = Me.ThemeColor;
+            _BackgroundColor = Me.RecommendColors.Background;
+            _BorderColor = Me.RecommendColors.Border;
+            _LabelColor = Me.RecommendColors.Button;
+            _TextColor = Me.RecommendColors.Text;
+
+            Panel_Preview.BackColor = _BackgroundColor.ToColor();
+            Label_Preview.BackColor = _LabelColor.ToColor();
+            Label_Preview.ForeColor = _TextColor.ToColor();
+
+            ChoseColor(_ColorTags.Background);
 
             RegisterEvents();
         }
@@ -366,6 +382,10 @@ namespace WinFormApp
             Panel_CMYK.Width = spaceContainerWidth;
             Panel_LAB.Width = spaceContainerWidth;
             Panel_YUV.Width = spaceContainerWidth;
+
+            //
+
+            _RepaintColorSpacesShadowImage();
         }
 
         // 在窗体的大小更改时发生。
@@ -406,10 +426,6 @@ namespace WinFormApp
         private void ThemeColorChangedEvents(object sender, EventArgs e)
         {
             Panel_Main.BackColor = Me.RecommendColors.Background_DEC.ToColor();
-
-            //
-
-            Panel_Preview.BackColor = Me.RecommendColors.Background.ToColor();
 
             //
 
@@ -598,6 +614,47 @@ namespace WinFormApp
             NumEditor_YUV_Y.BorderColor = numEditorBorderColor;
             NumEditor_YUV_U.BorderColor = numEditorBorderColor;
             NumEditor_YUV_V.BorderColor = numEditorBorderColor;
+
+            //
+
+            Color previewButtonForeColor = Me.RecommendColors.Text.ToColor();
+
+            Button_Background.ForeColor = previewButtonForeColor;
+            Button_Border.ForeColor = previewButtonForeColor;
+            Button_Label.ForeColor = previewButtonForeColor;
+            Button_Text.ForeColor = previewButtonForeColor;
+
+            Color previewButtonBackColor = Color.Transparent;
+
+            Button_Background.BackColor = previewButtonBackColor;
+            Button_Border.BackColor = previewButtonBackColor;
+            Button_Label.BackColor = previewButtonBackColor;
+            Button_Text.BackColor = previewButtonBackColor;
+
+            Color previewButtonBorderColor = Panel_Main.BackColor;
+
+            Button_Background.FlatAppearance.BorderColor = previewButtonBorderColor;
+            Button_Border.FlatAppearance.BorderColor = previewButtonBorderColor;
+            Button_Label.FlatAppearance.BorderColor = previewButtonBorderColor;
+            Button_Text.FlatAppearance.BorderColor = previewButtonBorderColor;
+
+            Color previewButtonMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
+
+            Button_Background.FlatAppearance.MouseOverBackColor = previewButtonMouseOverBackColor;
+            Button_Border.FlatAppearance.MouseOverBackColor = previewButtonMouseOverBackColor;
+            Button_Label.FlatAppearance.MouseOverBackColor = previewButtonMouseOverBackColor;
+            Button_Text.FlatAppearance.MouseOverBackColor = previewButtonMouseOverBackColor;
+
+            Color previewButtonMouseDownBackColor = Me.RecommendColors.Button_INC.ToColor();
+
+            Button_Background.FlatAppearance.MouseDownBackColor = previewButtonMouseDownBackColor;
+            Button_Border.FlatAppearance.MouseDownBackColor = previewButtonMouseDownBackColor;
+            Button_Label.FlatAppearance.MouseDownBackColor = previewButtonMouseDownBackColor;
+            Button_Text.FlatAppearance.MouseDownBackColor = previewButtonMouseDownBackColor;
+
+            //
+
+            _RepaintColorSpacesShadowImage();
         }
 
         #endregion
@@ -702,6 +759,8 @@ namespace WinFormApp
             NumEditor_YUV_V.ValueChanged -= NumEditor_ValueChanged;
         }
 
+        private Control _CurrentTrackBarOrNumEditor = null;
+
         private void UpdateTrackBarAndNumEditor(Com.ColorX color)
         {
             Color[] Colors_Opacity = _ColorsTable[_ColorsKey.Opacity] as Color[];
@@ -775,51 +834,55 @@ namespace WinFormApp
             HTrackBar_YUV_U.Colors = Colors_YUV_U;
             HTrackBar_YUV_V.Colors = Colors_YUV_V;
 
-            HTrackBar_Opacity.Value = color.Opacity;
-            HTrackBar_Alpha.Value = color.Alpha;
-            HTrackBar_RGB_R.Value = color.Red;
-            HTrackBar_RGB_G.Value = color.Green;
-            HTrackBar_RGB_B.Value = color.Blue;
-            HTrackBar_HSV_H.Value = color.Hue_HSV;
-            HTrackBar_HSV_S.Value = color.Saturation_HSV;
-            HTrackBar_HSV_V.Value = color.Brightness;
-            HTrackBar_HSL_H.Value = color.Hue_HSL;
-            HTrackBar_HSL_S.Value = color.Saturation_HSL;
-            HTrackBar_HSL_L.Value = color.Lightness_HSL;
-            HTrackBar_CMYK_C.Value = color.Cyan;
-            HTrackBar_CMYK_M.Value = color.Magenta;
-            HTrackBar_CMYK_Y.Value = color.Yellow;
-            HTrackBar_CMYK_K.Value = color.Black;
-            HTrackBar_LAB_L.Value = color.Lightness_LAB;
-            HTrackBar_LAB_A.Value = color.GreenRed;
-            HTrackBar_LAB_B.Value = color.BlueYellow;
-            HTrackBar_YUV_Y.Value = color.Luminance;
-            HTrackBar_YUV_U.Value = color.ChrominanceBlue;
-            HTrackBar_YUV_V.Value = color.ChrominanceRed;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_Opacity) HTrackBar_Opacity.Value = color.Opacity;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_Alpha) HTrackBar_Alpha.Value = color.Alpha;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_RGB_R) HTrackBar_RGB_R.Value = color.Red;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_RGB_G) HTrackBar_RGB_G.Value = color.Green;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_RGB_B) HTrackBar_RGB_B.Value = color.Blue;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_HSV_H) HTrackBar_HSV_H.Value = color.Hue_HSV;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_HSV_S) HTrackBar_HSV_S.Value = color.Saturation_HSV;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_HSV_V) HTrackBar_HSV_V.Value = color.Brightness;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_HSL_H) HTrackBar_HSL_H.Value = color.Hue_HSL;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_HSL_S) HTrackBar_HSL_S.Value = color.Saturation_HSL;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_HSL_L) HTrackBar_HSL_L.Value = color.Lightness_HSL;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_CMYK_C) HTrackBar_CMYK_C.Value = color.Cyan;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_CMYK_M) HTrackBar_CMYK_M.Value = color.Magenta;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_CMYK_Y) HTrackBar_CMYK_Y.Value = color.Yellow;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_CMYK_K) HTrackBar_CMYK_K.Value = color.Black;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_LAB_L) HTrackBar_LAB_L.Value = color.Lightness_LAB;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_LAB_A) HTrackBar_LAB_A.Value = color.GreenRed;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_LAB_B) HTrackBar_LAB_B.Value = color.BlueYellow;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_YUV_Y) HTrackBar_YUV_Y.Value = color.Luminance;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_YUV_U) HTrackBar_YUV_U.Value = color.ChrominanceBlue;
+            if (_CurrentTrackBarOrNumEditor != HTrackBar_YUV_V) HTrackBar_YUV_V.Value = color.ChrominanceRed;
 
             //
 
-            NumEditor_Opacity.Value = color.Opacity;
-            NumEditor_Alpha.Value = color.Alpha;
-            NumEditor_RGB_R.Value = color.Red;
-            NumEditor_RGB_G.Value = color.Green;
-            NumEditor_RGB_B.Value = color.Blue;
-            NumEditor_HSV_H.Value = color.Hue_HSV;
-            NumEditor_HSV_S.Value = color.Saturation_HSV;
-            NumEditor_HSV_V.Value = color.Brightness;
-            NumEditor_HSL_H.Value = color.Hue_HSL;
-            NumEditor_HSL_S.Value = color.Saturation_HSL;
-            NumEditor_HSL_L.Value = color.Lightness_HSL;
-            NumEditor_CMYK_C.Value = color.Cyan;
-            NumEditor_CMYK_M.Value = color.Magenta;
-            NumEditor_CMYK_Y.Value = color.Yellow;
-            NumEditor_CMYK_K.Value = color.Black;
-            NumEditor_LAB_L.Value = color.Lightness_LAB;
-            NumEditor_LAB_A.Value = color.GreenRed;
-            NumEditor_LAB_B.Value = color.BlueYellow;
-            NumEditor_YUV_Y.Value = color.Luminance;
-            NumEditor_YUV_U.Value = color.ChrominanceBlue;
-            NumEditor_YUV_V.Value = color.ChrominanceRed;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_Opacity) NumEditor_Opacity.Value = color.Opacity;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_Alpha) NumEditor_Alpha.Value = color.Alpha;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_RGB_R) NumEditor_RGB_R.Value = color.Red;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_RGB_G) NumEditor_RGB_G.Value = color.Green;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_RGB_B) NumEditor_RGB_B.Value = color.Blue;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_HSV_H) NumEditor_HSV_H.Value = color.Hue_HSV;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_HSV_S) NumEditor_HSV_S.Value = color.Saturation_HSV;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_HSV_V) NumEditor_HSV_V.Value = color.Brightness;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_HSL_H) NumEditor_HSL_H.Value = color.Hue_HSL;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_HSL_S) NumEditor_HSL_S.Value = color.Saturation_HSL;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_HSL_L) NumEditor_HSL_L.Value = color.Lightness_HSL;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_CMYK_C) NumEditor_CMYK_C.Value = color.Cyan;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_CMYK_M) NumEditor_CMYK_M.Value = color.Magenta;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_CMYK_Y) NumEditor_CMYK_Y.Value = color.Yellow;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_CMYK_K) NumEditor_CMYK_K.Value = color.Black;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_LAB_L) NumEditor_LAB_L.Value = color.Lightness_LAB;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_LAB_A) NumEditor_LAB_A.Value = color.GreenRed;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_LAB_B) NumEditor_LAB_B.Value = color.BlueYellow;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_YUV_Y) NumEditor_YUV_Y.Value = color.Luminance;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_YUV_U) NumEditor_YUV_U.Value = color.ChrominanceBlue;
+            if (_CurrentTrackBarOrNumEditor != NumEditor_YUV_V) NumEditor_YUV_V.Value = color.ChrominanceRed;
+
+            //
+
+            _CurrentTrackBarOrNumEditor = null;
         }
 
         private Com.ColorX CurrentColor
@@ -828,7 +891,10 @@ namespace WinFormApp
             {
                 switch (_ColorTag)
                 {
-                    case _ColorTags.BackColor: return _BackColor;
+                    case _ColorTags.Background: return _BackgroundColor;
+                    case _ColorTags.Border: return _BorderColor;
+                    case _ColorTags.Label: return _LabelColor;
+                    case _ColorTags.Text: return _TextColor;
                     default: return Com.ColorX.Empty;
                 }
             }
@@ -837,31 +903,180 @@ namespace WinFormApp
             {
                 switch (_ColorTag)
                 {
-                    case _ColorTags.BackColor: _BackColor = value; break;
+                    case _ColorTags.Background:
+                        {
+                            _BackgroundColor = value;
+                            Panel_Preview.BackColor = _BackgroundColor.ToColor();
+                        }
+                        break;
+
+                    case _ColorTags.Border:
+                        {
+                            _BorderColor = value;
+                            Panel_Preview.Refresh();
+                        }
+                        break;
+
+                    case _ColorTags.Label:
+                        {
+                            _LabelColor = value;
+                            Label_Preview.BackColor = _LabelColor.ToColor();
+                        }
+                        break;
+
+                    case _ColorTags.Text:
+                        {
+                            _TextColor = value;
+                            Label_Preview.ForeColor = _TextColor.ToColor();
+                        }
+                        break;
                 }
 
                 Me.ThemeColor = value.AtAlpha(255);
 
                 UpdateTrackBarAndNumEditor(value);
-
-                Label_Preview.BackColor = value.ToColor();
             }
         }
 
         private void ChoseColor(_ColorTags colorTag)
         {
-            _ColorTag = colorTag;
+            if (_ColorTag != colorTag)
+            {
+                _ColorTag = colorTag;
 
-            Com.ColorX currentColor = CurrentColor;
+                Font selectedFont = new Font("微软雅黑", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                Font unselectedFont = new Font("微软雅黑", 11.25F);
 
-            Me.ThemeColor = currentColor.AtAlpha(255);
+                Button_Background.Font = (_ColorTag == _ColorTags.Background ? selectedFont : unselectedFont);
+                Button_Border.Font = (_ColorTag == _ColorTags.Border ? selectedFont : unselectedFont);
+                Button_Label.Font = (_ColorTag == _ColorTags.Label ? selectedFont : unselectedFont);
+                Button_Text.Font = (_ColorTag == _ColorTags.Text ? selectedFont : unselectedFont);
 
-            UpdateTrackBarAndNumEditor(currentColor);
+                Com.ColorX currentColor = CurrentColor;
+
+                Me.ThemeColor = currentColor.AtAlpha(255);
+
+                UpdateTrackBarAndNumEditor(currentColor);
+            }
         }
 
         #endregion
 
         #region 分量编辑
+
+        private void Button_Background_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Background);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Button_Border_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Border);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Button_Label_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Label);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Button_Text_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Text);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Panel_Preview_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                if (Com.Geometry.PointIsVisibleInRectangle(Com.Geometry.GetCursorPositionOfControl(Panel_Preview), new Rectangle(Label_Preview.Left - 5, Label_Preview.Top - 5, Label_Preview.Width + 10, Label_Preview.Height + 10)))
+                {
+                    ChoseColor(_ColorTags.Border);
+                }
+                else
+                {
+                    ChoseColor(_ColorTags.Background);
+                }
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Preview_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                if (Com.Geometry.PointIsVisibleInRectangle(Com.Geometry.GetCursorPositionOfControl(Label_Preview), new Rectangle(15, 40, 90, 40)))
+                {
+                    ChoseColor(_ColorTags.Text);
+                }
+                else if (Com.Geometry.PointIsVisibleInRectangle(Com.Geometry.GetCursorPositionOfControl(Label_Preview), new Rectangle(5, 5, Label_Preview.Width - 10, Label_Preview.Height - 10)))
+                {
+                    ChoseColor(_ColorTags.Label);
+                }
+                else
+                {
+                    ChoseColor(_ColorTags.Border);
+                }
+
+                //
+
+                RegisterEvents();
+            }
+        }
 
         private void HTrackBar_ValueChanged(object sender, EventArgs e)
         {
@@ -870,6 +1085,10 @@ namespace WinFormApp
             if (trackBar != null)
             {
                 UnregisterEvents();
+
+                //
+
+                _CurrentTrackBarOrNumEditor = trackBar;
 
                 Com.ColorX color = CurrentColor;
 
@@ -962,6 +1181,8 @@ namespace WinFormApp
 
                 CurrentColor = color;
 
+                //
+
                 RegisterEvents();
             }
         }
@@ -973,6 +1194,10 @@ namespace WinFormApp
             if (numEditor != null)
             {
                 UnregisterEvents();
+
+                //
+
+                _CurrentTrackBarOrNumEditor = numEditor;
 
                 Com.ColorX color = CurrentColor;
 
@@ -1065,6 +1290,8 @@ namespace WinFormApp
 
                 CurrentColor = color;
 
+                //
+
                 RegisterEvents();
             }
         }
@@ -1116,6 +1343,10 @@ namespace WinFormApp
             Panel_LAB.Top = Panel_CMYK.Bottom + 10;
             Panel_YUV.Top = Panel_LAB.Bottom + 10;
             Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
+
+            //
+
+            _RepaintColorSpacesShadowImage();
         }
 
         private void Button_Transparency_MouseDown(object sender, MouseEventArgs e)
@@ -1178,63 +1409,83 @@ namespace WinFormApp
 
         #region 背景绘图
 
-        private void Panel_ColorSpaces_Paint(object sender, PaintEventArgs e)
+        private Bitmap _ColorSpacesShadowImage = null;
+
+        private void _UpdateColorSpacesShadowImage()
         {
-            Control[] spaceContainers = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
-
-            Color borderColor =  Color.FromArgb(24, Color.Black);
-
-            Graphics grap = e.Graphics;
-
-            grap.SmoothingMode = SmoothingMode.AntiAlias;
-
-            Action<Graphics, Color, Rectangle, int> PaintShadow = (graphics, color, bounds, radius) =>
+            if (_ColorSpacesShadowImage != null)
             {
-                for (int i = 0; i < radius; i++)
-                {
-                    using (Pen Pn = new Pen(Color.FromArgb(color.A * (i + 1) * (i + 1) / radius / radius, color), Math.Max(1F, Math.Min(radius - i, 3F))))
-                    {
-                        using (GraphicsPath Path = Com.Geometry.CreateRoundedRectanglePath(new Rectangle(new Point(bounds.X - radius + i, bounds.Y - radius + i), new Size(bounds.Width + 2 * radius - 2 * i - 1, bounds.Height + 2 * radius - 2 * i - 1)), radius - i + 2))
-                        {
-                            int N = (Pn.Width >= 3F ? 1 : (Pn.Width == 2F ? 2 : (Pn.Width == 1 ? 3 : 0)));
+                _ColorSpacesShadowImage.Dispose();
+            }
 
-                            for (int j = 0; j < N; j++)
+            _ColorSpacesShadowImage = new Bitmap(Math.Max(1, Panel_ColorSpaces.Width), Math.Max(1, Panel_ColorSpaces.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_ColorSpacesShadowImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Grap.Clear(Panel_Main.BackColor);
+
+                //
+
+                Control[] spaceContainers = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
+
+                Color borderColor = Color.FromArgb(16, Color.Black);
+
+                Action<Graphics, Color, Rectangle, int> PaintShadow = (graphics, color, bounds, radius) =>
+                {
+                    for (int i = 0; i < radius; i++)
+                    {
+                        using (Pen Pn = new Pen(Color.FromArgb(color.A * (i + 1) * (i + 1) / radius / radius, color), Math.Max(1F, Math.Min(radius - i, 3F))))
+                        {
+                            using (GraphicsPath Path = Com.Geometry.CreateRoundedRectanglePath(new Rectangle(bounds.X - radius + i, bounds.Y - radius + i, bounds.Width + 2 * radius - 2 * i - 1, bounds.Height + 2 * radius - 2 * i - 1), radius - i + 2))
                             {
-                                graphics.DrawPath(Pn, Path);
+                                int N = (Pn.Width >= 3F ? 1 : (Pn.Width == 2F ? 2 : (Pn.Width == 1 ? 3 : 0)));
+
+                                for (int j = 0; j < N; j++)
+                                {
+                                    graphics.DrawPath(Pn, Path);
+                                }
                             }
                         }
                     }
-                }
-            };
+                };
 
-            foreach (Control ctrl in spaceContainers)
+                foreach (Control ctrl in spaceContainers)
+                {
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 8);
+                }
+            }
+        }
+
+        private void _RepaintColorSpacesShadowImage()
+        {
+            _UpdateColorSpacesShadowImage();
+
+            if (_ColorSpacesShadowImage != null)
             {
-                PaintShadow(grap, borderColor, ctrl.Bounds, 8);
+                Panel_ColorSpaces.CreateGraphics().DrawImage(_ColorSpacesShadowImage, new Point(0, 0));
+            }
+        }
+
+        private void Panel_ColorSpaces_Paint(object sender, PaintEventArgs e)
+        {
+            if (_ColorSpacesShadowImage == null)
+            {
+                _UpdateColorSpacesShadowImage();
+            }
+
+            if (_ColorSpacesShadowImage != null)
+            {
+                e.Graphics.DrawImage(_ColorSpacesShadowImage, new Point(0, 0));
             }
         }
 
         private void Panel_Preview_Paint(object sender, PaintEventArgs e)
         {
-            Color borderColor = Me.RecommendColors.Border.ToColor();
-
-            using (Pen Pn = new Pen(Color.FromArgb(24, borderColor), 2))
+            using (Pen Pn = new Pen(_BorderColor.ToColor(), 1))
             {
-                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(Label_Preview.Left - 3, Label_Preview.Top - 3), new SizeF(Label_Preview.Width + 6, Label_Preview.Height + 6)) });
-            }
-
-            using (Pen Pn = new Pen(Color.FromArgb(48, borderColor), 2))
-            {
-                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(Label_Preview.Left - 2, Label_Preview.Top - 2), new SizeF(Label_Preview.Width + 4, Label_Preview.Height + 4)) });
-            }
-
-            using (Pen Pn = new Pen(Color.FromArgb(96, borderColor), 2))
-            {
-                e.Graphics.DrawRectangles(Pn, new RectangleF[] { new RectangleF(new PointF(Label_Preview.Left - 1, Label_Preview.Top - 1), new SizeF(Label_Preview.Width + 2, Label_Preview.Height + 2)) });
-            }
-
-            using (Pen Pn = new Pen(borderColor, 1))
-            {
-                e.Graphics.DrawRectangle(Pn, new Rectangle(new Point(Label_Preview.Left - 1, Label_Preview.Top - 1), new Size(Label_Preview.Width + 1, Label_Preview.Height + 1)));
+                e.Graphics.DrawRectangle(Pn, new Rectangle(Label_Preview.Left - 1, Label_Preview.Top - 1, Label_Preview.Width + 1, Label_Preview.Height + 1));
             }
         }
 

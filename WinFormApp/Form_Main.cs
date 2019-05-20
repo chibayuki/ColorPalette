@@ -132,7 +132,7 @@ namespace WinFormApp
             Me.EnableFullScreen = false;
             Me.Theme = Com.WinForm.Theme.Colorful;
             Me.ThemeColor = Com.ColorManipulation.GetRandomColorX();
-            Me.MinimumSize = new Size(720, 265 + Me.CaptionBarHeight);
+            Me.MinimumSize = new Size(870, 265 + Me.CaptionBarHeight);
 
             Me.Loaded += LoadedEvents;
             Me.Resize += ResizeEvents;
@@ -345,13 +345,9 @@ namespace WinFormApp
             //
 
             _BackgroundColor = Me.RecommendColors.Background;
-            _BorderColor = Me.RecommendColors.Border;
+            _BorderColor = Me.RecommendColors.Border_INC;
             _LabelColor = Me.RecommendColors.Button;
-            _TextColor = Me.RecommendColors.Text;
-
-            Panel_Preview.BackColor = _BackgroundColor.ToColor();
-            Label_Preview.BackColor = _LabelColor.ToColor();
-            Label_Preview.ForeColor = _TextColor.ToColor();
+            _TextColor = Me.RecommendColors.Text_INC;
 
             ChoseColor(_ColorTags.Background);
 
@@ -617,44 +613,11 @@ namespace WinFormApp
 
             //
 
-            Color previewButtonForeColor = Me.RecommendColors.Text.ToColor();
-
-            Button_Background.ForeColor = previewButtonForeColor;
-            Button_Border.ForeColor = previewButtonForeColor;
-            Button_Label.ForeColor = previewButtonForeColor;
-            Button_Text.ForeColor = previewButtonForeColor;
-
-            Color previewButtonBackColor = Color.Transparent;
-
-            Button_Background.BackColor = previewButtonBackColor;
-            Button_Border.BackColor = previewButtonBackColor;
-            Button_Label.BackColor = previewButtonBackColor;
-            Button_Text.BackColor = previewButtonBackColor;
-
-            Color previewButtonBorderColor = Panel_Main.BackColor;
-
-            Button_Background.FlatAppearance.BorderColor = previewButtonBorderColor;
-            Button_Border.FlatAppearance.BorderColor = previewButtonBorderColor;
-            Button_Label.FlatAppearance.BorderColor = previewButtonBorderColor;
-            Button_Text.FlatAppearance.BorderColor = previewButtonBorderColor;
-
-            Color previewButtonMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
-
-            Button_Background.FlatAppearance.MouseOverBackColor = previewButtonMouseOverBackColor;
-            Button_Border.FlatAppearance.MouseOverBackColor = previewButtonMouseOverBackColor;
-            Button_Label.FlatAppearance.MouseOverBackColor = previewButtonMouseOverBackColor;
-            Button_Text.FlatAppearance.MouseOverBackColor = previewButtonMouseOverBackColor;
-
-            Color previewButtonMouseDownBackColor = Me.RecommendColors.Button_INC.ToColor();
-
-            Button_Background.FlatAppearance.MouseDownBackColor = previewButtonMouseDownBackColor;
-            Button_Border.FlatAppearance.MouseDownBackColor = previewButtonMouseDownBackColor;
-            Button_Label.FlatAppearance.MouseDownBackColor = previewButtonMouseDownBackColor;
-            Button_Text.FlatAppearance.MouseDownBackColor = previewButtonMouseDownBackColor;
+            _RepaintColorSpacesShadowImage();
 
             //
 
-            _RepaintColorSpacesShadowImage();
+            UpdatePreviewButtons();
         }
 
         #endregion
@@ -903,36 +866,15 @@ namespace WinFormApp
             {
                 switch (_ColorTag)
                 {
-                    case _ColorTags.Background:
-                        {
-                            _BackgroundColor = value;
-                            Panel_Preview.BackColor = _BackgroundColor.ToColor();
-                        }
-                        break;
-
-                    case _ColorTags.Border:
-                        {
-                            _BorderColor = value;
-                            Panel_Preview.Refresh();
-                        }
-                        break;
-
-                    case _ColorTags.Label:
-                        {
-                            _LabelColor = value;
-                            Label_Preview.BackColor = _LabelColor.ToColor();
-                        }
-                        break;
-
-                    case _ColorTags.Text:
-                        {
-                            _TextColor = value;
-                            Label_Preview.ForeColor = _TextColor.ToColor();
-                        }
-                        break;
+                    case _ColorTags.Background: _BackgroundColor = value; break;
+                    case _ColorTags.Border: _BorderColor = value; break;
+                    case _ColorTags.Label: _LabelColor = value; break;
+                    case _ColorTags.Text: _TextColor = value; break;
                 }
 
                 Me.ThemeColor = value.AtAlpha(255);
+
+                _RepaintPreviewImage();
 
                 UpdateTrackBarAndNumEditor(value);
             }
@@ -944,13 +886,7 @@ namespace WinFormApp
             {
                 _ColorTag = colorTag;
 
-                Font selectedFont = new Font("微软雅黑", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 134);
-                Font unselectedFont = new Font("微软雅黑", 11.25F);
-
-                Button_Background.Font = (_ColorTag == _ColorTags.Background ? selectedFont : unselectedFont);
-                Button_Border.Font = (_ColorTag == _ColorTags.Border ? selectedFont : unselectedFont);
-                Button_Label.Font = (_ColorTag == _ColorTags.Label ? selectedFont : unselectedFont);
-                Button_Text.Font = (_ColorTag == _ColorTags.Text ? selectedFont : unselectedFont);
+                //
 
                 Com.ColorX currentColor = CurrentColor;
 
@@ -960,123 +896,49 @@ namespace WinFormApp
             }
         }
 
+        private void UpdatePreviewButtons()
+        {
+            Color selectedForeColor = Me.RecommendColors.Background_DEC.ToColor();
+            Color unselectedForeColor = Me.RecommendColors.Text_INC.ToColor();
+
+            Button_Background.ForeColor = (_ColorTag == _ColorTags.Background ? selectedForeColor : unselectedForeColor);
+            Button_Border.ForeColor = (_ColorTag == _ColorTags.Border ? selectedForeColor : unselectedForeColor);
+            Button_Label.ForeColor = (_ColorTag == _ColorTags.Label ? selectedForeColor : unselectedForeColor);
+            Button_Text.ForeColor = (_ColorTag == _ColorTags.Text ? selectedForeColor : unselectedForeColor);
+
+            Color selectedBackColor = Me.RecommendColors.Main.ToColor();
+            Color unselectedBackColor = Me.RecommendColors.Button.ToColor();
+
+            Button_Background.BackColor = (_ColorTag == _ColorTags.Background ? selectedBackColor : unselectedBackColor);
+            Button_Border.BackColor = (_ColorTag == _ColorTags.Border ? selectedBackColor : unselectedBackColor);
+            Button_Label.BackColor = (_ColorTag == _ColorTags.Label ? selectedBackColor : unselectedBackColor);
+            Button_Text.BackColor = (_ColorTag == _ColorTags.Text ? selectedBackColor : unselectedBackColor);
+
+            Button_Background.FlatAppearance.BorderColor = Button_Background.BackColor;
+            Button_Border.FlatAppearance.BorderColor = Button_Border.BackColor;
+            Button_Label.FlatAppearance.BorderColor = Button_Label.BackColor;
+            Button_Text.FlatAppearance.BorderColor = Button_Text.BackColor;
+
+            Color selectedMouseOverBackColor = selectedBackColor;
+            Color unselectedMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
+
+            Button_Background.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Background ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
+            Button_Border.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Border ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
+            Button_Label.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Label ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
+            Button_Text.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Text ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
+
+            Color selectedMouseDownBackColor = selectedBackColor;
+            Color unselectedMouseDownBackColor = Me.RecommendColors.Button_INC.ToColor();
+
+            Button_Background.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Background ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
+            Button_Border.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Border ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
+            Button_Label.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Label ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
+            Button_Text.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Text ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
+        }
+
         #endregion
 
         #region 分量编辑
-
-        private void Button_Background_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                UnregisterEvents();
-
-                //
-
-                ChoseColor(_ColorTags.Background);
-
-                //
-
-                RegisterEvents();
-            }
-        }
-
-        private void Button_Border_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                UnregisterEvents();
-
-                //
-
-                ChoseColor(_ColorTags.Border);
-
-                //
-
-                RegisterEvents();
-            }
-        }
-
-        private void Button_Label_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                UnregisterEvents();
-
-                //
-
-                ChoseColor(_ColorTags.Label);
-
-                //
-
-                RegisterEvents();
-            }
-        }
-
-        private void Button_Text_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                UnregisterEvents();
-
-                //
-
-                ChoseColor(_ColorTags.Text);
-
-                //
-
-                RegisterEvents();
-            }
-        }
-
-        private void Panel_Preview_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                UnregisterEvents();
-
-                //
-
-                if (Com.Geometry.PointIsVisibleInRectangle(Com.Geometry.GetCursorPositionOfControl(Panel_Preview), new Rectangle(Label_Preview.Left - 5, Label_Preview.Top - 5, Label_Preview.Width + 10, Label_Preview.Height + 10)))
-                {
-                    ChoseColor(_ColorTags.Border);
-                }
-                else
-                {
-                    ChoseColor(_ColorTags.Background);
-                }
-
-                //
-
-                RegisterEvents();
-            }
-        }
-
-        private void Label_Preview_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                UnregisterEvents();
-
-                //
-
-                if (Com.Geometry.PointIsVisibleInRectangle(Com.Geometry.GetCursorPositionOfControl(Label_Preview), new Rectangle(15, 40, 90, 40)))
-                {
-                    ChoseColor(_ColorTags.Text);
-                }
-                else if (Com.Geometry.PointIsVisibleInRectangle(Com.Geometry.GetCursorPositionOfControl(Label_Preview), new Rectangle(5, 5, Label_Preview.Width - 10, Label_Preview.Height - 10)))
-                {
-                    ChoseColor(_ColorTags.Label);
-                }
-                else
-                {
-                    ChoseColor(_ColorTags.Border);
-                }
-
-                //
-
-                RegisterEvents();
-            }
-        }
 
         private void HTrackBar_ValueChanged(object sender, EventArgs e)
         {
@@ -1296,6 +1158,72 @@ namespace WinFormApp
             }
         }
 
+        //
+
+        private void Button_Background_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Background);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Button_Border_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Border);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Button_Label_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Label);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Button_Text_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Text);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
         #endregion
 
         #region 卡片控制
@@ -1481,11 +1409,82 @@ namespace WinFormApp
             }
         }
 
+        private Bitmap _PreviewImage = null;
+
+        private void _UpdatePreviewImage()
+        {
+            if (_PreviewImage != null)
+            {
+                _PreviewImage.Dispose();
+            }
+
+            _PreviewImage = new Bitmap(Math.Max(1, Panel_Preview.Width), Math.Max(1, Panel_Preview.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_PreviewImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Grap.Clear(Panel_Main.BackColor);
+
+                //
+
+                Rectangle outerBounds = new Rectangle(0, 0, _PreviewImage.Width, _PreviewImage.Height);
+                Rectangle innerBounds = new Rectangle(25, 25, outerBounds.Width - 50, outerBounds.Height - 50);
+
+                using (Brush Br = new SolidBrush(_BackgroundColor.ToColor()))
+                {
+                    Grap.FillRectangle(Br, outerBounds);
+                }
+
+                using (Brush Br = new SolidBrush(_LabelColor.ToColor()))
+                {
+                    Grap.FillRectangle(Br, innerBounds);
+                }
+
+                using (Pen Pn = new Pen(_BorderColor.ToColor(), 2))
+                {
+                    Grap.DrawRectangle(Pn, innerBounds);
+                }
+
+                using (Brush Br = new SolidBrush(_TextColor.ToColor()))
+                {
+                    string text1 = "示例文本";
+                    Font font1 = new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
+                    Size size1 = TextRenderer.MeasureText(text1, font1);
+
+                    string text2 = "Sample text";
+                    Font font2 = new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
+                    Size size2 = TextRenderer.MeasureText(text2, font2);
+
+                    Point loc1 = new Point((outerBounds.Width - size1.Width) / 2, (outerBounds.Height - size1.Height - size2.Height) / 2);
+                    Point loc2 = new Point((outerBounds.Width - size2.Width) / 2, loc1.Y + size1.Height);
+
+                    Grap.DrawString(text1, font1, Br, loc1);
+                    Grap.DrawString(text2, font2, Br, loc2);
+                }
+            }
+        }
+
+        private void _RepaintPreviewImage()
+        {
+            _UpdatePreviewImage();
+
+            if (_PreviewImage != null)
+            {
+                Panel_Preview.CreateGraphics().DrawImage(_PreviewImage, new Point(0, 0));
+            }
+        }
+
         private void Panel_Preview_Paint(object sender, PaintEventArgs e)
         {
-            using (Pen Pn = new Pen(_BorderColor.ToColor(), 1))
+            if (_PreviewImage == null)
             {
-                e.Graphics.DrawRectangle(Pn, new Rectangle(Label_Preview.Left - 1, Label_Preview.Top - 1, Label_Preview.Width + 1, Label_Preview.Height + 1));
+                _UpdatePreviewImage();
+            }
+
+            if (_PreviewImage != null)
+            {
+                e.Graphics.DrawImage(_PreviewImage, new Point(0, 0));
             }
         }
 

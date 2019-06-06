@@ -2,7 +2,7 @@
 Copyright © 2019 chibayuki@foxmail.com
 
 调色板 (ColorPalette)
-Version 1.0.1905.0.R1.190425-0000
+Version 1.0.2000.0.R1.190525-0000
 
 This file is part of "调色板" (ColorPalette)
 
@@ -29,8 +29,8 @@ namespace WinFormApp
         #region 私有成员与内部成员
 
         private Com.ColorX _BackgroundColor;
-        private Com.ColorX _BorderColor;
         private Com.ColorX _LabelColor;
+        private Com.ColorX _BorderColor;
         private Com.ColorX _TextColor;
 
         private enum _ColorTags
@@ -132,7 +132,7 @@ namespace WinFormApp
             Me.EnableFullScreen = false;
             Me.Theme = Com.WinForm.Theme.Colorful;
             Me.ThemeColor = Com.ColorManipulation.GetRandomColorX();
-            Me.MinimumSize = new Size(870, 265 + Me.CaptionBarHeight);
+            Me.MinimumSize = new Size(870, 285 + Me.CaptionBarHeight);
 
             Me.Loaded += LoadedEvents;
             Me.Resize += ResizeEvents;
@@ -345,8 +345,8 @@ namespace WinFormApp
             //
 
             _BackgroundColor = Me.RecommendColors.Background;
-            _BorderColor = Me.RecommendColors.Border_INC;
             _LabelColor = Me.RecommendColors.Button;
+            _BorderColor = Me.RecommendColors.Border_INC;
             _TextColor = Me.RecommendColors.Text_INC;
 
             ChoseColor(_ColorTags.Background);
@@ -855,8 +855,8 @@ namespace WinFormApp
                 switch (_ColorTag)
                 {
                     case _ColorTags.Background: return _BackgroundColor;
-                    case _ColorTags.Border: return _BorderColor;
                     case _ColorTags.Label: return _LabelColor;
+                    case _ColorTags.Border: return _BorderColor;
                     case _ColorTags.Text: return _TextColor;
                     default: return Com.ColorX.Empty;
                 }
@@ -867,8 +867,8 @@ namespace WinFormApp
                 switch (_ColorTag)
                 {
                     case _ColorTags.Background: _BackgroundColor = value; break;
-                    case _ColorTags.Border: _BorderColor = value; break;
                     case _ColorTags.Label: _LabelColor = value; break;
+                    case _ColorTags.Border: _BorderColor = value; break;
                     case _ColorTags.Text: _TextColor = value; break;
                 }
 
@@ -902,37 +902,37 @@ namespace WinFormApp
             Color unselectedForeColor = Me.RecommendColors.Text_INC.ToColor();
 
             Button_Background.ForeColor = (_ColorTag == _ColorTags.Background ? selectedForeColor : unselectedForeColor);
-            Button_Border.ForeColor = (_ColorTag == _ColorTags.Border ? selectedForeColor : unselectedForeColor);
             Button_Label.ForeColor = (_ColorTag == _ColorTags.Label ? selectedForeColor : unselectedForeColor);
+            Button_Border.ForeColor = (_ColorTag == _ColorTags.Border ? selectedForeColor : unselectedForeColor);
             Button_Text.ForeColor = (_ColorTag == _ColorTags.Text ? selectedForeColor : unselectedForeColor);
 
             Color selectedBackColor = Me.RecommendColors.Main.ToColor();
             Color unselectedBackColor = Me.RecommendColors.Button.ToColor();
 
             Button_Background.BackColor = (_ColorTag == _ColorTags.Background ? selectedBackColor : unselectedBackColor);
-            Button_Border.BackColor = (_ColorTag == _ColorTags.Border ? selectedBackColor : unselectedBackColor);
             Button_Label.BackColor = (_ColorTag == _ColorTags.Label ? selectedBackColor : unselectedBackColor);
+            Button_Border.BackColor = (_ColorTag == _ColorTags.Border ? selectedBackColor : unselectedBackColor);
             Button_Text.BackColor = (_ColorTag == _ColorTags.Text ? selectedBackColor : unselectedBackColor);
 
             Button_Background.FlatAppearance.BorderColor = Button_Background.BackColor;
-            Button_Border.FlatAppearance.BorderColor = Button_Border.BackColor;
             Button_Label.FlatAppearance.BorderColor = Button_Label.BackColor;
+            Button_Border.FlatAppearance.BorderColor = Button_Border.BackColor;
             Button_Text.FlatAppearance.BorderColor = Button_Text.BackColor;
 
             Color selectedMouseOverBackColor = selectedBackColor;
             Color unselectedMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
 
             Button_Background.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Background ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
-            Button_Border.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Border ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
             Button_Label.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Label ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
+            Button_Border.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Border ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
             Button_Text.FlatAppearance.MouseOverBackColor = (_ColorTag == _ColorTags.Text ? selectedMouseOverBackColor : unselectedMouseOverBackColor);
 
             Color selectedMouseDownBackColor = selectedBackColor;
             Color unselectedMouseDownBackColor = Me.RecommendColors.Button_INC.ToColor();
 
             Button_Background.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Background ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
-            Button_Border.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Border ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
             Button_Label.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Label ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
+            Button_Border.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Border ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
             Button_Text.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Text ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
         }
 
@@ -1176,22 +1176,6 @@ namespace WinFormApp
             }
         }
 
-        private void Button_Border_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                UnregisterEvents();
-
-                //
-
-                ChoseColor(_ColorTags.Border);
-
-                //
-
-                RegisterEvents();
-            }
-        }
-
         private void Button_Label_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -1201,6 +1185,22 @@ namespace WinFormApp
                 //
 
                 ChoseColor(_ColorTags.Label);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Button_Border_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Border);
 
                 //
 

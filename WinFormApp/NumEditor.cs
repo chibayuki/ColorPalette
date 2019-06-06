@@ -2,7 +2,7 @@
 Copyright © 2019 chibayuki@foxmail.com
 
 调色板 (ColorPalette)
-Version 1.0.1905.0.R1.190503-0000
+Version 1.0.2000.0.R1.190525-0000
 
 This file is part of "调色板" (ColorPalette)
 

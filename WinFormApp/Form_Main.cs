@@ -132,7 +132,7 @@ namespace WinFormApp
             Me.EnableFullScreen = false;
             Me.Theme = Com.WinForm.Theme.Colorful;
             Me.ThemeColor = Com.ColorManipulation.GetRandomColorX();
-            Me.MinimumSize = new Size(870, 285 + Me.CaptionBarHeight);
+            Me.MinimumSize = new Size(910, 285 + Me.CaptionBarHeight);
 
             Me.Loaded += LoadedEvents;
             Me.Resize += ResizeEvents;
@@ -357,17 +357,17 @@ namespace WinFormApp
         // 在窗体的大小调整时发生。
         private void ResizeEvents(object sender, EventArgs e)
         {
-            Panel_LeftArea.Height = Panel_Main.Height;
             Panel_RightArea.Height = Panel_Main.Height;
+            Panel_LeftArea.Height = Panel_Main.Height;
 
-            Panel_LeftArea.Width = Math.Min(1260, Panel_Main.Width - Panel_RightArea.Width);
+            Panel_RightArea.Width = Math.Min(1260, Panel_Main.Width - Panel_LeftArea.Width);
 
-            Panel_LeftArea.Left = Math.Max(0, (Panel_Main.Width - Panel_LeftArea.Width - Panel_RightArea.Width) / 2);
+            Panel_LeftArea.Left = Math.Max(0, (Panel_Main.Width - Panel_RightArea.Width - Panel_LeftArea.Width) / 2);
             Panel_RightArea.Left = Panel_LeftArea.Right;
 
             //
 
-            Panel_ColorSpaces.Width = Panel_LeftArea.Width - 20;
+            Panel_ColorSpaces.Width = Panel_RightArea.Width - 20;
 
             int spaceContainerWidth = Panel_ColorSpaces.Width - 2 * Panel_RGB.Left;
 
@@ -381,6 +381,7 @@ namespace WinFormApp
 
             //
 
+            _RepaintEditingColorsShadowImage();
             _RepaintColorSpacesShadowImage();
         }
 
@@ -425,67 +426,77 @@ namespace WinFormApp
 
             //
 
-            Color spaceContainerBackColor = Me.RecommendColors.Background.ToColor();
+            Color folderBackColor = Me.RecommendColors.Background.ToColor();
 
-            Panel_Transparency.BackColor = spaceContainerBackColor;
-            Panel_RGB.BackColor = spaceContainerBackColor;
-            Panel_HSV.BackColor = spaceContainerBackColor;
-            Panel_HSL.BackColor = spaceContainerBackColor;
-            Panel_CMYK.BackColor = spaceContainerBackColor;
-            Panel_LAB.BackColor = spaceContainerBackColor;
-            Panel_YUV.BackColor = spaceContainerBackColor;
+            Panel_View.BackColor = folderBackColor;
 
-            //
+            Panel_Transparency.BackColor = folderBackColor;
+            Panel_RGB.BackColor = folderBackColor;
+            Panel_HSV.BackColor = folderBackColor;
+            Panel_HSL.BackColor = folderBackColor;
+            Panel_CMYK.BackColor = folderBackColor;
+            Panel_LAB.BackColor = folderBackColor;
+            Panel_YUV.BackColor = folderBackColor;
 
-            Color spaceButtonForeColor = Me.RecommendColors.Text_INC.ToColor();
+            Color folderButtonForeColor = Me.RecommendColors.Text_INC.ToColor();
 
-            Button_Transparency.ForeColor = spaceButtonForeColor;
-            Button_RGB.ForeColor = spaceButtonForeColor;
-            Button_HSV.ForeColor = spaceButtonForeColor;
-            Button_HSL.ForeColor = spaceButtonForeColor;
-            Button_CMYK.ForeColor = spaceButtonForeColor;
-            Button_LAB.ForeColor = spaceButtonForeColor;
-            Button_YUV.ForeColor = spaceButtonForeColor;
+            Button_View.ForeColor = folderButtonForeColor;
 
-            Color spaceButtonBackColor = Me.RecommendColors.Button.ToColor();
+            Button_Transparency.ForeColor = folderButtonForeColor;
+            Button_RGB.ForeColor = folderButtonForeColor;
+            Button_HSV.ForeColor = folderButtonForeColor;
+            Button_HSL.ForeColor = folderButtonForeColor;
+            Button_CMYK.ForeColor = folderButtonForeColor;
+            Button_LAB.ForeColor = folderButtonForeColor;
+            Button_YUV.ForeColor = folderButtonForeColor;
 
-            Button_Transparency.BackColor = spaceButtonBackColor;
-            Button_RGB.BackColor = spaceButtonBackColor;
-            Button_HSV.BackColor = spaceButtonBackColor;
-            Button_HSL.BackColor = spaceButtonBackColor;
-            Button_CMYK.BackColor = spaceButtonBackColor;
-            Button_LAB.BackColor = spaceButtonBackColor;
-            Button_YUV.BackColor = spaceButtonBackColor;
+            Color folderButtonBackColor = Me.RecommendColors.Button.ToColor();
 
-            Color spaceButtonBorderColor = Me.RecommendColors.Button.ToColor();
+            Button_View.BackColor = folderButtonBackColor;
 
-            Button_Transparency.FlatAppearance.BorderColor = spaceButtonBorderColor;
-            Button_RGB.FlatAppearance.BorderColor = spaceButtonBorderColor;
-            Button_HSV.FlatAppearance.BorderColor = spaceButtonBorderColor;
-            Button_HSL.FlatAppearance.BorderColor = spaceButtonBorderColor;
-            Button_CMYK.FlatAppearance.BorderColor = spaceButtonBorderColor;
-            Button_LAB.FlatAppearance.BorderColor = spaceButtonBorderColor;
-            Button_YUV.FlatAppearance.BorderColor = spaceButtonBorderColor;
+            Button_Transparency.BackColor = folderButtonBackColor;
+            Button_RGB.BackColor = folderButtonBackColor;
+            Button_HSV.BackColor = folderButtonBackColor;
+            Button_HSL.BackColor = folderButtonBackColor;
+            Button_CMYK.BackColor = folderButtonBackColor;
+            Button_LAB.BackColor = folderButtonBackColor;
+            Button_YUV.BackColor = folderButtonBackColor;
 
-            Color spaceButtonMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
+            Color folderButtonBorderColor = Me.RecommendColors.Button.ToColor();
 
-            Button_Transparency.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
-            Button_RGB.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
-            Button_HSV.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
-            Button_HSL.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
-            Button_CMYK.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
-            Button_LAB.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
-            Button_YUV.FlatAppearance.MouseOverBackColor = spaceButtonMouseOverBackColor;
+            Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
 
-            Color spaceButtonMouseDownBackColor = Me.RecommendColors.Button.ToColor();
+            Button_Transparency.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_RGB.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_HSV.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_HSL.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_CMYK.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_LAB.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_YUV.FlatAppearance.BorderColor = folderButtonBorderColor;
 
-            Button_Transparency.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
-            Button_RGB.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
-            Button_HSV.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
-            Button_HSL.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
-            Button_CMYK.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
-            Button_LAB.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
-            Button_YUV.FlatAppearance.MouseDownBackColor = spaceButtonMouseDownBackColor;
+            Color folderButtonMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
+
+            Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+
+            Button_Transparency.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_RGB.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_HSV.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_HSL.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_CMYK.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_LAB.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_YUV.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+
+            Color folderButtonMouseDownBackColor = Me.RecommendColors.Button.ToColor();
+
+            Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+
+            Button_Transparency.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_RGB.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_HSV.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_HSL.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_CMYK.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_LAB.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_YUV.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
 
             //
 
@@ -613,11 +624,12 @@ namespace WinFormApp
 
             //
 
-            _RepaintColorSpacesShadowImage();
+            UpdateDivButtons();
 
             //
 
-            UpdatePreviewButtons();
+            _RepaintEditingColorsShadowImage();
+            _RepaintColorSpacesShadowImage();
         }
 
         #endregion
@@ -721,6 +733,8 @@ namespace WinFormApp
             NumEditor_YUV_U.ValueChanged -= NumEditor_ValueChanged;
             NumEditor_YUV_V.ValueChanged -= NumEditor_ValueChanged;
         }
+
+        //
 
         private Control _CurrentTrackBarOrNumEditor = null;
 
@@ -874,7 +888,7 @@ namespace WinFormApp
 
                 Me.ThemeColor = value.AtAlpha(255);
 
-                _RepaintPreviewImage();
+                _RepaintDivImage();
 
                 UpdateTrackBarAndNumEditor(value);
             }
@@ -896,7 +910,9 @@ namespace WinFormApp
             }
         }
 
-        private void UpdatePreviewButtons()
+        //
+
+        private void UpdateDivButtons()
         {
             Color selectedForeColor = Me.RecommendColors.Background_DEC.ToColor();
             Color unselectedForeColor = Me.RecommendColors.Text_INC.ToColor();
@@ -934,6 +950,14 @@ namespace WinFormApp
             Button_Label.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Label ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
             Button_Border.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Border ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
             Button_Text.FlatAppearance.MouseDownBackColor = (_ColorTag == _ColorTags.Text ? selectedMouseDownBackColor : unselectedMouseDownBackColor);
+
+            Font selectedFont = new Font("微软雅黑", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 134);
+            Font unselectedFont = new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
+
+            Button_Background.Font = (_ColorTag == _ColorTags.Background ? selectedFont : unselectedFont);
+            Button_Label.Font = (_ColorTag == _ColorTags.Label ? selectedFont : unselectedFont);
+            Button_Border.Font = (_ColorTag == _ColorTags.Border ? selectedFont : unselectedFont);
+            Button_Text.Font = (_ColorTag == _ColorTags.Text ? selectedFont : unselectedFont);
         }
 
         #endregion
@@ -1228,8 +1252,59 @@ namespace WinFormApp
 
         #region 卡片控制
 
-        // 反转卡片的折叠状态。
-        private void ReverseTabFoldingState(Button btn)
+        private void ReverseEditingColorsFolderState(Button btn)
+        {
+            if (btn.ImageIndex == 0)
+            {
+                int MaxHeight = btn.Bottom;
+
+                foreach (object obj in btn.Parent.Controls)
+                {
+                    if (((Control)obj).Bottom > MaxHeight)
+                    {
+                        MaxHeight = ((Control)obj).Bottom;
+                    }
+                }
+
+                int TopDist = MaxHeight;
+
+                foreach (object obj in btn.Parent.Controls)
+                {
+                    if (!Control.Equals((Control)obj, btn) && ((Control)obj).Top < TopDist)
+                    {
+                        TopDist = ((Control)obj).Top;
+                    }
+                }
+
+                btn.ImageIndex = 1;
+
+                btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+            }
+            else
+            {
+                btn.ImageIndex = 0;
+
+                btn.Parent.Height = btn.Bottom;
+            }
+
+            Panel_EditingColors.Height = Panel_View.Bottom + Panel_View.Top;
+
+            //
+
+            _RepaintEditingColorsShadowImage();
+        }
+
+        private void Button_View_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseEditingColorsFolderState((Button)sender);
+            }
+        }
+
+        //
+
+        private void ReverseColorSpacesFolderState(Button btn)
         {
             if (btn.ImageIndex == 0)
             {
@@ -1281,7 +1356,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReverseTabFoldingState((Button)sender);
+                ReverseColorSpacesFolderState((Button)sender);
             }
         }
 
@@ -1289,7 +1364,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReverseTabFoldingState((Button)sender);
+                ReverseColorSpacesFolderState((Button)sender);
             }
         }
 
@@ -1297,7 +1372,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReverseTabFoldingState((Button)sender);
+                ReverseColorSpacesFolderState((Button)sender);
             }
         }
 
@@ -1305,7 +1380,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReverseTabFoldingState((Button)sender);
+                ReverseColorSpacesFolderState((Button)sender);
             }
         }
 
@@ -1313,7 +1388,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReverseTabFoldingState((Button)sender);
+                ReverseColorSpacesFolderState((Button)sender);
             }
         }
 
@@ -1321,7 +1396,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReverseTabFoldingState((Button)sender);
+                ReverseColorSpacesFolderState((Button)sender);
             }
         }
 
@@ -1329,13 +1404,89 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReverseTabFoldingState((Button)sender);
+                ReverseColorSpacesFolderState((Button)sender);
             }
         }
 
         #endregion
 
         #region 背景绘图
+
+        private static void PaintShadow(Graphics graphics, Color color, Rectangle bounds, int radius)
+        {
+            for (int i = 0; i < radius; i++)
+            {
+                using (Pen Pn = new Pen(Color.FromArgb(color.A * (i + 1) * (i + 1) / radius / radius, color), Math.Max(1F, Math.Min(radius - i, 3F))))
+                {
+                    using (GraphicsPath Path = Com.Geometry.CreateRoundedRectanglePath(new Rectangle(bounds.X - radius + i, bounds.Y - radius + i, bounds.Width + 2 * radius - 2 * i - 1, bounds.Height + 2 * radius - 2 * i - 1), radius - i + 2))
+                    {
+                        int N = (Pn.Width >= 3F ? 1 : (Pn.Width == 2F ? 2 : (Pn.Width == 1 ? 3 : 0)));
+
+                        for (int j = 0; j < N; j++)
+                        {
+                            graphics.DrawPath(Pn, Path);
+                        }
+                    }
+                }
+            }
+        }
+
+        //
+
+        private Bitmap _EditingColorsShadowImage = null;
+
+        private void _UpdateEditingColorsShadowImage()
+        {
+            if (_EditingColorsShadowImage != null)
+            {
+                _EditingColorsShadowImage.Dispose();
+            }
+
+            _EditingColorsShadowImage = new Bitmap(Math.Max(1, Panel_EditingColors.Width), Math.Max(1, Panel_EditingColors.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_EditingColorsShadowImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Grap.Clear(Panel_Main.BackColor);
+
+                //
+
+                Control[] spaceContainers = new Control[] { Panel_View };
+
+                Color borderColor = Color.FromArgb(16, Color.Black);
+
+                foreach (Control ctrl in spaceContainers)
+                {
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 8);
+                }
+            }
+        }
+
+        private void _RepaintEditingColorsShadowImage()
+        {
+            _UpdateEditingColorsShadowImage();
+
+            if (_EditingColorsShadowImage != null)
+            {
+                Panel_EditingColors.CreateGraphics().DrawImage(_EditingColorsShadowImage, new Point(0, 0));
+            }
+        }
+
+        private void Panel_EditingColors_Paint(object sender, PaintEventArgs e)
+        {
+            if (_EditingColorsShadowImage == null)
+            {
+                _UpdateEditingColorsShadowImage();
+            }
+
+            if (_EditingColorsShadowImage != null)
+            {
+                e.Graphics.DrawImage(_EditingColorsShadowImage, new Point(0, 0));
+            }
+        }
+
+        //
 
         private Bitmap _ColorSpacesShadowImage = null;
 
@@ -1359,25 +1510,6 @@ namespace WinFormApp
                 Control[] spaceContainers = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
 
                 Color borderColor = Color.FromArgb(16, Color.Black);
-
-                Action<Graphics, Color, Rectangle, int> PaintShadow = (graphics, color, bounds, radius) =>
-                {
-                    for (int i = 0; i < radius; i++)
-                    {
-                        using (Pen Pn = new Pen(Color.FromArgb(color.A * (i + 1) * (i + 1) / radius / radius, color), Math.Max(1F, Math.Min(radius - i, 3F))))
-                        {
-                            using (GraphicsPath Path = Com.Geometry.CreateRoundedRectanglePath(new Rectangle(bounds.X - radius + i, bounds.Y - radius + i, bounds.Width + 2 * radius - 2 * i - 1, bounds.Height + 2 * radius - 2 * i - 1), radius - i + 2))
-                            {
-                                int N = (Pn.Width >= 3F ? 1 : (Pn.Width == 2F ? 2 : (Pn.Width == 1 ? 3 : 0)));
-
-                                for (int j = 0; j < N; j++)
-                                {
-                                    graphics.DrawPath(Pn, Path);
-                                }
-                            }
-                        }
-                    }
-                };
 
                 foreach (Control ctrl in spaceContainers)
                 {
@@ -1409,18 +1541,20 @@ namespace WinFormApp
             }
         }
 
-        private Bitmap _PreviewImage = null;
+        //
 
-        private void _UpdatePreviewImage()
+        private Bitmap _DivImage = null;
+
+        private void _UpdateDivImage()
         {
-            if (_PreviewImage != null)
+            if (_DivImage != null)
             {
-                _PreviewImage.Dispose();
+                _DivImage.Dispose();
             }
 
-            _PreviewImage = new Bitmap(Math.Max(1, Panel_Preview.Width), Math.Max(1, Panel_Preview.Height));
+            _DivImage = new Bitmap(Math.Max(1, Panel_Div.Width), Math.Max(1, Panel_Div.Height));
 
-            using (Graphics Grap = Graphics.FromImage(_PreviewImage))
+            using (Graphics Grap = Graphics.FromImage(_DivImage))
             {
                 Grap.SmoothingMode = SmoothingMode.AntiAlias;
 
@@ -1428,8 +1562,8 @@ namespace WinFormApp
 
                 //
 
-                Rectangle outerBounds = new Rectangle(0, 0, _PreviewImage.Width, _PreviewImage.Height);
-                Rectangle innerBounds = new Rectangle(25, 25, outerBounds.Width - 50, outerBounds.Height - 50);
+                Rectangle outerBounds = new Rectangle(0, 0, _DivImage.Width, _DivImage.Height);
+                Rectangle innerBounds = new Rectangle(20, 20, outerBounds.Width - 40, outerBounds.Height - 40);
 
                 using (Brush Br = new SolidBrush(_BackgroundColor.ToColor()))
                 {
@@ -1465,26 +1599,26 @@ namespace WinFormApp
             }
         }
 
-        private void _RepaintPreviewImage()
+        private void _RepaintDivImage()
         {
-            _UpdatePreviewImage();
+            _UpdateDivImage();
 
-            if (_PreviewImage != null)
+            if (_DivImage != null)
             {
-                Panel_Preview.CreateGraphics().DrawImage(_PreviewImage, new Point(0, 0));
+                Panel_Div.CreateGraphics().DrawImage(_DivImage, new Point(0, 0));
             }
         }
 
-        private void Panel_Preview_Paint(object sender, PaintEventArgs e)
+        private void Panel_Div_Paint(object sender, PaintEventArgs e)
         {
-            if (_PreviewImage == null)
+            if (_DivImage == null)
             {
-                _UpdatePreviewImage();
+                _UpdateDivImage();
             }
 
-            if (_PreviewImage != null)
+            if (_DivImage != null)
             {
-                e.Graphics.DrawImage(_PreviewImage, new Point(0, 0));
+                e.Graphics.DrawImage(_DivImage, new Point(0, 0));
             }
         }
 

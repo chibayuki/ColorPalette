@@ -132,7 +132,7 @@ namespace WinFormApp
             Me.EnableFullScreen = false;
             Me.Theme = Com.WinForm.Theme.Colorful;
             Me.ThemeColor = Com.ColorManipulation.GetRandomColorX();
-            Me.MinimumSize = new Size(910, 285 + Me.CaptionBarHeight);
+            Me.MinimumSize = new Size(920, 285 + Me.CaptionBarHeight);
 
             Me.Loaded += LoadedEvents;
             Me.Resize += ResizeEvents;
@@ -344,7 +344,7 @@ namespace WinFormApp
 
             //
 
-            _BackgroundColor = Me.RecommendColors.Background;
+            _BackgroundColor = Me.RecommendColors.Background_INC;
             _LabelColor = Me.RecommendColors.Button;
             _BorderColor = Me.RecommendColors.Border_INC;
             _TextColor = Me.RecommendColors.Text_INC;
@@ -357,6 +357,24 @@ namespace WinFormApp
         // 在窗体的大小调整时发生。
         private void ResizeEvents(object sender, EventArgs e)
         {
+            if (Panel_LeftArea.Height >= Panel_EditingColors.Height)
+            {
+                Panel_LeftArea.Width = Panel_EditingColors.Width;
+            }
+            else
+            {
+                Panel_LeftArea.Width = Panel_EditingColors.Width + 20;
+            }
+
+            if (Panel_RightArea.Height >= Panel_ColorSpaces.Height)
+            {
+                Panel_ColorSpaces.Width = Panel_RightArea.Width;
+            }
+            else
+            {
+                Panel_ColorSpaces.Width = Panel_RightArea.Width - 20;
+            }
+
             Panel_RightArea.Height = Panel_Main.Height;
             Panel_LeftArea.Height = Panel_Main.Height;
 
@@ -366,8 +384,6 @@ namespace WinFormApp
             Panel_RightArea.Left = Panel_LeftArea.Right;
 
             //
-
-            Panel_ColorSpaces.Width = Panel_RightArea.Width - 20;
 
             int spaceContainerWidth = Panel_ColorSpaces.Width - 2 * Panel_RGB.Left;
 
@@ -1291,6 +1307,10 @@ namespace WinFormApp
 
             //
 
+            Me.OnSizeChanged();
+
+            //
+
             _RepaintEditingColorsShadowImage();
         }
 
@@ -1346,6 +1366,10 @@ namespace WinFormApp
             Panel_LAB.Top = Panel_CMYK.Bottom + 10;
             Panel_YUV.Top = Panel_LAB.Bottom + 10;
             Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
+
+            //
+
+            Me.OnSizeChanged();
 
             //
 

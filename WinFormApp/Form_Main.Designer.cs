@@ -164,7 +164,7 @@
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Main.Location = new System.Drawing.Point(0, 0);
             this.Panel_Main.Name = "Panel_Main";
-            this.Panel_Main.Size = new System.Drawing.Size(1090, 545);
+            this.Panel_Main.Size = new System.Drawing.Size(1100, 545);
             this.Panel_Main.TabIndex = 0;
             // 
             // Panel_LeftArea
@@ -174,7 +174,7 @@
             this.Panel_LeftArea.Controls.Add(this.Panel_EditingColors);
             this.Panel_LeftArea.Location = new System.Drawing.Point(0, 0);
             this.Panel_LeftArea.Name = "Panel_LeftArea";
-            this.Panel_LeftArea.Size = new System.Drawing.Size(390, 545);
+            this.Panel_LeftArea.Size = new System.Drawing.Size(400, 545);
             this.Panel_LeftArea.TabIndex = 0;
             // 
             // Panel_EditingColors
@@ -183,7 +183,7 @@
             this.Panel_EditingColors.Controls.Add(this.Panel_View);
             this.Panel_EditingColors.Location = new System.Drawing.Point(0, 0);
             this.Panel_EditingColors.Name = "Panel_EditingColors";
-            this.Panel_EditingColors.Size = new System.Drawing.Size(370, 220);
+            this.Panel_EditingColors.Size = new System.Drawing.Size(380, 220);
             this.Panel_EditingColors.TabIndex = 0;
             this.Panel_EditingColors.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_EditingColors_Paint);
             // 
@@ -198,7 +198,7 @@
             this.Panel_View.Controls.Add(this.Button_Text);
             this.Panel_View.Location = new System.Drawing.Point(20, 20);
             this.Panel_View.Name = "Panel_View";
-            this.Panel_View.Size = new System.Drawing.Size(330, 180);
+            this.Panel_View.Size = new System.Drawing.Size(340, 180);
             this.Panel_View.TabIndex = 0;
             // 
             // Button_View
@@ -217,7 +217,7 @@
             this.Button_View.ImageList = this.ImageList_FoldAndUnfold;
             this.Button_View.Location = new System.Drawing.Point(0, 0);
             this.Button_View.Name = "Button_View";
-            this.Button_View.Size = new System.Drawing.Size(330, 30);
+            this.Button_View.Size = new System.Drawing.Size(340, 30);
             this.Button_View.TabIndex = 0;
             this.Button_View.TabStop = false;
             this.Button_View.Text = "View";
@@ -237,7 +237,7 @@
             this.Panel_Div.BackColor = System.Drawing.Color.Transparent;
             this.Panel_Div.Location = new System.Drawing.Point(130, 40);
             this.Panel_Div.Name = "Panel_Div";
-            this.Panel_Div.Size = new System.Drawing.Size(180, 120);
+            this.Panel_Div.Size = new System.Drawing.Size(190, 120);
             this.Panel_Div.TabIndex = 0;
             this.Panel_Div.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Div_Paint);
             // 
@@ -326,7 +326,7 @@
             this.Panel_RightArea.AutoScroll = true;
             this.Panel_RightArea.BackColor = System.Drawing.Color.Transparent;
             this.Panel_RightArea.Controls.Add(this.Panel_ColorSpaces);
-            this.Panel_RightArea.Location = new System.Drawing.Point(390, 0);
+            this.Panel_RightArea.Location = new System.Drawing.Point(400, 0);
             this.Panel_RightArea.Name = "Panel_RightArea";
             this.Panel_RightArea.Size = new System.Drawing.Size(700, 545);
             this.Panel_RightArea.TabIndex = 0;
@@ -1864,7 +1864,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1090, 545);
+            this.ClientSize = new System.Drawing.Size(1100, 545);
             this.Controls.Add(this.Panel_Main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

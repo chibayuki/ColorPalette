@@ -444,6 +444,7 @@ namespace WinFormApp
 
             Color folderBackColor = Me.RecommendColors.Background.ToColor();
 
+            Panel_Info.BackColor = folderBackColor;
             Panel_View.BackColor = folderBackColor;
 
             Panel_Transparency.BackColor = folderBackColor;
@@ -456,6 +457,7 @@ namespace WinFormApp
 
             Color folderButtonForeColor = Me.RecommendColors.Text_INC.ToColor();
 
+            Button_Info.ForeColor = folderButtonForeColor;
             Button_View.ForeColor = folderButtonForeColor;
 
             Button_Transparency.ForeColor = folderButtonForeColor;
@@ -468,6 +470,7 @@ namespace WinFormApp
 
             Color folderButtonBackColor = Me.RecommendColors.Button.ToColor();
 
+            Button_Info.BackColor = folderButtonBackColor;
             Button_View.BackColor = folderButtonBackColor;
 
             Button_Transparency.BackColor = folderButtonBackColor;
@@ -480,6 +483,7 @@ namespace WinFormApp
 
             Color folderButtonBorderColor = Me.RecommendColors.Button.ToColor();
 
+            Button_Info.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
 
             Button_Transparency.FlatAppearance.BorderColor = folderButtonBorderColor;
@@ -492,6 +496,7 @@ namespace WinFormApp
 
             Color folderButtonMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
 
+            Button_Info.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
 
             Button_Transparency.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
@@ -504,6 +509,7 @@ namespace WinFormApp
 
             Color folderButtonMouseDownBackColor = Me.RecommendColors.Button.ToColor();
 
+            Button_Info.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
 
             Button_Transparency.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
@@ -637,6 +643,14 @@ namespace WinFormApp
             NumEditor_YUV_Y.BorderColor = numEditorBorderColor;
             NumEditor_YUV_U.BorderColor = numEditorBorderColor;
             NumEditor_YUV_V.BorderColor = numEditorBorderColor;
+
+            //
+
+            Label_Name.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Grayscale.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Complementary.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+
+            Label_Name_Val.ForeColor = Me.RecommendColors.Text.ToColor();
 
             //
 
@@ -904,6 +918,8 @@ namespace WinFormApp
 
                 Me.ThemeColor = value.AtAlpha(255);
 
+                UpdateColorInfo(value);
+
                 _RepaintDivImage();
 
                 UpdateTrackBarAndNumEditor(value);
@@ -922,11 +938,20 @@ namespace WinFormApp
 
                 Me.ThemeColor = currentColor.AtAlpha(255);
 
+                UpdateColorInfo(currentColor);
+
                 UpdateTrackBarAndNumEditor(currentColor);
             }
         }
 
         //
+
+        private void UpdateColorInfo(Com.ColorX color)
+        {
+            Label_Name_Val.Text = Com.ColorManipulation.GetColorName(color);
+            Label_Grayscale_Val.BackColor = color.GrayscaleColor.ToColor();
+            Label_Complementary_Val.BackColor = color.ComplementaryColor.ToColor();
+        }
 
         private void UpdateDivButtons()
         {
@@ -1303,7 +1328,8 @@ namespace WinFormApp
                 btn.Parent.Height = btn.Bottom;
             }
 
-            Panel_EditingColors.Height = Panel_View.Bottom + Panel_View.Top;
+            Panel_View.Top = Panel_Info.Bottom + 15;
+            Panel_EditingColors.Height = Panel_View.Bottom + Panel_Info.Top;
 
             //
 
@@ -1312,6 +1338,14 @@ namespace WinFormApp
             //
 
             _RepaintEditingColorsShadowImage();
+        }
+
+        private void Button_Info_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseEditingColorsFolderState((Button)sender);
+            }
         }
 
         private void Button_View_MouseDown(object sender, MouseEventArgs e)
@@ -1359,12 +1393,12 @@ namespace WinFormApp
                 btn.Parent.Height = btn.Bottom;
             }
 
-            Panel_RGB.Top = Panel_Transparency.Bottom + 10;
-            Panel_HSV.Top = Panel_RGB.Bottom + 10;
-            Panel_HSL.Top = Panel_HSV.Bottom + 10;
-            Panel_CMYK.Top = Panel_HSL.Bottom + 10;
-            Panel_LAB.Top = Panel_CMYK.Bottom + 10;
-            Panel_YUV.Top = Panel_LAB.Bottom + 10;
+            Panel_RGB.Top = Panel_Transparency.Bottom + 15;
+            Panel_HSV.Top = Panel_RGB.Bottom + 15;
+            Panel_HSL.Top = Panel_HSV.Bottom + 15;
+            Panel_CMYK.Top = Panel_HSL.Bottom + 15;
+            Panel_LAB.Top = Panel_CMYK.Bottom + 15;
+            Panel_YUV.Top = Panel_LAB.Bottom + 15;
             Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
 
             //
@@ -1476,13 +1510,13 @@ namespace WinFormApp
 
                 //
 
-                Control[] spaceContainers = new Control[] { Panel_View };
+                Control[] spaceContainers = new Control[] { Panel_Info, Panel_View };
 
-                Color borderColor = Color.FromArgb(16, Color.Black);
+                Color borderColor = Color.FromArgb(20, Color.Black);
 
                 foreach (Control ctrl in spaceContainers)
                 {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 8);
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }
@@ -1533,11 +1567,11 @@ namespace WinFormApp
 
                 Control[] spaceContainers = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
 
-                Color borderColor = Color.FromArgb(16, Color.Black);
+                Color borderColor = Color.FromArgb(20, Color.Black);
 
                 foreach (Control ctrl in spaceContainers)
                 {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 8);
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }

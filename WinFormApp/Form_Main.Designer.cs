@@ -33,14 +33,22 @@
             this.Panel_Main = new System.Windows.Forms.Panel();
             this.Panel_LeftArea = new System.Windows.Forms.Panel();
             this.Panel_EditingColors = new System.Windows.Forms.Panel();
+            this.Panel_Info = new System.Windows.Forms.Panel();
+            this.Button_Info = new System.Windows.Forms.Button();
+            this.ImageList_FoldAndUnfold = new System.Windows.Forms.ImageList(this.components);
+            this.Label_Name = new System.Windows.Forms.Label();
+            this.Label_Name_Val = new System.Windows.Forms.Label();
+            this.Label_Grayscale = new System.Windows.Forms.Label();
+            this.Label_Grayscale_Val = new System.Windows.Forms.Label();
+            this.Label_Complementary = new System.Windows.Forms.Label();
+            this.Label_Complementary_Val = new System.Windows.Forms.Label();
             this.Panel_View = new System.Windows.Forms.Panel();
             this.Button_View = new System.Windows.Forms.Button();
-            this.ImageList_FoldAndUnfold = new System.Windows.Forms.ImageList(this.components);
-            this.Panel_Div = new System.Windows.Forms.Panel();
             this.Button_Background = new System.Windows.Forms.Button();
             this.Button_Label = new System.Windows.Forms.Button();
             this.Button_Border = new System.Windows.Forms.Button();
             this.Button_Text = new System.Windows.Forms.Button();
+            this.Panel_Div = new System.Windows.Forms.Panel();
             this.Panel_RightArea = new System.Windows.Forms.Panel();
             this.Panel_ColorSpaces = new System.Windows.Forms.Panel();
             this.Panel_Transparency = new System.Windows.Forms.Panel();
@@ -144,6 +152,7 @@
             this.Panel_Main.SuspendLayout();
             this.Panel_LeftArea.SuspendLayout();
             this.Panel_EditingColors.SuspendLayout();
+            this.Panel_Info.SuspendLayout();
             this.Panel_View.SuspendLayout();
             this.Panel_RightArea.SuspendLayout();
             this.Panel_ColorSpaces.SuspendLayout();
@@ -180,25 +189,154 @@
             // Panel_EditingColors
             // 
             this.Panel_EditingColors.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_EditingColors.Controls.Add(this.Panel_Info);
             this.Panel_EditingColors.Controls.Add(this.Panel_View);
             this.Panel_EditingColors.Location = new System.Drawing.Point(0, 0);
             this.Panel_EditingColors.Name = "Panel_EditingColors";
-            this.Panel_EditingColors.Size = new System.Drawing.Size(380, 220);
+            this.Panel_EditingColors.Size = new System.Drawing.Size(380, 380);
             this.Panel_EditingColors.TabIndex = 0;
             this.Panel_EditingColors.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_EditingColors_Paint);
+            // 
+            // Panel_Info
+            // 
+            this.Panel_Info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_Info.Controls.Add(this.Button_Info);
+            this.Panel_Info.Controls.Add(this.Label_Name);
+            this.Panel_Info.Controls.Add(this.Label_Name_Val);
+            this.Panel_Info.Controls.Add(this.Label_Grayscale);
+            this.Panel_Info.Controls.Add(this.Label_Grayscale_Val);
+            this.Panel_Info.Controls.Add(this.Label_Complementary);
+            this.Panel_Info.Controls.Add(this.Label_Complementary_Val);
+            this.Panel_Info.Location = new System.Drawing.Point(20, 20);
+            this.Panel_Info.Name = "Panel_Info";
+            this.Panel_Info.Size = new System.Drawing.Size(340, 155);
+            this.Panel_Info.TabIndex = 0;
+            // 
+            // Button_Info
+            // 
+            this.Button_Info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Button_Info.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Button_Info.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Button_Info.FlatAppearance.BorderSize = 0;
+            this.Button_Info.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Button_Info.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Info.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_Info.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Button_Info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Info.ImageIndex = 1;
+            this.Button_Info.ImageList = this.ImageList_FoldAndUnfold;
+            this.Button_Info.Location = new System.Drawing.Point(0, 0);
+            this.Button_Info.Name = "Button_Info";
+            this.Button_Info.Size = new System.Drawing.Size(340, 30);
+            this.Button_Info.TabIndex = 0;
+            this.Button_Info.TabStop = false;
+            this.Button_Info.Text = "Information";
+            this.Button_Info.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Info.UseVisualStyleBackColor = false;
+            this.Button_Info.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Info_MouseDown);
+            // 
+            // ImageList_FoldAndUnfold
+            // 
+            this.ImageList_FoldAndUnfold.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageList_FoldAndUnfold.ImageStream")));
+            this.ImageList_FoldAndUnfold.TransparentColor = System.Drawing.Color.Transparent;
+            this.ImageList_FoldAndUnfold.Images.SetKeyName(0, "ToSpread_Flat_16.png");
+            this.ImageList_FoldAndUnfold.Images.SetKeyName(1, "ToFold_Flat_16.png");
+            // 
+            // Label_Name
+            // 
+            this.Label_Name.AutoSize = true;
+            this.Label_Name.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Name.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Name.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Name.Location = new System.Drawing.Point(20, 40);
+            this.Label_Name.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Name.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Name.Name = "Label_Name";
+            this.Label_Name.Size = new System.Drawing.Size(90, 25);
+            this.Label_Name.TabIndex = 0;
+            this.Label_Name.Text = "Color Name";
+            this.Label_Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Name_Val
+            // 
+            this.Label_Name_Val.AutoSize = true;
+            this.Label_Name_Val.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Name_Val.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Name_Val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Name_Val.Location = new System.Drawing.Point(150, 40);
+            this.Label_Name_Val.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Name_Val.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Name_Val.Name = "Label_Name_Val";
+            this.Label_Name_Val.Size = new System.Drawing.Size(83, 25);
+            this.Label_Name_Val.TabIndex = 0;
+            this.Label_Name_Val.Text = "Color Name";
+            this.Label_Name_Val.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Grayscale
+            // 
+            this.Label_Grayscale.AutoSize = true;
+            this.Label_Grayscale.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Grayscale.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Grayscale.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Grayscale.Location = new System.Drawing.Point(20, 75);
+            this.Label_Grayscale.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Grayscale.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Grayscale.Name = "Label_Grayscale";
+            this.Label_Grayscale.Size = new System.Drawing.Size(73, 25);
+            this.Label_Grayscale.TabIndex = 0;
+            this.Label_Grayscale.Text = "Grayscale";
+            this.Label_Grayscale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Grayscale_Val
+            // 
+            this.Label_Grayscale_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_Grayscale_Val.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Grayscale_Val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Grayscale_Val.Location = new System.Drawing.Point(150, 75);
+            this.Label_Grayscale_Val.Name = "Label_Grayscale_Val";
+            this.Label_Grayscale_Val.Size = new System.Drawing.Size(100, 30);
+            this.Label_Grayscale_Val.TabIndex = 0;
+            this.Label_Grayscale_Val.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Complementary
+            // 
+            this.Label_Complementary.AutoSize = true;
+            this.Label_Complementary.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Complementary.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Complementary.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Complementary.Location = new System.Drawing.Point(20, 115);
+            this.Label_Complementary.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Complementary.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Complementary.Name = "Label_Complementary";
+            this.Label_Complementary.Size = new System.Drawing.Size(116, 25);
+            this.Label_Complementary.TabIndex = 0;
+            this.Label_Complementary.Text = "Complementary";
+            this.Label_Complementary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Complementary_Val
+            // 
+            this.Label_Complementary_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_Complementary_Val.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Complementary_Val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Complementary_Val.Location = new System.Drawing.Point(150, 115);
+            this.Label_Complementary_Val.Name = "Label_Complementary_Val";
+            this.Label_Complementary_Val.Size = new System.Drawing.Size(100, 30);
+            this.Label_Complementary_Val.TabIndex = 0;
+            this.Label_Complementary_Val.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Panel_View
             // 
             this.Panel_View.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_View.Controls.Add(this.Button_View);
-            this.Panel_View.Controls.Add(this.Panel_Div);
             this.Panel_View.Controls.Add(this.Button_Background);
             this.Panel_View.Controls.Add(this.Button_Label);
             this.Panel_View.Controls.Add(this.Button_Border);
             this.Panel_View.Controls.Add(this.Button_Text);
-            this.Panel_View.Location = new System.Drawing.Point(20, 20);
+            this.Panel_View.Controls.Add(this.Panel_Div);
+            this.Panel_View.Location = new System.Drawing.Point(20, 190);
             this.Panel_View.Name = "Panel_View";
-            this.Panel_View.Size = new System.Drawing.Size(340, 180);
+            this.Panel_View.Size = new System.Drawing.Size(340, 170);
             this.Panel_View.TabIndex = 0;
             // 
             // Button_View
@@ -210,7 +348,7 @@
             this.Button_View.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Button_View.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_View.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_View.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_View.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Button_View.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Button_View.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_View.ImageIndex = 1;
@@ -224,22 +362,6 @@
             this.Button_View.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_View.UseVisualStyleBackColor = false;
             this.Button_View.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_View_MouseDown);
-            // 
-            // ImageList_FoldAndUnfold
-            // 
-            this.ImageList_FoldAndUnfold.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageList_FoldAndUnfold.ImageStream")));
-            this.ImageList_FoldAndUnfold.TransparentColor = System.Drawing.Color.Transparent;
-            this.ImageList_FoldAndUnfold.Images.SetKeyName(0, "ToSpread_Flat_16.png");
-            this.ImageList_FoldAndUnfold.Images.SetKeyName(1, "ToFold_Flat_16.png");
-            // 
-            // Panel_Div
-            // 
-            this.Panel_Div.BackColor = System.Drawing.Color.Transparent;
-            this.Panel_Div.Location = new System.Drawing.Point(130, 40);
-            this.Panel_Div.Name = "Panel_Div";
-            this.Panel_Div.Size = new System.Drawing.Size(190, 120);
-            this.Panel_Div.TabIndex = 0;
-            this.Panel_Div.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Div_Paint);
             // 
             // Button_Background
             // 
@@ -321,6 +443,15 @@
             this.Button_Text.UseVisualStyleBackColor = false;
             this.Button_Text.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Text_MouseDown);
             // 
+            // Panel_Div
+            // 
+            this.Panel_Div.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_Div.Location = new System.Drawing.Point(130, 40);
+            this.Panel_Div.Name = "Panel_Div";
+            this.Panel_Div.Size = new System.Drawing.Size(190, 120);
+            this.Panel_Div.TabIndex = 0;
+            this.Panel_Div.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Div_Paint);
+            // 
             // Panel_RightArea
             // 
             this.Panel_RightArea.AutoScroll = true;
@@ -343,7 +474,7 @@
             this.Panel_ColorSpaces.Controls.Add(this.Panel_YUV);
             this.Panel_ColorSpaces.Location = new System.Drawing.Point(0, 0);
             this.Panel_ColorSpaces.Name = "Panel_ColorSpaces";
-            this.Panel_ColorSpaces.Size = new System.Drawing.Size(680, 1115);
+            this.Panel_ColorSpaces.Size = new System.Drawing.Size(680, 1145);
             this.Panel_ColorSpaces.TabIndex = 0;
             this.Panel_ColorSpaces.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_ColorSpaces_Paint);
             // 
@@ -373,7 +504,7 @@
             this.Button_Transparency.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Button_Transparency.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_Transparency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Transparency.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_Transparency.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Button_Transparency.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Button_Transparency.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_Transparency.ImageIndex = 1;
@@ -464,7 +595,7 @@
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_R);
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_G);
             this.Panel_RGB.Controls.Add(this.HTrackBar_RGB_B);
-            this.Panel_RGB.Location = new System.Drawing.Point(20, 140);
+            this.Panel_RGB.Location = new System.Drawing.Point(20, 145);
             this.Panel_RGB.Name = "Panel_RGB";
             this.Panel_RGB.Size = new System.Drawing.Size(640, 145);
             this.Panel_RGB.TabIndex = 0;
@@ -478,7 +609,7 @@
             this.Button_RGB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Button_RGB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_RGB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_RGB.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_RGB.Font = new System.Drawing.Font("微软雅黑", 11.25F);
             this.Button_RGB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Button_RGB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_RGB.ImageIndex = 1;
@@ -599,7 +730,7 @@
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_H);
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_S);
             this.Panel_HSV.Controls.Add(this.HTrackBar_HSV_V);
-            this.Panel_HSV.Location = new System.Drawing.Point(20, 295);
+            this.Panel_HSV.Location = new System.Drawing.Point(20, 305);
             this.Panel_HSV.Name = "Panel_HSV";
             this.Panel_HSV.Size = new System.Drawing.Size(640, 145);
             this.Panel_HSV.TabIndex = 0;
@@ -613,7 +744,7 @@
             this.Button_HSV.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Button_HSV.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_HSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_HSV.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_HSV.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Button_HSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Button_HSV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_HSV.ImageIndex = 1;
@@ -734,7 +865,7 @@
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_H);
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_S);
             this.Panel_HSL.Controls.Add(this.HTrackBar_HSL_L);
-            this.Panel_HSL.Location = new System.Drawing.Point(20, 450);
+            this.Panel_HSL.Location = new System.Drawing.Point(20, 465);
             this.Panel_HSL.Name = "Panel_HSL";
             this.Panel_HSL.Size = new System.Drawing.Size(640, 145);
             this.Panel_HSL.TabIndex = 0;
@@ -748,7 +879,7 @@
             this.Button_HSL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Button_HSL.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_HSL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_HSL.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_HSL.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Button_HSL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Button_HSL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_HSL.ImageIndex = 1;
@@ -873,7 +1004,7 @@
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_M);
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_Y);
             this.Panel_CMYK.Controls.Add(this.HTrackBar_CMYK_K);
-            this.Panel_CMYK.Location = new System.Drawing.Point(20, 605);
+            this.Panel_CMYK.Location = new System.Drawing.Point(20, 625);
             this.Panel_CMYK.Name = "Panel_CMYK";
             this.Panel_CMYK.Size = new System.Drawing.Size(640, 180);
             this.Panel_CMYK.TabIndex = 0;
@@ -887,7 +1018,7 @@
             this.Button_CMYK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Button_CMYK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_CMYK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_CMYK.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_CMYK.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Button_CMYK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Button_CMYK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_CMYK.ImageIndex = 1;
@@ -1038,7 +1169,7 @@
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_L);
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_A);
             this.Panel_LAB.Controls.Add(this.HTrackBar_LAB_B);
-            this.Panel_LAB.Location = new System.Drawing.Point(20, 795);
+            this.Panel_LAB.Location = new System.Drawing.Point(20, 820);
             this.Panel_LAB.Name = "Panel_LAB";
             this.Panel_LAB.Size = new System.Drawing.Size(640, 145);
             this.Panel_LAB.TabIndex = 0;
@@ -1052,7 +1183,7 @@
             this.Button_LAB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Button_LAB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_LAB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_LAB.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_LAB.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Button_LAB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Button_LAB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_LAB.ImageIndex = 1;
@@ -1173,7 +1304,7 @@
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_Y);
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_U);
             this.Panel_YUV.Controls.Add(this.HTrackBar_YUV_V);
-            this.Panel_YUV.Location = new System.Drawing.Point(20, 950);
+            this.Panel_YUV.Location = new System.Drawing.Point(20, 980);
             this.Panel_YUV.Name = "Panel_YUV";
             this.Panel_YUV.Size = new System.Drawing.Size(640, 145);
             this.Panel_YUV.TabIndex = 0;
@@ -1187,7 +1318,7 @@
             this.Button_YUV.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.Button_YUV.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.Button_YUV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_YUV.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_YUV.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Button_YUV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Button_YUV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Button_YUV.ImageIndex = 1;
@@ -1872,6 +2003,8 @@
             this.Panel_Main.ResumeLayout(false);
             this.Panel_LeftArea.ResumeLayout(false);
             this.Panel_EditingColors.ResumeLayout(false);
+            this.Panel_Info.ResumeLayout(false);
+            this.Panel_Info.PerformLayout();
             this.Panel_View.ResumeLayout(false);
             this.Panel_RightArea.ResumeLayout(false);
             this.Panel_ColorSpaces.ResumeLayout(false);
@@ -2006,5 +2139,13 @@
         private System.Windows.Forms.Panel Panel_View;
         private System.Windows.Forms.Panel Panel_EditingColors;
         private System.Windows.Forms.Button Button_View;
+        private System.Windows.Forms.Panel Panel_Info;
+        private System.Windows.Forms.Button Button_Info;
+        private System.Windows.Forms.Label Label_Name;
+        private System.Windows.Forms.Label Label_Name_Val;
+        private System.Windows.Forms.Label Label_Grayscale;
+        private System.Windows.Forms.Label Label_Grayscale_Val;
+        private System.Windows.Forms.Label Label_Complementary_Val;
+        private System.Windows.Forms.Label Label_Complementary;
     }
 }

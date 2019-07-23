@@ -140,7 +140,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC4
-        AQAAAk1TRnQBSQFMAgEBAgEAATgBBgE4AQYBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AQAAAk1TRnQBSQFMAgEBAgEAAVgBBgFYAQYBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABEAMAAQEBAAEgBgABEP8A/wD/AP8AKgADgAH/PAADgAH/A4AB/wOAAf8DgAH/A4AB/wOAAf8DgAH/
         pAADgAH/A4AB/zwAA4AB/wNHAYAMAAOAAf+kAAOAAf8DRwSAAf88AAOAAf8DRwGACAADgAH/pAADgAH/
         BAADRwSAAf88AAOAAf8DRwGABAADgAH/pAADgAH/CAADRwSAAf88AAOAAf8DRwSAAf+kAAOAAf8EAANH
@@ -150,6 +150,9 @@
         AfkD/wQAAfsD/wQABP8EAAT/BAAE/wQACw==
 </value>
   </data>
+  <metadata name="Label_CurrentColor.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Label_Name.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -160,6 +163,9 @@
     <value>True</value>
   </metadata>
   <metadata name="Label_Grayscale_Val.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Label_Grayscale_Val2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Label_Complementary.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -651,6 +651,7 @@ namespace WinFormApp
             Label_Complementary.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
 
             Label_Name_Val.ForeColor = Me.RecommendColors.Text.ToColor();
+            Label_Grayscale_Val2.ForeColor = Me.RecommendColors.Text.ToColor();
 
             //
 
@@ -948,8 +949,10 @@ namespace WinFormApp
 
         private void UpdateColorInfo(Com.ColorX color)
         {
+            Label_CurrentColor.BackColor = color.ToColor();
             Label_Name_Val.Text = Com.ColorManipulation.GetColorName(color);
             Label_Grayscale_Val.BackColor = color.GrayscaleColor.ToColor();
+            Label_Grayscale_Val2.Text = color.GrayscaleColor.Red.ToString("N3");
             Label_Complementary_Val.BackColor = color.ComplementaryColor.ToColor();
         }
 

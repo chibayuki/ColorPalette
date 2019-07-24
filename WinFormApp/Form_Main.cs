@@ -660,6 +660,9 @@ namespace WinFormApp
             //
 
             _RepaintEditingColorsShadowImage();
+            _RepaintInfoImage();
+            _RepaintViewImage();
+
             _RepaintColorSpacesShadowImage();
         }
 
@@ -1513,11 +1516,11 @@ namespace WinFormApp
 
                 //
 
-                Control[] spaceContainers = new Control[] { Panel_Info, Panel_View };
+                Control[] ctrls = new Control[] { Panel_Info, Panel_View };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
-                foreach (Control ctrl in spaceContainers)
+                foreach (Control ctrl in ctrls)
                 {
                     PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
@@ -1549,56 +1552,111 @@ namespace WinFormApp
 
         //
 
-        private Bitmap _ColorSpacesShadowImage = null;
+        private Bitmap _InfoImage = null;
 
-        private void _UpdateColorSpacesShadowImage()
+        private void _UpdateInfoImage()
         {
-            if (_ColorSpacesShadowImage != null)
+            if (_InfoImage != null)
             {
-                _ColorSpacesShadowImage.Dispose();
+                _InfoImage.Dispose();
             }
 
-            _ColorSpacesShadowImage = new Bitmap(Math.Max(1, Panel_ColorSpaces.Width), Math.Max(1, Panel_ColorSpaces.Height));
+            _InfoImage = new Bitmap(Math.Max(1, Panel_Info.Width), Math.Max(1, Panel_Info.Height));
 
-            using (Graphics Grap = Graphics.FromImage(_ColorSpacesShadowImage))
+            using (Graphics Grap = Graphics.FromImage(_InfoImage))
             {
                 Grap.SmoothingMode = SmoothingMode.AntiAlias;
 
-                Grap.Clear(Panel_Main.BackColor);
+                Grap.Clear(Panel_Info.BackColor);
 
                 //
 
-                Control[] spaceContainers = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
+                Control[] ctrls = new Control[] { Label_CurrentColor, Label_Grayscale_Val, Label_Complementary_Val };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
-                foreach (Control ctrl in spaceContainers)
+                foreach (Control ctrl in ctrls)
                 {
                     PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }
 
-        private void _RepaintColorSpacesShadowImage()
+        private void _RepaintInfoImage()
         {
-            _UpdateColorSpacesShadowImage();
+            _UpdateInfoImage();
 
-            if (_ColorSpacesShadowImage != null)
+            if (_InfoImage != null)
             {
-                Panel_ColorSpaces.CreateGraphics().DrawImage(_ColorSpacesShadowImage, new Point(0, 0));
+                Panel_Info.CreateGraphics().DrawImage(_InfoImage, new Point(0, 0));
             }
         }
 
-        private void Panel_ColorSpaces_Paint(object sender, PaintEventArgs e)
+        private void Panel_Info_Paint(object sender, PaintEventArgs e)
         {
-            if (_ColorSpacesShadowImage == null)
+            if (_InfoImage == null)
             {
-                _UpdateColorSpacesShadowImage();
+                _UpdateInfoImage();
             }
 
-            if (_ColorSpacesShadowImage != null)
+            if (_InfoImage != null)
             {
-                e.Graphics.DrawImage(_ColorSpacesShadowImage, new Point(0, 0));
+                e.Graphics.DrawImage(_InfoImage, new Point(0, 0));
+            }
+        }
+
+        //
+
+        private Bitmap _ViewImage = null;
+
+        private void _UpdateViewImage()
+        {
+            if (_ViewImage != null)
+            {
+                _ViewImage.Dispose();
+            }
+
+            _ViewImage = new Bitmap(Math.Max(1, Panel_View.Width), Math.Max(1, Panel_View.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_ViewImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Grap.Clear(Panel_View.BackColor);
+
+                //
+
+                Control[] ctrls = new Control[] { Panel_Div };
+
+                Color borderColor = Color.FromArgb(20, Color.Black);
+
+                foreach (Control ctrl in ctrls)
+                {
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                }
+            }
+        }
+
+        private void _RepaintViewImage()
+        {
+            _UpdateViewImage();
+
+            if (_ViewImage != null)
+            {
+                Panel_View.CreateGraphics().DrawImage(_ViewImage, new Point(0, 0));
+            }
+        }
+
+        private void Panel_View_Paint(object sender, PaintEventArgs e)
+        {
+            if (_ViewImage == null)
+            {
+                _UpdateViewImage();
+            }
+
+            if (_ViewImage != null)
+            {
+                e.Graphics.DrawImage(_ViewImage, new Point(0, 0));
             }
         }
 
@@ -1619,7 +1677,7 @@ namespace WinFormApp
             {
                 Grap.SmoothingMode = SmoothingMode.AntiAlias;
 
-                Grap.Clear(Panel_Main.BackColor);
+                Grap.Clear(Panel_View.BackColor);
 
                 //
 
@@ -1680,6 +1738,61 @@ namespace WinFormApp
             if (_DivImage != null)
             {
                 e.Graphics.DrawImage(_DivImage, new Point(0, 0));
+            }
+        }
+
+        //
+
+        private Bitmap _ColorSpacesShadowImage = null;
+
+        private void _UpdateColorSpacesShadowImage()
+        {
+            if (_ColorSpacesShadowImage != null)
+            {
+                _ColorSpacesShadowImage.Dispose();
+            }
+
+            _ColorSpacesShadowImage = new Bitmap(Math.Max(1, Panel_ColorSpaces.Width), Math.Max(1, Panel_ColorSpaces.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_ColorSpacesShadowImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Grap.Clear(Panel_Main.BackColor);
+
+                //
+
+                Control[] ctrls = new Control[] { Panel_Transparency, Panel_RGB, Panel_HSV, Panel_HSL, Panel_CMYK, Panel_LAB, Panel_YUV };
+
+                Color borderColor = Color.FromArgb(20, Color.Black);
+
+                foreach (Control ctrl in ctrls)
+                {
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                }
+            }
+        }
+
+        private void _RepaintColorSpacesShadowImage()
+        {
+            _UpdateColorSpacesShadowImage();
+
+            if (_ColorSpacesShadowImage != null)
+            {
+                Panel_ColorSpaces.CreateGraphics().DrawImage(_ColorSpacesShadowImage, new Point(0, 0));
+            }
+        }
+
+        private void Panel_ColorSpaces_Paint(object sender, PaintEventArgs e)
+        {
+            if (_ColorSpacesShadowImage == null)
+            {
+                _UpdateColorSpacesShadowImage();
+            }
+
+            if (_ColorSpacesShadowImage != null)
+            {
+                e.Graphics.DrawImage(_ColorSpacesShadowImage, new Point(0, 0));
             }
         }
 

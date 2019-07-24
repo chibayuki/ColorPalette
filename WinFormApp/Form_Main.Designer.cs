@@ -215,6 +215,7 @@
             this.Panel_Info.Name = "Panel_Info";
             this.Panel_Info.Size = new System.Drawing.Size(340, 150);
             this.Panel_Info.TabIndex = 0;
+            this.Panel_Info.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Info_Paint);
             // 
             // Button_Info
             // 
@@ -368,6 +369,7 @@
             this.Panel_View.Name = "Panel_View";
             this.Panel_View.Size = new System.Drawing.Size(340, 170);
             this.Panel_View.TabIndex = 0;
+            this.Panel_View.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_View_Paint);
             // 
             // Button_View
             // 

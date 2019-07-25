@@ -657,12 +657,10 @@ namespace WinFormApp
 
             UpdateDivButtons();
 
-            //
-
-            _RepaintEditingColorsShadowImage();
             _RepaintInfoImage();
             _RepaintViewImage();
 
+            _RepaintEditingColorsShadowImage();
             _RepaintColorSpacesShadowImage();
         }
 

@@ -96,7 +96,7 @@ namespace WinFormApp
 
                 //
 
-                Color BarBorderColor = Com.ColorManipulation.ShiftLightnessByHSL(meaningfulBackColor, -0.5);
+                Color BarBorderColor = Com.ColorManipulation.ShiftLightnessByHSL(meaningfulBackColor, -0.3);
 
                 using (Pen Pn = new Pen(Color.FromArgb(64, BarBorderColor), 2))
                 {
@@ -106,6 +106,11 @@ namespace WinFormApp
                 using (Pen Pn = new Pen(Color.FromArgb(128, BarBorderColor), 2))
                 {
                     Grap.DrawRectangles(Pn, new RectangleF[] { BarImgBounds });
+                }
+
+                using (Brush Br = new SolidBrush(meaningfulBackColor))
+                {
+                    Grap.FillRectangle(Br, BarImgBounds);
                 }
 
                 //
@@ -139,7 +144,7 @@ namespace WinFormApp
 
                 if (Com.Geometry.CursorIsInControl(Panel_Main) || _MousePressed)
                 {
-                    using (SolidBrush Br = new SolidBrush(Color.FromArgb(64, Color.White)))
+                    using (Brush Br = new SolidBrush(Color.FromArgb(64, Color.White)))
                     {
                         Grap.FillRectangle(Br, BarImgBounds);
                     }
@@ -147,7 +152,7 @@ namespace WinFormApp
 
                 //
 
-                Color SliderBorderColor = BarBorderColor;
+                Color SliderBorderColor = Com.ColorManipulation.ShiftLightnessByHSL(meaningfulBackColor, -0.6);
 
                 Color SliderColor;
 
@@ -180,7 +185,7 @@ namespace WinFormApp
                     SliderColor = meaningfulBackColor;
                 }
 
-                SliderColor = Com.ColorManipulation.ShiftLightnessByHSL(SliderColor, +0.5);
+                SliderColor = Com.ColorManipulation.ShiftLightnessByHSL(SliderColor, +0.6);
 
                 float SliderX = (_Minimum == _Maximum ? trackBarBounds.X : (float)(trackBarBounds.X + (_Value - _Minimum) / (_Maximum - _Minimum) * trackBarBounds.Width));
                 float SliderHeight = 0.2F * wholeBounds.Height;
@@ -212,7 +217,7 @@ namespace WinFormApp
                     Grap.DrawLine(Pn, new PointF(SliderX, trackBarBounds.Y), new PointF(SliderX, trackBarBounds.Bottom));
                 }
 
-                using (SolidBrush Br = new SolidBrush(SliderColor))
+                using (Brush Br = new SolidBrush(SliderColor))
                 {
                     Grap.FillPolygon(Br, PolygonTop);
                     Grap.FillPolygon(Br, PolygonBottom);

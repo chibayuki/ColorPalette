@@ -1304,6 +1304,7 @@ namespace WinFormApp
                         ChoseColor(i);
 
                         _RepaintColorsImage();
+                        _RepaintViewImage();
 
                         break;
                     }
@@ -1327,6 +1328,7 @@ namespace WinFormApp
 
                 ChoseColor(_ColorTags.Background);
 
+                _RepaintColorsImage();
                 _RepaintViewImage();
 
                 //
@@ -1345,6 +1347,7 @@ namespace WinFormApp
 
                 ChoseColor(_ColorTags.Label);
 
+                _RepaintColorsImage();
                 _RepaintViewImage();
 
                 //
@@ -1363,6 +1366,7 @@ namespace WinFormApp
 
                 ChoseColor(_ColorTags.Border);
 
+                _RepaintColorsImage();
                 _RepaintViewImage();
 
                 //
@@ -1381,6 +1385,7 @@ namespace WinFormApp
 
                 ChoseColor(_ColorTags.Text);
 
+                _RepaintColorsImage();
                 _RepaintViewImage();
 
                 //
@@ -1739,9 +1744,9 @@ namespace WinFormApp
 
                 //
 
-                foreach (Label ctrl in Label_Colors)
+                using (Pen Pn = new Pen(Me.RecommendColors.Border.GrayscaleColor.ToColor(), 1F))
                 {
-                    using (Pen Pn = new Pen(Me.RecommendColors.Border.ToColor(), 1F))
+                    foreach (Label ctrl in Label_Colors)
                     {
                         Grap.DrawRectangle(Pn, ctrl.Bounds);
                     }

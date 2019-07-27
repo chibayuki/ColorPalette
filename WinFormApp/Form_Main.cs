@@ -368,7 +368,7 @@ namespace WinFormApp
 
                     l.BackColor = Color.Transparent;
                     l.Location = new Point(20 + x * 25, 40 + y * 25);
-                    l.Size = new Size(24, 24);
+                    l.Size = new Size(25, 25);
                     l.TabIndex = 0;
                     l.MouseDown += Label_Colors_MouseDown;
                 }
@@ -1734,6 +1734,16 @@ namespace WinFormApp
                     using (Brush Br = new SolidBrush(_Colors[i].ToColor()))
                     {
                         Grap.FillRectangle(Br, Label_Colors[i].Bounds);
+                    }
+                }
+
+                //
+
+                foreach (Label ctrl in Label_Colors)
+                {
+                    using (Pen Pn = new Pen(Me.RecommendColors.Border.ToColor(), 1F))
+                    {
+                        Grap.DrawRectangle(Pn, ctrl.Bounds);
                     }
                 }
 

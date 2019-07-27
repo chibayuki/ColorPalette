@@ -28,6 +28,27 @@ namespace WinFormApp
     {
         #region 私有成员与内部成员
 
+        private Com.ColorX _Color01;
+        private Com.ColorX _Color02;
+        private Com.ColorX _Color03;
+        private Com.ColorX _Color04;
+        private Com.ColorX _Color05;
+        private Com.ColorX _Color06;
+        private Com.ColorX _Color07;
+        private Com.ColorX _Color08;
+        private Com.ColorX _Color09;
+        private Com.ColorX _Color10;
+        private Com.ColorX _Color11;
+        private Com.ColorX _Color12;
+        private Com.ColorX _Color13;
+        private Com.ColorX _Color14;
+        private Com.ColorX _Color15;
+        private Com.ColorX _Color16;
+        private Com.ColorX _Color17;
+        private Com.ColorX _Color18;
+        private Com.ColorX _Color19;
+        private Com.ColorX _Color20;
+        private Com.ColorX _Color21;
         private Com.ColorX _BackgroundColor;
         private Com.ColorX _LabelColor;
         private Com.ColorX _BorderColor;
@@ -36,9 +57,30 @@ namespace WinFormApp
         private enum _ColorTags
         {
             None = -1,
+            Color01,
+            Color02,
+            Color03,
+            Color04,
+            Color05,
+            Color06,
+            Color07,
+            Color08,
+            Color09,
+            Color10,
+            Color11,
+            Color12,
+            Color13,
+            Color14,
+            Color15,
+            Color16,
+            Color17,
+            Color18,
+            Color19,
+            Color20,
+            Color21,
             Background,
-            Border,
             Label,
+            Border,
             Text
         }
 
@@ -344,6 +386,52 @@ namespace WinFormApp
 
             //
 
+            Label_Color01.BackColor = Color.Transparent;
+            Label_Color02.BackColor = Color.Transparent;
+            Label_Color03.BackColor = Color.Transparent;
+            Label_Color04.BackColor = Color.Transparent;
+            Label_Color05.BackColor = Color.Transparent;
+            Label_Color06.BackColor = Color.Transparent;
+            Label_Color07.BackColor = Color.Transparent;
+            Label_Color08.BackColor = Color.Transparent;
+            Label_Color09.BackColor = Color.Transparent;
+            Label_Color10.BackColor = Color.Transparent;
+            Label_Color11.BackColor = Color.Transparent;
+            Label_Color12.BackColor = Color.Transparent;
+            Label_Color13.BackColor = Color.Transparent;
+            Label_Color14.BackColor = Color.Transparent;
+            Label_Color15.BackColor = Color.Transparent;
+            Label_Color16.BackColor = Color.Transparent;
+            Label_Color17.BackColor = Color.Transparent;
+            Label_Color18.BackColor = Color.Transparent;
+            Label_Color19.BackColor = Color.Transparent;
+            Label_Color20.BackColor = Color.Transparent;
+            Label_Color21.BackColor = Color.Transparent;
+
+            //
+
+            _Color01 = Com.ColorX.FromHSL(355, 85, 55);
+            _Color02 = Com.ColorX.FromHSL(25, 85, 55);
+            _Color03 = Com.ColorX.FromHSL(55, 85, 55);
+            _Color04 = Com.ColorX.FromHSL(135, 85, 55);
+            _Color05 = Com.ColorX.FromHSL(190, 85, 55);
+            _Color06 = Com.ColorX.FromHSL(230, 85, 55);
+            _Color07 = Com.ColorX.FromHSL(285, 85, 55);
+            _Color08 = Com.ColorX.FromHSL(355, 60, 65);
+            _Color09 = Com.ColorX.FromHSL(25, 60, 65);
+            _Color10 = Com.ColorX.FromHSL(55, 60, 65);
+            _Color11 = Com.ColorX.FromHSL(135, 60, 65);
+            _Color12 = Com.ColorX.FromHSL(190, 60, 65);
+            _Color13 = Com.ColorX.FromHSL(230, 60, 65);
+            _Color14 = Com.ColorX.FromHSL(285, 60, 65);
+            _Color15 = Com.ColorX.FromHSL(355, 45, 80);
+            _Color16 = Com.ColorX.FromHSL(25, 45, 80);
+            _Color17 = Com.ColorX.FromHSL(55, 45, 80);
+            _Color18 = Com.ColorX.FromHSL(135, 45, 80);
+            _Color19 = Com.ColorX.FromHSL(190, 45, 80);
+            _Color20 = Com.ColorX.FromHSL(230, 45, 80);
+            _Color21 = Com.ColorX.FromHSL(285, 45, 80);
+
             _BackgroundColor = Me.RecommendColors.Background_INC;
             _LabelColor = Me.RecommendColors.Button;
             _BorderColor = Me.RecommendColors.Border_INC;
@@ -445,6 +533,7 @@ namespace WinFormApp
             Color folderBackColor = Me.RecommendColors.Background.ToColor();
 
             Panel_Info.BackColor = folderBackColor;
+            Panel_Colors.BackColor = folderBackColor;
             Panel_View.BackColor = folderBackColor;
 
             Panel_Transparency.BackColor = folderBackColor;
@@ -458,6 +547,7 @@ namespace WinFormApp
             Color folderButtonForeColor = Me.RecommendColors.Text_INC.ToColor();
 
             Button_Info.ForeColor = folderButtonForeColor;
+            Button_Colors.ForeColor = folderButtonForeColor;
             Button_View.ForeColor = folderButtonForeColor;
 
             Button_Transparency.ForeColor = folderButtonForeColor;
@@ -471,6 +561,7 @@ namespace WinFormApp
             Color folderButtonBackColor = Me.RecommendColors.Button.ToColor();
 
             Button_Info.BackColor = folderButtonBackColor;
+            Button_Colors.BackColor = folderButtonBackColor;
             Button_View.BackColor = folderButtonBackColor;
 
             Button_Transparency.BackColor = folderButtonBackColor;
@@ -484,6 +575,7 @@ namespace WinFormApp
             Color folderButtonBorderColor = Me.RecommendColors.Button.ToColor();
 
             Button_Info.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_Colors.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
 
             Button_Transparency.FlatAppearance.BorderColor = folderButtonBorderColor;
@@ -497,6 +589,7 @@ namespace WinFormApp
             Color folderButtonMouseOverBackColor = Me.RecommendColors.Button_DEC.ToColor();
 
             Button_Info.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_Colors.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
 
             Button_Transparency.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
@@ -510,6 +603,7 @@ namespace WinFormApp
             Color folderButtonMouseDownBackColor = Me.RecommendColors.Button.ToColor();
 
             Button_Info.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_Colors.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
 
             Button_Transparency.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
@@ -658,6 +752,7 @@ namespace WinFormApp
             UpdateDivButtons();
 
             _RepaintInfoImage();
+            _RepaintColorsImage();
             _RepaintViewImage();
 
             _RepaintEditingColorsShadowImage();
@@ -900,6 +995,27 @@ namespace WinFormApp
             {
                 switch (_ColorTag)
                 {
+                    case _ColorTags.Color01: return _Color01;
+                    case _ColorTags.Color02: return _Color02;
+                    case _ColorTags.Color03: return _Color03;
+                    case _ColorTags.Color04: return _Color04;
+                    case _ColorTags.Color05: return _Color05;
+                    case _ColorTags.Color06: return _Color06;
+                    case _ColorTags.Color07: return _Color07;
+                    case _ColorTags.Color08: return _Color08;
+                    case _ColorTags.Color09: return _Color09;
+                    case _ColorTags.Color10: return _Color10;
+                    case _ColorTags.Color11: return _Color11;
+                    case _ColorTags.Color12: return _Color12;
+                    case _ColorTags.Color13: return _Color13;
+                    case _ColorTags.Color14: return _Color14;
+                    case _ColorTags.Color15: return _Color15;
+                    case _ColorTags.Color16: return _Color16;
+                    case _ColorTags.Color17: return _Color17;
+                    case _ColorTags.Color18: return _Color18;
+                    case _ColorTags.Color19: return _Color19;
+                    case _ColorTags.Color20: return _Color20;
+                    case _ColorTags.Color21: return _Color21;
                     case _ColorTags.Background: return _BackgroundColor;
                     case _ColorTags.Label: return _LabelColor;
                     case _ColorTags.Border: return _BorderColor;
@@ -912,6 +1028,27 @@ namespace WinFormApp
             {
                 switch (_ColorTag)
                 {
+                    case _ColorTags.Color01: _Color01 = value; break;
+                    case _ColorTags.Color02: _Color02 = value; break;
+                    case _ColorTags.Color03: _Color03 = value; break;
+                    case _ColorTags.Color04: _Color04 = value; break;
+                    case _ColorTags.Color05: _Color05 = value; break;
+                    case _ColorTags.Color06: _Color06 = value; break;
+                    case _ColorTags.Color07: _Color07 = value; break;
+                    case _ColorTags.Color08: _Color08 = value; break;
+                    case _ColorTags.Color09: _Color09 = value; break;
+                    case _ColorTags.Color10: _Color10 = value; break;
+                    case _ColorTags.Color11: _Color11 = value; break;
+                    case _ColorTags.Color12: _Color12 = value; break;
+                    case _ColorTags.Color13: _Color13 = value; break;
+                    case _ColorTags.Color14: _Color14 = value; break;
+                    case _ColorTags.Color15: _Color15 = value; break;
+                    case _ColorTags.Color16: _Color16 = value; break;
+                    case _ColorTags.Color17: _Color17 = value; break;
+                    case _ColorTags.Color18: _Color18 = value; break;
+                    case _ColorTags.Color19: _Color19 = value; break;
+                    case _ColorTags.Color20: _Color20 = value; break;
+                    case _ColorTags.Color21: _Color21 = value; break;
                     case _ColorTags.Background: _BackgroundColor = value; break;
                     case _ColorTags.Label: _LabelColor = value; break;
                     case _ColorTags.Border: _BorderColor = value; break;
@@ -922,7 +1059,15 @@ namespace WinFormApp
 
                 UpdateColorInfo(value);
 
-                _RepaintDivImage();
+                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color21)
+                {
+                    _RepaintColorsImage();
+                }
+
+                if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
+                {
+                    _RepaintDivImage();
+                }
 
                 UpdateTrackBarAndNumEditor(value);
             }
@@ -943,6 +1088,18 @@ namespace WinFormApp
                 UpdateColorInfo(currentColor);
 
                 UpdateTrackBarAndNumEditor(currentColor);
+            }
+        }
+
+        private void SetColor(_ColorTags colorTag, Com.ColorX color)
+        {
+            if (colorTag == _ColorTag)
+            {
+                CurrentColor = color;
+            }
+            else
+            {
+
             }
         }
 
@@ -1229,6 +1386,344 @@ namespace WinFormApp
 
         //
 
+        private void Label_Color01_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color01);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color02_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color02);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color03_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color03);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color04_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color04);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color05_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color05);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color06_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color06);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color07_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color07);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color08_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color08);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color09_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color09);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color10_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color10);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color11_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color11);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color12_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color12);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color13_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color13);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color14_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color14);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color15_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color15);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color16_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color16);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color17_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color17);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color18_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color18);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color19_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color19);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color20_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color20);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        private void Label_Color21_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                UnregisterEvents();
+
+                //
+
+                ChoseColor(_ColorTags.Color21);
+
+                //
+
+                RegisterEvents();
+            }
+        }
+
+        //
+
         private void Button_Background_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -1332,7 +1827,8 @@ namespace WinFormApp
                 btn.Parent.Height = btn.Bottom;
             }
 
-            Panel_View.Top = Panel_Info.Bottom + 15;
+            Panel_Colors.Top = Panel_Info.Bottom + 15;
+            Panel_View.Top = Panel_Colors.Bottom + 15;
             Panel_EditingColors.Height = Panel_View.Bottom + Panel_Info.Top;
 
             //
@@ -1345,6 +1841,14 @@ namespace WinFormApp
         }
 
         private void Button_Info_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseEditingColorsFolderState((Button)sender);
+            }
+        }
+
+        private void Button_Colors_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1514,7 +2018,7 @@ namespace WinFormApp
 
                 //
 
-                Control[] ctrls = new Control[] { Panel_Info, Panel_View };
+                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_View };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
@@ -1600,6 +2104,115 @@ namespace WinFormApp
             if (_InfoImage != null)
             {
                 e.Graphics.DrawImage(_InfoImage, new Point(0, 0));
+            }
+        }
+
+        //
+
+        private Bitmap _ColorsImage = null;
+
+        private void _UpdateColorsImage()
+        {
+            if (_ColorsImage != null)
+            {
+                _ColorsImage.Dispose();
+            }
+
+            _ColorsImage = new Bitmap(Math.Max(1, Panel_Colors.Width), Math.Max(1, Panel_Colors.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_ColorsImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Grap.Clear(Panel_Colors.BackColor);
+
+                //
+
+                Control[] ctrls = new Control[] { Label_Color01, Label_Color02, Label_Color03, Label_Color04, Label_Color05, Label_Color06, Label_Color07, Label_Color08, Label_Color09, Label_Color10, Label_Color11, Label_Color12, Label_Color13, Label_Color14, Label_Color15, Label_Color16, Label_Color17, Label_Color18, Label_Color19, Label_Color20, Label_Color21 };
+
+                Com.ColorX[] colors = new Com.ColorX[] { _Color01, _Color02, _Color03, _Color04, _Color05, _Color06, _Color07, _Color08, _Color09, _Color10, _Color11, _Color12, _Color13, _Color14, _Color15, _Color16, _Color17, _Color18, _Color19, _Color20, _Color21 };
+
+                //
+
+                for (int i = 0; i < ctrls.Length; i++)
+                {
+                    using (Brush Br = new SolidBrush(colors[i].ToColor()))
+                    {
+                        Grap.FillRectangle(Br, ctrls[i].Bounds);
+                    }
+                }
+
+                //
+
+                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color21)
+                {
+                    Control ctrl = null;
+                    Com.ColorX cr = new Com.ColorX();
+
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.Color01: ctrl = Label_Color01; cr = _Color01; break;
+                        case _ColorTags.Color02: ctrl = Label_Color02; cr = _Color02; break;
+                        case _ColorTags.Color03: ctrl = Label_Color03; cr = _Color03; break;
+                        case _ColorTags.Color04: ctrl = Label_Color04; cr = _Color04; break;
+                        case _ColorTags.Color05: ctrl = Label_Color05; cr = _Color05; break;
+                        case _ColorTags.Color06: ctrl = Label_Color06; cr = _Color06; break;
+                        case _ColorTags.Color07: ctrl = Label_Color07; cr = _Color07; break;
+                        case _ColorTags.Color08: ctrl = Label_Color08; cr = _Color08; break;
+                        case _ColorTags.Color09: ctrl = Label_Color09; cr = _Color09; break;
+                        case _ColorTags.Color10: ctrl = Label_Color10; cr = _Color10; break;
+                        case _ColorTags.Color11: ctrl = Label_Color11; cr = _Color11; break;
+                        case _ColorTags.Color12: ctrl = Label_Color12; cr = _Color12; break;
+                        case _ColorTags.Color13: ctrl = Label_Color13; cr = _Color13; break;
+                        case _ColorTags.Color14: ctrl = Label_Color14; cr = _Color14; break;
+                        case _ColorTags.Color15: ctrl = Label_Color15; cr = _Color15; break;
+                        case _ColorTags.Color16: ctrl = Label_Color16; cr = _Color16; break;
+                        case _ColorTags.Color17: ctrl = Label_Color17; cr = _Color17; break;
+                        case _ColorTags.Color18: ctrl = Label_Color18; cr = _Color18; break;
+                        case _ColorTags.Color19: ctrl = Label_Color19; cr = _Color19; break;
+                        case _ColorTags.Color20: ctrl = Label_Color20; cr = _Color20; break;
+                        case _ColorTags.Color21: ctrl = Label_Color21; cr = _Color21; break;
+                    }
+
+                    Rectangle rect = ctrl.Bounds;
+
+                    using (Brush Br = new SolidBrush(Com.ColorManipulation.ShiftLightnessByHSL(cr, -0.5).ToColor()))
+                    {
+                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + rect.Width * 0.3F, rect.Y), new PointF(rect.X, rect.Y + rect.Height * 0.3F) });
+                    }
+                }
+
+                //
+
+                Color borderColor = Color.FromArgb(20, Color.Black);
+
+                foreach (Control ctrl in ctrls)
+                {
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                }
+            }
+        }
+
+        private void _RepaintColorsImage()
+        {
+            _UpdateColorsImage();
+
+            if (_ColorsImage != null)
+            {
+                Panel_Colors.CreateGraphics().DrawImage(_ColorsImage, new Point(0, 0));
+            }
+        }
+
+        private void Panel_Colors_Paint(object sender, PaintEventArgs e)
+        {
+            if (_ColorsImage == null)
+            {
+                _UpdateColorsImage();
+            }
+
+            if (_ColorsImage != null)
+            {
+                e.Graphics.DrawImage(_ColorsImage, new Point(0, 0));
             }
         }
 

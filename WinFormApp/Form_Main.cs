@@ -29,7 +29,7 @@ namespace WinFormApp
         #region 私有成员与内部成员
 
         private const int _ColorsNumX = 12;
-        private const int _ColorsNumY = 5;
+        private const int _ColorsNumY = 6;
 
         private Com.ColorX[] _Colors = new Com.ColorX[_ColorsNumX * _ColorsNumY];
         private Com.ColorX _BackgroundColor;
@@ -45,6 +45,7 @@ namespace WinFormApp
             Color25, Color26, Color27, Color28, Color29, Color30, Color31, Color32, Color33, Color34, Color35, Color36,
             Color37, Color38, Color39, Color40, Color41, Color42, Color43, Color44, Color45, Color46, Color47, Color48,
             Color49, Color50, Color51, Color52, Color53, Color54, Color55, Color56, Color57, Color58, Color59, Color60,
+            Color61, Color62, Color63, Color64, Color65, Color66, Color67, Color68, Color69, Color70, Color71, Color72,
             Background,
             Label,
             Border,
@@ -375,15 +376,23 @@ namespace WinFormApp
 
             //
 
+            double[] hues = new double[_ColorsNumX] { 355, 25, 37, 57, 79, 147, 199, 213, 238, 279, 306, 327 };
+            double[] sats = new double[_ColorsNumY] { 50, 75, 100, 100, 100, 0 };
+            double[] vals1 = new double[_ColorsNumY] { 100, 100, 100, 75, 50, 0 };
+            double[] vals2 = new double[_ColorsNumX] { 100, 93, 86, 79, 71, 63, 58, 49, 38, 26, 10, 0 };
+
             for (int x = 0; x < _ColorsNumX; x++)
             {
                 for (int y = 0; y < _ColorsNumY; y++)
                 {
-                    double h = (x > 0 ? 25 + 330.0 / (_ColorsNumX - 1) * (x - 1) : 355);
-                    double s = (y < 2 ? 50 + 25 * y : 100);
-                    double v = (y > 2 ? 100 - 25 * (y - 2) : 100);
-
-                    _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSV(h, s, v);
+                    if (y < _ColorsNumY - 1)
+                    {
+                        _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSV(hues[x], sats[y], vals1[y]);
+                    }
+                    else
+                    {
+                        _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSV(0, 0, vals2[x]);
+                    }
                 }
             }
 
@@ -948,7 +957,7 @@ namespace WinFormApp
         {
             get
             {
-                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color60)
+                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color72)
                 {
                     return _Colors[_ColorTag - _ColorTags.Color01];
                 }
@@ -967,7 +976,7 @@ namespace WinFormApp
 
             set
             {
-                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color60)
+                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color72)
                 {
                     _Colors[_ColorTag - _ColorTags.Color01] = value;
                 }
@@ -986,7 +995,7 @@ namespace WinFormApp
 
                 UpdateColorInfo(value);
 
-                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color60)
+                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color72)
                 {
                     _RepaintColorsImage();
                 }
@@ -1323,7 +1332,7 @@ namespace WinFormApp
 
                 //
 
-                for (_ColorTags i = _ColorTags.Color01; i <= _ColorTags.Color60; i++)
+                for (_ColorTags i = _ColorTags.Color01; i <= _ColorTags.Color72; i++)
                 {
                     if (object.ReferenceEquals(sender, Label_Colors[(int)i]))
                     {
@@ -1757,7 +1766,7 @@ namespace WinFormApp
 
                 //
 
-                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color60)
+                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color72)
                 {
                     Label ctrl = Label_Colors[_ColorTag - _ColorTags.Color01];
                     Com.ColorX crx = _Colors[_ColorTag - _ColorTags.Color01];

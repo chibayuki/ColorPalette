@@ -661,7 +661,7 @@ namespace WinFormApp
             NumEditor_YUV_U.ForeColor = numEditorForeColor;
             NumEditor_YUV_V.ForeColor = numEditorForeColor;
 
-            Color numEditorBackColor = Me.RecommendColors.Background.ToColor();
+            Color numEditorBackColor = Me.RecommendColors.Background_DEC.ToColor();
 
             NumEditor_Opacity.BackColor = numEditorBackColor;
             NumEditor_Alpha.BackColor = numEditorBackColor;

@@ -57,6 +57,27 @@
             this.Label_Text = new System.Windows.Forms.Label();
             this.Label_Text_Val = new System.Windows.Forms.Label();
             this.Panel_Div = new System.Windows.Forms.Panel();
+            this.Panel_Blend = new System.Windows.Forms.Panel();
+            this.Button_Blend = new System.Windows.Forms.Button();
+            this.Label_BlendMethod = new System.Windows.Forms.Label();
+            this.ComboBox_BlendMethod = new System.Windows.Forms.ComboBox();
+            this.NumEditor_Blend = new WinFormApp.NumEditor();
+            this.HTrackBar_Blend = new WinFormApp.HTrackBar();
+            this.Label_BlendColor1 = new System.Windows.Forms.Label();
+            this.Label_BlendResult = new System.Windows.Forms.Label();
+            this.Label_BlendColor2 = new System.Windows.Forms.Label();
+            this.Panel_Theme = new System.Windows.Forms.Panel();
+            this.Button_Theme = new System.Windows.Forms.Button();
+            this.Label_Theme = new System.Windows.Forms.Label();
+            this.ComboBox_Theme = new System.Windows.Forms.ComboBox();
+            this.Label_ThemeColor = new System.Windows.Forms.Label();
+            this.RadioButton_ThemeColor_EditingColor = new System.Windows.Forms.RadioButton();
+            this.RadioButton_ThemeColor_WindowsColor = new System.Windows.Forms.RadioButton();
+            this.RadioButton_ThemeColor_Customize = new System.Windows.Forms.RadioButton();
+            this.Label_ThemeColor_EditingColor = new System.Windows.Forms.Label();
+            this.Panel_About = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Button_About = new System.Windows.Forms.Button();
             this.Panel_RightArea = new System.Windows.Forms.Panel();
             this.Panel_ColorSpaces = new System.Windows.Forms.Panel();
             this.Panel_Transparency = new System.Windows.Forms.Panel();
@@ -163,6 +184,10 @@
             this.Panel_Info.SuspendLayout();
             this.Panel_Colors.SuspendLayout();
             this.Panel_View.SuspendLayout();
+            this.Panel_Blend.SuspendLayout();
+            this.Panel_Theme.SuspendLayout();
+            this.Panel_About.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Panel_RightArea.SuspendLayout();
             this.Panel_ColorSpaces.SuspendLayout();
             this.Panel_Transparency.SuspendLayout();
@@ -184,6 +209,7 @@
             this.Panel_Main.Name = "Panel_Main";
             this.Panel_Main.Size = new System.Drawing.Size(1100, 545);
             this.Panel_Main.TabIndex = 0;
+            this.Panel_Main.Visible = false;
             // 
             // Panel_LeftArea
             // 
@@ -201,9 +227,12 @@
             this.Panel_EditingColors.Controls.Add(this.Panel_Info);
             this.Panel_EditingColors.Controls.Add(this.Panel_Colors);
             this.Panel_EditingColors.Controls.Add(this.Panel_View);
+            this.Panel_EditingColors.Controls.Add(this.Panel_Blend);
+            this.Panel_EditingColors.Controls.Add(this.Panel_Theme);
+            this.Panel_EditingColors.Controls.Add(this.Panel_About);
             this.Panel_EditingColors.Location = new System.Drawing.Point(0, 0);
             this.Panel_EditingColors.Name = "Panel_EditingColors";
-            this.Panel_EditingColors.Size = new System.Drawing.Size(380, 600);
+            this.Panel_EditingColors.Size = new System.Drawing.Size(380, 1085);
             this.Panel_EditingColors.TabIndex = 0;
             this.Panel_EditingColors.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_EditingColors_Paint);
             // 
@@ -536,6 +565,294 @@
             this.Panel_Div.Size = new System.Drawing.Size(185, 130);
             this.Panel_Div.TabIndex = 0;
             this.Panel_Div.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Div_Paint);
+            // 
+            // Panel_Blend
+            // 
+            this.Panel_Blend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_Blend.Controls.Add(this.Button_Blend);
+            this.Panel_Blend.Controls.Add(this.Label_BlendMethod);
+            this.Panel_Blend.Controls.Add(this.ComboBox_BlendMethod);
+            this.Panel_Blend.Controls.Add(this.NumEditor_Blend);
+            this.Panel_Blend.Controls.Add(this.HTrackBar_Blend);
+            this.Panel_Blend.Controls.Add(this.Label_BlendColor1);
+            this.Panel_Blend.Controls.Add(this.Label_BlendResult);
+            this.Panel_Blend.Controls.Add(this.Label_BlendColor2);
+            this.Panel_Blend.Location = new System.Drawing.Point(20, 595);
+            this.Panel_Blend.Name = "Panel_Blend";
+            this.Panel_Blend.Size = new System.Drawing.Size(340, 145);
+            this.Panel_Blend.TabIndex = 0;
+            // 
+            // Button_Blend
+            // 
+            this.Button_Blend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Button_Blend.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Button_Blend.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Button_Blend.FlatAppearance.BorderSize = 0;
+            this.Button_Blend.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Button_Blend.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Blend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Blend.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_Blend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Button_Blend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Blend.ImageIndex = 1;
+            this.Button_Blend.ImageList = this.ImageList_FoldAndUnfold;
+            this.Button_Blend.Location = new System.Drawing.Point(0, 0);
+            this.Button_Blend.Name = "Button_Blend";
+            this.Button_Blend.Size = new System.Drawing.Size(340, 30);
+            this.Button_Blend.TabIndex = 0;
+            this.Button_Blend.TabStop = false;
+            this.Button_Blend.Text = "混色";
+            this.Button_Blend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Blend.UseVisualStyleBackColor = false;
+            this.Button_Blend.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Blend_MouseDown);
+            // 
+            // Label_BlendMethod
+            // 
+            this.Label_BlendMethod.AutoSize = true;
+            this.Label_BlendMethod.BackColor = System.Drawing.Color.Transparent;
+            this.Label_BlendMethod.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_BlendMethod.ForeColor = System.Drawing.Color.Silver;
+            this.Label_BlendMethod.Location = new System.Drawing.Point(20, 40);
+            this.Label_BlendMethod.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendMethod.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendMethod.Name = "Label_BlendMethod";
+            this.Label_BlendMethod.Size = new System.Drawing.Size(61, 25);
+            this.Label_BlendMethod.TabIndex = 0;
+            this.Label_BlendMethod.Text = "混色方式";
+            this.Label_BlendMethod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ComboBox_BlendMethod
+            // 
+            this.ComboBox_BlendMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox_BlendMethod.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ComboBox_BlendMethod.FormattingEnabled = true;
+            this.ComboBox_BlendMethod.Location = new System.Drawing.Point(90, 40);
+            this.ComboBox_BlendMethod.Name = "ComboBox_BlendMethod";
+            this.ComboBox_BlendMethod.Size = new System.Drawing.Size(120, 25);
+            this.ComboBox_BlendMethod.TabIndex = 0;
+            this.ComboBox_BlendMethod.TabStop = false;
+            // 
+            // NumEditor_Blend
+            // 
+            this.NumEditor_Blend.BorderColor = System.Drawing.Color.Black;
+            this.NumEditor_Blend.Location = new System.Drawing.Point(20, 75);
+            this.NumEditor_Blend.Maximum = 100D;
+            this.NumEditor_Blend.Minimum = 0D;
+            this.NumEditor_Blend.Name = "NumEditor_Blend";
+            this.NumEditor_Blend.Precision = 0;
+            this.NumEditor_Blend.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_Blend.TabIndex = 0;
+            this.NumEditor_Blend.TabStop = false;
+            this.NumEditor_Blend.Value = 0D;
+            // 
+            // HTrackBar_Blend
+            // 
+            this.HTrackBar_Blend.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_Blend.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_Blend.Delta = 5D;
+            this.HTrackBar_Blend.Location = new System.Drawing.Point(100, 75);
+            this.HTrackBar_Blend.Maximum = 100D;
+            this.HTrackBar_Blend.Minimum = 0D;
+            this.HTrackBar_Blend.Name = "HTrackBar_Blend";
+            this.HTrackBar_Blend.Size = new System.Drawing.Size(220, 25);
+            this.HTrackBar_Blend.TabIndex = 0;
+            this.HTrackBar_Blend.TabStop = false;
+            this.HTrackBar_Blend.Value = 0D;
+            // 
+            // Label_BlendColor1
+            // 
+            this.Label_BlendColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendColor1.Location = new System.Drawing.Point(20, 110);
+            this.Label_BlendColor1.Name = "Label_BlendColor1";
+            this.Label_BlendColor1.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendColor1.TabIndex = 0;
+            // 
+            // Label_BlendResult
+            // 
+            this.Label_BlendResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendResult.Location = new System.Drawing.Point(140, 110);
+            this.Label_BlendResult.Name = "Label_BlendResult";
+            this.Label_BlendResult.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendResult.TabIndex = 0;
+            // 
+            // Label_BlendColor2
+            // 
+            this.Label_BlendColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendColor2.Location = new System.Drawing.Point(260, 110);
+            this.Label_BlendColor2.Name = "Label_BlendColor2";
+            this.Label_BlendColor2.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendColor2.TabIndex = 0;
+            // 
+            // Panel_Theme
+            // 
+            this.Panel_Theme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_Theme.Controls.Add(this.Button_Theme);
+            this.Panel_Theme.Controls.Add(this.Label_Theme);
+            this.Panel_Theme.Controls.Add(this.ComboBox_Theme);
+            this.Panel_Theme.Controls.Add(this.Label_ThemeColor);
+            this.Panel_Theme.Controls.Add(this.RadioButton_ThemeColor_EditingColor);
+            this.Panel_Theme.Controls.Add(this.RadioButton_ThemeColor_WindowsColor);
+            this.Panel_Theme.Controls.Add(this.RadioButton_ThemeColor_Customize);
+            this.Panel_Theme.Controls.Add(this.Label_ThemeColor_EditingColor);
+            this.Panel_Theme.Location = new System.Drawing.Point(20, 755);
+            this.Panel_Theme.Name = "Panel_Theme";
+            this.Panel_Theme.Size = new System.Drawing.Size(340, 180);
+            this.Panel_Theme.TabIndex = 0;
+            // 
+            // Button_Theme
+            // 
+            this.Button_Theme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Button_Theme.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Button_Theme.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Button_Theme.FlatAppearance.BorderSize = 0;
+            this.Button_Theme.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Button_Theme.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_Theme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_Theme.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_Theme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Button_Theme.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_Theme.ImageIndex = 1;
+            this.Button_Theme.ImageList = this.ImageList_FoldAndUnfold;
+            this.Button_Theme.Location = new System.Drawing.Point(0, 0);
+            this.Button_Theme.Name = "Button_Theme";
+            this.Button_Theme.Size = new System.Drawing.Size(340, 30);
+            this.Button_Theme.TabIndex = 0;
+            this.Button_Theme.TabStop = false;
+            this.Button_Theme.Text = "主题";
+            this.Button_Theme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_Theme.UseVisualStyleBackColor = false;
+            this.Button_Theme.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Theme_MouseDown);
+            // 
+            // Label_Theme
+            // 
+            this.Label_Theme.AutoSize = true;
+            this.Label_Theme.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Theme.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Theme.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Theme.Location = new System.Drawing.Point(20, 40);
+            this.Label_Theme.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Theme.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Theme.Name = "Label_Theme";
+            this.Label_Theme.Size = new System.Drawing.Size(35, 25);
+            this.Label_Theme.TabIndex = 0;
+            this.Label_Theme.Text = "主题";
+            this.Label_Theme.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ComboBox_Theme
+            // 
+            this.ComboBox_Theme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBox_Theme.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ComboBox_Theme.FormattingEnabled = true;
+            this.ComboBox_Theme.Location = new System.Drawing.Point(80, 40);
+            this.ComboBox_Theme.Name = "ComboBox_Theme";
+            this.ComboBox_Theme.Size = new System.Drawing.Size(120, 25);
+            this.ComboBox_Theme.TabIndex = 0;
+            this.ComboBox_Theme.TabStop = false;
+            // 
+            // Label_ThemeColor
+            // 
+            this.Label_ThemeColor.AutoSize = true;
+            this.Label_ThemeColor.BackColor = System.Drawing.Color.Transparent;
+            this.Label_ThemeColor.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_ThemeColor.ForeColor = System.Drawing.Color.Silver;
+            this.Label_ThemeColor.Location = new System.Drawing.Point(20, 75);
+            this.Label_ThemeColor.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_ThemeColor.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_ThemeColor.Name = "Label_ThemeColor";
+            this.Label_ThemeColor.Size = new System.Drawing.Size(48, 25);
+            this.Label_ThemeColor.TabIndex = 0;
+            this.Label_ThemeColor.Text = "主题色";
+            this.Label_ThemeColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // RadioButton_ThemeColor_EditingColor
+            // 
+            this.RadioButton_ThemeColor_EditingColor.AutoSize = true;
+            this.RadioButton_ThemeColor_EditingColor.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.RadioButton_ThemeColor_EditingColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RadioButton_ThemeColor_EditingColor.Location = new System.Drawing.Point(80, 75);
+            this.RadioButton_ThemeColor_EditingColor.Name = "RadioButton_ThemeColor_EditingColor";
+            this.RadioButton_ThemeColor_EditingColor.Size = new System.Drawing.Size(144, 23);
+            this.RadioButton_ThemeColor_EditingColor.TabIndex = 0;
+            this.RadioButton_ThemeColor_EditingColor.Text = "使用正在编辑的颜色";
+            this.RadioButton_ThemeColor_EditingColor.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_ThemeColor_WindowsColor
+            // 
+            this.RadioButton_ThemeColor_WindowsColor.AutoSize = true;
+            this.RadioButton_ThemeColor_WindowsColor.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.RadioButton_ThemeColor_WindowsColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RadioButton_ThemeColor_WindowsColor.Location = new System.Drawing.Point(80, 110);
+            this.RadioButton_ThemeColor_WindowsColor.Name = "RadioButton_ThemeColor_WindowsColor";
+            this.RadioButton_ThemeColor_WindowsColor.Size = new System.Drawing.Size(156, 23);
+            this.RadioButton_ThemeColor_WindowsColor.TabIndex = 0;
+            this.RadioButton_ThemeColor_WindowsColor.Text = "使用 Windows 主题色";
+            this.RadioButton_ThemeColor_WindowsColor.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_ThemeColor_Customize
+            // 
+            this.RadioButton_ThemeColor_Customize.AutoSize = true;
+            this.RadioButton_ThemeColor_Customize.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.RadioButton_ThemeColor_Customize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RadioButton_ThemeColor_Customize.Location = new System.Drawing.Point(80, 145);
+            this.RadioButton_ThemeColor_Customize.Name = "RadioButton_ThemeColor_Customize";
+            this.RadioButton_ThemeColor_Customize.Size = new System.Drawing.Size(66, 23);
+            this.RadioButton_ThemeColor_Customize.TabIndex = 0;
+            this.RadioButton_ThemeColor_Customize.Text = "自定义";
+            this.RadioButton_ThemeColor_Customize.UseVisualStyleBackColor = true;
+            // 
+            // Label_ThemeColor_EditingColor
+            // 
+            this.Label_ThemeColor_EditingColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_ThemeColor_EditingColor.Location = new System.Drawing.Point(160, 145);
+            this.Label_ThemeColor_EditingColor.Name = "Label_ThemeColor_EditingColor";
+            this.Label_ThemeColor_EditingColor.Size = new System.Drawing.Size(60, 25);
+            this.Label_ThemeColor_EditingColor.TabIndex = 0;
+            // 
+            // Panel_About
+            // 
+            this.Panel_About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_About.Controls.Add(this.pictureBox1);
+            this.Panel_About.Controls.Add(this.Button_About);
+            this.Panel_About.Location = new System.Drawing.Point(20, 950);
+            this.Panel_About.Name = "Panel_About";
+            this.Panel_About.Size = new System.Drawing.Size(340, 115);
+            this.Panel_About.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Button_About
+            // 
+            this.Button_About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Button_About.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Button_About.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Button_About.FlatAppearance.BorderSize = 0;
+            this.Button_About.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Button_About.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_About.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_About.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_About.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Button_About.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_About.ImageIndex = 1;
+            this.Button_About.ImageList = this.ImageList_FoldAndUnfold;
+            this.Button_About.Location = new System.Drawing.Point(0, 0);
+            this.Button_About.Name = "Button_About";
+            this.Button_About.Size = new System.Drawing.Size(340, 30);
+            this.Button_About.TabIndex = 0;
+            this.Button_About.TabStop = false;
+            this.Button_About.Text = "关于";
+            this.Button_About.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_About.UseVisualStyleBackColor = false;
+            this.Button_About.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_About_MouseDown);
             // 
             // Panel_RightArea
             // 
@@ -2093,6 +2410,12 @@
             this.Panel_Colors.ResumeLayout(false);
             this.Panel_View.ResumeLayout(false);
             this.Panel_View.PerformLayout();
+            this.Panel_Blend.ResumeLayout(false);
+            this.Panel_Blend.PerformLayout();
+            this.Panel_Theme.ResumeLayout(false);
+            this.Panel_Theme.PerformLayout();
+            this.Panel_About.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Panel_RightArea.ResumeLayout(false);
             this.Panel_ColorSpaces.ResumeLayout(false);
             this.Panel_Transparency.ResumeLayout(false);
@@ -2242,5 +2565,26 @@
         private System.Windows.Forms.Label Label_Border_Val;
         private System.Windows.Forms.Label Label_Label;
         private System.Windows.Forms.Label Label_Label_Val;
+        private System.Windows.Forms.Panel Panel_About;
+        private System.Windows.Forms.Button Button_About;
+        private System.Windows.Forms.Panel Panel_Theme;
+        private System.Windows.Forms.Button Button_Theme;
+        private System.Windows.Forms.Panel Panel_Blend;
+        private System.Windows.Forms.Button Button_Blend;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox ComboBox_BlendMethod;
+        private NumEditor NumEditor_Blend;
+        private HTrackBar HTrackBar_Blend;
+        private System.Windows.Forms.Label Label_BlendMethod;
+        private System.Windows.Forms.Label Label_BlendResult;
+        private System.Windows.Forms.Label Label_BlendColor2;
+        private System.Windows.Forms.Label Label_BlendColor1;
+        private System.Windows.Forms.Label Label_Theme;
+        private System.Windows.Forms.ComboBox ComboBox_Theme;
+        private System.Windows.Forms.Label Label_ThemeColor;
+        private System.Windows.Forms.Label Label_ThemeColor_EditingColor;
+        private System.Windows.Forms.RadioButton RadioButton_ThemeColor_Customize;
+        private System.Windows.Forms.RadioButton RadioButton_ThemeColor_WindowsColor;
+        private System.Windows.Forms.RadioButton RadioButton_ThemeColor_EditingColor;
     }
 }

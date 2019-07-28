@@ -141,9 +141,10 @@ namespace WinFormApp
             Me.FormStyle = Com.WinForm.FormStyle.Sizable;
             Me.EnableFullScreen = false;
             Me.Theme = Com.WinForm.Theme.Colorful;
-            Me.ThemeColor = Com.ColorManipulation.GetRandomColorX();
+            Me.ThemeColor = Com.ColorManipulation.GetRandomColorX().AtSaturation_HSL(Com.Statistics.RandomInteger(30, 70)).AtLightness_LAB(Com.Statistics.RandomInteger(15, 45));
             Me.MinimumSize = new Size(920, 285 + Me.CaptionBarHeight);
 
+            Me.Loading += LoadingEvents;
             Me.Loaded += LoadedEvents;
             Me.Resize += ResizeEvents;
             Me.SizeChanged += SizeChangedEvents;
@@ -155,14 +156,8 @@ namespace WinFormApp
 
         #region 窗体事件
 
-        // 在窗体加载后发生。
-        private void LoadedEvents(object sender, EventArgs e)
+        private void LoadingEvents(object sender, EventArgs e)
         {
-            Me.OnSizeChanged();
-            Me.OnThemeChanged();
-
-            //
-
             _ColorsTable.Add(_ColorsKey.Opacity, new Color[_ColorsNum]);
             _ColorsTable.Add(_ColorsKey.Alpha, new Color[_ColorsNum]);
             _ColorsTable.Add(_ColorsKey.RGB_R, new Color[_ColorsNum]);
@@ -184,6 +179,39 @@ namespace WinFormApp
             _ColorsTable.Add(_ColorsKey.YUV_Y, new Color[_ColorsNum]);
             _ColorsTable.Add(_ColorsKey.YUV_U, new Color[_ColorsNum]);
             _ColorsTable.Add(_ColorsKey.YUV_V, new Color[_ColorsNum]);
+
+            //
+
+            double[] hues = new double[_ColorsNumX] { 355, 25, 37, 57, 79, 147, 199, 213, 238, 279, 306, 327 };
+            double[] sats = new double[_ColorsNumY] { 50, 75, 100, 100, 100, 0 };
+            double[] vals1 = new double[_ColorsNumY] { 100, 100, 100, 75, 50, 0 };
+            double[] vals2 = new double[_ColorsNumX] { 100, 93, 86, 79, 71, 63, 58, 49, 38, 26, 10, 0 };
+
+            for (int x = 0; x < _ColorsNumX; x++)
+            {
+                for (int y = 0; y < _ColorsNumY; y++)
+                {
+                    if (y < _ColorsNumY - 1)
+                    {
+                        _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSV(hues[x], sats[y], vals1[y]);
+                    }
+                    else
+                    {
+                        _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSV(0, 0, vals2[x]);
+                    }
+                }
+            }
+
+            _BackgroundColor = Me.RecommendColors.Background_INC;
+            _LabelColor = Me.RecommendColors.Button;
+            _BorderColor = Me.RecommendColors.Border_INC;
+            _TextColor = Me.RecommendColors.Text_INC;
+        }
+
+        private void LoadedEvents(object sender, EventArgs e)
+        {
+            Me.OnSizeChanged();
+            Me.OnThemeChanged();
 
             //
 
@@ -383,37 +411,19 @@ namespace WinFormApp
 
             //
 
-            double[] hues = new double[_ColorsNumX] { 355, 25, 37, 57, 79, 147, 199, 213, 238, 279, 306, 327 };
-            double[] sats = new double[_ColorsNumY] { 50, 75, 100, 100, 100, 0 };
-            double[] vals1 = new double[_ColorsNumY] { 100, 100, 100, 75, 50, 0 };
-            double[] vals2 = new double[_ColorsNumX] { 100, 93, 86, 79, 71, 63, 58, 49, 38, 26, 10, 0 };
-
-            for (int x = 0; x < _ColorsNumX; x++)
-            {
-                for (int y = 0; y < _ColorsNumY; y++)
-                {
-                    if (y < _ColorsNumY - 1)
-                    {
-                        _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSV(hues[x], sats[y], vals1[y]);
-                    }
-                    else
-                    {
-                        _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSV(0, 0, vals2[x]);
-                    }
-                }
-            }
-
-            _BackgroundColor = Me.RecommendColors.Background_INC;
-            _LabelColor = Me.RecommendColors.Button;
-            _BorderColor = Me.RecommendColors.Border_INC;
-            _TextColor = Me.RecommendColors.Text_INC;
-
             ChoseColor(_ColorTags.Background);
 
             RegisterEvents();
+
+            //
+
+            Panel_Main.Visible = true;
+
+            //
+
+            Me.Caption = Application.ProductName;
         }
 
-        // 在窗体的大小调整时发生。
         private void ResizeEvents(object sender, EventArgs e)
         {
             if (Panel_LeftArea.Height >= Panel_EditingColors.Height)
@@ -460,7 +470,6 @@ namespace WinFormApp
             _RepaintColorSpacesShadowImage();
         }
 
-        // 在窗体的大小更改时发生。
         private void SizeChangedEvents(object sender, EventArgs e)
         {
             ResizeEvents(sender, e);
@@ -494,7 +503,6 @@ namespace WinFormApp
             HTrackBar_YUV_V.Width = HTrackBar_YUV_Y.Width;
         }
 
-        // 在窗体的主题色更改时发生。
         private void ThemeColorChangedEvents(object sender, EventArgs e)
         {
             Panel_Main.BackColor = Me.RecommendColors.Background_DEC.ToColor();
@@ -506,6 +514,9 @@ namespace WinFormApp
             Panel_Info.BackColor = folderBackColor;
             Panel_Colors.BackColor = folderBackColor;
             Panel_View.BackColor = folderBackColor;
+            Panel_Blend.BackColor = folderBackColor;
+            Panel_Theme.BackColor = folderBackColor;
+            Panel_About.BackColor = folderBackColor;
 
             Panel_Transparency.BackColor = folderBackColor;
             Panel_RGB.BackColor = folderBackColor;
@@ -520,6 +531,9 @@ namespace WinFormApp
             Button_Info.ForeColor = folderButtonForeColor;
             Button_Colors.ForeColor = folderButtonForeColor;
             Button_View.ForeColor = folderButtonForeColor;
+            Button_Blend.ForeColor = folderButtonForeColor;
+            Button_Theme.ForeColor = folderButtonForeColor;
+            Button_About.ForeColor = folderButtonForeColor;
 
             Button_Transparency.ForeColor = folderButtonForeColor;
             Button_RGB.ForeColor = folderButtonForeColor;
@@ -534,6 +548,9 @@ namespace WinFormApp
             Button_Info.BackColor = folderButtonBackColor;
             Button_Colors.BackColor = folderButtonBackColor;
             Button_View.BackColor = folderButtonBackColor;
+            Button_Blend.BackColor = folderButtonBackColor;
+            Button_Theme.BackColor = folderButtonBackColor;
+            Button_About.BackColor = folderButtonBackColor;
 
             Button_Transparency.BackColor = folderButtonBackColor;
             Button_RGB.BackColor = folderButtonBackColor;
@@ -548,6 +565,9 @@ namespace WinFormApp
             Button_Info.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Colors.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_Blend.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_Theme.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_About.FlatAppearance.BorderColor = folderButtonBorderColor;
 
             Button_Transparency.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_RGB.FlatAppearance.BorderColor = folderButtonBorderColor;
@@ -562,6 +582,9 @@ namespace WinFormApp
             Button_Info.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Colors.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_Blend.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_Theme.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_About.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
 
             Button_Transparency.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_RGB.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
@@ -576,6 +599,9 @@ namespace WinFormApp
             Button_Info.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Colors.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_Blend.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_Theme.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_About.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
 
             Button_Transparency.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_RGB.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
@@ -1400,50 +1426,56 @@ namespace WinFormApp
 
         private void ReverseEditingColorsFolderState(Button btn)
         {
-            if (btn.ImageIndex == 0)
+            if (btn != null)
             {
-                int MaxHeight = btn.Bottom;
-
-                foreach (object obj in btn.Parent.Controls)
+                if (btn.ImageIndex == 0)
                 {
-                    if (((Control)obj).Bottom > MaxHeight)
+                    int MaxHeight = btn.Bottom;
+
+                    foreach (object obj in btn.Parent.Controls)
                     {
-                        MaxHeight = ((Control)obj).Bottom;
+                        if (((Control)obj).Bottom > MaxHeight)
+                        {
+                            MaxHeight = ((Control)obj).Bottom;
+                        }
                     }
+
+                    int TopDist = MaxHeight;
+
+                    foreach (object obj in btn.Parent.Controls)
+                    {
+                        if (!Control.Equals((Control)obj, btn) && ((Control)obj).Top < TopDist)
+                        {
+                            TopDist = ((Control)obj).Top;
+                        }
+                    }
+
+                    btn.ImageIndex = 1;
+
+                    btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                }
+                else
+                {
+                    btn.ImageIndex = 0;
+
+                    btn.Parent.Height = btn.Bottom;
                 }
 
-                int TopDist = MaxHeight;
+                Panel_Colors.Top = Panel_Info.Bottom + 15;
+                Panel_View.Top = Panel_Colors.Bottom + 15;
+                Panel_Blend.Top = Panel_View.Bottom + 15;
+                Panel_Theme.Top = Panel_Blend.Bottom + 15;
+                Panel_About.Top = Panel_Theme.Bottom + 15;
+                Panel_EditingColors.Height = Panel_About.Bottom + Panel_Info.Top;
 
-                foreach (object obj in btn.Parent.Controls)
-                {
-                    if (!Control.Equals((Control)obj, btn) && ((Control)obj).Top < TopDist)
-                    {
-                        TopDist = ((Control)obj).Top;
-                    }
-                }
+                //
 
-                btn.ImageIndex = 1;
+                Me.OnSizeChanged();
 
-                btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                //
+
+                _RepaintEditingColorsShadowImage();
             }
-            else
-            {
-                btn.ImageIndex = 0;
-
-                btn.Parent.Height = btn.Bottom;
-            }
-
-            Panel_Colors.Top = Panel_Info.Bottom + 15;
-            Panel_View.Top = Panel_Colors.Bottom + 15;
-            Panel_EditingColors.Height = Panel_View.Bottom + Panel_Info.Top;
-
-            //
-
-            Me.OnSizeChanged();
-
-            //
-
-            _RepaintEditingColorsShadowImage();
         }
 
         private void Button_Info_MouseDown(object sender, MouseEventArgs e)
@@ -1470,58 +1502,85 @@ namespace WinFormApp
             }
         }
 
+        private void Button_Blend_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseEditingColorsFolderState((Button)sender);
+            }
+        }
+
+        private void Button_Theme_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseEditingColorsFolderState((Button)sender);
+            }
+        }
+
+        private void Button_About_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReverseEditingColorsFolderState((Button)sender);
+            }
+        }
+
         //
 
         private void ReverseColorSpacesFolderState(Button btn)
         {
-            if (btn.ImageIndex == 0)
+            if (btn != null)
             {
-                int MaxHeight = btn.Bottom;
-
-                foreach (object obj in btn.Parent.Controls)
+                if (btn.ImageIndex == 0)
                 {
-                    if (((Control)obj).Bottom > MaxHeight)
+                    int MaxHeight = btn.Bottom;
+
+                    foreach (object obj in btn.Parent.Controls)
                     {
-                        MaxHeight = ((Control)obj).Bottom;
+                        if (((Control)obj).Bottom > MaxHeight)
+                        {
+                            MaxHeight = ((Control)obj).Bottom;
+                        }
                     }
+
+                    int TopDist = MaxHeight;
+
+                    foreach (object obj in btn.Parent.Controls)
+                    {
+                        if (!Control.Equals((Control)obj, btn) && ((Control)obj).Top < TopDist)
+                        {
+                            TopDist = ((Control)obj).Top;
+                        }
+                    }
+
+                    btn.ImageIndex = 1;
+
+                    btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                }
+                else
+                {
+                    btn.ImageIndex = 0;
+
+                    btn.Parent.Height = btn.Bottom;
                 }
 
-                int TopDist = MaxHeight;
+                Panel_RGB.Top = Panel_Transparency.Bottom + 15;
+                Panel_HSV.Top = Panel_RGB.Bottom + 15;
+                Panel_HSL.Top = Panel_HSV.Bottom + 15;
+                Panel_CMYK.Top = Panel_HSL.Bottom + 15;
+                Panel_LAB.Top = Panel_CMYK.Bottom + 15;
+                Panel_YUV.Top = Panel_LAB.Bottom + 15;
+                Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
 
-                foreach (object obj in btn.Parent.Controls)
-                {
-                    if (!Control.Equals((Control)obj, btn) && ((Control)obj).Top < TopDist)
-                    {
-                        TopDist = ((Control)obj).Top;
-                    }
-                }
+                //
 
-                btn.ImageIndex = 1;
+                Me.OnSizeChanged();
 
-                btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                //
+
+                _RepaintColorSpacesShadowImage();
             }
-            else
-            {
-                btn.ImageIndex = 0;
-
-                btn.Parent.Height = btn.Bottom;
-            }
-
-            Panel_RGB.Top = Panel_Transparency.Bottom + 15;
-            Panel_HSV.Top = Panel_RGB.Bottom + 15;
-            Panel_HSL.Top = Panel_HSV.Bottom + 15;
-            Panel_CMYK.Top = Panel_HSL.Bottom + 15;
-            Panel_LAB.Top = Panel_CMYK.Bottom + 15;
-            Panel_YUV.Top = Panel_LAB.Bottom + 15;
-            Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
-
-            //
-
-            Me.OnSizeChanged();
-
-            //
-
-            _RepaintColorSpacesShadowImage();
         }
 
         private void Button_Transparency_MouseDown(object sender, MouseEventArgs e)
@@ -1624,7 +1683,7 @@ namespace WinFormApp
 
                 //
 
-                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_View };
+                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_View, Panel_Blend, Panel_Theme, Panel_About };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 

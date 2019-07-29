@@ -276,7 +276,7 @@
             this.Button_Info.Text = "信息";
             this.Button_Info.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Info.UseVisualStyleBackColor = false;
-            this.Button_Info.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Info_MouseDown);
+            this.Button_Info.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
             // 
             // ImageList_FoldAndUnfold
             // 
@@ -416,7 +416,7 @@
             this.Button_Colors.Text = "颜色";
             this.Button_Colors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Colors.UseVisualStyleBackColor = false;
-            this.Button_Colors.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Colors_MouseDown);
+            this.Button_Colors.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
             // 
             // Panel_View
             // 
@@ -459,7 +459,7 @@
             this.Button_View.Text = "视图";
             this.Button_View.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_View.UseVisualStyleBackColor = false;
-            this.Button_View.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_View_MouseDown);
+            this.Button_View.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
             // 
             // Label_Background
             // 
@@ -604,7 +604,7 @@
             this.Button_Blend.Text = "混色";
             this.Button_Blend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Blend.UseVisualStyleBackColor = false;
-            this.Button_Blend.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Blend_MouseDown);
+            this.Button_Blend.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
             // 
             // Label_BlendMethod
             // 
@@ -721,7 +721,7 @@
             this.Button_Theme.Text = "主题";
             this.Button_Theme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Theme.UseVisualStyleBackColor = false;
-            this.Button_Theme.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Theme_MouseDown);
+            this.Button_Theme.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
             // 
             // Label_Theme
             // 
@@ -852,7 +852,7 @@
             this.Button_About.Text = "关于";
             this.Button_About.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_About.UseVisualStyleBackColor = false;
-            this.Button_About.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_About_MouseDown);
+            this.Button_About.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
             // 
             // Panel_RightArea
             // 
@@ -919,7 +919,7 @@
             this.Button_Transparency.Text = "不透明度";
             this.Button_Transparency.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_Transparency.UseVisualStyleBackColor = false;
-            this.Button_Transparency.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_Transparency_MouseDown);
+            this.Button_Transparency.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
             // Label_Abbr_Opacity
             // 
@@ -1078,7 +1078,7 @@
             this.Button_RGB.Text = "RGB";
             this.Button_RGB.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_RGB.UseVisualStyleBackColor = false;
-            this.Button_RGB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_RGB_MouseDown);
+            this.Button_RGB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
             // Label_Abbr_RGB_R
             // 
@@ -1294,7 +1294,7 @@
             this.Button_HSV.Text = "HSV";
             this.Button_HSV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_HSV.UseVisualStyleBackColor = false;
-            this.Button_HSV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_HSV_MouseDown);
+            this.Button_HSV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
             // Label_Abbr_HSV_H
             // 
@@ -1510,7 +1510,7 @@
             this.Button_HSL.Text = "HSL";
             this.Button_HSL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_HSL.UseVisualStyleBackColor = false;
-            this.Button_HSL.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_HSL_MouseDown);
+            this.Button_HSL.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
             // Label_Abbr_HSL_H
             // 
@@ -1730,7 +1730,7 @@
             this.Button_CMYK.Text = "CMYK";
             this.Button_CMYK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_CMYK.UseVisualStyleBackColor = false;
-            this.Button_CMYK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_CMYK_MouseDown);
+            this.Button_CMYK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
             // Label_Abbr_CMYK_C
             // 
@@ -2003,7 +2003,7 @@
             this.Button_LAB.Text = "Lab";
             this.Button_LAB.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_LAB.UseVisualStyleBackColor = false;
-            this.Button_LAB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_LAB_MouseDown);
+            this.Button_LAB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
             // Label_Abbr_LAB_L
             // 
@@ -2219,7 +2219,7 @@
             this.Button_YUV.Text = "YUV";
             this.Button_YUV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_YUV.UseVisualStyleBackColor = false;
-            this.Button_YUV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_YUV_MouseDown);
+            this.Button_YUV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
             // Label_Abbr_YUV_Y
             // 

@@ -1424,218 +1424,126 @@ namespace WinFormApp
 
         #region 卡片控制
 
-        private void ReverseEditingColorsFolderState(Button btn)
+        private void Button_EditingColors_MouseDown(object sender, MouseEventArgs e)
         {
-            if (btn != null)
+            if (e.Button == MouseButtons.Left)
             {
-                if (btn.ImageIndex == 0)
-                {
-                    int MaxHeight = btn.Bottom;
+                Button btn = sender as Button;
 
-                    foreach (object obj in btn.Parent.Controls)
+                if (btn != null)
+                {
+                    if (btn.ImageIndex == 0)
                     {
-                        if (((Control)obj).Bottom > MaxHeight)
+                        int MaxHeight = btn.Bottom;
+
+                        foreach (Control c in btn.Parent.Controls)
                         {
-                            MaxHeight = ((Control)obj).Bottom;
+                            if (MaxHeight < c.Bottom)
+                            {
+                                MaxHeight = c.Bottom;
+                            }
                         }
+
+                        int TopDist = MaxHeight;
+
+                        foreach (Control c in btn.Parent.Controls)
+                        {
+                            if (!object.ReferenceEquals(c, btn) && TopDist > c.Top)
+                            {
+                                TopDist = c.Top;
+                            }
+                        }
+
+                        btn.ImageIndex = 1;
+
+                        btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                    }
+                    else
+                    {
+                        btn.ImageIndex = 0;
+
+                        btn.Parent.Height = btn.Bottom;
                     }
 
-                    int TopDist = MaxHeight;
+                    //
 
-                    foreach (object obj in btn.Parent.Controls)
+                    Panel_Colors.Top = Panel_Info.Bottom + 15;
+                    Panel_View.Top = Panel_Colors.Bottom + 15;
+                    Panel_Blend.Top = Panel_View.Bottom + 15;
+                    Panel_Theme.Top = Panel_Blend.Bottom + 15;
+                    Panel_About.Top = Panel_Theme.Bottom + 15;
+                    Panel_EditingColors.Height = Panel_About.Bottom + Panel_Info.Top;
+
+                    //
+
+                    Me.OnSizeChanged();
+
+                    //
+
+                    _RepaintEditingColorsShadowImage();
+                }
+            }
+        }
+
+        private void Button_ColorSpaces_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Button btn = sender as Button;
+
+                if (btn != null)
+                {
+                    if (btn.ImageIndex == 0)
                     {
-                        if (!Control.Equals((Control)obj, btn) && ((Control)obj).Top < TopDist)
+                        int MaxHeight = btn.Bottom;
+
+                        foreach (Control c in btn.Parent.Controls)
                         {
-                            TopDist = ((Control)obj).Top;
+                            if (MaxHeight < c.Bottom)
+                            {
+                                MaxHeight = c.Bottom;
+                            }
                         }
+
+                        int TopDist = MaxHeight;
+
+                        foreach (Control c in btn.Parent.Controls)
+                        {
+                            if (!object.ReferenceEquals(c, btn) && TopDist > c.Top)
+                            {
+                                TopDist = c.Top;
+                            }
+                        }
+
+                        btn.ImageIndex = 1;
+
+                        btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                    }
+                    else
+                    {
+                        btn.ImageIndex = 0;
+
+                        btn.Parent.Height = btn.Bottom;
                     }
 
-                    btn.ImageIndex = 1;
+                    //
 
-                    btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                    Panel_RGB.Top = Panel_Transparency.Bottom + 15;
+                    Panel_HSV.Top = Panel_RGB.Bottom + 15;
+                    Panel_HSL.Top = Panel_HSV.Bottom + 15;
+                    Panel_CMYK.Top = Panel_HSL.Bottom + 15;
+                    Panel_LAB.Top = Panel_CMYK.Bottom + 15;
+                    Panel_YUV.Top = Panel_LAB.Bottom + 15;
+                    Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
+
+                    //
+
+                    Me.OnSizeChanged();
+
+                    //
+
+                    _RepaintColorSpacesShadowImage();
                 }
-                else
-                {
-                    btn.ImageIndex = 0;
-
-                    btn.Parent.Height = btn.Bottom;
-                }
-
-                Panel_Colors.Top = Panel_Info.Bottom + 15;
-                Panel_View.Top = Panel_Colors.Bottom + 15;
-                Panel_Blend.Top = Panel_View.Bottom + 15;
-                Panel_Theme.Top = Panel_Blend.Bottom + 15;
-                Panel_About.Top = Panel_Theme.Bottom + 15;
-                Panel_EditingColors.Height = Panel_About.Bottom + Panel_Info.Top;
-
-                //
-
-                Me.OnSizeChanged();
-
-                //
-
-                _RepaintEditingColorsShadowImage();
-            }
-        }
-
-        private void Button_Info_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseEditingColorsFolderState((Button)sender);
-            }
-        }
-
-        private void Button_Colors_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseEditingColorsFolderState((Button)sender);
-            }
-        }
-
-        private void Button_View_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseEditingColorsFolderState((Button)sender);
-            }
-        }
-
-        private void Button_Blend_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseEditingColorsFolderState((Button)sender);
-            }
-        }
-
-        private void Button_Theme_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseEditingColorsFolderState((Button)sender);
-            }
-        }
-
-        private void Button_About_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseEditingColorsFolderState((Button)sender);
-            }
-        }
-
-        //
-
-        private void ReverseColorSpacesFolderState(Button btn)
-        {
-            if (btn != null)
-            {
-                if (btn.ImageIndex == 0)
-                {
-                    int MaxHeight = btn.Bottom;
-
-                    foreach (object obj in btn.Parent.Controls)
-                    {
-                        if (((Control)obj).Bottom > MaxHeight)
-                        {
-                            MaxHeight = ((Control)obj).Bottom;
-                        }
-                    }
-
-                    int TopDist = MaxHeight;
-
-                    foreach (object obj in btn.Parent.Controls)
-                    {
-                        if (!Control.Equals((Control)obj, btn) && ((Control)obj).Top < TopDist)
-                        {
-                            TopDist = ((Control)obj).Top;
-                        }
-                    }
-
-                    btn.ImageIndex = 1;
-
-                    btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
-                }
-                else
-                {
-                    btn.ImageIndex = 0;
-
-                    btn.Parent.Height = btn.Bottom;
-                }
-
-                Panel_RGB.Top = Panel_Transparency.Bottom + 15;
-                Panel_HSV.Top = Panel_RGB.Bottom + 15;
-                Panel_HSL.Top = Panel_HSV.Bottom + 15;
-                Panel_CMYK.Top = Panel_HSL.Bottom + 15;
-                Panel_LAB.Top = Panel_CMYK.Bottom + 15;
-                Panel_YUV.Top = Panel_LAB.Bottom + 15;
-                Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
-
-                //
-
-                Me.OnSizeChanged();
-
-                //
-
-                _RepaintColorSpacesShadowImage();
-            }
-        }
-
-        private void Button_Transparency_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseColorSpacesFolderState((Button)sender);
-            }
-        }
-
-        private void Button_RGB_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseColorSpacesFolderState((Button)sender);
-            }
-        }
-
-        private void Button_HSV_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseColorSpacesFolderState((Button)sender);
-            }
-        }
-
-        private void Button_HSL_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseColorSpacesFolderState((Button)sender);
-            }
-        }
-
-        private void Button_CMYK_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseColorSpacesFolderState((Button)sender);
-            }
-        }
-
-        private void Button_LAB_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseColorSpacesFolderState((Button)sender);
-            }
-        }
-
-        private void Button_YUV_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReverseColorSpacesFolderState((Button)sender);
             }
         }
 
@@ -1827,17 +1735,17 @@ namespace WinFormApp
                     if (crx.Lightness_LAB < 50)
                     {
                         crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.75).AtOpacity(100).ToColor();
-                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.45).AtOpacity(75).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.5).AtOpacity(75).ToColor();
                     }
                     else
                     {
-                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.5).AtOpacity(100).ToColor();
-                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.3).AtOpacity(75).ToColor();
+                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.6).AtOpacity(100).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.4).AtOpacity(75).ToColor();
                     }
 
                     using (Brush Br = new SolidBrush(crCorner))
                     {
-                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + 10, rect.Y), new PointF(rect.X, rect.Y + 10) });
+                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + 12, rect.Y), new PointF(rect.X, rect.Y + 12) });
                     }
 
                     using (Pen Pn = new Pen(crBorder, 2F))
@@ -1949,17 +1857,17 @@ namespace WinFormApp
                     if (crx.Lightness_LAB < 50)
                     {
                         crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.75).AtOpacity(100).ToColor();
-                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.45).AtOpacity(75).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.5).AtOpacity(75).ToColor();
                     }
                     else
                     {
-                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.5).AtOpacity(100).ToColor();
-                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.3).AtOpacity(75).ToColor();
+                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.6).AtOpacity(100).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.4).AtOpacity(75).ToColor();
                     }
 
                     using (Brush Br = new SolidBrush(crCorner))
                     {
-                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + 10, rect.Y), new PointF(rect.X, rect.Y + 10) });
+                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + 12, rect.Y), new PointF(rect.X, rect.Y + 12) });
                     }
 
                     using (Pen Pn = new Pen(crBorder, 2F))

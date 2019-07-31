@@ -28,10 +28,16 @@ namespace WinFormApp
     {
         #region 私有成员与内部成员
 
-        private const int _ColorsNumX = 12;
-        private const int _ColorsNumY = 6;
+        private const int _BuiltinColorsNum = 92;
+        private const int _BuiltinColorsNumX = 16;
+        private const int _BuiltinColorsNumY = 6;
+        private Com.ColorX[] _BuiltinColors = new Com.ColorX[_BuiltinColorsNum];
 
-        private Com.ColorX[] _Colors = new Com.ColorX[_ColorsNumX * _ColorsNumY];
+        private const int _CustomizeColorsNum = 32;
+        private const int _CustomizeColorsNumX = 16;
+        private const int _CustomizeColorsNumY = 2;
+        private Com.ColorX[] _CustomizeColors = new Com.ColorX[_CustomizeColorsNum];
+
         private Com.ColorX _BackgroundColor;
         private Com.ColorX _LabelColor;
         private Com.ColorX _BorderColor;
@@ -40,12 +46,23 @@ namespace WinFormApp
         private enum _ColorTags
         {
             None = -1,
-            Color01, Color02, Color03, Color04, Color05, Color06, Color07, Color08, Color09, Color10, Color11, Color12,
-            Color13, Color14, Color15, Color16, Color17, Color18, Color19, Color20, Color21, Color22, Color23, Color24,
-            Color25, Color26, Color27, Color28, Color29, Color30, Color31, Color32, Color33, Color34, Color35, Color36,
-            Color37, Color38, Color39, Color40, Color41, Color42, Color43, Color44, Color45, Color46, Color47, Color48,
-            Color49, Color50, Color51, Color52, Color53, Color54, Color55, Color56, Color57, Color58, Color59, Color60,
-            Color61, Color62, Color63, Color64, Color65, Color66, Color67, Color68, Color69, Color70, Color71, Color72,
+
+            Builtin01, Builtin02, Builtin03, Builtin04, Builtin05, Builtin06, Builtin07, Builtin08, Builtin09, Builtin10,
+            Builtin11, Builtin12, Builtin13, Builtin14, Builtin15, Builtin16, Builtin17, Builtin18, Builtin19, Builtin20,
+            Builtin21, Builtin22, Builtin23, Builtin24, Builtin25, Builtin26, Builtin27, Builtin28, Builtin29, Builtin30,
+            Builtin31, Builtin32, Builtin33, Builtin34, Builtin35, Builtin36, Builtin37, Builtin38, Builtin39, Builtin40,
+            Builtin41, Builtin42, Builtin43, Builtin44, Builtin45, Builtin46, Builtin47, Builtin48, Builtin49, Builtin50,
+            Builtin51, Builtin52, Builtin53, Builtin54, Builtin55, Builtin56, Builtin57, Builtin58, Builtin59, Builtin60,
+            Builtin61, Builtin62, Builtin63, Builtin64, Builtin65, Builtin66, Builtin67, Builtin68, Builtin69, Builtin70,
+            Builtin71, Builtin72, Builtin73, Builtin74, Builtin75, Builtin76, Builtin77, Builtin78, Builtin79, Builtin80,
+            Builtin81, Builtin82, Builtin83, Builtin84, Builtin85, Builtin86, Builtin87, Builtin88, Builtin89, Builtin90,
+            Builtin91, Builtin92,
+
+            Customize01, Customize02, Customize03, Customize04, Customize05, Customize06, Customize07, Customize08, Customize09, Customize10,
+            Customize11, Customize12, Customize13, Customize14, Customize15, Customize16, Customize17, Customize18, Customize19, Customize20,
+            Customize21, Customize22, Customize23, Customize24, Customize25, Customize26, Customize27, Customize28, Customize29, Customize30,
+            Customize31, Customize32,
+
             Background,
             Label,
             Border,
@@ -182,30 +199,35 @@ namespace WinFormApp
 
             //
 
-            double[] hues = new double[_ColorsNumX] { 355, 25, 37, 57, 79, 147, 199, 213, 238, 279, 306, 327 };
-            double[] vals1 = new double[_ColorsNumY] { 75, 62.5, 50, 37.5, 25, 0 };
-            double[] vals2 = new double[_ColorsNumX] { 0, 100, 93, 86, 79, 71, 63, 54, 44, 33, 19, 0 };
+            double[] hues = new double[_BuiltinColorsNumX] { 355, 25, 37, 57, 79, 130, 147, 177, 199, 206, 213, 238, 279, 306, 327, 339 };
+            double[] vals1 = new double[_BuiltinColorsNumY] { 75, 62.5, 50, 37.5, 25, 0 };
+            double[] vals2 = new double[_BuiltinColorsNumX] { 0, 19, 33, 44, 54, 63, 71, 79, 86, 93, 100, 0, 0, 0, 0, 0 };
 
-            for (int x = 0; x < _ColorsNumX; x++)
+            for (int i = 0; i < _BuiltinColorsNum; i++)
             {
-                for (int y = 0; y < _ColorsNumY; y++)
+                int x = i % _BuiltinColorsNumX;
+                int y = i / _BuiltinColorsNumX;
+
+                if (y < _BuiltinColorsNumY - 1)
                 {
-                    if (y < _ColorsNumY - 1)
+                    _BuiltinColors[y * _BuiltinColorsNumX + x] = Com.ColorX.FromHSL(hues[x], 100, vals1[y]);
+                }
+                else
+                {
+                    if (i < _BuiltinColorsNum - 1)
                     {
-                        _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSL(hues[x], 100, vals1[y]);
+                        _BuiltinColors[y * _BuiltinColorsNumX + x] = Com.ColorX.FromHSL(0, 0, vals2[x]);
                     }
                     else
                     {
-                        if (x > 0)
-                        {
-                            _Colors[y * _ColorsNumX + x] = Com.ColorX.FromHSL(0, 0, vals2[x]);
-                        }
-                        else
-                        {
-                            _Colors[y * _ColorsNumX + x] = Com.ColorX.Transparent;
-                        }
+                        _BuiltinColors[y * _BuiltinColorsNumX + x] = Com.ColorX.Transparent;
                     }
                 }
+            }
+
+            for (int i = 0; i < _CustomizeColorsNum; i++)
+            {
+                _CustomizeColors[i] = Color.White;
             }
 
             _BackgroundColor = Me.RecommendColors.Background_INC;
@@ -388,25 +410,52 @@ namespace WinFormApp
 
             //
 
-            Label_Colors = new Label[_ColorsNumX * _ColorsNumY];
+            const int Lab_Sz_W = 25, Lab_Sz_H = 25;
 
-            for (int x = 0; x < _ColorsNumX; x++)
+            Label_BuiltinColors = new Label[_BuiltinColorsNum];
+
+            int Lab_B_Off_X = Label_Colors_Builtin.Left, Lab_B_Off_Y = Label_Colors_Builtin.Bottom + 10;
+
+            for (int i = 0; i < _BuiltinColorsNum; i++)
             {
-                for (int y = 0; y < _ColorsNumY; y++)
-                {
-                    Label l = new Label();
+                int x = i % _BuiltinColorsNumX;
+                int y = i / _BuiltinColorsNumX;
 
-                    Panel_Colors.Controls.Add(l);
+                Label l = new Label();
 
-                    Label_Colors[y * _ColorsNumX + x] = l;
+                l.BackColor = Color.Transparent;
+                l.Location = new Point(Lab_B_Off_X + x * Lab_Sz_W, Lab_B_Off_Y + y * Lab_Sz_H);
+                l.Size = new Size(Lab_Sz_W, Lab_Sz_H);
+                l.TabIndex = 0;
+                l.MouseDown += Label_BuiltinColors_MouseDown;
+                l.MouseUp += Label_BuiltinColors_MouseUp;
 
-                    l.BackColor = Color.Transparent;
-                    l.Location = new Point(20 + x * 25, 40 + y * 25);
-                    l.Size = new Size(25, 25);
-                    l.TabIndex = 0;
-                    l.MouseDown += Label_Colors_MouseDown;
-                    l.MouseUp += Label_Colors_MouseUp;
-                }
+                Panel_Colors.Controls.Add(l);
+
+                Label_BuiltinColors[y * _BuiltinColorsNumX + x] = l;
+            }
+
+            Label_CustomizeColors = new Label[_CustomizeColorsNum];
+
+            int Lab_C_Off_X = Label_Colors_Customize.Left, Lab_C_Off_Y = Label_Colors_Customize.Bottom + 10;
+
+            for (int i = 0; i < _CustomizeColorsNum; i++)
+            {
+                int x = i % _CustomizeColorsNumX;
+                int y = i / _CustomizeColorsNumX;
+
+                Label l = new Label();
+
+                l.BackColor = Color.Transparent;
+                l.Location = new Point(Lab_C_Off_X + x * Lab_Sz_W, Lab_C_Off_Y + y * Lab_Sz_H);
+                l.Size = new Size(Lab_Sz_W, Lab_Sz_H);
+                l.TabIndex = 0;
+                l.MouseDown += Label_CustomizeColors_MouseDown;
+                l.MouseUp += Label_CustomizeColors_MouseUp;
+
+                Panel_Colors.Controls.Add(l);
+
+                Label_CustomizeColors[y * _CustomizeColorsNumX + x] = l;
             }
 
             //
@@ -418,9 +467,11 @@ namespace WinFormApp
 
             //
 
-            ChoseColor(_ColorTags.Background);
-
             RegisterEvents();
+
+            //
+
+            ChoseColor(_ColorTags.Background);
 
             //
 
@@ -759,6 +810,11 @@ namespace WinFormApp
 
             //
 
+            Label_Colors_Builtin.ForeColor = Me.RecommendColors.Text.ToColor();
+            Label_Colors_Customize.ForeColor = Me.RecommendColors.Text.ToColor();
+
+            //
+
             Label_Background.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_Label.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_Border.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
@@ -882,6 +938,10 @@ namespace WinFormApp
 
         private void UpdateTrackBarAndNumEditor(Com.ColorX color)
         {
+            UnregisterEvents();
+
+            //
+
             Color[] Colors_Opacity = _HTrackBarColorsTable[_HTrackBarColorsKey.Opacity] as Color[];
             Color[] Colors_Alpha = _HTrackBarColorsTable[_HTrackBarColorsKey.Alpha] as Color[];
             Color[] Colors_RGB_R = _HTrackBarColorsTable[_HTrackBarColorsKey.RGB_R] as Color[];
@@ -1002,6 +1062,10 @@ namespace WinFormApp
             //
 
             _CurrentTrackBarOrNumEditor = null;
+
+            //
+
+            RegisterEvents();
         }
 
         //
@@ -1010,9 +1074,13 @@ namespace WinFormApp
         {
             get
             {
-                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color72)
+                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
                 {
-                    return _Colors[_ColorTag - _ColorTags.Color01];
+                    return _BuiltinColors[_ColorTag - _ColorTags.Builtin01];
+                }
+                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                {
+                    return _CustomizeColors[_ColorTag - _ColorTags.Customize01];
                 }
                 else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
                 {
@@ -1030,9 +1098,13 @@ namespace WinFormApp
 
             set
             {
-                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color72)
+                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
                 {
-                    _Colors[_ColorTag - _ColorTags.Color01] = value;
+                    _BuiltinColors[_ColorTag - _ColorTags.Builtin01] = value;
+                }
+                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                {
+                    _CustomizeColors[_ColorTag - _ColorTags.Customize01] = value;
                 }
                 else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
                 {
@@ -1049,7 +1121,11 @@ namespace WinFormApp
 
                 UpdateColorInfo(value);
 
-                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color72)
+                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
+                {
+                    _RepaintColorsImage();
+                }
+                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
                 {
                     _RepaintColorsImage();
                 }
@@ -1058,6 +1134,8 @@ namespace WinFormApp
                     _RepaintDivImage();
                     _RepaintViewImage();
                 }
+
+                //
 
                 UpdateTrackBarAndNumEditor(value);
             }
@@ -1077,19 +1155,25 @@ namespace WinFormApp
 
                 UpdateColorInfo(currentColor);
 
+                //
+
                 UpdateTrackBarAndNumEditor(currentColor);
             }
         }
 
         private Com.ColorX GetColor(_ColorTags colorTag)
         {
-            if (colorTag >= _ColorTags.Color01 && colorTag <= _ColorTags.Color72)
+            if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
             {
-                return _Colors[colorTag - _ColorTags.Color01];
+                return _BuiltinColors[colorTag - _ColorTags.Builtin01];
+            }
+            else if (colorTag >= _ColorTags.Customize01 && colorTag <= _ColorTags.Customize32)
+            {
+                return _CustomizeColors[colorTag - _ColorTags.Customize01];
             }
             else if (colorTag >= _ColorTags.Background && colorTag <= _ColorTags.Text)
             {
-                switch (_ColorTag)
+                switch (colorTag)
                 {
                     case _ColorTags.Background: return _BackgroundColor;
                     case _ColorTags.Label: return _LabelColor;
@@ -1109,9 +1193,17 @@ namespace WinFormApp
             }
             else
             {
-                if (colorTag >= _ColorTags.Color01 && colorTag <= _ColorTags.Color72)
+                if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
                 {
-                    _Colors[colorTag - _ColorTags.Color01] = color;
+                    _BuiltinColors[colorTag - _ColorTags.Builtin01] = color;
+
+                    //
+
+                    _RepaintColorsImage();
+                }
+                else if (colorTag >= _ColorTags.Customize01 && colorTag <= _ColorTags.Customize32)
+                {
+                    _CustomizeColors[colorTag - _ColorTags.Customize01] = color;
 
                     //
 
@@ -1156,10 +1248,6 @@ namespace WinFormApp
 
             if (trackBar != null)
             {
-                UnregisterEvents();
-
-                //
-
                 _CurrentTrackBarOrNumEditor = trackBar;
 
                 Com.ColorX color = CurrentColor;
@@ -1252,10 +1340,6 @@ namespace WinFormApp
                 }
 
                 CurrentColor = color;
-
-                //
-
-                RegisterEvents();
             }
         }
 
@@ -1265,10 +1349,6 @@ namespace WinFormApp
 
             if (numEditor != null)
             {
-                UnregisterEvents();
-
-                //
-
                 _CurrentTrackBarOrNumEditor = numEditor;
 
                 Com.ColorX color = CurrentColor;
@@ -1361,10 +1441,6 @@ namespace WinFormApp
                 }
 
                 CurrentColor = color;
-
-                //
-
-                RegisterEvents();
             }
         }
 
@@ -1386,7 +1462,7 @@ namespace WinFormApp
         {
             if (_MouseDownColorTag != _ColorTags.None)
             {
-                if (_MouseDownColorTag != colorTag)
+                if (_MouseDownColorTag != colorTag && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)))
                 {
                     SetColor(colorTag, GetColor(_MouseDownColorTag));
                 }
@@ -1425,9 +1501,17 @@ namespace WinFormApp
 
                 if (Button_Colors.ImageIndex == 1)
                 {
-                    for (_ColorTags i = _ColorTags.Color01; i <= _ColorTags.Color72; i++)
+                    for (_ColorTags i = _ColorTags.Builtin01; i <= _ColorTags.Builtin92; i++)
                     {
-                        if (Com.Geometry.ScreenPointIsInControl(pt, Label_Colors[(int)i]))
+                        if (Com.Geometry.ScreenPointIsInControl(pt, Label_BuiltinColors[i - _ColorTags.Builtin01]))
+                        {
+                            return i;
+                        }
+                    }
+
+                    for (_ColorTags i = _ColorTags.Customize01; i <= _ColorTags.Customize32; i++)
+                    {
+                        if (Com.Geometry.ScreenPointIsInControl(pt, Label_CustomizeColors[i - _ColorTags.Customize01]))
                         {
                             return i;
                         }
@@ -1440,17 +1524,17 @@ namespace WinFormApp
 
         //
 
-        private Label[] Label_Colors = new Label[0];
+        private Label[] Label_BuiltinColors = new Label[0];
 
-        private void Label_Colors_MouseDown(object sender, MouseEventArgs e)
+        private void Label_BuiltinColors_MouseDown(object sender, MouseEventArgs e)
         {
             Label l = sender as Label;
 
             if (l != null && e.Button == MouseButtons.Left)
             {
-                for (_ColorTags i = _ColorTags.Color01; i <= _ColorTags.Color72; i++)
+                for (_ColorTags i = _ColorTags.Builtin01; i <= _ColorTags.Builtin92; i++)
                 {
-                    if (object.ReferenceEquals(l, Label_Colors[(int)i]))
+                    if (object.ReferenceEquals(l, Label_BuiltinColors[i - _ColorTags.Builtin01]))
                     {
                         MouseDownColor(i);
 
@@ -1460,7 +1544,7 @@ namespace WinFormApp
             }
         }
 
-        private void Label_Colors_MouseUp(object sender, MouseEventArgs e)
+        private void Label_BuiltinColors_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -1470,13 +1554,59 @@ namespace WinFormApp
                 {
                     if (Com.Geometry.PointIsInControl(e.Location, l))
                     {
-                        UnregisterEvents();
-
-                        //
-
-                        for (_ColorTags i = _ColorTags.Color01; i <= _ColorTags.Color72; i++)
+                        for (_ColorTags i = _ColorTags.Builtin01; i <= _ColorTags.Builtin92; i++)
                         {
-                            if (object.ReferenceEquals(l, Label_Colors[(int)i]))
+                            if (object.ReferenceEquals(l, Label_BuiltinColors[i - _ColorTags.Builtin01]))
+                            {
+                                CurrentColor = _BuiltinColors[i - _ColorTags.Builtin01];
+
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MouseUpColor(GetColorTagOfCursorPosition());
+                    }
+                }
+            }
+        }
+
+        //
+
+        private Label[] Label_CustomizeColors = new Label[0];
+
+        private void Label_CustomizeColors_MouseDown(object sender, MouseEventArgs e)
+        {
+            Label l = sender as Label;
+
+            if (l != null && e.Button == MouseButtons.Left)
+            {
+                for (_ColorTags i = _ColorTags.Customize01; i <= _ColorTags.Customize32; i++)
+                {
+                    if (object.ReferenceEquals(l, Label_CustomizeColors[i - _ColorTags.Customize01]))
+                    {
+                        MouseDownColor(i);
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void Label_CustomizeColors_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Label l = sender as Label;
+
+                if (l != null)
+                {
+                    if (Com.Geometry.PointIsInControl(e.Location, l))
+                    {
+                        for (_ColorTags i = _ColorTags.Customize01; i <= _ColorTags.Customize32; i++)
+                        {
+                            if (object.ReferenceEquals(l, Label_CustomizeColors[i - _ColorTags.Customize01]))
                             {
                                 ChoseColor(i);
 
@@ -1486,10 +1616,6 @@ namespace WinFormApp
                                 break;
                             }
                         }
-
-                        //
-
-                        RegisterEvents();
                     }
                     else
                     {
@@ -1515,18 +1641,10 @@ namespace WinFormApp
             {
                 if (Com.Geometry.PointIsInControl(e.Location, Label_Background_Val))
                 {
-                    UnregisterEvents();
-
-                    //
-
                     ChoseColor(_ColorTags.Background);
 
                     _RepaintColorsImage();
                     _RepaintViewImage();
-
-                    //
-
-                    RegisterEvents();
                 }
                 else
                 {
@@ -1549,18 +1667,10 @@ namespace WinFormApp
             {
                 if (Com.Geometry.PointIsInControl(e.Location, Label_Label_Val))
                 {
-                    UnregisterEvents();
-
-                    //
-
                     ChoseColor(_ColorTags.Label);
 
                     _RepaintColorsImage();
                     _RepaintViewImage();
-
-                    //
-
-                    RegisterEvents();
                 }
                 else
                 {
@@ -1583,18 +1693,10 @@ namespace WinFormApp
             {
                 if (Com.Geometry.PointIsInControl(e.Location, Label_Border_Val))
                 {
-                    UnregisterEvents();
-
-                    //
-
                     ChoseColor(_ColorTags.Border);
 
                     _RepaintColorsImage();
                     _RepaintViewImage();
-
-                    //
-
-                    RegisterEvents();
                 }
                 else
                 {
@@ -1617,18 +1719,10 @@ namespace WinFormApp
             {
                 if (Com.Geometry.PointIsInControl(e.Location, Label_Text_Val))
                 {
-                    UnregisterEvents();
-
-                    //
-
                     ChoseColor(_ColorTags.Text);
 
                     _RepaintColorsImage();
                     _RepaintViewImage();
-
-                    //
-
-                    RegisterEvents();
                 }
                 else
                 {
@@ -1919,11 +2013,19 @@ namespace WinFormApp
 
                 //
 
-                for (int i = 0; i < Label_Colors.Length; i++)
+                for (int i = 0; i < Label_BuiltinColors.Length; i++)
                 {
-                    using (Brush Br = new SolidBrush(_Colors[i].ToColor()))
+                    using (Brush Br = new SolidBrush(_BuiltinColors[i].ToColor()))
                     {
-                        Grap.FillRectangle(Br, Label_Colors[i].Bounds);
+                        Grap.FillRectangle(Br, Label_BuiltinColors[i].Bounds);
+                    }
+                }
+
+                for (int i = 0; i < Label_CustomizeColors.Length; i++)
+                {
+                    using (Brush Br = new SolidBrush(_CustomizeColors[i].ToColor()))
+                    {
+                        Grap.FillRectangle(Br, Label_CustomizeColors[i].Bounds);
                     }
                 }
 
@@ -1931,7 +2033,12 @@ namespace WinFormApp
 
                 using (Pen Pn = new Pen(Me.RecommendColors.Border.GrayscaleColor.ToColor(), 1F))
                 {
-                    foreach (Label ctrl in Label_Colors)
+                    foreach (Label ctrl in Label_BuiltinColors)
+                    {
+                        Grap.DrawRectangle(Pn, ctrl.Bounds);
+                    }
+
+                    foreach (Label ctrl in Label_CustomizeColors)
                     {
                         Grap.DrawRectangle(Pn, ctrl.Bounds);
                     }
@@ -1939,10 +2046,10 @@ namespace WinFormApp
 
                 //
 
-                if (_ColorTag >= _ColorTags.Color01 && _ColorTag <= _ColorTags.Color72)
+                if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
                 {
-                    Label ctrl = Label_Colors[_ColorTag - _ColorTags.Color01];
-                    Com.ColorX crx = _Colors[_ColorTag - _ColorTags.Color01];
+                    Label ctrl = Label_CustomizeColors[_ColorTag - _ColorTags.Customize01];
+                    Com.ColorX crx = _CustomizeColors[_ColorTag - _ColorTags.Customize01];
 
                     Rectangle rect = ctrl.Bounds;
 
@@ -1990,7 +2097,14 @@ namespace WinFormApp
             {
                 Panel_Colors.CreateGraphics().DrawImage(_ColorsImage, new Point(0, 0));
 
-                foreach (Label l in Label_Colors)
+                //
+
+                foreach (Label l in Label_BuiltinColors)
+                {
+                    l.Refresh();
+                }
+
+                foreach (Label l in Label_CustomizeColors)
                 {
                     l.Refresh();
                 }

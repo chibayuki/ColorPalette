@@ -159,7 +159,7 @@ namespace WinFormApp
             Me.EnableFullScreen = false;
             Me.Theme = Com.WinForm.Theme.Colorful;
             Me.ThemeColor = Com.ColorManipulation.GetRandomColorX().AtSaturation_HSL(Com.Statistics.RandomInteger(30, 70)).AtLightness_LAB(Com.Statistics.RandomInteger(15, 45));
-            Me.MinimumSize = new Size(920, 285 + Me.CaptionBarHeight);
+            Me.MinimumSize = new Size(1020, 290 + Me.CaptionBarHeight);
 
             Me.Loading += LoadingEvents;
             Me.Loaded += LoadedEvents;
@@ -505,7 +505,7 @@ namespace WinFormApp
             Panel_RightArea.Height = Panel_Main.Height;
             Panel_LeftArea.Height = Panel_Main.Height;
 
-            Panel_RightArea.Width = Math.Min(1260, Panel_Main.Width - Panel_LeftArea.Width);
+            Panel_RightArea.Width = Math.Min(1040, Panel_Main.Width - Panel_LeftArea.Width);
 
             Panel_LeftArea.Left = Math.Max(0, (Panel_Main.Width - Panel_RightArea.Width - Panel_LeftArea.Width) / 2);
             Panel_RightArea.Left = Panel_LeftArea.Right;

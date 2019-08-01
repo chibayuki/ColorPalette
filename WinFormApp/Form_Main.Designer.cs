@@ -46,7 +46,9 @@
             this.Label_Complementary_Val = new System.Windows.Forms.Label();
             this.Panel_Colors = new System.Windows.Forms.Panel();
             this.Button_Colors = new System.Windows.Forms.Button();
+            this.Panel_Colors_Builtin = new System.Windows.Forms.Panel();
             this.Label_Colors_Builtin = new System.Windows.Forms.Label();
+            this.Panel_Colors_Customize = new System.Windows.Forms.Panel();
             this.Label_Colors_Customize = new System.Windows.Forms.Label();
             this.Panel_View = new System.Windows.Forms.Panel();
             this.Button_View = new System.Windows.Forms.Button();
@@ -188,6 +190,8 @@
             this.Panel_EditingColors.SuspendLayout();
             this.Panel_Info.SuspendLayout();
             this.Panel_Colors.SuspendLayout();
+            this.Panel_Colors_Builtin.SuspendLayout();
+            this.Panel_Colors_Customize.SuspendLayout();
             this.Panel_View.SuspendLayout();
             this.Panel_Blend.SuspendLayout();
             this.Panel_Pick.SuspendLayout();
@@ -213,7 +217,7 @@
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Main.Location = new System.Drawing.Point(0, 0);
             this.Panel_Main.Name = "Panel_Main";
-            this.Panel_Main.Size = new System.Drawing.Size(1200, 545);
+            this.Panel_Main.Size = new System.Drawing.Size(1200, 625);
             this.Panel_Main.TabIndex = 0;
             this.Panel_Main.Visible = false;
             // 
@@ -224,7 +228,7 @@
             this.Panel_LeftArea.Controls.Add(this.Panel_EditingColors);
             this.Panel_LeftArea.Location = new System.Drawing.Point(0, 0);
             this.Panel_LeftArea.Name = "Panel_LeftArea";
-            this.Panel_LeftArea.Size = new System.Drawing.Size(500, 545);
+            this.Panel_LeftArea.Size = new System.Drawing.Size(500, 625);
             this.Panel_LeftArea.TabIndex = 0;
             // 
             // Panel_EditingColors
@@ -239,7 +243,7 @@
             this.Panel_EditingColors.Controls.Add(this.Panel_About);
             this.Panel_EditingColors.Location = new System.Drawing.Point(0, 0);
             this.Panel_EditingColors.Name = "Panel_EditingColors";
-            this.Panel_EditingColors.Size = new System.Drawing.Size(480, 1290);
+            this.Panel_EditingColors.Size = new System.Drawing.Size(480, 1295);
             this.Panel_EditingColors.TabIndex = 0;
             this.Panel_EditingColors.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_EditingColors_Paint);
             // 
@@ -395,13 +399,12 @@
             // 
             this.Panel_Colors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_Colors.Controls.Add(this.Button_Colors);
-            this.Panel_Colors.Controls.Add(this.Label_Colors_Builtin);
-            this.Panel_Colors.Controls.Add(this.Label_Colors_Customize);
+            this.Panel_Colors.Controls.Add(this.Panel_Colors_Builtin);
+            this.Panel_Colors.Controls.Add(this.Panel_Colors_Customize);
             this.Panel_Colors.Location = new System.Drawing.Point(20, 180);
             this.Panel_Colors.Name = "Panel_Colors";
-            this.Panel_Colors.Size = new System.Drawing.Size(440, 320);
+            this.Panel_Colors.Size = new System.Drawing.Size(440, 325);
             this.Panel_Colors.TabIndex = 0;
-            this.Panel_Colors.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Paint);
             // 
             // Button_Colors
             // 
@@ -427,13 +430,23 @@
             this.Button_Colors.UseVisualStyleBackColor = false;
             this.Button_Colors.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
             // 
+            // Panel_Colors_Builtin
+            // 
+            this.Panel_Colors_Builtin.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_Colors_Builtin.Controls.Add(this.Label_Colors_Builtin);
+            this.Panel_Colors_Builtin.Location = new System.Drawing.Point(20, 40);
+            this.Panel_Colors_Builtin.Name = "Panel_Colors_Builtin";
+            this.Panel_Colors_Builtin.Size = new System.Drawing.Size(400, 185);
+            this.Panel_Colors_Builtin.TabIndex = 0;
+            this.Panel_Colors_Builtin.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Builtin_Paint);
+            // 
             // Label_Colors_Builtin
             // 
             this.Label_Colors_Builtin.AutoSize = true;
             this.Label_Colors_Builtin.BackColor = System.Drawing.Color.Transparent;
             this.Label_Colors_Builtin.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Colors_Builtin.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Colors_Builtin.Location = new System.Drawing.Point(20, 40);
+            this.Label_Colors_Builtin.Location = new System.Drawing.Point(0, 0);
             this.Label_Colors_Builtin.MaximumSize = new System.Drawing.Size(0, 20);
             this.Label_Colors_Builtin.MinimumSize = new System.Drawing.Size(0, 20);
             this.Label_Colors_Builtin.Name = "Label_Colors_Builtin";
@@ -442,13 +455,23 @@
             this.Label_Colors_Builtin.Text = "预设";
             this.Label_Colors_Builtin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // Panel_Colors_Customize
+            // 
+            this.Panel_Colors_Customize.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_Colors_Customize.Controls.Add(this.Label_Colors_Customize);
+            this.Panel_Colors_Customize.Location = new System.Drawing.Point(20, 225);
+            this.Panel_Colors_Customize.Name = "Panel_Colors_Customize";
+            this.Panel_Colors_Customize.Size = new System.Drawing.Size(400, 90);
+            this.Panel_Colors_Customize.TabIndex = 0;
+            this.Panel_Colors_Customize.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Customize_Paint);
+            // 
             // Label_Colors_Customize
             // 
             this.Label_Colors_Customize.AutoSize = true;
             this.Label_Colors_Customize.BackColor = System.Drawing.Color.Transparent;
             this.Label_Colors_Customize.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Colors_Customize.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Colors_Customize.Location = new System.Drawing.Point(20, 230);
+            this.Label_Colors_Customize.Location = new System.Drawing.Point(0, 0);
             this.Label_Colors_Customize.MaximumSize = new System.Drawing.Size(0, 20);
             this.Label_Colors_Customize.MinimumSize = new System.Drawing.Size(0, 20);
             this.Label_Colors_Customize.Name = "Label_Colors_Customize";
@@ -470,7 +493,7 @@
             this.Panel_View.Controls.Add(this.Label_Text);
             this.Panel_View.Controls.Add(this.Label_Text_Val);
             this.Panel_View.Controls.Add(this.Panel_Div);
-            this.Panel_View.Location = new System.Drawing.Point(20, 515);
+            this.Panel_View.Location = new System.Drawing.Point(20, 520);
             this.Panel_View.Name = "Panel_View";
             this.Panel_View.Size = new System.Drawing.Size(440, 180);
             this.Panel_View.TabIndex = 0;
@@ -620,7 +643,7 @@
             this.Panel_Blend.Controls.Add(this.Label_BlendColor1);
             this.Panel_Blend.Controls.Add(this.Label_BlendResult);
             this.Panel_Blend.Controls.Add(this.Label_BlendColor2);
-            this.Panel_Blend.Location = new System.Drawing.Point(20, 710);
+            this.Panel_Blend.Location = new System.Drawing.Point(20, 715);
             this.Panel_Blend.Name = "Panel_Blend";
             this.Panel_Blend.Size = new System.Drawing.Size(440, 145);
             this.Panel_Blend.TabIndex = 0;
@@ -704,7 +727,7 @@
             this.Panel_Pick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_Pick.Controls.Add(this.label1);
             this.Panel_Pick.Controls.Add(this.Button_Pick);
-            this.Panel_Pick.Location = new System.Drawing.Point(20, 870);
+            this.Panel_Pick.Location = new System.Drawing.Point(20, 875);
             this.Panel_Pick.Name = "Panel_Pick";
             this.Panel_Pick.Size = new System.Drawing.Size(440, 75);
             this.Panel_Pick.TabIndex = 0;
@@ -752,7 +775,7 @@
             this.Panel_Theme.Controls.Add(this.RadioButton_ThemeColor_WindowsColor);
             this.Panel_Theme.Controls.Add(this.RadioButton_ThemeColor_Customize);
             this.Panel_Theme.Controls.Add(this.Label_ThemeColor_EditingColor);
-            this.Panel_Theme.Location = new System.Drawing.Point(20, 960);
+            this.Panel_Theme.Location = new System.Drawing.Point(20, 965);
             this.Panel_Theme.Name = "Panel_Theme";
             this.Panel_Theme.Size = new System.Drawing.Size(440, 180);
             this.Panel_Theme.TabIndex = 0;
@@ -871,7 +894,7 @@
             this.Panel_About.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_About.Controls.Add(this.PictureBox_AppLogo);
             this.Panel_About.Controls.Add(this.Button_About);
-            this.Panel_About.Location = new System.Drawing.Point(20, 1155);
+            this.Panel_About.Location = new System.Drawing.Point(20, 1160);
             this.Panel_About.Name = "Panel_About";
             this.Panel_About.Size = new System.Drawing.Size(440, 115);
             this.Panel_About.TabIndex = 0;
@@ -919,7 +942,7 @@
             this.Panel_RightArea.Controls.Add(this.Panel_ColorSpaces);
             this.Panel_RightArea.Location = new System.Drawing.Point(500, 0);
             this.Panel_RightArea.Name = "Panel_RightArea";
-            this.Panel_RightArea.Size = new System.Drawing.Size(700, 545);
+            this.Panel_RightArea.Size = new System.Drawing.Size(700, 625);
             this.Panel_RightArea.TabIndex = 0;
             // 
             // Panel_ColorSpaces
@@ -2482,7 +2505,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1200, 545);
+            this.ClientSize = new System.Drawing.Size(1200, 625);
             this.Controls.Add(this.Panel_Main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -2493,7 +2516,10 @@
             this.Panel_Info.ResumeLayout(false);
             this.Panel_Info.PerformLayout();
             this.Panel_Colors.ResumeLayout(false);
-            this.Panel_Colors.PerformLayout();
+            this.Panel_Colors_Builtin.ResumeLayout(false);
+            this.Panel_Colors_Builtin.PerformLayout();
+            this.Panel_Colors_Customize.ResumeLayout(false);
+            this.Panel_Colors_Customize.PerformLayout();
             this.Panel_View.ResumeLayout(false);
             this.Panel_View.PerformLayout();
             this.Panel_Blend.ResumeLayout(false);
@@ -2678,5 +2704,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Label_Colors_Builtin;
         private System.Windows.Forms.Label Label_Colors_Customize;
+        private System.Windows.Forms.Panel Panel_Colors_Builtin;
+        private System.Windows.Forms.Panel Panel_Colors_Customize;
     }
 }

@@ -414,7 +414,7 @@ namespace WinFormApp
 
             const int Lab_B_Sz_W = 24, Lab_B_Sz_H = 24;
 
-            int Lab_B_Off_X = (Panel_Colors_Builtin.Width - Lab_B_Sz_W * _BuiltinColorsNumX) / 2, Lab_B_Off_Y = Label_Colors_Builtin.Bottom + (Panel_Colors_Builtin.Height - Label_Colors_Builtin.Bottom - Lab_B_Sz_H * _BuiltinColorsNumY) / 2;
+            int Lab_B_Off_X = (Panel_Colors_Builtin.Width - Lab_B_Sz_W * _BuiltinColorsNumX) / 2, Lab_B_Off_Y = (Panel_Colors_Builtin.Height - Lab_B_Sz_H * _BuiltinColorsNumY) / 2;
 
             for (int i = 0; i < _BuiltinColorsNum; i++)
             {
@@ -441,7 +441,7 @@ namespace WinFormApp
 
             const int Lab_C_Sz_W = 24, Lab_C_Sz_H = 24;
 
-            int Lab_C_Off_X = (Panel_Colors_Customize.Width - Lab_C_Sz_W * _CustomizeColorsNumX) / 2, Lab_C_Off_Y = Label_Colors_Customize.Bottom + (Panel_Colors_Customize.Height - Label_Colors_Customize.Bottom - Lab_C_Sz_H * _CustomizeColorsNumY) / 2;
+            int Lab_C_Off_X = (Panel_Colors_Customize.Width - Lab_C_Sz_W * _CustomizeColorsNumX) / 2, Lab_C_Off_Y = (Panel_Colors_Customize.Height - Lab_C_Sz_H * _CustomizeColorsNumY) / 2;
 
             for (int i = 0; i < _CustomizeColorsNum; i++)
             {
@@ -518,13 +518,13 @@ namespace WinFormApp
 
             int spaceContainerWidth = Panel_ColorSpaces.Width - 2 * Panel_RGB.Left;
 
-            Panel_Transparency.Width = spaceContainerWidth;
-            Panel_RGB.Width = spaceContainerWidth;
-            Panel_HSV.Width = spaceContainerWidth;
-            Panel_HSL.Width = spaceContainerWidth;
-            Panel_CMYK.Width = spaceContainerWidth;
-            Panel_LAB.Width = spaceContainerWidth;
-            Panel_YUV.Width = spaceContainerWidth;
+            Panel_Transparency_Contents.Width = Panel_Transparency.Width = spaceContainerWidth;
+            Panel_RGB_Contents.Width = Panel_RGB.Width = spaceContainerWidth;
+            Panel_HSV_Contents.Width = Panel_HSV.Width = spaceContainerWidth;
+            Panel_HSL_Contents.Width = Panel_HSL.Width = spaceContainerWidth;
+            Panel_CMYK_Contents.Width = Panel_CMYK.Width = spaceContainerWidth;
+            Panel_LAB_Contents.Width = Panel_LAB.Width = spaceContainerWidth;
+            Panel_YUV_Contents.Width = Panel_YUV.Width = spaceContainerWidth;
 
             //
 
@@ -539,28 +539,28 @@ namespace WinFormApp
             HTrackBar_Opacity.Width = Panel_Transparency.Width - HTrackBar_Opacity.Left - 20;
             HTrackBar_Alpha.Width = HTrackBar_Opacity.Width;
 
-            HTrackBar_RGB_R.Width = Panel_RGB.Width - HTrackBar_RGB_R.Left - 20;
+            HTrackBar_RGB_R.Width = Panel_RGB_Contents.Width - HTrackBar_RGB_R.Left - 20;
             HTrackBar_RGB_G.Width = HTrackBar_RGB_R.Width;
             HTrackBar_RGB_B.Width = HTrackBar_RGB_R.Width;
 
-            HTrackBar_HSV_H.Width = Panel_HSV.Width - HTrackBar_HSV_H.Left - 20;
+            HTrackBar_HSV_H.Width = Panel_HSV_Contents.Width - HTrackBar_HSV_H.Left - 20;
             HTrackBar_HSV_S.Width = HTrackBar_HSV_H.Width;
             HTrackBar_HSV_V.Width = HTrackBar_HSV_H.Width;
 
-            HTrackBar_HSL_H.Width = Panel_HSL.Width - HTrackBar_HSL_H.Left - 20;
+            HTrackBar_HSL_H.Width = Panel_HSL_Contents.Width - HTrackBar_HSL_H.Left - 20;
             HTrackBar_HSL_S.Width = HTrackBar_HSL_H.Width;
             HTrackBar_HSL_L.Width = HTrackBar_HSL_H.Width;
 
-            HTrackBar_CMYK_C.Width = Panel_CMYK.Width - HTrackBar_CMYK_C.Left - 20;
+            HTrackBar_CMYK_C.Width = Panel_CMYK_Contents.Width - HTrackBar_CMYK_C.Left - 20;
             HTrackBar_CMYK_M.Width = HTrackBar_CMYK_C.Width;
             HTrackBar_CMYK_Y.Width = HTrackBar_CMYK_C.Width;
             HTrackBar_CMYK_K.Width = HTrackBar_CMYK_C.Width;
 
-            HTrackBar_LAB_L.Width = Panel_LAB.Width - HTrackBar_LAB_L.Left - 20;
+            HTrackBar_LAB_L.Width = Panel_LAB_Contents.Width - HTrackBar_LAB_L.Left - 20;
             HTrackBar_LAB_A.Width = HTrackBar_LAB_L.Width;
             HTrackBar_LAB_B.Width = HTrackBar_LAB_L.Width;
 
-            HTrackBar_YUV_Y.Width = Panel_YUV.Width - HTrackBar_YUV_Y.Left - 20;
+            HTrackBar_YUV_Y.Width = Panel_YUV_Contents.Width - HTrackBar_YUV_Y.Left - 20;
             HTrackBar_YUV_U.Width = HTrackBar_YUV_Y.Width;
             HTrackBar_YUV_V.Width = HTrackBar_YUV_Y.Width;
         }
@@ -573,21 +573,21 @@ namespace WinFormApp
 
             Color folderBackColor = Me.RecommendColors.Background.ToColor();
 
-            Panel_Info.BackColor = folderBackColor;
-            Panel_Colors.BackColor = folderBackColor;
-            Panel_View.BackColor = folderBackColor;
-            Panel_Blend.BackColor = folderBackColor;
-            Panel_Pick.BackColor = folderBackColor;
-            Panel_Theme.BackColor = folderBackColor;
-            Panel_About.BackColor = folderBackColor;
+            Panel_Info_Contents.BackColor = folderBackColor;
+            Panel_Colors_Contents.BackColor = folderBackColor;
+            Panel_View_Contents.BackColor = folderBackColor;
+            Panel_Blend_Contents.BackColor = folderBackColor;
+            Panel_Pick_Contents.BackColor = folderBackColor;
+            Panel_Theme_Contents.BackColor = folderBackColor;
+            Panel_About_Contents.BackColor = folderBackColor;
 
-            Panel_Transparency.BackColor = folderBackColor;
-            Panel_RGB.BackColor = folderBackColor;
-            Panel_HSV.BackColor = folderBackColor;
-            Panel_HSL.BackColor = folderBackColor;
-            Panel_CMYK.BackColor = folderBackColor;
-            Panel_LAB.BackColor = folderBackColor;
-            Panel_YUV.BackColor = folderBackColor;
+            Panel_Transparency_Contents.BackColor = folderBackColor;
+            Panel_RGB_Contents.BackColor = folderBackColor;
+            Panel_HSV_Contents.BackColor = folderBackColor;
+            Panel_HSL_Contents.BackColor = folderBackColor;
+            Panel_CMYK_Contents.BackColor = folderBackColor;
+            Panel_LAB_Contents.BackColor = folderBackColor;
+            Panel_YUV_Contents.BackColor = folderBackColor;
 
             Color folderButtonForeColor = Me.RecommendColors.Text_INC.ToColor();
 
@@ -830,6 +830,7 @@ namespace WinFormApp
             _RepaintBuiltinColorsImage();
             _RepaintCustomizeColorsImage();
             _RepaintViewImage();
+            _RepaintDivLabelsImage();
 
             _RepaintEditingColorsShadowImage();
             _RepaintColorSpacesShadowImage();
@@ -1137,7 +1138,7 @@ namespace WinFormApp
                 else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
                 {
                     _RepaintDivImage();
-                    _RepaintViewImage();
+                    _RepaintDivLabelsImage();
                 }
 
                 //
@@ -1227,7 +1228,7 @@ namespace WinFormApp
                     //
 
                     _RepaintDivImage();
-                    _RepaintViewImage();
+                    _RepaintDivLabelsImage();
                 }
             }
         }
@@ -1605,7 +1606,7 @@ namespace WinFormApp
                                 ChoseColor(i);
 
                                 _RepaintCustomizeColorsImage();
-                                _RepaintViewImage();
+                                _RepaintDivLabelsImage();
 
                                 break;
                             }
@@ -1638,7 +1639,7 @@ namespace WinFormApp
                     ChoseColor(_ColorTags.Background);
 
                     _RepaintCustomizeColorsImage();
-                    _RepaintViewImage();
+                    _RepaintDivLabelsImage();
                 }
                 else
                 {
@@ -1664,7 +1665,7 @@ namespace WinFormApp
                     ChoseColor(_ColorTags.Label);
 
                     _RepaintCustomizeColorsImage();
-                    _RepaintViewImage();
+                    _RepaintDivLabelsImage();
                 }
                 else
                 {
@@ -1690,7 +1691,7 @@ namespace WinFormApp
                     ChoseColor(_ColorTags.Border);
 
                     _RepaintCustomizeColorsImage();
-                    _RepaintViewImage();
+                    _RepaintDivLabelsImage();
                 }
                 else
                 {
@@ -1716,7 +1717,7 @@ namespace WinFormApp
                     ChoseColor(_ColorTags.Text);
 
                     _RepaintCustomizeColorsImage();
-                    _RepaintViewImage();
+                    _RepaintDivLabelsImage();
                 }
                 else
                 {
@@ -1729,6 +1730,29 @@ namespace WinFormApp
 
         #region 卡片控制
 
+        private void ReverseFolderState(Button button, Panel panel)
+        {
+            if (button.ImageIndex == 0)
+            {
+                int MaxHeight = button.Bottom;
+
+                foreach (Control c in panel.Controls)
+                {
+                    MaxHeight = Math.Max(MaxHeight, c.Bottom);
+                }
+
+                button.ImageIndex = 1;
+
+                panel.Height = MaxHeight;
+            }
+            else
+            {
+                button.ImageIndex = 0;
+
+                panel.Height = button.Bottom;
+            }
+        }
+
         private void Button_EditingColors_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -1737,56 +1761,30 @@ namespace WinFormApp
 
                 if (btn != null)
                 {
-                    if (btn.ImageIndex == 0)
+                    Panel pnl = btn.Parent as Panel;
+
+                    if (pnl != null)
                     {
-                        int MaxHeight = btn.Bottom;
+                        ReverseFolderState(btn, pnl);
 
-                        foreach (Control c in btn.Parent.Controls)
-                        {
-                            if (MaxHeight < c.Bottom)
-                            {
-                                MaxHeight = c.Bottom;
-                            }
-                        }
+                        //
 
-                        int TopDist = MaxHeight;
+                        Panel_Colors.Top = Panel_Info.Bottom + 15;
+                        Panel_View.Top = Panel_Colors.Bottom + 15;
+                        Panel_Blend.Top = Panel_View.Bottom + 15;
+                        Panel_Pick.Top = Panel_Blend.Bottom + 15;
+                        Panel_Theme.Top = Panel_Pick.Bottom + 15;
+                        Panel_About.Top = Panel_Theme.Bottom + 15;
+                        Panel_EditingColors.Height = Panel_About.Bottom + Panel_Info.Top;
 
-                        foreach (Control c in btn.Parent.Controls)
-                        {
-                            if (!object.ReferenceEquals(c, btn) && TopDist > c.Top)
-                            {
-                                TopDist = c.Top;
-                            }
-                        }
+                        //
 
-                        btn.ImageIndex = 1;
+                        Me.OnSizeChanged();
 
-                        btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                        //
+
+                        _RepaintEditingColorsShadowImage();
                     }
-                    else
-                    {
-                        btn.ImageIndex = 0;
-
-                        btn.Parent.Height = btn.Bottom;
-                    }
-
-                    //
-
-                    Panel_Colors.Top = Panel_Info.Bottom + 15;
-                    Panel_View.Top = Panel_Colors.Bottom + 15;
-                    Panel_Blend.Top = Panel_View.Bottom + 15;
-                    Panel_Pick.Top = Panel_Blend.Bottom + 15;
-                    Panel_Theme.Top = Panel_Pick.Bottom + 15;
-                    Panel_About.Top = Panel_Theme.Bottom + 15;
-                    Panel_EditingColors.Height = Panel_About.Bottom + Panel_Info.Top;
-
-                    //
-
-                    Me.OnSizeChanged();
-
-                    //
-
-                    _RepaintEditingColorsShadowImage();
                 }
             }
         }
@@ -1799,56 +1797,30 @@ namespace WinFormApp
 
                 if (btn != null)
                 {
-                    if (btn.ImageIndex == 0)
+                    Panel pnl = btn.Parent as Panel;
+
+                    if (pnl != null)
                     {
-                        int MaxHeight = btn.Bottom;
+                        ReverseFolderState(btn, pnl);
 
-                        foreach (Control c in btn.Parent.Controls)
-                        {
-                            if (MaxHeight < c.Bottom)
-                            {
-                                MaxHeight = c.Bottom;
-                            }
-                        }
+                        //
 
-                        int TopDist = MaxHeight;
+                        Panel_RGB.Top = Panel_Transparency.Bottom + 15;
+                        Panel_HSV.Top = Panel_RGB.Bottom + 15;
+                        Panel_HSL.Top = Panel_HSV.Bottom + 15;
+                        Panel_CMYK.Top = Panel_HSL.Bottom + 15;
+                        Panel_LAB.Top = Panel_CMYK.Bottom + 15;
+                        Panel_YUV.Top = Panel_LAB.Bottom + 15;
+                        Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
 
-                        foreach (Control c in btn.Parent.Controls)
-                        {
-                            if (!object.ReferenceEquals(c, btn) && TopDist > c.Top)
-                            {
-                                TopDist = c.Top;
-                            }
-                        }
+                        //
 
-                        btn.ImageIndex = 1;
+                        Me.OnSizeChanged();
 
-                        btn.Parent.Height = MaxHeight + TopDist - btn.Bottom;
+                        //
+
+                        _RepaintColorSpacesShadowImage();
                     }
-                    else
-                    {
-                        btn.ImageIndex = 0;
-
-                        btn.Parent.Height = btn.Bottom;
-                    }
-
-                    //
-
-                    Panel_RGB.Top = Panel_Transparency.Bottom + 15;
-                    Panel_HSV.Top = Panel_RGB.Bottom + 15;
-                    Panel_HSL.Top = Panel_HSV.Bottom + 15;
-                    Panel_CMYK.Top = Panel_HSL.Bottom + 15;
-                    Panel_LAB.Top = Panel_CMYK.Bottom + 15;
-                    Panel_YUV.Top = Panel_LAB.Bottom + 15;
-                    Panel_ColorSpaces.Height = Panel_YUV.Bottom + Panel_Transparency.Top;
-
-                    //
-
-                    Me.OnSizeChanged();
-
-                    //
-
-                    _RepaintColorSpacesShadowImage();
                 }
             }
         }
@@ -1942,13 +1914,13 @@ namespace WinFormApp
                 _InfoImage.Dispose();
             }
 
-            _InfoImage = new Bitmap(Math.Max(1, Panel_Info.Width), Math.Max(1, Panel_Info.Height));
+            _InfoImage = new Bitmap(Math.Max(1, Panel_Info_Contents.Width), Math.Max(1, Panel_Info_Contents.Height));
 
             using (Graphics Grap = Graphics.FromImage(_InfoImage))
             {
                 Grap.SmoothingMode = SmoothingMode.AntiAlias;
 
-                Grap.Clear(Panel_Info.BackColor);
+                Grap.Clear(Panel_Info_Contents.BackColor);
 
                 //
 
@@ -1979,11 +1951,11 @@ namespace WinFormApp
 
             if (_InfoImage != null)
             {
-                Panel_Info.CreateGraphics().DrawImage(_InfoImage, new Point(0, 0));
+                Panel_Info_Contents.CreateGraphics().DrawImage(_InfoImage, new Point(0, 0));
             }
         }
 
-        private void Panel_Info_Paint(object sender, PaintEventArgs e)
+        private void Panel_Info_Contents_Paint(object sender, PaintEventArgs e)
         {
             if (_InfoImage == null)
             {
@@ -2013,7 +1985,7 @@ namespace WinFormApp
             {
                 Grap.SmoothingMode = SmoothingMode.Default;
 
-                Grap.Clear(Panel_Colors.BackColor);
+                Grap.Clear(Panel_Colors_Contents.BackColor);
 
                 //
 
@@ -2074,7 +2046,7 @@ namespace WinFormApp
             {
                 Grap.SmoothingMode = SmoothingMode.Default;
 
-                Grap.Clear(Panel_Colors.BackColor);
+                Grap.Clear(Panel_Colors_Contents.BackColor);
 
                 //
 
@@ -2182,13 +2154,151 @@ namespace WinFormApp
                 _ViewImage.Dispose();
             }
 
-            _ViewImage = new Bitmap(Math.Max(1, Panel_View.Width), Math.Max(1, Panel_View.Height));
+            _ViewImage = new Bitmap(Math.Max(1, Panel_View_Contents.Width), Math.Max(1, Panel_View_Contents.Height));
 
             using (Graphics Grap = Graphics.FromImage(_ViewImage))
             {
                 Grap.SmoothingMode = SmoothingMode.Default;
 
-                Grap.Clear(Panel_View.BackColor);
+                Grap.Clear(Panel_View_Contents.BackColor);
+
+                //
+
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Color borderColor = Color.FromArgb(20, Color.Black);
+
+                PaintShadow(Grap, borderColor, Panel_Div.Bounds, 5);
+            }
+        }
+
+        private void _RepaintViewImage()
+        {
+            _UpdateViewImage();
+
+            if (_ViewImage != null)
+            {
+                Panel_View_Contents.CreateGraphics().DrawImage(_ViewImage, new Point(0, 0));
+
+                Label_Background_Val.Refresh();
+                Label_Label_Val.Refresh();
+                Label_Border_Val.Refresh();
+                Label_Text_Val.Refresh();
+            }
+        }
+
+        private void Panel_View_Contents_Paint(object sender, PaintEventArgs e)
+        {
+            if (_ViewImage == null)
+            {
+                _UpdateViewImage();
+            }
+
+            if (_ViewImage != null)
+            {
+                e.Graphics.DrawImage(_ViewImage, new Point(0, 0));
+            }
+        }
+
+        //
+
+        private Bitmap _DivImage = null;
+
+        private void _UpdateDivImage()
+        {
+            if (_DivImage != null)
+            {
+                _DivImage.Dispose();
+            }
+
+            _DivImage = new Bitmap(Math.Max(1, Panel_Div.Width), Math.Max(1, Panel_Div.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_DivImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Grap.Clear(Panel_View_Contents.BackColor);
+
+                //
+
+                Rectangle outerBounds = new Rectangle(0, 0, _DivImage.Width, _DivImage.Height);
+                Rectangle innerBounds = new Rectangle(20, 20, outerBounds.Width - 40, outerBounds.Height - 40);
+
+                using (Brush Br = new SolidBrush(_BackgroundColor.ToColor()))
+                {
+                    Grap.FillRectangle(Br, outerBounds);
+                }
+
+                using (Brush Br = new SolidBrush(_LabelColor.ToColor()))
+                {
+                    Grap.FillRectangle(Br, innerBounds);
+                }
+
+                using (Pen Pn = new Pen(_BorderColor.ToColor(), 2))
+                {
+                    Grap.DrawRectangle(Pn, innerBounds);
+                }
+
+                using (Brush Br = new SolidBrush(_TextColor.ToColor()))
+                {
+                    string text1 = "示例文本";
+                    Font font1 = new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
+                    Size size1 = TextRenderer.MeasureText(text1, font1);
+
+                    string text2 = "Sample text";
+                    Font font2 = new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
+                    Size size2 = TextRenderer.MeasureText(text2, font2);
+
+                    Point loc1 = new Point((outerBounds.Width - size1.Width) / 2, (outerBounds.Height - size1.Height - size2.Height) / 2);
+                    Point loc2 = new Point((outerBounds.Width - size2.Width) / 2, loc1.Y + size1.Height);
+
+                    Grap.DrawString(text1, font1, Br, loc1);
+                    Grap.DrawString(text2, font2, Br, loc2);
+                }
+            }
+        }
+
+        private void _RepaintDivImage()
+        {
+            _UpdateDivImage();
+
+            if (_DivImage != null)
+            {
+                Panel_Div.CreateGraphics().DrawImage(_DivImage, new Point(0, 0));
+            }
+        }
+
+        private void Panel_Div_Paint(object sender, PaintEventArgs e)
+        {
+            if (_DivImage == null)
+            {
+                _UpdateDivImage();
+            }
+
+            if (_DivImage != null)
+            {
+                e.Graphics.DrawImage(_DivImage, new Point(0, 0));
+            }
+        }
+
+        //
+
+        private Bitmap _DivLabelsImage = null;
+
+        private void _UpdateDivLabelsImage()
+        {
+            if (_DivLabelsImage != null)
+            {
+                _DivLabelsImage.Dispose();
+            }
+
+            _DivLabelsImage = new Bitmap(Math.Max(1, Panel_DivLabels.Width), Math.Max(1, Panel_DivLabels.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_DivLabelsImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.Default;
+
+                Grap.Clear(Panel_View_Contents.BackColor);
 
                 //
 
@@ -2259,7 +2369,7 @@ namespace WinFormApp
 
                 Grap.SmoothingMode = SmoothingMode.AntiAlias;
 
-                Control[] ctrls = new Control[] { Panel_Div, Label_Background_Val, Label_Label_Val, Label_Border_Val, Label_Text_Val };
+                Control[] ctrls = new Control[] { Label_Background_Val, Label_Label_Val, Label_Border_Val, Label_Text_Val };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
@@ -2270,13 +2380,13 @@ namespace WinFormApp
             }
         }
 
-        private void _RepaintViewImage()
+        private void _RepaintDivLabelsImage()
         {
-            _UpdateViewImage();
+            _UpdateDivLabelsImage();
 
-            if (_ViewImage != null)
+            if (_DivLabelsImage != null)
             {
-                Panel_View.CreateGraphics().DrawImage(_ViewImage, new Point(0, 0));
+                Panel_DivLabels.CreateGraphics().DrawImage(_DivLabelsImage, new Point(0, 0));
 
                 Label_Background_Val.Refresh();
                 Label_Label_Val.Refresh();
@@ -2285,97 +2395,16 @@ namespace WinFormApp
             }
         }
 
-        private void Panel_View_Paint(object sender, PaintEventArgs e)
+        private void Panel_DivLabels_Paint(object sender, PaintEventArgs e)
         {
-            if (_ViewImage == null)
+            if (_DivLabelsImage == null)
             {
-                _UpdateViewImage();
+                _UpdateDivLabelsImage();
             }
 
-            if (_ViewImage != null)
+            if (_DivLabelsImage != null)
             {
-                e.Graphics.DrawImage(_ViewImage, new Point(0, 0));
-            }
-        }
-
-        //
-
-        private Bitmap _DivImage = null;
-
-        private void _UpdateDivImage()
-        {
-            if (_DivImage != null)
-            {
-                _DivImage.Dispose();
-            }
-
-            _DivImage = new Bitmap(Math.Max(1, Panel_Div.Width), Math.Max(1, Panel_Div.Height));
-
-            using (Graphics Grap = Graphics.FromImage(_DivImage))
-            {
-                Grap.SmoothingMode = SmoothingMode.AntiAlias;
-
-                Grap.Clear(Panel_View.BackColor);
-
-                //
-
-                Rectangle outerBounds = new Rectangle(0, 0, _DivImage.Width, _DivImage.Height);
-                Rectangle innerBounds = new Rectangle(20, 20, outerBounds.Width - 40, outerBounds.Height - 40);
-
-                using (Brush Br = new SolidBrush(_BackgroundColor.ToColor()))
-                {
-                    Grap.FillRectangle(Br, outerBounds);
-                }
-
-                using (Brush Br = new SolidBrush(_LabelColor.ToColor()))
-                {
-                    Grap.FillRectangle(Br, innerBounds);
-                }
-
-                using (Pen Pn = new Pen(_BorderColor.ToColor(), 2))
-                {
-                    Grap.DrawRectangle(Pn, innerBounds);
-                }
-
-                using (Brush Br = new SolidBrush(_TextColor.ToColor()))
-                {
-                    string text1 = "示例文本";
-                    Font font1 = new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
-                    Size size1 = TextRenderer.MeasureText(text1, font1);
-
-                    string text2 = "Sample text";
-                    Font font2 = new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134);
-                    Size size2 = TextRenderer.MeasureText(text2, font2);
-
-                    Point loc1 = new Point((outerBounds.Width - size1.Width) / 2, (outerBounds.Height - size1.Height - size2.Height) / 2);
-                    Point loc2 = new Point((outerBounds.Width - size2.Width) / 2, loc1.Y + size1.Height);
-
-                    Grap.DrawString(text1, font1, Br, loc1);
-                    Grap.DrawString(text2, font2, Br, loc2);
-                }
-            }
-        }
-
-        private void _RepaintDivImage()
-        {
-            _UpdateDivImage();
-
-            if (_DivImage != null)
-            {
-                Panel_Div.CreateGraphics().DrawImage(_DivImage, new Point(0, 0));
-            }
-        }
-
-        private void Panel_Div_Paint(object sender, PaintEventArgs e)
-        {
-            if (_DivImage == null)
-            {
-                _UpdateDivImage();
-            }
-
-            if (_DivImage != null)
-            {
-                e.Graphics.DrawImage(_DivImage, new Point(0, 0));
+                e.Graphics.DrawImage(_DivLabelsImage, new Point(0, 0));
             }
         }
 

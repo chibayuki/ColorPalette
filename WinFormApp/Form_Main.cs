@@ -805,10 +805,12 @@ namespace WinFormApp
 
             //
 
+            Label_Type.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_Name.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_Grayscale.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_Complementary.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
 
+            Label_Type_Val.ForeColor = Me.RecommendColors.Text.ToColor();
             Label_Name_Val.ForeColor = Me.RecommendColors.Text.ToColor();
             Label_Grayscale_Val2.ForeColor = Me.RecommendColors.Text.ToColor();
 
@@ -1909,6 +1911,17 @@ namespace WinFormApp
 
         private void _UpdateInfoImage()
         {
+            Com.ColorX currentColor = CurrentColor;
+
+            Label_CurrentColor.BackColor = currentColor.ToColor();
+            Label_Type_Val.Text = (currentColor.IsTrueColor ? "真彩色（32 位）" : "浮点色");
+            Label_Name_Val.Text = (currentColor.IsTrueColor ? string.Empty : "(近似) ") + Com.ColorManipulation.GetColorName(currentColor);
+            Label_Grayscale_Val.BackColor = currentColor.GrayscaleColor.ToColor();
+            Label_Grayscale_Val2.Text = currentColor.GrayscaleColor.Red.ToString("N3");
+            Label_Complementary_Val.BackColor = currentColor.ComplementaryColor.ToColor();
+
+            //
+
             if (_InfoImage != null)
             {
                 _InfoImage.Dispose();
@@ -1921,16 +1934,6 @@ namespace WinFormApp
                 Grap.SmoothingMode = SmoothingMode.AntiAlias;
 
                 Grap.Clear(Panel_Info_Contents.BackColor);
-
-                //
-
-                Com.ColorX currentColor = CurrentColor;
-
-                Label_CurrentColor.BackColor = currentColor.ToColor();
-                Label_Name_Val.Text = Com.ColorManipulation.GetColorName(currentColor);
-                Label_Grayscale_Val.BackColor = currentColor.GrayscaleColor.ToColor();
-                Label_Grayscale_Val2.Text = currentColor.GrayscaleColor.Red.ToString("N3");
-                Label_Complementary_Val.BackColor = currentColor.ComplementaryColor.ToColor();
 
                 //
 
@@ -1974,6 +1977,13 @@ namespace WinFormApp
 
         private void _UpdateBuiltinColorsImage()
         {
+            for (int i = 0; i < Label_BuiltinColors.Length; i++)
+            {
+                Label_BuiltinColors[i].BackColor = _BuiltinColors[i].ToColor();
+            }
+
+            //
+
             if (_BuiltinColorsImage != null)
             {
                 _BuiltinColorsImage.Dispose();
@@ -1986,13 +1996,6 @@ namespace WinFormApp
                 Grap.SmoothingMode = SmoothingMode.Default;
 
                 Grap.Clear(Panel_Colors_Contents.BackColor);
-
-                //
-
-                for (int i = 0; i < Label_BuiltinColors.Length; i++)
-                {
-                    Label_BuiltinColors[i].BackColor = _BuiltinColors[i].ToColor();
-                }
 
                 //
 

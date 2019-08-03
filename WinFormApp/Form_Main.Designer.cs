@@ -36,44 +36,46 @@
             this.Panel_Info = new System.Windows.Forms.Panel();
             this.Panel_Info_Contents = new System.Windows.Forms.Panel();
             this.Label_CurrentColor = new System.Windows.Forms.Label();
-            this.Label_Complementary_Val = new System.Windows.Forms.Label();
-            this.Label_Complementary = new System.Windows.Forms.Label();
+            this.Label_Type = new System.Windows.Forms.Label();
+            this.Label_Type_Val = new System.Windows.Forms.Label();
             this.Label_Name = new System.Windows.Forms.Label();
-            this.Label_Grayscale_Val2 = new System.Windows.Forms.Label();
             this.Label_Name_Val = new System.Windows.Forms.Label();
-            this.Label_Grayscale_Val = new System.Windows.Forms.Label();
             this.Label_Grayscale = new System.Windows.Forms.Label();
+            this.Label_Grayscale_Val = new System.Windows.Forms.Label();
+            this.Label_Grayscale_Val2 = new System.Windows.Forms.Label();
+            this.Label_Complementary = new System.Windows.Forms.Label();
+            this.Label_Complementary_Val = new System.Windows.Forms.Label();
             this.Button_Info = new System.Windows.Forms.Button();
             this.ImageList_FoldAndUnfold = new System.Windows.Forms.ImageList(this.components);
             this.Panel_Colors = new System.Windows.Forms.Panel();
             this.Panel_Colors_Contents = new System.Windows.Forms.Panel();
             this.Label_Colors_Builtin = new System.Windows.Forms.Label();
-            this.Panel_Colors_Customize = new System.Windows.Forms.Panel();
-            this.Label_Colors_Customize = new System.Windows.Forms.Label();
             this.Panel_Colors_Builtin = new System.Windows.Forms.Panel();
+            this.Label_Colors_Customize = new System.Windows.Forms.Label();
+            this.Panel_Colors_Customize = new System.Windows.Forms.Panel();
             this.Button_Colors = new System.Windows.Forms.Button();
             this.Panel_View = new System.Windows.Forms.Panel();
             this.Panel_View_Contents = new System.Windows.Forms.Panel();
             this.Panel_Div = new System.Windows.Forms.Panel();
+            this.Label_Background = new System.Windows.Forms.Label();
+            this.Label_Label = new System.Windows.Forms.Label();
+            this.Label_Border = new System.Windows.Forms.Label();
+            this.Label_Text = new System.Windows.Forms.Label();
             this.Panel_DivLabels = new System.Windows.Forms.Panel();
             this.Label_Background_Val = new System.Windows.Forms.Label();
             this.Label_Text_Val = new System.Windows.Forms.Label();
             this.Label_Border_Val = new System.Windows.Forms.Label();
             this.Label_Label_Val = new System.Windows.Forms.Label();
-            this.Label_Text = new System.Windows.Forms.Label();
-            this.Label_Border = new System.Windows.Forms.Label();
-            this.Label_Background = new System.Windows.Forms.Label();
-            this.Label_Label = new System.Windows.Forms.Label();
             this.Button_View = new System.Windows.Forms.Button();
             this.Panel_Blend = new System.Windows.Forms.Panel();
             this.Panel_Blend_Contents = new System.Windows.Forms.Panel();
             this.Label_BlendMethod = new System.Windows.Forms.Label();
-            this.Label_BlendColor2 = new System.Windows.Forms.Label();
-            this.Label_BlendResult = new System.Windows.Forms.Label();
             this.ComboBox_BlendMethod = new System.Windows.Forms.ComboBox();
-            this.Label_BlendColor1 = new System.Windows.Forms.Label();
             this.NumEditor_Blend = new WinFormApp.NumEditor();
             this.HTrackBar_Blend = new WinFormApp.HTrackBar();
+            this.Label_BlendColor1 = new System.Windows.Forms.Label();
+            this.Label_BlendResult = new System.Windows.Forms.Label();
+            this.Label_BlendColor2 = new System.Windows.Forms.Label();
             this.Button_Blend = new System.Windows.Forms.Button();
             this.Panel_Pick = new System.Windows.Forms.Panel();
             this.Panel_Pick_Contents = new System.Windows.Forms.Panel();
@@ -82,13 +84,13 @@
             this.Panel_Theme = new System.Windows.Forms.Panel();
             this.Panel_Theme_Contents = new System.Windows.Forms.Panel();
             this.Label_Theme = new System.Windows.Forms.Label();
-            this.Label_ThemeColor_EditingColor = new System.Windows.Forms.Label();
-            this.RadioButton_ThemeColor_Customize = new System.Windows.Forms.RadioButton();
             this.ComboBox_Theme = new System.Windows.Forms.ComboBox();
-            this.RadioButton_ThemeColor_Windows = new System.Windows.Forms.RadioButton();
             this.Label_ThemeColor = new System.Windows.Forms.Label();
-            this.RadioButton_ThemeColor_EditingColor = new System.Windows.Forms.RadioButton();
             this.RadioButton_ThemeColor_Random = new System.Windows.Forms.RadioButton();
+            this.RadioButton_ThemeColor_EditingColor = new System.Windows.Forms.RadioButton();
+            this.RadioButton_ThemeColor_Windows = new System.Windows.Forms.RadioButton();
+            this.RadioButton_ThemeColor_Customize = new System.Windows.Forms.RadioButton();
+            this.Label_ThemeColor_Customize = new System.Windows.Forms.Label();
             this.Button_Theme = new System.Windows.Forms.Button();
             this.Panel_About = new System.Windows.Forms.Panel();
             this.Panel_About_Contents = new System.Windows.Forms.Panel();
@@ -97,110 +99,110 @@
             this.Panel_RightArea = new System.Windows.Forms.Panel();
             this.Panel_ColorSpaces = new System.Windows.Forms.Panel();
             this.Panel_Transparency = new System.Windows.Forms.Panel();
-            this.Button_Transparency = new System.Windows.Forms.Button();
+            this.Panel_Transparency_Contents = new System.Windows.Forms.Panel();
             this.Label_Abbr_Opacity = new System.Windows.Forms.Label();
-            this.Label_Abbr_Alpha = new System.Windows.Forms.Label();
             this.Label_Opacity = new System.Windows.Forms.Label();
-            this.Label_Alpha = new System.Windows.Forms.Label();
             this.NumEditor_Opacity = new WinFormApp.NumEditor();
-            this.NumEditor_Alpha = new WinFormApp.NumEditor();
             this.HTrackBar_Opacity = new WinFormApp.HTrackBar();
+            this.Label_Abbr_Alpha = new System.Windows.Forms.Label();
+            this.Label_Alpha = new System.Windows.Forms.Label();
+            this.NumEditor_Alpha = new WinFormApp.NumEditor();
             this.HTrackBar_Alpha = new WinFormApp.HTrackBar();
+            this.Button_Transparency = new System.Windows.Forms.Button();
             this.Panel_RGB = new System.Windows.Forms.Panel();
-            this.Button_RGB = new System.Windows.Forms.Button();
+            this.Panel_RGB_Contents = new System.Windows.Forms.Panel();
             this.Label_Abbr_RGB_R = new System.Windows.Forms.Label();
-            this.Label_Abbr_RGB_G = new System.Windows.Forms.Label();
-            this.Label_Abbr_RGB_B = new System.Windows.Forms.Label();
             this.Label_RGB_R = new System.Windows.Forms.Label();
-            this.Label_RGB_G = new System.Windows.Forms.Label();
-            this.Label_RGB_B = new System.Windows.Forms.Label();
             this.NumEditor_RGB_R = new WinFormApp.NumEditor();
-            this.NumEditor_RGB_G = new WinFormApp.NumEditor();
-            this.NumEditor_RGB_B = new WinFormApp.NumEditor();
             this.HTrackBar_RGB_R = new WinFormApp.HTrackBar();
+            this.Label_Abbr_RGB_G = new System.Windows.Forms.Label();
+            this.Label_RGB_G = new System.Windows.Forms.Label();
+            this.NumEditor_RGB_G = new WinFormApp.NumEditor();
             this.HTrackBar_RGB_G = new WinFormApp.HTrackBar();
+            this.Label_Abbr_RGB_B = new System.Windows.Forms.Label();
+            this.Label_RGB_B = new System.Windows.Forms.Label();
+            this.NumEditor_RGB_B = new WinFormApp.NumEditor();
             this.HTrackBar_RGB_B = new WinFormApp.HTrackBar();
+            this.Button_RGB = new System.Windows.Forms.Button();
             this.Panel_HSV = new System.Windows.Forms.Panel();
-            this.Button_HSV = new System.Windows.Forms.Button();
+            this.Panel_HSV_Contents = new System.Windows.Forms.Panel();
             this.Label_Abbr_HSV_H = new System.Windows.Forms.Label();
-            this.Label_Abbr_HSV_S = new System.Windows.Forms.Label();
-            this.Label_Abbr_HSV_V = new System.Windows.Forms.Label();
             this.Label_HSV_H = new System.Windows.Forms.Label();
-            this.Label_HSV_S = new System.Windows.Forms.Label();
-            this.Label_HSV_V = new System.Windows.Forms.Label();
             this.NumEditor_HSV_H = new WinFormApp.NumEditor();
-            this.NumEditor_HSV_S = new WinFormApp.NumEditor();
-            this.NumEditor_HSV_V = new WinFormApp.NumEditor();
             this.HTrackBar_HSV_H = new WinFormApp.HTrackBar();
+            this.Label_Abbr_HSV_S = new System.Windows.Forms.Label();
+            this.Label_HSV_S = new System.Windows.Forms.Label();
+            this.NumEditor_HSV_S = new WinFormApp.NumEditor();
             this.HTrackBar_HSV_S = new WinFormApp.HTrackBar();
+            this.Label_Abbr_HSV_V = new System.Windows.Forms.Label();
+            this.Label_HSV_V = new System.Windows.Forms.Label();
+            this.NumEditor_HSV_V = new WinFormApp.NumEditor();
             this.HTrackBar_HSV_V = new WinFormApp.HTrackBar();
+            this.Button_HSV = new System.Windows.Forms.Button();
             this.Panel_HSL = new System.Windows.Forms.Panel();
-            this.Button_HSL = new System.Windows.Forms.Button();
+            this.Panel_HSL_Contents = new System.Windows.Forms.Panel();
             this.Label_Abbr_HSL_H = new System.Windows.Forms.Label();
-            this.Label_Abbr_HSL_S = new System.Windows.Forms.Label();
-            this.Label_Abbr_HSL_L = new System.Windows.Forms.Label();
             this.Label_HSL_H = new System.Windows.Forms.Label();
-            this.Label_HSL_S = new System.Windows.Forms.Label();
-            this.Label_HSL_L = new System.Windows.Forms.Label();
             this.NumEditor_HSL_H = new WinFormApp.NumEditor();
-            this.NumEditor_HSL_S = new WinFormApp.NumEditor();
-            this.NumEditor_HSL_L = new WinFormApp.NumEditor();
             this.HTrackBar_HSL_H = new WinFormApp.HTrackBar();
+            this.Label_Abbr_HSL_S = new System.Windows.Forms.Label();
+            this.Label_HSL_S = new System.Windows.Forms.Label();
+            this.NumEditor_HSL_S = new WinFormApp.NumEditor();
             this.HTrackBar_HSL_S = new WinFormApp.HTrackBar();
+            this.Label_Abbr_HSL_L = new System.Windows.Forms.Label();
+            this.Label_HSL_L = new System.Windows.Forms.Label();
+            this.NumEditor_HSL_L = new WinFormApp.NumEditor();
             this.HTrackBar_HSL_L = new WinFormApp.HTrackBar();
+            this.Button_HSL = new System.Windows.Forms.Button();
             this.Panel_CMYK = new System.Windows.Forms.Panel();
-            this.Button_CMYK = new System.Windows.Forms.Button();
+            this.Panel_CMYK_Contents = new System.Windows.Forms.Panel();
             this.Label_Abbr_CMYK_C = new System.Windows.Forms.Label();
-            this.Label_Abbr_CMYK_M = new System.Windows.Forms.Label();
-            this.Label_Abbr_CMYK_Y = new System.Windows.Forms.Label();
-            this.Label_Abbr_CMYK_K = new System.Windows.Forms.Label();
             this.Label_CMYK_C = new System.Windows.Forms.Label();
+            this.NumEditor_CMYK_C = new WinFormApp.NumEditor();
+            this.HTrackBar_CMYK_C = new WinFormApp.HTrackBar();
+            this.Label_Abbr_CMYK_M = new System.Windows.Forms.Label();
             this.Label_CMYK_M = new System.Windows.Forms.Label();
+            this.NumEditor_CMYK_M = new WinFormApp.NumEditor();
+            this.HTrackBar_CMYK_M = new WinFormApp.HTrackBar();
+            this.Label_Abbr_CMYK_Y = new System.Windows.Forms.Label();
             this.Label_CMYK_Y = new System.Windows.Forms.Label();
+            this.NumEditor_CMYK_Y = new WinFormApp.NumEditor();
+            this.HTrackBar_CMYK_Y = new WinFormApp.HTrackBar();
+            this.Label_Abbr_CMYK_K = new System.Windows.Forms.Label();
             this.Label_CMYK_K = new System.Windows.Forms.Label();
             this.NumEditor_CMYK_K = new WinFormApp.NumEditor();
-            this.NumEditor_CMYK_C = new WinFormApp.NumEditor();
-            this.NumEditor_CMYK_M = new WinFormApp.NumEditor();
-            this.NumEditor_CMYK_Y = new WinFormApp.NumEditor();
-            this.HTrackBar_CMYK_C = new WinFormApp.HTrackBar();
-            this.HTrackBar_CMYK_M = new WinFormApp.HTrackBar();
-            this.HTrackBar_CMYK_Y = new WinFormApp.HTrackBar();
             this.HTrackBar_CMYK_K = new WinFormApp.HTrackBar();
+            this.Button_CMYK = new System.Windows.Forms.Button();
             this.Panel_LAB = new System.Windows.Forms.Panel();
-            this.Button_LAB = new System.Windows.Forms.Button();
-            this.Label_Abbr_LAB_L = new System.Windows.Forms.Label();
-            this.Label_Abbr_LAB_A = new System.Windows.Forms.Label();
-            this.Label_Abbr_LAB_B = new System.Windows.Forms.Label();
-            this.Label_LAB_L = new System.Windows.Forms.Label();
-            this.Label_LAB_A = new System.Windows.Forms.Label();
-            this.Label_LAB_B = new System.Windows.Forms.Label();
-            this.NumEditor_LAB_L = new WinFormApp.NumEditor();
-            this.NumEditor_LAB_A = new WinFormApp.NumEditor();
-            this.NumEditor_LAB_B = new WinFormApp.NumEditor();
-            this.HTrackBar_LAB_L = new WinFormApp.HTrackBar();
-            this.HTrackBar_LAB_A = new WinFormApp.HTrackBar();
-            this.HTrackBar_LAB_B = new WinFormApp.HTrackBar();
-            this.Panel_YUV = new System.Windows.Forms.Panel();
-            this.Button_YUV = new System.Windows.Forms.Button();
-            this.Label_Abbr_YUV_Y = new System.Windows.Forms.Label();
-            this.Label_Abbr_YUV_U = new System.Windows.Forms.Label();
-            this.Label_Abbr_YUV_V = new System.Windows.Forms.Label();
-            this.Label_YUV_Y = new System.Windows.Forms.Label();
-            this.Label_YUV_U = new System.Windows.Forms.Label();
-            this.Label_YUV_V = new System.Windows.Forms.Label();
-            this.NumEditor_YUV_Y = new WinFormApp.NumEditor();
-            this.NumEditor_YUV_U = new WinFormApp.NumEditor();
-            this.NumEditor_YUV_V = new WinFormApp.NumEditor();
-            this.HTrackBar_YUV_Y = new WinFormApp.HTrackBar();
-            this.HTrackBar_YUV_U = new WinFormApp.HTrackBar();
-            this.HTrackBar_YUV_V = new WinFormApp.HTrackBar();
-            this.Panel_Transparency_Contents = new System.Windows.Forms.Panel();
-            this.Panel_RGB_Contents = new System.Windows.Forms.Panel();
-            this.Panel_HSV_Contents = new System.Windows.Forms.Panel();
-            this.Panel_HSL_Contents = new System.Windows.Forms.Panel();
-            this.Panel_CMYK_Contents = new System.Windows.Forms.Panel();
             this.Panel_LAB_Contents = new System.Windows.Forms.Panel();
+            this.Label_Abbr_LAB_L = new System.Windows.Forms.Label();
+            this.Label_LAB_L = new System.Windows.Forms.Label();
+            this.NumEditor_LAB_L = new WinFormApp.NumEditor();
+            this.HTrackBar_LAB_L = new WinFormApp.HTrackBar();
+            this.Label_Abbr_LAB_A = new System.Windows.Forms.Label();
+            this.Label_LAB_A = new System.Windows.Forms.Label();
+            this.NumEditor_LAB_A = new WinFormApp.NumEditor();
+            this.HTrackBar_LAB_A = new WinFormApp.HTrackBar();
+            this.Label_Abbr_LAB_B = new System.Windows.Forms.Label();
+            this.Label_LAB_B = new System.Windows.Forms.Label();
+            this.NumEditor_LAB_B = new WinFormApp.NumEditor();
+            this.HTrackBar_LAB_B = new WinFormApp.HTrackBar();
+            this.Button_LAB = new System.Windows.Forms.Button();
+            this.Panel_YUV = new System.Windows.Forms.Panel();
             this.Panel_YUV_Contents = new System.Windows.Forms.Panel();
+            this.Label_Abbr_YUV_Y = new System.Windows.Forms.Label();
+            this.Label_YUV_Y = new System.Windows.Forms.Label();
+            this.NumEditor_YUV_Y = new WinFormApp.NumEditor();
+            this.HTrackBar_YUV_Y = new WinFormApp.HTrackBar();
+            this.Label_Abbr_YUV_U = new System.Windows.Forms.Label();
+            this.Label_YUV_U = new System.Windows.Forms.Label();
+            this.NumEditor_YUV_U = new WinFormApp.NumEditor();
+            this.HTrackBar_YUV_U = new WinFormApp.HTrackBar();
+            this.Label_Abbr_YUV_V = new System.Windows.Forms.Label();
+            this.Label_YUV_V = new System.Windows.Forms.Label();
+            this.NumEditor_YUV_V = new WinFormApp.NumEditor();
+            this.HTrackBar_YUV_V = new WinFormApp.HTrackBar();
+            this.Button_YUV = new System.Windows.Forms.Button();
             this.Panel_Main.SuspendLayout();
             this.Panel_LeftArea.SuspendLayout();
             this.Panel_EditingColors.SuspendLayout();
@@ -223,18 +225,18 @@
             this.Panel_RightArea.SuspendLayout();
             this.Panel_ColorSpaces.SuspendLayout();
             this.Panel_Transparency.SuspendLayout();
-            this.Panel_RGB.SuspendLayout();
-            this.Panel_HSV.SuspendLayout();
-            this.Panel_HSL.SuspendLayout();
-            this.Panel_CMYK.SuspendLayout();
-            this.Panel_LAB.SuspendLayout();
-            this.Panel_YUV.SuspendLayout();
             this.Panel_Transparency_Contents.SuspendLayout();
+            this.Panel_RGB.SuspendLayout();
             this.Panel_RGB_Contents.SuspendLayout();
+            this.Panel_HSV.SuspendLayout();
             this.Panel_HSV_Contents.SuspendLayout();
+            this.Panel_HSL.SuspendLayout();
             this.Panel_HSL_Contents.SuspendLayout();
+            this.Panel_CMYK.SuspendLayout();
             this.Panel_CMYK_Contents.SuspendLayout();
+            this.Panel_LAB.SuspendLayout();
             this.Panel_LAB_Contents.SuspendLayout();
+            this.Panel_YUV.SuspendLayout();
             this.Panel_YUV_Contents.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -272,7 +274,7 @@
             this.Panel_EditingColors.Controls.Add(this.Panel_About);
             this.Panel_EditingColors.Location = new System.Drawing.Point(0, 0);
             this.Panel_EditingColors.Name = "Panel_EditingColors";
-            this.Panel_EditingColors.Size = new System.Drawing.Size(480, 1320);
+            this.Panel_EditingColors.Size = new System.Drawing.Size(480, 1355);
             this.Panel_EditingColors.TabIndex = 0;
             this.Panel_EditingColors.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_EditingColors_Paint);
             // 
@@ -283,23 +285,25 @@
             this.Panel_Info.Controls.Add(this.Button_Info);
             this.Panel_Info.Location = new System.Drawing.Point(20, 20);
             this.Panel_Info.Name = "Panel_Info";
-            this.Panel_Info.Size = new System.Drawing.Size(440, 145);
+            this.Panel_Info.Size = new System.Drawing.Size(440, 180);
             this.Panel_Info.TabIndex = 0;
             // 
             // Panel_Info_Contents
             // 
             this.Panel_Info_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_Info_Contents.Controls.Add(this.Label_CurrentColor);
-            this.Panel_Info_Contents.Controls.Add(this.Label_Complementary_Val);
-            this.Panel_Info_Contents.Controls.Add(this.Label_Complementary);
+            this.Panel_Info_Contents.Controls.Add(this.Label_Type);
+            this.Panel_Info_Contents.Controls.Add(this.Label_Type_Val);
             this.Panel_Info_Contents.Controls.Add(this.Label_Name);
-            this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale_Val2);
             this.Panel_Info_Contents.Controls.Add(this.Label_Name_Val);
-            this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale_Val);
             this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale);
+            this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale_Val);
+            this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale_Val2);
+            this.Panel_Info_Contents.Controls.Add(this.Label_Complementary);
+            this.Panel_Info_Contents.Controls.Add(this.Label_Complementary_Val);
             this.Panel_Info_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Info_Contents.Name = "Panel_Info_Contents";
-            this.Panel_Info_Contents.Size = new System.Drawing.Size(440, 115);
+            this.Panel_Info_Contents.Size = new System.Drawing.Size(440, 150);
             this.Panel_Info_Contents.TabIndex = 0;
             this.Panel_Info_Contents.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Info_Contents_Paint);
             // 
@@ -308,31 +312,38 @@
             this.Label_CurrentColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Label_CurrentColor.Location = new System.Drawing.Point(20, 10);
             this.Label_CurrentColor.Name = "Label_CurrentColor";
-            this.Label_CurrentColor.Size = new System.Drawing.Size(95, 95);
+            this.Label_CurrentColor.Size = new System.Drawing.Size(130, 130);
             this.Label_CurrentColor.TabIndex = 0;
             // 
-            // Label_Complementary_Val
+            // Label_Type
             // 
-            this.Label_Complementary_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_Complementary_Val.Location = new System.Drawing.Point(170, 80);
-            this.Label_Complementary_Val.Name = "Label_Complementary_Val";
-            this.Label_Complementary_Val.Size = new System.Drawing.Size(60, 25);
-            this.Label_Complementary_Val.TabIndex = 0;
+            this.Label_Type.AutoSize = true;
+            this.Label_Type.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Type.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Type.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Type.Location = new System.Drawing.Point(160, 10);
+            this.Label_Type.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Type.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Type.Name = "Label_Type";
+            this.Label_Type.Size = new System.Drawing.Size(35, 25);
+            this.Label_Type.TabIndex = 0;
+            this.Label_Type.Text = "类型";
+            this.Label_Type.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Label_Complementary
+            // Label_Type_Val
             // 
-            this.Label_Complementary.AutoSize = true;
-            this.Label_Complementary.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Complementary.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Complementary.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Complementary.Location = new System.Drawing.Point(125, 80);
-            this.Label_Complementary.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Complementary.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Complementary.Name = "Label_Complementary";
-            this.Label_Complementary.Size = new System.Drawing.Size(35, 25);
-            this.Label_Complementary.TabIndex = 0;
-            this.Label_Complementary.Text = "补色";
-            this.Label_Complementary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Label_Type_Val.AutoSize = true;
+            this.Label_Type_Val.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Type_Val.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Type_Val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Type_Val.Location = new System.Drawing.Point(205, 10);
+            this.Label_Type_Val.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Type_Val.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Type_Val.Name = "Label_Type_Val";
+            this.Label_Type_Val.Size = new System.Drawing.Size(71, 25);
+            this.Label_Type_Val.TabIndex = 0;
+            this.Label_Type_Val.Text = "ColorType";
+            this.Label_Type_Val.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Label_Name
             // 
@@ -340,7 +351,7 @@
             this.Label_Name.BackColor = System.Drawing.Color.Transparent;
             this.Label_Name.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Name.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Name.Location = new System.Drawing.Point(125, 10);
+            this.Label_Name.Location = new System.Drawing.Point(160, 45);
             this.Label_Name.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_Name.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_Name.Name = "Label_Name";
@@ -349,28 +360,13 @@
             this.Label_Name.Text = "名称";
             this.Label_Name.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Label_Grayscale_Val2
-            // 
-            this.Label_Grayscale_Val2.AutoSize = true;
-            this.Label_Grayscale_Val2.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Grayscale_Val2.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Grayscale_Val2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_Grayscale_Val2.Location = new System.Drawing.Point(240, 45);
-            this.Label_Grayscale_Val2.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Grayscale_Val2.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Grayscale_Val2.Name = "Label_Grayscale_Val2";
-            this.Label_Grayscale_Val2.Size = new System.Drawing.Size(68, 25);
-            this.Label_Grayscale_Val2.TabIndex = 0;
-            this.Label_Grayscale_Val2.Text = "Grayscale";
-            this.Label_Grayscale_Val2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Label_Name_Val
             // 
             this.Label_Name_Val.AutoSize = true;
             this.Label_Name_Val.BackColor = System.Drawing.Color.Transparent;
             this.Label_Name_Val.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Name_Val.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_Name_Val.Location = new System.Drawing.Point(170, 10);
+            this.Label_Name_Val.Location = new System.Drawing.Point(205, 45);
             this.Label_Name_Val.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_Name_Val.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_Name_Val.Name = "Label_Name_Val";
@@ -379,21 +375,13 @@
             this.Label_Name_Val.Text = "ColorName";
             this.Label_Name_Val.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Label_Grayscale_Val
-            // 
-            this.Label_Grayscale_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_Grayscale_Val.Location = new System.Drawing.Point(170, 45);
-            this.Label_Grayscale_Val.Name = "Label_Grayscale_Val";
-            this.Label_Grayscale_Val.Size = new System.Drawing.Size(60, 25);
-            this.Label_Grayscale_Val.TabIndex = 0;
-            // 
             // Label_Grayscale
             // 
             this.Label_Grayscale.AutoSize = true;
             this.Label_Grayscale.BackColor = System.Drawing.Color.Transparent;
             this.Label_Grayscale.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Grayscale.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Grayscale.Location = new System.Drawing.Point(125, 45);
+            this.Label_Grayscale.Location = new System.Drawing.Point(160, 80);
             this.Label_Grayscale.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_Grayscale.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_Grayscale.Name = "Label_Grayscale";
@@ -401,6 +389,52 @@
             this.Label_Grayscale.TabIndex = 0;
             this.Label_Grayscale.Text = "灰度";
             this.Label_Grayscale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Grayscale_Val
+            // 
+            this.Label_Grayscale_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_Grayscale_Val.Location = new System.Drawing.Point(205, 80);
+            this.Label_Grayscale_Val.Name = "Label_Grayscale_Val";
+            this.Label_Grayscale_Val.Size = new System.Drawing.Size(60, 25);
+            this.Label_Grayscale_Val.TabIndex = 0;
+            // 
+            // Label_Grayscale_Val2
+            // 
+            this.Label_Grayscale_Val2.AutoSize = true;
+            this.Label_Grayscale_Val2.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Grayscale_Val2.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Grayscale_Val2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Grayscale_Val2.Location = new System.Drawing.Point(275, 80);
+            this.Label_Grayscale_Val2.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Grayscale_Val2.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Grayscale_Val2.Name = "Label_Grayscale_Val2";
+            this.Label_Grayscale_Val2.Size = new System.Drawing.Size(68, 25);
+            this.Label_Grayscale_Val2.TabIndex = 0;
+            this.Label_Grayscale_Val2.Text = "Grayscale";
+            this.Label_Grayscale_Val2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Complementary
+            // 
+            this.Label_Complementary.AutoSize = true;
+            this.Label_Complementary.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Complementary.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Complementary.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Complementary.Location = new System.Drawing.Point(160, 115);
+            this.Label_Complementary.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Complementary.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Complementary.Name = "Label_Complementary";
+            this.Label_Complementary.Size = new System.Drawing.Size(35, 25);
+            this.Label_Complementary.TabIndex = 0;
+            this.Label_Complementary.Text = "补色";
+            this.Label_Complementary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Complementary_Val
+            // 
+            this.Label_Complementary_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_Complementary_Val.Location = new System.Drawing.Point(205, 115);
+            this.Label_Complementary_Val.Name = "Label_Complementary_Val";
+            this.Label_Complementary_Val.Size = new System.Drawing.Size(60, 25);
+            this.Label_Complementary_Val.TabIndex = 0;
             // 
             // Button_Info
             // 
@@ -438,7 +472,7 @@
             this.Panel_Colors.BackColor = System.Drawing.Color.Transparent;
             this.Panel_Colors.Controls.Add(this.Panel_Colors_Contents);
             this.Panel_Colors.Controls.Add(this.Button_Colors);
-            this.Panel_Colors.Location = new System.Drawing.Point(20, 180);
+            this.Panel_Colors.Location = new System.Drawing.Point(20, 215);
             this.Panel_Colors.Name = "Panel_Colors";
             this.Panel_Colors.Size = new System.Drawing.Size(440, 315);
             this.Panel_Colors.TabIndex = 0;
@@ -447,9 +481,9 @@
             // 
             this.Panel_Colors_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_Colors_Contents.Controls.Add(this.Label_Colors_Builtin);
-            this.Panel_Colors_Contents.Controls.Add(this.Panel_Colors_Customize);
-            this.Panel_Colors_Contents.Controls.Add(this.Label_Colors_Customize);
             this.Panel_Colors_Contents.Controls.Add(this.Panel_Colors_Builtin);
+            this.Panel_Colors_Contents.Controls.Add(this.Label_Colors_Customize);
+            this.Panel_Colors_Contents.Controls.Add(this.Panel_Colors_Customize);
             this.Panel_Colors_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Colors_Contents.Name = "Panel_Colors_Contents";
             this.Panel_Colors_Contents.Size = new System.Drawing.Size(440, 285);
@@ -470,14 +504,14 @@
             this.Label_Colors_Builtin.Text = "预设";
             this.Label_Colors_Builtin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Panel_Colors_Customize
+            // Panel_Colors_Builtin
             // 
-            this.Panel_Colors_Customize.BackColor = System.Drawing.Color.Transparent;
-            this.Panel_Colors_Customize.Location = new System.Drawing.Point(20, 215);
-            this.Panel_Colors_Customize.Name = "Panel_Colors_Customize";
-            this.Panel_Colors_Customize.Size = new System.Drawing.Size(400, 60);
-            this.Panel_Colors_Customize.TabIndex = 0;
-            this.Panel_Colors_Customize.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Customize_Paint);
+            this.Panel_Colors_Builtin.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_Colors_Builtin.Location = new System.Drawing.Point(20, 30);
+            this.Panel_Colors_Builtin.Name = "Panel_Colors_Builtin";
+            this.Panel_Colors_Builtin.Size = new System.Drawing.Size(400, 155);
+            this.Panel_Colors_Builtin.TabIndex = 0;
+            this.Panel_Colors_Builtin.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Builtin_Paint);
             // 
             // Label_Colors_Customize
             // 
@@ -494,14 +528,14 @@
             this.Label_Colors_Customize.Text = "自定义";
             this.Label_Colors_Customize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Panel_Colors_Builtin
+            // Panel_Colors_Customize
             // 
-            this.Panel_Colors_Builtin.BackColor = System.Drawing.Color.Transparent;
-            this.Panel_Colors_Builtin.Location = new System.Drawing.Point(20, 30);
-            this.Panel_Colors_Builtin.Name = "Panel_Colors_Builtin";
-            this.Panel_Colors_Builtin.Size = new System.Drawing.Size(400, 155);
-            this.Panel_Colors_Builtin.TabIndex = 0;
-            this.Panel_Colors_Builtin.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Builtin_Paint);
+            this.Panel_Colors_Customize.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_Colors_Customize.Location = new System.Drawing.Point(20, 215);
+            this.Panel_Colors_Customize.Name = "Panel_Colors_Customize";
+            this.Panel_Colors_Customize.Size = new System.Drawing.Size(400, 60);
+            this.Panel_Colors_Customize.TabIndex = 0;
+            this.Panel_Colors_Customize.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Customize_Paint);
             // 
             // Button_Colors
             // 
@@ -532,7 +566,7 @@
             this.Panel_View.BackColor = System.Drawing.Color.Transparent;
             this.Panel_View.Controls.Add(this.Panel_View_Contents);
             this.Panel_View.Controls.Add(this.Button_View);
-            this.Panel_View.Location = new System.Drawing.Point(20, 510);
+            this.Panel_View.Location = new System.Drawing.Point(20, 545);
             this.Panel_View.Name = "Panel_View";
             this.Panel_View.Size = new System.Drawing.Size(440, 180);
             this.Panel_View.TabIndex = 0;
@@ -541,11 +575,11 @@
             // 
             this.Panel_View_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_View_Contents.Controls.Add(this.Panel_Div);
-            this.Panel_View_Contents.Controls.Add(this.Panel_DivLabels);
-            this.Panel_View_Contents.Controls.Add(this.Label_Text);
-            this.Panel_View_Contents.Controls.Add(this.Label_Border);
             this.Panel_View_Contents.Controls.Add(this.Label_Background);
             this.Panel_View_Contents.Controls.Add(this.Label_Label);
+            this.Panel_View_Contents.Controls.Add(this.Label_Border);
+            this.Panel_View_Contents.Controls.Add(this.Label_Text);
+            this.Panel_View_Contents.Controls.Add(this.Panel_DivLabels);
             this.Panel_View_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_View_Contents.Name = "Panel_View_Contents";
             this.Panel_View_Contents.Size = new System.Drawing.Size(440, 150);
@@ -560,6 +594,66 @@
             this.Panel_Div.Size = new System.Drawing.Size(200, 130);
             this.Panel_Div.TabIndex = 0;
             this.Panel_Div.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Div_Paint);
+            // 
+            // Label_Background
+            // 
+            this.Label_Background.AutoSize = true;
+            this.Label_Background.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Background.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Background.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Background.Location = new System.Drawing.Point(230, 10);
+            this.Label_Background.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Background.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Background.Name = "Label_Background";
+            this.Label_Background.Size = new System.Drawing.Size(35, 25);
+            this.Label_Background.TabIndex = 0;
+            this.Label_Background.Text = "背景";
+            this.Label_Background.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Label
+            // 
+            this.Label_Label.AutoSize = true;
+            this.Label_Label.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Label.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Label.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Label.Location = new System.Drawing.Point(230, 45);
+            this.Label_Label.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Label.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Label.Name = "Label_Label";
+            this.Label_Label.Size = new System.Drawing.Size(35, 25);
+            this.Label_Label.TabIndex = 0;
+            this.Label_Label.Text = "标签";
+            this.Label_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Border
+            // 
+            this.Label_Border.AutoSize = true;
+            this.Label_Border.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Border.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Border.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Border.Location = new System.Drawing.Point(230, 80);
+            this.Label_Border.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Border.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Border.Name = "Label_Border";
+            this.Label_Border.Size = new System.Drawing.Size(35, 25);
+            this.Label_Border.TabIndex = 0;
+            this.Label_Border.Text = "边框";
+            this.Label_Border.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Text
+            // 
+            this.Label_Text.AutoSize = true;
+            this.Label_Text.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Text.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Text.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Text.Location = new System.Drawing.Point(230, 115);
+            this.Label_Text.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Text.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Text.Name = "Label_Text";
+            this.Label_Text.Size = new System.Drawing.Size(35, 25);
+            this.Label_Text.TabIndex = 0;
+            this.Label_Text.Text = "文本";
+            this.Label_Text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Panel_DivLabels
             // 
@@ -614,66 +708,6 @@
             this.Label_Label_Val.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Label_Label_Val_MouseDown);
             this.Label_Label_Val.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Label_Label_Val_MouseUp);
             // 
-            // Label_Text
-            // 
-            this.Label_Text.AutoSize = true;
-            this.Label_Text.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Text.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Text.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Text.Location = new System.Drawing.Point(230, 115);
-            this.Label_Text.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Text.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Text.Name = "Label_Text";
-            this.Label_Text.Size = new System.Drawing.Size(35, 25);
-            this.Label_Text.TabIndex = 0;
-            this.Label_Text.Text = "文本";
-            this.Label_Text.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Border
-            // 
-            this.Label_Border.AutoSize = true;
-            this.Label_Border.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Border.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Border.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Border.Location = new System.Drawing.Point(230, 80);
-            this.Label_Border.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Border.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Border.Name = "Label_Border";
-            this.Label_Border.Size = new System.Drawing.Size(35, 25);
-            this.Label_Border.TabIndex = 0;
-            this.Label_Border.Text = "边框";
-            this.Label_Border.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Background
-            // 
-            this.Label_Background.AutoSize = true;
-            this.Label_Background.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Background.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Background.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Background.Location = new System.Drawing.Point(230, 10);
-            this.Label_Background.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Background.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Background.Name = "Label_Background";
-            this.Label_Background.Size = new System.Drawing.Size(35, 25);
-            this.Label_Background.TabIndex = 0;
-            this.Label_Background.Text = "背景";
-            this.Label_Background.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Label
-            // 
-            this.Label_Label.AutoSize = true;
-            this.Label_Label.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Label.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Label.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Label.Location = new System.Drawing.Point(230, 45);
-            this.Label_Label.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Label.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Label.Name = "Label_Label";
-            this.Label_Label.Size = new System.Drawing.Size(35, 25);
-            this.Label_Label.TabIndex = 0;
-            this.Label_Label.Text = "标签";
-            this.Label_Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Button_View
             // 
             this.Button_View.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -703,7 +737,7 @@
             this.Panel_Blend.BackColor = System.Drawing.Color.Transparent;
             this.Panel_Blend.Controls.Add(this.Panel_Blend_Contents);
             this.Panel_Blend.Controls.Add(this.Button_Blend);
-            this.Panel_Blend.Location = new System.Drawing.Point(20, 705);
+            this.Panel_Blend.Location = new System.Drawing.Point(20, 740);
             this.Panel_Blend.Name = "Panel_Blend";
             this.Panel_Blend.Size = new System.Drawing.Size(440, 145);
             this.Panel_Blend.TabIndex = 0;
@@ -712,12 +746,12 @@
             // 
             this.Panel_Blend_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_Blend_Contents.Controls.Add(this.Label_BlendMethod);
-            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor2);
-            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendResult);
             this.Panel_Blend_Contents.Controls.Add(this.ComboBox_BlendMethod);
-            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor1);
             this.Panel_Blend_Contents.Controls.Add(this.NumEditor_Blend);
             this.Panel_Blend_Contents.Controls.Add(this.HTrackBar_Blend);
+            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor1);
+            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendResult);
+            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor2);
             this.Panel_Blend_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Blend_Contents.Name = "Panel_Blend_Contents";
             this.Panel_Blend_Contents.Size = new System.Drawing.Size(440, 115);
@@ -738,22 +772,6 @@
             this.Label_BlendMethod.Text = "混色方式";
             this.Label_BlendMethod.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Label_BlendColor2
-            // 
-            this.Label_BlendColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendColor2.Location = new System.Drawing.Point(360, 80);
-            this.Label_BlendColor2.Name = "Label_BlendColor2";
-            this.Label_BlendColor2.Size = new System.Drawing.Size(60, 25);
-            this.Label_BlendColor2.TabIndex = 0;
-            // 
-            // Label_BlendResult
-            // 
-            this.Label_BlendResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendResult.Location = new System.Drawing.Point(230, 80);
-            this.Label_BlendResult.Name = "Label_BlendResult";
-            this.Label_BlendResult.Size = new System.Drawing.Size(60, 25);
-            this.Label_BlendResult.TabIndex = 0;
-            // 
             // ComboBox_BlendMethod
             // 
             this.ComboBox_BlendMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -764,14 +782,6 @@
             this.ComboBox_BlendMethod.Size = new System.Drawing.Size(120, 25);
             this.ComboBox_BlendMethod.TabIndex = 0;
             this.ComboBox_BlendMethod.TabStop = false;
-            // 
-            // Label_BlendColor1
-            // 
-            this.Label_BlendColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendColor1.Location = new System.Drawing.Point(100, 80);
-            this.Label_BlendColor1.Name = "Label_BlendColor1";
-            this.Label_BlendColor1.Size = new System.Drawing.Size(60, 25);
-            this.Label_BlendColor1.TabIndex = 0;
             // 
             // NumEditor_Blend
             // 
@@ -799,6 +809,30 @@
             this.HTrackBar_Blend.TabIndex = 0;
             this.HTrackBar_Blend.TabStop = false;
             this.HTrackBar_Blend.Value = 0D;
+            // 
+            // Label_BlendColor1
+            // 
+            this.Label_BlendColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendColor1.Location = new System.Drawing.Point(100, 80);
+            this.Label_BlendColor1.Name = "Label_BlendColor1";
+            this.Label_BlendColor1.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendColor1.TabIndex = 0;
+            // 
+            // Label_BlendResult
+            // 
+            this.Label_BlendResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendResult.Location = new System.Drawing.Point(230, 80);
+            this.Label_BlendResult.Name = "Label_BlendResult";
+            this.Label_BlendResult.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendResult.TabIndex = 0;
+            // 
+            // Label_BlendColor2
+            // 
+            this.Label_BlendColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendColor2.Location = new System.Drawing.Point(360, 80);
+            this.Label_BlendColor2.Name = "Label_BlendColor2";
+            this.Label_BlendColor2.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendColor2.TabIndex = 0;
             // 
             // Button_Blend
             // 
@@ -829,7 +863,7 @@
             this.Panel_Pick.BackColor = System.Drawing.Color.Transparent;
             this.Panel_Pick.Controls.Add(this.Panel_Pick_Contents);
             this.Panel_Pick.Controls.Add(this.Button_Pick);
-            this.Panel_Pick.Location = new System.Drawing.Point(20, 865);
+            this.Panel_Pick.Location = new System.Drawing.Point(20, 900);
             this.Panel_Pick.Name = "Panel_Pick";
             this.Panel_Pick.Size = new System.Drawing.Size(440, 75);
             this.Panel_Pick.TabIndex = 0;
@@ -880,7 +914,7 @@
             this.Panel_Theme.BackColor = System.Drawing.Color.Transparent;
             this.Panel_Theme.Controls.Add(this.Panel_Theme_Contents);
             this.Panel_Theme.Controls.Add(this.Button_Theme);
-            this.Panel_Theme.Location = new System.Drawing.Point(20, 955);
+            this.Panel_Theme.Location = new System.Drawing.Point(20, 990);
             this.Panel_Theme.Name = "Panel_Theme";
             this.Panel_Theme.Size = new System.Drawing.Size(440, 215);
             this.Panel_Theme.TabIndex = 0;
@@ -889,13 +923,13 @@
             // 
             this.Panel_Theme_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_Theme_Contents.Controls.Add(this.Label_Theme);
-            this.Panel_Theme_Contents.Controls.Add(this.Label_ThemeColor_EditingColor);
-            this.Panel_Theme_Contents.Controls.Add(this.RadioButton_ThemeColor_Customize);
             this.Panel_Theme_Contents.Controls.Add(this.ComboBox_Theme);
-            this.Panel_Theme_Contents.Controls.Add(this.RadioButton_ThemeColor_Windows);
             this.Panel_Theme_Contents.Controls.Add(this.Label_ThemeColor);
-            this.Panel_Theme_Contents.Controls.Add(this.RadioButton_ThemeColor_EditingColor);
             this.Panel_Theme_Contents.Controls.Add(this.RadioButton_ThemeColor_Random);
+            this.Panel_Theme_Contents.Controls.Add(this.RadioButton_ThemeColor_EditingColor);
+            this.Panel_Theme_Contents.Controls.Add(this.RadioButton_ThemeColor_Windows);
+            this.Panel_Theme_Contents.Controls.Add(this.RadioButton_ThemeColor_Customize);
+            this.Panel_Theme_Contents.Controls.Add(this.Label_ThemeColor_Customize);
             this.Panel_Theme_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Theme_Contents.Name = "Panel_Theme_Contents";
             this.Panel_Theme_Contents.Size = new System.Drawing.Size(440, 185);
@@ -916,26 +950,6 @@
             this.Label_Theme.Text = "主题";
             this.Label_Theme.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Label_ThemeColor_EditingColor
-            // 
-            this.Label_ThemeColor_EditingColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_ThemeColor_EditingColor.Location = new System.Drawing.Point(160, 150);
-            this.Label_ThemeColor_EditingColor.Name = "Label_ThemeColor_EditingColor";
-            this.Label_ThemeColor_EditingColor.Size = new System.Drawing.Size(60, 25);
-            this.Label_ThemeColor_EditingColor.TabIndex = 0;
-            // 
-            // RadioButton_ThemeColor_Customize
-            // 
-            this.RadioButton_ThemeColor_Customize.AutoSize = true;
-            this.RadioButton_ThemeColor_Customize.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.RadioButton_ThemeColor_Customize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.RadioButton_ThemeColor_Customize.Location = new System.Drawing.Point(80, 150);
-            this.RadioButton_ThemeColor_Customize.Name = "RadioButton_ThemeColor_Customize";
-            this.RadioButton_ThemeColor_Customize.Size = new System.Drawing.Size(66, 23);
-            this.RadioButton_ThemeColor_Customize.TabIndex = 0;
-            this.RadioButton_ThemeColor_Customize.Text = "自定义";
-            this.RadioButton_ThemeColor_Customize.UseVisualStyleBackColor = true;
-            // 
             // ComboBox_Theme
             // 
             this.ComboBox_Theme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -946,18 +960,6 @@
             this.ComboBox_Theme.Size = new System.Drawing.Size(120, 25);
             this.ComboBox_Theme.TabIndex = 0;
             this.ComboBox_Theme.TabStop = false;
-            // 
-            // RadioButton_ThemeColor_Windows
-            // 
-            this.RadioButton_ThemeColor_Windows.AutoSize = true;
-            this.RadioButton_ThemeColor_Windows.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.RadioButton_ThemeColor_Windows.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.RadioButton_ThemeColor_Windows.Location = new System.Drawing.Point(80, 115);
-            this.RadioButton_ThemeColor_Windows.Name = "RadioButton_ThemeColor_Windows";
-            this.RadioButton_ThemeColor_Windows.Size = new System.Drawing.Size(156, 23);
-            this.RadioButton_ThemeColor_Windows.TabIndex = 0;
-            this.RadioButton_ThemeColor_Windows.Text = "使用 Windows 主题色";
-            this.RadioButton_ThemeColor_Windows.UseVisualStyleBackColor = true;
             // 
             // Label_ThemeColor
             // 
@@ -974,6 +976,18 @@
             this.Label_ThemeColor.Text = "主题色";
             this.Label_ThemeColor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // RadioButton_ThemeColor_Random
+            // 
+            this.RadioButton_ThemeColor_Random.AutoSize = true;
+            this.RadioButton_ThemeColor_Random.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.RadioButton_ThemeColor_Random.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RadioButton_ThemeColor_Random.Location = new System.Drawing.Point(80, 45);
+            this.RadioButton_ThemeColor_Random.Name = "RadioButton_ThemeColor_Random";
+            this.RadioButton_ThemeColor_Random.Size = new System.Drawing.Size(53, 23);
+            this.RadioButton_ThemeColor_Random.TabIndex = 0;
+            this.RadioButton_ThemeColor_Random.Text = "随机";
+            this.RadioButton_ThemeColor_Random.UseVisualStyleBackColor = true;
+            // 
             // RadioButton_ThemeColor_EditingColor
             // 
             this.RadioButton_ThemeColor_EditingColor.AutoSize = true;
@@ -986,17 +1000,37 @@
             this.RadioButton_ThemeColor_EditingColor.Text = "使用正在编辑的颜色";
             this.RadioButton_ThemeColor_EditingColor.UseVisualStyleBackColor = true;
             // 
-            // RadioButton_ThemeColor_Random
+            // RadioButton_ThemeColor_Windows
             // 
-            this.RadioButton_ThemeColor_Random.AutoSize = true;
-            this.RadioButton_ThemeColor_Random.Font = new System.Drawing.Font("微软雅黑", 9.75F);
-            this.RadioButton_ThemeColor_Random.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.RadioButton_ThemeColor_Random.Location = new System.Drawing.Point(80, 45);
-            this.RadioButton_ThemeColor_Random.Name = "RadioButton_ThemeColor_Random";
-            this.RadioButton_ThemeColor_Random.Size = new System.Drawing.Size(53, 23);
-            this.RadioButton_ThemeColor_Random.TabIndex = 0;
-            this.RadioButton_ThemeColor_Random.Text = "随机";
-            this.RadioButton_ThemeColor_Random.UseVisualStyleBackColor = true;
+            this.RadioButton_ThemeColor_Windows.AutoSize = true;
+            this.RadioButton_ThemeColor_Windows.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.RadioButton_ThemeColor_Windows.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RadioButton_ThemeColor_Windows.Location = new System.Drawing.Point(80, 115);
+            this.RadioButton_ThemeColor_Windows.Name = "RadioButton_ThemeColor_Windows";
+            this.RadioButton_ThemeColor_Windows.Size = new System.Drawing.Size(156, 23);
+            this.RadioButton_ThemeColor_Windows.TabIndex = 0;
+            this.RadioButton_ThemeColor_Windows.Text = "使用 Windows 主题色";
+            this.RadioButton_ThemeColor_Windows.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton_ThemeColor_Customize
+            // 
+            this.RadioButton_ThemeColor_Customize.AutoSize = true;
+            this.RadioButton_ThemeColor_Customize.Font = new System.Drawing.Font("微软雅黑", 9.75F);
+            this.RadioButton_ThemeColor_Customize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.RadioButton_ThemeColor_Customize.Location = new System.Drawing.Point(80, 150);
+            this.RadioButton_ThemeColor_Customize.Name = "RadioButton_ThemeColor_Customize";
+            this.RadioButton_ThemeColor_Customize.Size = new System.Drawing.Size(66, 23);
+            this.RadioButton_ThemeColor_Customize.TabIndex = 0;
+            this.RadioButton_ThemeColor_Customize.Text = "自定义";
+            this.RadioButton_ThemeColor_Customize.UseVisualStyleBackColor = true;
+            // 
+            // Label_ThemeColor_Customize
+            // 
+            this.Label_ThemeColor_Customize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_ThemeColor_Customize.Location = new System.Drawing.Point(160, 150);
+            this.Label_ThemeColor_Customize.Name = "Label_ThemeColor_Customize";
+            this.Label_ThemeColor_Customize.Size = new System.Drawing.Size(60, 25);
+            this.Label_ThemeColor_Customize.TabIndex = 0;
             // 
             // Button_Theme
             // 
@@ -1027,7 +1061,7 @@
             this.Panel_About.BackColor = System.Drawing.Color.Transparent;
             this.Panel_About.Controls.Add(this.Panel_About_Contents);
             this.Panel_About.Controls.Add(this.Button_About);
-            this.Panel_About.Location = new System.Drawing.Point(20, 1185);
+            this.Panel_About.Location = new System.Drawing.Point(20, 1220);
             this.Panel_About.Name = "Panel_About";
             this.Panel_About.Size = new System.Drawing.Size(440, 115);
             this.Panel_About.TabIndex = 0;
@@ -1113,6 +1147,136 @@
             this.Panel_Transparency.Size = new System.Drawing.Size(640, 110);
             this.Panel_Transparency.TabIndex = 0;
             // 
+            // Panel_Transparency_Contents
+            // 
+            this.Panel_Transparency_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_Transparency_Contents.Controls.Add(this.Label_Abbr_Opacity);
+            this.Panel_Transparency_Contents.Controls.Add(this.Label_Opacity);
+            this.Panel_Transparency_Contents.Controls.Add(this.NumEditor_Opacity);
+            this.Panel_Transparency_Contents.Controls.Add(this.HTrackBar_Opacity);
+            this.Panel_Transparency_Contents.Controls.Add(this.Label_Abbr_Alpha);
+            this.Panel_Transparency_Contents.Controls.Add(this.Label_Alpha);
+            this.Panel_Transparency_Contents.Controls.Add(this.NumEditor_Alpha);
+            this.Panel_Transparency_Contents.Controls.Add(this.HTrackBar_Alpha);
+            this.Panel_Transparency_Contents.Location = new System.Drawing.Point(0, 30);
+            this.Panel_Transparency_Contents.Name = "Panel_Transparency_Contents";
+            this.Panel_Transparency_Contents.Size = new System.Drawing.Size(640, 80);
+            this.Panel_Transparency_Contents.TabIndex = 0;
+            // 
+            // Label_Abbr_Opacity
+            // 
+            this.Label_Abbr_Opacity.AutoSize = true;
+            this.Label_Abbr_Opacity.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_Opacity.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_Opacity.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_Opacity.Location = new System.Drawing.Point(20, 10);
+            this.Label_Abbr_Opacity.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_Opacity.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_Opacity.Name = "Label_Abbr_Opacity";
+            this.Label_Abbr_Opacity.Size = new System.Drawing.Size(21, 25);
+            this.Label_Abbr_Opacity.TabIndex = 0;
+            this.Label_Abbr_Opacity.Text = "%";
+            this.Label_Abbr_Opacity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Opacity
+            // 
+            this.Label_Opacity.AutoSize = true;
+            this.Label_Opacity.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Opacity.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Opacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Opacity.Location = new System.Drawing.Point(50, 10);
+            this.Label_Opacity.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Opacity.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Opacity.Name = "Label_Opacity";
+            this.Label_Opacity.Size = new System.Drawing.Size(57, 25);
+            this.Label_Opacity.TabIndex = 0;
+            this.Label_Opacity.Text = "Opacity";
+            this.Label_Opacity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_Opacity
+            // 
+            this.NumEditor_Opacity.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_Opacity.Location = new System.Drawing.Point(180, 10);
+            this.NumEditor_Opacity.Maximum = 100D;
+            this.NumEditor_Opacity.Minimum = 0D;
+            this.NumEditor_Opacity.Name = "NumEditor_Opacity";
+            this.NumEditor_Opacity.Precision = 0;
+            this.NumEditor_Opacity.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_Opacity.TabIndex = 0;
+            this.NumEditor_Opacity.TabStop = false;
+            this.NumEditor_Opacity.Value = 0D;
+            // 
+            // HTrackBar_Opacity
+            // 
+            this.HTrackBar_Opacity.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_Opacity.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_Opacity.Delta = 5D;
+            this.HTrackBar_Opacity.Location = new System.Drawing.Point(260, 10);
+            this.HTrackBar_Opacity.Maximum = 100D;
+            this.HTrackBar_Opacity.Minimum = 0D;
+            this.HTrackBar_Opacity.Name = "HTrackBar_Opacity";
+            this.HTrackBar_Opacity.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_Opacity.TabIndex = 0;
+            this.HTrackBar_Opacity.TabStop = false;
+            this.HTrackBar_Opacity.Value = 0D;
+            // 
+            // Label_Abbr_Alpha
+            // 
+            this.Label_Abbr_Alpha.AutoSize = true;
+            this.Label_Abbr_Alpha.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_Alpha.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_Alpha.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_Alpha.Location = new System.Drawing.Point(20, 45);
+            this.Label_Abbr_Alpha.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_Alpha.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_Alpha.Name = "Label_Abbr_Alpha";
+            this.Label_Abbr_Alpha.Size = new System.Drawing.Size(19, 25);
+            this.Label_Abbr_Alpha.TabIndex = 0;
+            this.Label_Abbr_Alpha.Text = "A";
+            this.Label_Abbr_Alpha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_Alpha
+            // 
+            this.Label_Alpha.AutoSize = true;
+            this.Label_Alpha.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Alpha.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Alpha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_Alpha.Location = new System.Drawing.Point(50, 45);
+            this.Label_Alpha.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Alpha.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Alpha.Name = "Label_Alpha";
+            this.Label_Alpha.Size = new System.Drawing.Size(44, 25);
+            this.Label_Alpha.TabIndex = 0;
+            this.Label_Alpha.Text = "Alpha";
+            this.Label_Alpha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_Alpha
+            // 
+            this.NumEditor_Alpha.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_Alpha.Location = new System.Drawing.Point(180, 45);
+            this.NumEditor_Alpha.Maximum = 100D;
+            this.NumEditor_Alpha.Minimum = 0D;
+            this.NumEditor_Alpha.Name = "NumEditor_Alpha";
+            this.NumEditor_Alpha.Precision = 0;
+            this.NumEditor_Alpha.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_Alpha.TabIndex = 0;
+            this.NumEditor_Alpha.TabStop = false;
+            this.NumEditor_Alpha.Value = 0D;
+            // 
+            // HTrackBar_Alpha
+            // 
+            this.HTrackBar_Alpha.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_Alpha.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_Alpha.Delta = 5D;
+            this.HTrackBar_Alpha.Location = new System.Drawing.Point(260, 45);
+            this.HTrackBar_Alpha.Maximum = 100D;
+            this.HTrackBar_Alpha.Minimum = 0D;
+            this.HTrackBar_Alpha.Name = "HTrackBar_Alpha";
+            this.HTrackBar_Alpha.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_Alpha.TabIndex = 0;
+            this.HTrackBar_Alpha.TabStop = false;
+            this.HTrackBar_Alpha.Value = 0D;
+            // 
             // Button_Transparency
             // 
             this.Button_Transparency.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -1137,120 +1301,6 @@
             this.Button_Transparency.UseVisualStyleBackColor = false;
             this.Button_Transparency.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
-            // Label_Abbr_Opacity
-            // 
-            this.Label_Abbr_Opacity.AutoSize = true;
-            this.Label_Abbr_Opacity.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_Opacity.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_Opacity.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_Opacity.Location = new System.Drawing.Point(20, 10);
-            this.Label_Abbr_Opacity.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_Opacity.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_Opacity.Name = "Label_Abbr_Opacity";
-            this.Label_Abbr_Opacity.Size = new System.Drawing.Size(21, 25);
-            this.Label_Abbr_Opacity.TabIndex = 0;
-            this.Label_Abbr_Opacity.Text = "%";
-            this.Label_Abbr_Opacity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_Alpha
-            // 
-            this.Label_Abbr_Alpha.AutoSize = true;
-            this.Label_Abbr_Alpha.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_Alpha.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_Alpha.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_Alpha.Location = new System.Drawing.Point(20, 45);
-            this.Label_Abbr_Alpha.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_Alpha.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_Alpha.Name = "Label_Abbr_Alpha";
-            this.Label_Abbr_Alpha.Size = new System.Drawing.Size(19, 25);
-            this.Label_Abbr_Alpha.TabIndex = 0;
-            this.Label_Abbr_Alpha.Text = "A";
-            this.Label_Abbr_Alpha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Opacity
-            // 
-            this.Label_Opacity.AutoSize = true;
-            this.Label_Opacity.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Opacity.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Opacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_Opacity.Location = new System.Drawing.Point(50, 10);
-            this.Label_Opacity.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Opacity.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Opacity.Name = "Label_Opacity";
-            this.Label_Opacity.Size = new System.Drawing.Size(57, 25);
-            this.Label_Opacity.TabIndex = 0;
-            this.Label_Opacity.Text = "Opacity";
-            this.Label_Opacity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Alpha
-            // 
-            this.Label_Alpha.AutoSize = true;
-            this.Label_Alpha.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Alpha.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Alpha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_Alpha.Location = new System.Drawing.Point(50, 45);
-            this.Label_Alpha.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Alpha.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Alpha.Name = "Label_Alpha";
-            this.Label_Alpha.Size = new System.Drawing.Size(44, 25);
-            this.Label_Alpha.TabIndex = 0;
-            this.Label_Alpha.Text = "Alpha";
-            this.Label_Alpha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // NumEditor_Opacity
-            // 
-            this.NumEditor_Opacity.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_Opacity.Location = new System.Drawing.Point(180, 10);
-            this.NumEditor_Opacity.Maximum = 100D;
-            this.NumEditor_Opacity.Minimum = 0D;
-            this.NumEditor_Opacity.Name = "NumEditor_Opacity";
-            this.NumEditor_Opacity.Precision = 0;
-            this.NumEditor_Opacity.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_Opacity.TabIndex = 0;
-            this.NumEditor_Opacity.TabStop = false;
-            this.NumEditor_Opacity.Value = 0D;
-            // 
-            // NumEditor_Alpha
-            // 
-            this.NumEditor_Alpha.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_Alpha.Location = new System.Drawing.Point(180, 45);
-            this.NumEditor_Alpha.Maximum = 100D;
-            this.NumEditor_Alpha.Minimum = 0D;
-            this.NumEditor_Alpha.Name = "NumEditor_Alpha";
-            this.NumEditor_Alpha.Precision = 0;
-            this.NumEditor_Alpha.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_Alpha.TabIndex = 0;
-            this.NumEditor_Alpha.TabStop = false;
-            this.NumEditor_Alpha.Value = 0D;
-            // 
-            // HTrackBar_Opacity
-            // 
-            this.HTrackBar_Opacity.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_Opacity.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_Opacity.Delta = 5D;
-            this.HTrackBar_Opacity.Location = new System.Drawing.Point(260, 10);
-            this.HTrackBar_Opacity.Maximum = 100D;
-            this.HTrackBar_Opacity.Minimum = 0D;
-            this.HTrackBar_Opacity.Name = "HTrackBar_Opacity";
-            this.HTrackBar_Opacity.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_Opacity.TabIndex = 0;
-            this.HTrackBar_Opacity.TabStop = false;
-            this.HTrackBar_Opacity.Value = 0D;
-            // 
-            // HTrackBar_Alpha
-            // 
-            this.HTrackBar_Alpha.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_Alpha.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_Alpha.Delta = 5D;
-            this.HTrackBar_Alpha.Location = new System.Drawing.Point(260, 45);
-            this.HTrackBar_Alpha.Maximum = 100D;
-            this.HTrackBar_Alpha.Minimum = 0D;
-            this.HTrackBar_Alpha.Name = "HTrackBar_Alpha";
-            this.HTrackBar_Alpha.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_Alpha.TabIndex = 0;
-            this.HTrackBar_Alpha.TabStop = false;
-            this.HTrackBar_Alpha.Value = 0D;
-            // 
             // Panel_RGB
             // 
             this.Panel_RGB.BackColor = System.Drawing.Color.Transparent;
@@ -1260,6 +1310,197 @@
             this.Panel_RGB.Name = "Panel_RGB";
             this.Panel_RGB.Size = new System.Drawing.Size(640, 145);
             this.Panel_RGB.TabIndex = 0;
+            // 
+            // Panel_RGB_Contents
+            // 
+            this.Panel_RGB_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_RGB_Contents.Controls.Add(this.Label_Abbr_RGB_R);
+            this.Panel_RGB_Contents.Controls.Add(this.Label_RGB_R);
+            this.Panel_RGB_Contents.Controls.Add(this.NumEditor_RGB_R);
+            this.Panel_RGB_Contents.Controls.Add(this.HTrackBar_RGB_R);
+            this.Panel_RGB_Contents.Controls.Add(this.Label_Abbr_RGB_G);
+            this.Panel_RGB_Contents.Controls.Add(this.Label_RGB_G);
+            this.Panel_RGB_Contents.Controls.Add(this.NumEditor_RGB_G);
+            this.Panel_RGB_Contents.Controls.Add(this.HTrackBar_RGB_G);
+            this.Panel_RGB_Contents.Controls.Add(this.Label_Abbr_RGB_B);
+            this.Panel_RGB_Contents.Controls.Add(this.Label_RGB_B);
+            this.Panel_RGB_Contents.Controls.Add(this.NumEditor_RGB_B);
+            this.Panel_RGB_Contents.Controls.Add(this.HTrackBar_RGB_B);
+            this.Panel_RGB_Contents.Location = new System.Drawing.Point(0, 30);
+            this.Panel_RGB_Contents.Name = "Panel_RGB_Contents";
+            this.Panel_RGB_Contents.Size = new System.Drawing.Size(640, 115);
+            this.Panel_RGB_Contents.TabIndex = 0;
+            // 
+            // Label_Abbr_RGB_R
+            // 
+            this.Label_Abbr_RGB_R.AutoSize = true;
+            this.Label_Abbr_RGB_R.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_RGB_R.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_RGB_R.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_RGB_R.Location = new System.Drawing.Point(20, 10);
+            this.Label_Abbr_RGB_R.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_RGB_R.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_RGB_R.Name = "Label_Abbr_RGB_R";
+            this.Label_Abbr_RGB_R.Size = new System.Drawing.Size(18, 25);
+            this.Label_Abbr_RGB_R.TabIndex = 0;
+            this.Label_Abbr_RGB_R.Text = "R";
+            this.Label_Abbr_RGB_R.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_RGB_R
+            // 
+            this.Label_RGB_R.AutoSize = true;
+            this.Label_RGB_R.BackColor = System.Drawing.Color.Transparent;
+            this.Label_RGB_R.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_RGB_R.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_RGB_R.Location = new System.Drawing.Point(50, 10);
+            this.Label_RGB_R.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_RGB_R.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_RGB_R.Name = "Label_RGB_R";
+            this.Label_RGB_R.Size = new System.Drawing.Size(32, 25);
+            this.Label_RGB_R.TabIndex = 0;
+            this.Label_RGB_R.Text = "Red";
+            this.Label_RGB_R.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_RGB_R
+            // 
+            this.NumEditor_RGB_R.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_RGB_R.Location = new System.Drawing.Point(180, 10);
+            this.NumEditor_RGB_R.Maximum = 100D;
+            this.NumEditor_RGB_R.Minimum = 0D;
+            this.NumEditor_RGB_R.Name = "NumEditor_RGB_R";
+            this.NumEditor_RGB_R.Precision = 0;
+            this.NumEditor_RGB_R.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_RGB_R.TabIndex = 0;
+            this.NumEditor_RGB_R.TabStop = false;
+            this.NumEditor_RGB_R.Value = 0D;
+            // 
+            // HTrackBar_RGB_R
+            // 
+            this.HTrackBar_RGB_R.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_RGB_R.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_RGB_R.Delta = 5D;
+            this.HTrackBar_RGB_R.Location = new System.Drawing.Point(260, 10);
+            this.HTrackBar_RGB_R.Maximum = 100D;
+            this.HTrackBar_RGB_R.Minimum = 0D;
+            this.HTrackBar_RGB_R.Name = "HTrackBar_RGB_R";
+            this.HTrackBar_RGB_R.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_RGB_R.TabIndex = 0;
+            this.HTrackBar_RGB_R.TabStop = false;
+            this.HTrackBar_RGB_R.Value = 0D;
+            // 
+            // Label_Abbr_RGB_G
+            // 
+            this.Label_Abbr_RGB_G.AutoSize = true;
+            this.Label_Abbr_RGB_G.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_RGB_G.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_RGB_G.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_RGB_G.Location = new System.Drawing.Point(20, 45);
+            this.Label_Abbr_RGB_G.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_RGB_G.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_RGB_G.Name = "Label_Abbr_RGB_G";
+            this.Label_Abbr_RGB_G.Size = new System.Drawing.Size(19, 25);
+            this.Label_Abbr_RGB_G.TabIndex = 0;
+            this.Label_Abbr_RGB_G.Text = "G";
+            this.Label_Abbr_RGB_G.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_RGB_G
+            // 
+            this.Label_RGB_G.AutoSize = true;
+            this.Label_RGB_G.BackColor = System.Drawing.Color.Transparent;
+            this.Label_RGB_G.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_RGB_G.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_RGB_G.Location = new System.Drawing.Point(50, 45);
+            this.Label_RGB_G.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_RGB_G.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_RGB_G.Name = "Label_RGB_G";
+            this.Label_RGB_G.Size = new System.Drawing.Size(46, 25);
+            this.Label_RGB_G.TabIndex = 0;
+            this.Label_RGB_G.Text = "Green";
+            this.Label_RGB_G.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_RGB_G
+            // 
+            this.NumEditor_RGB_G.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_RGB_G.Location = new System.Drawing.Point(180, 45);
+            this.NumEditor_RGB_G.Maximum = 100D;
+            this.NumEditor_RGB_G.Minimum = 0D;
+            this.NumEditor_RGB_G.Name = "NumEditor_RGB_G";
+            this.NumEditor_RGB_G.Precision = 0;
+            this.NumEditor_RGB_G.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_RGB_G.TabIndex = 0;
+            this.NumEditor_RGB_G.TabStop = false;
+            this.NumEditor_RGB_G.Value = 0D;
+            // 
+            // HTrackBar_RGB_G
+            // 
+            this.HTrackBar_RGB_G.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_RGB_G.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_RGB_G.Delta = 5D;
+            this.HTrackBar_RGB_G.Location = new System.Drawing.Point(260, 45);
+            this.HTrackBar_RGB_G.Maximum = 100D;
+            this.HTrackBar_RGB_G.Minimum = 0D;
+            this.HTrackBar_RGB_G.Name = "HTrackBar_RGB_G";
+            this.HTrackBar_RGB_G.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_RGB_G.TabIndex = 0;
+            this.HTrackBar_RGB_G.TabStop = false;
+            this.HTrackBar_RGB_G.Value = 0D;
+            // 
+            // Label_Abbr_RGB_B
+            // 
+            this.Label_Abbr_RGB_B.AutoSize = true;
+            this.Label_Abbr_RGB_B.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_RGB_B.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_RGB_B.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_RGB_B.Location = new System.Drawing.Point(20, 80);
+            this.Label_Abbr_RGB_B.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_RGB_B.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_RGB_B.Name = "Label_Abbr_RGB_B";
+            this.Label_Abbr_RGB_B.Size = new System.Drawing.Size(18, 25);
+            this.Label_Abbr_RGB_B.TabIndex = 0;
+            this.Label_Abbr_RGB_B.Text = "B";
+            this.Label_Abbr_RGB_B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_RGB_B
+            // 
+            this.Label_RGB_B.AutoSize = true;
+            this.Label_RGB_B.BackColor = System.Drawing.Color.Transparent;
+            this.Label_RGB_B.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_RGB_B.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_RGB_B.Location = new System.Drawing.Point(50, 80);
+            this.Label_RGB_B.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_RGB_B.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_RGB_B.Name = "Label_RGB_B";
+            this.Label_RGB_B.Size = new System.Drawing.Size(35, 25);
+            this.Label_RGB_B.TabIndex = 0;
+            this.Label_RGB_B.Text = "Blue";
+            this.Label_RGB_B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_RGB_B
+            // 
+            this.NumEditor_RGB_B.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_RGB_B.Location = new System.Drawing.Point(180, 80);
+            this.NumEditor_RGB_B.Maximum = 100D;
+            this.NumEditor_RGB_B.Minimum = 0D;
+            this.NumEditor_RGB_B.Name = "NumEditor_RGB_B";
+            this.NumEditor_RGB_B.Precision = 0;
+            this.NumEditor_RGB_B.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_RGB_B.TabIndex = 0;
+            this.NumEditor_RGB_B.TabStop = false;
+            this.NumEditor_RGB_B.Value = 0D;
+            // 
+            // HTrackBar_RGB_B
+            // 
+            this.HTrackBar_RGB_B.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_RGB_B.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_RGB_B.Delta = 5D;
+            this.HTrackBar_RGB_B.Location = new System.Drawing.Point(260, 80);
+            this.HTrackBar_RGB_B.Maximum = 100D;
+            this.HTrackBar_RGB_B.Minimum = 0D;
+            this.HTrackBar_RGB_B.Name = "HTrackBar_RGB_B";
+            this.HTrackBar_RGB_B.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_RGB_B.TabIndex = 0;
+            this.HTrackBar_RGB_B.TabStop = false;
+            this.HTrackBar_RGB_B.Value = 0D;
             // 
             // Button_RGB
             // 
@@ -1285,177 +1526,6 @@
             this.Button_RGB.UseVisualStyleBackColor = false;
             this.Button_RGB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
-            // Label_Abbr_RGB_R
-            // 
-            this.Label_Abbr_RGB_R.AutoSize = true;
-            this.Label_Abbr_RGB_R.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_RGB_R.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_RGB_R.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_RGB_R.Location = new System.Drawing.Point(20, 10);
-            this.Label_Abbr_RGB_R.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_RGB_R.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_RGB_R.Name = "Label_Abbr_RGB_R";
-            this.Label_Abbr_RGB_R.Size = new System.Drawing.Size(18, 25);
-            this.Label_Abbr_RGB_R.TabIndex = 0;
-            this.Label_Abbr_RGB_R.Text = "R";
-            this.Label_Abbr_RGB_R.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_RGB_G
-            // 
-            this.Label_Abbr_RGB_G.AutoSize = true;
-            this.Label_Abbr_RGB_G.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_RGB_G.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_RGB_G.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_RGB_G.Location = new System.Drawing.Point(20, 45);
-            this.Label_Abbr_RGB_G.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_RGB_G.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_RGB_G.Name = "Label_Abbr_RGB_G";
-            this.Label_Abbr_RGB_G.Size = new System.Drawing.Size(19, 25);
-            this.Label_Abbr_RGB_G.TabIndex = 0;
-            this.Label_Abbr_RGB_G.Text = "G";
-            this.Label_Abbr_RGB_G.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_RGB_B
-            // 
-            this.Label_Abbr_RGB_B.AutoSize = true;
-            this.Label_Abbr_RGB_B.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_RGB_B.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_RGB_B.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_RGB_B.Location = new System.Drawing.Point(20, 80);
-            this.Label_Abbr_RGB_B.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_RGB_B.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_RGB_B.Name = "Label_Abbr_RGB_B";
-            this.Label_Abbr_RGB_B.Size = new System.Drawing.Size(18, 25);
-            this.Label_Abbr_RGB_B.TabIndex = 0;
-            this.Label_Abbr_RGB_B.Text = "B";
-            this.Label_Abbr_RGB_B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_RGB_R
-            // 
-            this.Label_RGB_R.AutoSize = true;
-            this.Label_RGB_R.BackColor = System.Drawing.Color.Transparent;
-            this.Label_RGB_R.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_RGB_R.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_RGB_R.Location = new System.Drawing.Point(50, 10);
-            this.Label_RGB_R.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_RGB_R.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_RGB_R.Name = "Label_RGB_R";
-            this.Label_RGB_R.Size = new System.Drawing.Size(32, 25);
-            this.Label_RGB_R.TabIndex = 0;
-            this.Label_RGB_R.Text = "Red";
-            this.Label_RGB_R.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_RGB_G
-            // 
-            this.Label_RGB_G.AutoSize = true;
-            this.Label_RGB_G.BackColor = System.Drawing.Color.Transparent;
-            this.Label_RGB_G.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_RGB_G.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_RGB_G.Location = new System.Drawing.Point(50, 45);
-            this.Label_RGB_G.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_RGB_G.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_RGB_G.Name = "Label_RGB_G";
-            this.Label_RGB_G.Size = new System.Drawing.Size(46, 25);
-            this.Label_RGB_G.TabIndex = 0;
-            this.Label_RGB_G.Text = "Green";
-            this.Label_RGB_G.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_RGB_B
-            // 
-            this.Label_RGB_B.AutoSize = true;
-            this.Label_RGB_B.BackColor = System.Drawing.Color.Transparent;
-            this.Label_RGB_B.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_RGB_B.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_RGB_B.Location = new System.Drawing.Point(50, 80);
-            this.Label_RGB_B.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_RGB_B.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_RGB_B.Name = "Label_RGB_B";
-            this.Label_RGB_B.Size = new System.Drawing.Size(35, 25);
-            this.Label_RGB_B.TabIndex = 0;
-            this.Label_RGB_B.Text = "Blue";
-            this.Label_RGB_B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // NumEditor_RGB_R
-            // 
-            this.NumEditor_RGB_R.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_RGB_R.Location = new System.Drawing.Point(180, 10);
-            this.NumEditor_RGB_R.Maximum = 100D;
-            this.NumEditor_RGB_R.Minimum = 0D;
-            this.NumEditor_RGB_R.Name = "NumEditor_RGB_R";
-            this.NumEditor_RGB_R.Precision = 0;
-            this.NumEditor_RGB_R.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_RGB_R.TabIndex = 0;
-            this.NumEditor_RGB_R.TabStop = false;
-            this.NumEditor_RGB_R.Value = 0D;
-            // 
-            // NumEditor_RGB_G
-            // 
-            this.NumEditor_RGB_G.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_RGB_G.Location = new System.Drawing.Point(180, 45);
-            this.NumEditor_RGB_G.Maximum = 100D;
-            this.NumEditor_RGB_G.Minimum = 0D;
-            this.NumEditor_RGB_G.Name = "NumEditor_RGB_G";
-            this.NumEditor_RGB_G.Precision = 0;
-            this.NumEditor_RGB_G.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_RGB_G.TabIndex = 0;
-            this.NumEditor_RGB_G.TabStop = false;
-            this.NumEditor_RGB_G.Value = 0D;
-            // 
-            // NumEditor_RGB_B
-            // 
-            this.NumEditor_RGB_B.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_RGB_B.Location = new System.Drawing.Point(180, 80);
-            this.NumEditor_RGB_B.Maximum = 100D;
-            this.NumEditor_RGB_B.Minimum = 0D;
-            this.NumEditor_RGB_B.Name = "NumEditor_RGB_B";
-            this.NumEditor_RGB_B.Precision = 0;
-            this.NumEditor_RGB_B.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_RGB_B.TabIndex = 0;
-            this.NumEditor_RGB_B.TabStop = false;
-            this.NumEditor_RGB_B.Value = 0D;
-            // 
-            // HTrackBar_RGB_R
-            // 
-            this.HTrackBar_RGB_R.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_RGB_R.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_RGB_R.Delta = 5D;
-            this.HTrackBar_RGB_R.Location = new System.Drawing.Point(260, 10);
-            this.HTrackBar_RGB_R.Maximum = 100D;
-            this.HTrackBar_RGB_R.Minimum = 0D;
-            this.HTrackBar_RGB_R.Name = "HTrackBar_RGB_R";
-            this.HTrackBar_RGB_R.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_RGB_R.TabIndex = 0;
-            this.HTrackBar_RGB_R.TabStop = false;
-            this.HTrackBar_RGB_R.Value = 0D;
-            // 
-            // HTrackBar_RGB_G
-            // 
-            this.HTrackBar_RGB_G.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_RGB_G.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_RGB_G.Delta = 5D;
-            this.HTrackBar_RGB_G.Location = new System.Drawing.Point(260, 45);
-            this.HTrackBar_RGB_G.Maximum = 100D;
-            this.HTrackBar_RGB_G.Minimum = 0D;
-            this.HTrackBar_RGB_G.Name = "HTrackBar_RGB_G";
-            this.HTrackBar_RGB_G.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_RGB_G.TabIndex = 0;
-            this.HTrackBar_RGB_G.TabStop = false;
-            this.HTrackBar_RGB_G.Value = 0D;
-            // 
-            // HTrackBar_RGB_B
-            // 
-            this.HTrackBar_RGB_B.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_RGB_B.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_RGB_B.Delta = 5D;
-            this.HTrackBar_RGB_B.Location = new System.Drawing.Point(260, 80);
-            this.HTrackBar_RGB_B.Maximum = 100D;
-            this.HTrackBar_RGB_B.Minimum = 0D;
-            this.HTrackBar_RGB_B.Name = "HTrackBar_RGB_B";
-            this.HTrackBar_RGB_B.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_RGB_B.TabIndex = 0;
-            this.HTrackBar_RGB_B.TabStop = false;
-            this.HTrackBar_RGB_B.Value = 0D;
-            // 
             // Panel_HSV
             // 
             this.Panel_HSV.BackColor = System.Drawing.Color.Transparent;
@@ -1465,6 +1535,197 @@
             this.Panel_HSV.Name = "Panel_HSV";
             this.Panel_HSV.Size = new System.Drawing.Size(640, 145);
             this.Panel_HSV.TabIndex = 0;
+            // 
+            // Panel_HSV_Contents
+            // 
+            this.Panel_HSV_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_HSV_Contents.Controls.Add(this.Label_Abbr_HSV_H);
+            this.Panel_HSV_Contents.Controls.Add(this.Label_HSV_H);
+            this.Panel_HSV_Contents.Controls.Add(this.NumEditor_HSV_H);
+            this.Panel_HSV_Contents.Controls.Add(this.HTrackBar_HSV_H);
+            this.Panel_HSV_Contents.Controls.Add(this.Label_Abbr_HSV_S);
+            this.Panel_HSV_Contents.Controls.Add(this.Label_HSV_S);
+            this.Panel_HSV_Contents.Controls.Add(this.NumEditor_HSV_S);
+            this.Panel_HSV_Contents.Controls.Add(this.HTrackBar_HSV_S);
+            this.Panel_HSV_Contents.Controls.Add(this.Label_Abbr_HSV_V);
+            this.Panel_HSV_Contents.Controls.Add(this.Label_HSV_V);
+            this.Panel_HSV_Contents.Controls.Add(this.NumEditor_HSV_V);
+            this.Panel_HSV_Contents.Controls.Add(this.HTrackBar_HSV_V);
+            this.Panel_HSV_Contents.Location = new System.Drawing.Point(0, 30);
+            this.Panel_HSV_Contents.Name = "Panel_HSV_Contents";
+            this.Panel_HSV_Contents.Size = new System.Drawing.Size(640, 115);
+            this.Panel_HSV_Contents.TabIndex = 0;
+            // 
+            // Label_Abbr_HSV_H
+            // 
+            this.Label_Abbr_HSV_H.AutoSize = true;
+            this.Label_Abbr_HSV_H.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_HSV_H.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_HSV_H.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_HSV_H.Location = new System.Drawing.Point(20, 10);
+            this.Label_Abbr_HSV_H.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSV_H.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSV_H.Name = "Label_Abbr_HSV_H";
+            this.Label_Abbr_HSV_H.Size = new System.Drawing.Size(20, 25);
+            this.Label_Abbr_HSV_H.TabIndex = 0;
+            this.Label_Abbr_HSV_H.Text = "H";
+            this.Label_Abbr_HSV_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_HSV_H
+            // 
+            this.Label_HSV_H.AutoSize = true;
+            this.Label_HSV_H.BackColor = System.Drawing.Color.Transparent;
+            this.Label_HSV_H.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_HSV_H.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_HSV_H.Location = new System.Drawing.Point(50, 10);
+            this.Label_HSV_H.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSV_H.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSV_H.Name = "Label_HSV_H";
+            this.Label_HSV_H.Size = new System.Drawing.Size(34, 25);
+            this.Label_HSV_H.TabIndex = 0;
+            this.Label_HSV_H.Text = "Hue";
+            this.Label_HSV_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_HSV_H
+            // 
+            this.NumEditor_HSV_H.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_HSV_H.Location = new System.Drawing.Point(180, 10);
+            this.NumEditor_HSV_H.Maximum = 100D;
+            this.NumEditor_HSV_H.Minimum = 0D;
+            this.NumEditor_HSV_H.Name = "NumEditor_HSV_H";
+            this.NumEditor_HSV_H.Precision = 0;
+            this.NumEditor_HSV_H.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_HSV_H.TabIndex = 0;
+            this.NumEditor_HSV_H.TabStop = false;
+            this.NumEditor_HSV_H.Value = 0D;
+            // 
+            // HTrackBar_HSV_H
+            // 
+            this.HTrackBar_HSV_H.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_HSV_H.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_HSV_H.Delta = 5D;
+            this.HTrackBar_HSV_H.Location = new System.Drawing.Point(260, 10);
+            this.HTrackBar_HSV_H.Maximum = 100D;
+            this.HTrackBar_HSV_H.Minimum = 0D;
+            this.HTrackBar_HSV_H.Name = "HTrackBar_HSV_H";
+            this.HTrackBar_HSV_H.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_HSV_H.TabIndex = 0;
+            this.HTrackBar_HSV_H.TabStop = false;
+            this.HTrackBar_HSV_H.Value = 0D;
+            // 
+            // Label_Abbr_HSV_S
+            // 
+            this.Label_Abbr_HSV_S.AutoSize = true;
+            this.Label_Abbr_HSV_S.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_HSV_S.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_HSV_S.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_HSV_S.Location = new System.Drawing.Point(20, 45);
+            this.Label_Abbr_HSV_S.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSV_S.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSV_S.Name = "Label_Abbr_HSV_S";
+            this.Label_Abbr_HSV_S.Size = new System.Drawing.Size(17, 25);
+            this.Label_Abbr_HSV_S.TabIndex = 0;
+            this.Label_Abbr_HSV_S.Text = "S";
+            this.Label_Abbr_HSV_S.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_HSV_S
+            // 
+            this.Label_HSV_S.AutoSize = true;
+            this.Label_HSV_S.BackColor = System.Drawing.Color.Transparent;
+            this.Label_HSV_S.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_HSV_S.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_HSV_S.Location = new System.Drawing.Point(50, 45);
+            this.Label_HSV_S.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSV_S.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSV_S.Name = "Label_HSV_S";
+            this.Label_HSV_S.Size = new System.Drawing.Size(73, 25);
+            this.Label_HSV_S.TabIndex = 0;
+            this.Label_HSV_S.Text = "Saturation";
+            this.Label_HSV_S.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_HSV_S
+            // 
+            this.NumEditor_HSV_S.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_HSV_S.Location = new System.Drawing.Point(180, 45);
+            this.NumEditor_HSV_S.Maximum = 100D;
+            this.NumEditor_HSV_S.Minimum = 0D;
+            this.NumEditor_HSV_S.Name = "NumEditor_HSV_S";
+            this.NumEditor_HSV_S.Precision = 0;
+            this.NumEditor_HSV_S.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_HSV_S.TabIndex = 0;
+            this.NumEditor_HSV_S.TabStop = false;
+            this.NumEditor_HSV_S.Value = 0D;
+            // 
+            // HTrackBar_HSV_S
+            // 
+            this.HTrackBar_HSV_S.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_HSV_S.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_HSV_S.Delta = 5D;
+            this.HTrackBar_HSV_S.Location = new System.Drawing.Point(260, 45);
+            this.HTrackBar_HSV_S.Maximum = 100D;
+            this.HTrackBar_HSV_S.Minimum = 0D;
+            this.HTrackBar_HSV_S.Name = "HTrackBar_HSV_S";
+            this.HTrackBar_HSV_S.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_HSV_S.TabIndex = 0;
+            this.HTrackBar_HSV_S.TabStop = false;
+            this.HTrackBar_HSV_S.Value = 0D;
+            // 
+            // Label_Abbr_HSV_V
+            // 
+            this.Label_Abbr_HSV_V.AutoSize = true;
+            this.Label_Abbr_HSV_V.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_HSV_V.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_HSV_V.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_HSV_V.Location = new System.Drawing.Point(20, 80);
+            this.Label_Abbr_HSV_V.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSV_V.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSV_V.Name = "Label_Abbr_HSV_V";
+            this.Label_Abbr_HSV_V.Size = new System.Drawing.Size(18, 25);
+            this.Label_Abbr_HSV_V.TabIndex = 0;
+            this.Label_Abbr_HSV_V.Text = "V";
+            this.Label_Abbr_HSV_V.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_HSV_V
+            // 
+            this.Label_HSV_V.AutoSize = true;
+            this.Label_HSV_V.BackColor = System.Drawing.Color.Transparent;
+            this.Label_HSV_V.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_HSV_V.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_HSV_V.Location = new System.Drawing.Point(50, 80);
+            this.Label_HSV_V.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSV_V.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSV_V.Name = "Label_HSV_V";
+            this.Label_HSV_V.Size = new System.Drawing.Size(73, 25);
+            this.Label_HSV_V.TabIndex = 0;
+            this.Label_HSV_V.Text = "Brightness";
+            this.Label_HSV_V.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_HSV_V
+            // 
+            this.NumEditor_HSV_V.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_HSV_V.Location = new System.Drawing.Point(180, 80);
+            this.NumEditor_HSV_V.Maximum = 100D;
+            this.NumEditor_HSV_V.Minimum = 0D;
+            this.NumEditor_HSV_V.Name = "NumEditor_HSV_V";
+            this.NumEditor_HSV_V.Precision = 0;
+            this.NumEditor_HSV_V.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_HSV_V.TabIndex = 0;
+            this.NumEditor_HSV_V.TabStop = false;
+            this.NumEditor_HSV_V.Value = 0D;
+            // 
+            // HTrackBar_HSV_V
+            // 
+            this.HTrackBar_HSV_V.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_HSV_V.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_HSV_V.Delta = 5D;
+            this.HTrackBar_HSV_V.Location = new System.Drawing.Point(260, 80);
+            this.HTrackBar_HSV_V.Maximum = 100D;
+            this.HTrackBar_HSV_V.Minimum = 0D;
+            this.HTrackBar_HSV_V.Name = "HTrackBar_HSV_V";
+            this.HTrackBar_HSV_V.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_HSV_V.TabIndex = 0;
+            this.HTrackBar_HSV_V.TabStop = false;
+            this.HTrackBar_HSV_V.Value = 0D;
             // 
             // Button_HSV
             // 
@@ -1490,177 +1751,6 @@
             this.Button_HSV.UseVisualStyleBackColor = false;
             this.Button_HSV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
-            // Label_Abbr_HSV_H
-            // 
-            this.Label_Abbr_HSV_H.AutoSize = true;
-            this.Label_Abbr_HSV_H.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_HSV_H.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_HSV_H.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_HSV_H.Location = new System.Drawing.Point(20, 10);
-            this.Label_Abbr_HSV_H.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSV_H.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSV_H.Name = "Label_Abbr_HSV_H";
-            this.Label_Abbr_HSV_H.Size = new System.Drawing.Size(20, 25);
-            this.Label_Abbr_HSV_H.TabIndex = 0;
-            this.Label_Abbr_HSV_H.Text = "H";
-            this.Label_Abbr_HSV_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_HSV_S
-            // 
-            this.Label_Abbr_HSV_S.AutoSize = true;
-            this.Label_Abbr_HSV_S.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_HSV_S.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_HSV_S.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_HSV_S.Location = new System.Drawing.Point(20, 45);
-            this.Label_Abbr_HSV_S.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSV_S.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSV_S.Name = "Label_Abbr_HSV_S";
-            this.Label_Abbr_HSV_S.Size = new System.Drawing.Size(17, 25);
-            this.Label_Abbr_HSV_S.TabIndex = 0;
-            this.Label_Abbr_HSV_S.Text = "S";
-            this.Label_Abbr_HSV_S.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_HSV_V
-            // 
-            this.Label_Abbr_HSV_V.AutoSize = true;
-            this.Label_Abbr_HSV_V.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_HSV_V.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_HSV_V.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_HSV_V.Location = new System.Drawing.Point(20, 80);
-            this.Label_Abbr_HSV_V.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSV_V.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSV_V.Name = "Label_Abbr_HSV_V";
-            this.Label_Abbr_HSV_V.Size = new System.Drawing.Size(18, 25);
-            this.Label_Abbr_HSV_V.TabIndex = 0;
-            this.Label_Abbr_HSV_V.Text = "V";
-            this.Label_Abbr_HSV_V.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_HSV_H
-            // 
-            this.Label_HSV_H.AutoSize = true;
-            this.Label_HSV_H.BackColor = System.Drawing.Color.Transparent;
-            this.Label_HSV_H.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_HSV_H.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_HSV_H.Location = new System.Drawing.Point(50, 10);
-            this.Label_HSV_H.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSV_H.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSV_H.Name = "Label_HSV_H";
-            this.Label_HSV_H.Size = new System.Drawing.Size(34, 25);
-            this.Label_HSV_H.TabIndex = 0;
-            this.Label_HSV_H.Text = "Hue";
-            this.Label_HSV_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_HSV_S
-            // 
-            this.Label_HSV_S.AutoSize = true;
-            this.Label_HSV_S.BackColor = System.Drawing.Color.Transparent;
-            this.Label_HSV_S.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_HSV_S.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_HSV_S.Location = new System.Drawing.Point(50, 45);
-            this.Label_HSV_S.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSV_S.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSV_S.Name = "Label_HSV_S";
-            this.Label_HSV_S.Size = new System.Drawing.Size(73, 25);
-            this.Label_HSV_S.TabIndex = 0;
-            this.Label_HSV_S.Text = "Saturation";
-            this.Label_HSV_S.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_HSV_V
-            // 
-            this.Label_HSV_V.AutoSize = true;
-            this.Label_HSV_V.BackColor = System.Drawing.Color.Transparent;
-            this.Label_HSV_V.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_HSV_V.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_HSV_V.Location = new System.Drawing.Point(50, 80);
-            this.Label_HSV_V.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSV_V.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSV_V.Name = "Label_HSV_V";
-            this.Label_HSV_V.Size = new System.Drawing.Size(73, 25);
-            this.Label_HSV_V.TabIndex = 0;
-            this.Label_HSV_V.Text = "Brightness";
-            this.Label_HSV_V.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // NumEditor_HSV_H
-            // 
-            this.NumEditor_HSV_H.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_HSV_H.Location = new System.Drawing.Point(180, 10);
-            this.NumEditor_HSV_H.Maximum = 100D;
-            this.NumEditor_HSV_H.Minimum = 0D;
-            this.NumEditor_HSV_H.Name = "NumEditor_HSV_H";
-            this.NumEditor_HSV_H.Precision = 0;
-            this.NumEditor_HSV_H.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_HSV_H.TabIndex = 0;
-            this.NumEditor_HSV_H.TabStop = false;
-            this.NumEditor_HSV_H.Value = 0D;
-            // 
-            // NumEditor_HSV_S
-            // 
-            this.NumEditor_HSV_S.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_HSV_S.Location = new System.Drawing.Point(180, 45);
-            this.NumEditor_HSV_S.Maximum = 100D;
-            this.NumEditor_HSV_S.Minimum = 0D;
-            this.NumEditor_HSV_S.Name = "NumEditor_HSV_S";
-            this.NumEditor_HSV_S.Precision = 0;
-            this.NumEditor_HSV_S.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_HSV_S.TabIndex = 0;
-            this.NumEditor_HSV_S.TabStop = false;
-            this.NumEditor_HSV_S.Value = 0D;
-            // 
-            // NumEditor_HSV_V
-            // 
-            this.NumEditor_HSV_V.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_HSV_V.Location = new System.Drawing.Point(180, 80);
-            this.NumEditor_HSV_V.Maximum = 100D;
-            this.NumEditor_HSV_V.Minimum = 0D;
-            this.NumEditor_HSV_V.Name = "NumEditor_HSV_V";
-            this.NumEditor_HSV_V.Precision = 0;
-            this.NumEditor_HSV_V.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_HSV_V.TabIndex = 0;
-            this.NumEditor_HSV_V.TabStop = false;
-            this.NumEditor_HSV_V.Value = 0D;
-            // 
-            // HTrackBar_HSV_H
-            // 
-            this.HTrackBar_HSV_H.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_HSV_H.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_HSV_H.Delta = 5D;
-            this.HTrackBar_HSV_H.Location = new System.Drawing.Point(260, 10);
-            this.HTrackBar_HSV_H.Maximum = 100D;
-            this.HTrackBar_HSV_H.Minimum = 0D;
-            this.HTrackBar_HSV_H.Name = "HTrackBar_HSV_H";
-            this.HTrackBar_HSV_H.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_HSV_H.TabIndex = 0;
-            this.HTrackBar_HSV_H.TabStop = false;
-            this.HTrackBar_HSV_H.Value = 0D;
-            // 
-            // HTrackBar_HSV_S
-            // 
-            this.HTrackBar_HSV_S.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_HSV_S.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_HSV_S.Delta = 5D;
-            this.HTrackBar_HSV_S.Location = new System.Drawing.Point(260, 45);
-            this.HTrackBar_HSV_S.Maximum = 100D;
-            this.HTrackBar_HSV_S.Minimum = 0D;
-            this.HTrackBar_HSV_S.Name = "HTrackBar_HSV_S";
-            this.HTrackBar_HSV_S.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_HSV_S.TabIndex = 0;
-            this.HTrackBar_HSV_S.TabStop = false;
-            this.HTrackBar_HSV_S.Value = 0D;
-            // 
-            // HTrackBar_HSV_V
-            // 
-            this.HTrackBar_HSV_V.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_HSV_V.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_HSV_V.Delta = 5D;
-            this.HTrackBar_HSV_V.Location = new System.Drawing.Point(260, 80);
-            this.HTrackBar_HSV_V.Maximum = 100D;
-            this.HTrackBar_HSV_V.Minimum = 0D;
-            this.HTrackBar_HSV_V.Name = "HTrackBar_HSV_V";
-            this.HTrackBar_HSV_V.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_HSV_V.TabIndex = 0;
-            this.HTrackBar_HSV_V.TabStop = false;
-            this.HTrackBar_HSV_V.Value = 0D;
-            // 
             // Panel_HSL
             // 
             this.Panel_HSL.BackColor = System.Drawing.Color.Transparent;
@@ -1670,6 +1760,197 @@
             this.Panel_HSL.Name = "Panel_HSL";
             this.Panel_HSL.Size = new System.Drawing.Size(640, 145);
             this.Panel_HSL.TabIndex = 0;
+            // 
+            // Panel_HSL_Contents
+            // 
+            this.Panel_HSL_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_HSL_Contents.Controls.Add(this.Label_Abbr_HSL_H);
+            this.Panel_HSL_Contents.Controls.Add(this.Label_HSL_H);
+            this.Panel_HSL_Contents.Controls.Add(this.NumEditor_HSL_H);
+            this.Panel_HSL_Contents.Controls.Add(this.HTrackBar_HSL_H);
+            this.Panel_HSL_Contents.Controls.Add(this.Label_Abbr_HSL_S);
+            this.Panel_HSL_Contents.Controls.Add(this.Label_HSL_S);
+            this.Panel_HSL_Contents.Controls.Add(this.NumEditor_HSL_S);
+            this.Panel_HSL_Contents.Controls.Add(this.HTrackBar_HSL_S);
+            this.Panel_HSL_Contents.Controls.Add(this.Label_Abbr_HSL_L);
+            this.Panel_HSL_Contents.Controls.Add(this.Label_HSL_L);
+            this.Panel_HSL_Contents.Controls.Add(this.NumEditor_HSL_L);
+            this.Panel_HSL_Contents.Controls.Add(this.HTrackBar_HSL_L);
+            this.Panel_HSL_Contents.Location = new System.Drawing.Point(0, 30);
+            this.Panel_HSL_Contents.Name = "Panel_HSL_Contents";
+            this.Panel_HSL_Contents.Size = new System.Drawing.Size(640, 115);
+            this.Panel_HSL_Contents.TabIndex = 0;
+            // 
+            // Label_Abbr_HSL_H
+            // 
+            this.Label_Abbr_HSL_H.AutoSize = true;
+            this.Label_Abbr_HSL_H.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_HSL_H.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_HSL_H.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_HSL_H.Location = new System.Drawing.Point(20, 10);
+            this.Label_Abbr_HSL_H.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSL_H.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSL_H.Name = "Label_Abbr_HSL_H";
+            this.Label_Abbr_HSL_H.Size = new System.Drawing.Size(20, 25);
+            this.Label_Abbr_HSL_H.TabIndex = 0;
+            this.Label_Abbr_HSL_H.Text = "H";
+            this.Label_Abbr_HSL_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_HSL_H
+            // 
+            this.Label_HSL_H.AutoSize = true;
+            this.Label_HSL_H.BackColor = System.Drawing.Color.Transparent;
+            this.Label_HSL_H.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_HSL_H.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_HSL_H.Location = new System.Drawing.Point(50, 10);
+            this.Label_HSL_H.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSL_H.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSL_H.Name = "Label_HSL_H";
+            this.Label_HSL_H.Size = new System.Drawing.Size(34, 25);
+            this.Label_HSL_H.TabIndex = 0;
+            this.Label_HSL_H.Text = "Hue";
+            this.Label_HSL_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_HSL_H
+            // 
+            this.NumEditor_HSL_H.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_HSL_H.Location = new System.Drawing.Point(180, 10);
+            this.NumEditor_HSL_H.Maximum = 100D;
+            this.NumEditor_HSL_H.Minimum = 0D;
+            this.NumEditor_HSL_H.Name = "NumEditor_HSL_H";
+            this.NumEditor_HSL_H.Precision = 0;
+            this.NumEditor_HSL_H.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_HSL_H.TabIndex = 0;
+            this.NumEditor_HSL_H.TabStop = false;
+            this.NumEditor_HSL_H.Value = 0D;
+            // 
+            // HTrackBar_HSL_H
+            // 
+            this.HTrackBar_HSL_H.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_HSL_H.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_HSL_H.Delta = 5D;
+            this.HTrackBar_HSL_H.Location = new System.Drawing.Point(260, 10);
+            this.HTrackBar_HSL_H.Maximum = 100D;
+            this.HTrackBar_HSL_H.Minimum = 0D;
+            this.HTrackBar_HSL_H.Name = "HTrackBar_HSL_H";
+            this.HTrackBar_HSL_H.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_HSL_H.TabIndex = 0;
+            this.HTrackBar_HSL_H.TabStop = false;
+            this.HTrackBar_HSL_H.Value = 0D;
+            // 
+            // Label_Abbr_HSL_S
+            // 
+            this.Label_Abbr_HSL_S.AutoSize = true;
+            this.Label_Abbr_HSL_S.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_HSL_S.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_HSL_S.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_HSL_S.Location = new System.Drawing.Point(20, 45);
+            this.Label_Abbr_HSL_S.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSL_S.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSL_S.Name = "Label_Abbr_HSL_S";
+            this.Label_Abbr_HSL_S.Size = new System.Drawing.Size(17, 25);
+            this.Label_Abbr_HSL_S.TabIndex = 0;
+            this.Label_Abbr_HSL_S.Text = "S";
+            this.Label_Abbr_HSL_S.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_HSL_S
+            // 
+            this.Label_HSL_S.AutoSize = true;
+            this.Label_HSL_S.BackColor = System.Drawing.Color.Transparent;
+            this.Label_HSL_S.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_HSL_S.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_HSL_S.Location = new System.Drawing.Point(50, 45);
+            this.Label_HSL_S.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSL_S.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSL_S.Name = "Label_HSL_S";
+            this.Label_HSL_S.Size = new System.Drawing.Size(73, 25);
+            this.Label_HSL_S.TabIndex = 0;
+            this.Label_HSL_S.Text = "Saturation";
+            this.Label_HSL_S.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_HSL_S
+            // 
+            this.NumEditor_HSL_S.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_HSL_S.Location = new System.Drawing.Point(180, 45);
+            this.NumEditor_HSL_S.Maximum = 100D;
+            this.NumEditor_HSL_S.Minimum = 0D;
+            this.NumEditor_HSL_S.Name = "NumEditor_HSL_S";
+            this.NumEditor_HSL_S.Precision = 0;
+            this.NumEditor_HSL_S.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_HSL_S.TabIndex = 0;
+            this.NumEditor_HSL_S.TabStop = false;
+            this.NumEditor_HSL_S.Value = 0D;
+            // 
+            // HTrackBar_HSL_S
+            // 
+            this.HTrackBar_HSL_S.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_HSL_S.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_HSL_S.Delta = 5D;
+            this.HTrackBar_HSL_S.Location = new System.Drawing.Point(260, 45);
+            this.HTrackBar_HSL_S.Maximum = 100D;
+            this.HTrackBar_HSL_S.Minimum = 0D;
+            this.HTrackBar_HSL_S.Name = "HTrackBar_HSL_S";
+            this.HTrackBar_HSL_S.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_HSL_S.TabIndex = 0;
+            this.HTrackBar_HSL_S.TabStop = false;
+            this.HTrackBar_HSL_S.Value = 0D;
+            // 
+            // Label_Abbr_HSL_L
+            // 
+            this.Label_Abbr_HSL_L.AutoSize = true;
+            this.Label_Abbr_HSL_L.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_HSL_L.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_HSL_L.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_HSL_L.Location = new System.Drawing.Point(20, 80);
+            this.Label_Abbr_HSL_L.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSL_L.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_HSL_L.Name = "Label_Abbr_HSL_L";
+            this.Label_Abbr_HSL_L.Size = new System.Drawing.Size(16, 25);
+            this.Label_Abbr_HSL_L.TabIndex = 0;
+            this.Label_Abbr_HSL_L.Text = "L";
+            this.Label_Abbr_HSL_L.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_HSL_L
+            // 
+            this.Label_HSL_L.AutoSize = true;
+            this.Label_HSL_L.BackColor = System.Drawing.Color.Transparent;
+            this.Label_HSL_L.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_HSL_L.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_HSL_L.Location = new System.Drawing.Point(50, 80);
+            this.Label_HSL_L.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSL_L.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_HSL_L.Name = "Label_HSL_L";
+            this.Label_HSL_L.Size = new System.Drawing.Size(67, 25);
+            this.Label_HSL_L.TabIndex = 0;
+            this.Label_HSL_L.Text = "Lightness";
+            this.Label_HSL_L.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_HSL_L
+            // 
+            this.NumEditor_HSL_L.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_HSL_L.Location = new System.Drawing.Point(180, 80);
+            this.NumEditor_HSL_L.Maximum = 100D;
+            this.NumEditor_HSL_L.Minimum = 0D;
+            this.NumEditor_HSL_L.Name = "NumEditor_HSL_L";
+            this.NumEditor_HSL_L.Precision = 0;
+            this.NumEditor_HSL_L.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_HSL_L.TabIndex = 0;
+            this.NumEditor_HSL_L.TabStop = false;
+            this.NumEditor_HSL_L.Value = 0D;
+            // 
+            // HTrackBar_HSL_L
+            // 
+            this.HTrackBar_HSL_L.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_HSL_L.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_HSL_L.Delta = 5D;
+            this.HTrackBar_HSL_L.Location = new System.Drawing.Point(260, 80);
+            this.HTrackBar_HSL_L.Maximum = 100D;
+            this.HTrackBar_HSL_L.Minimum = 0D;
+            this.HTrackBar_HSL_L.Name = "HTrackBar_HSL_L";
+            this.HTrackBar_HSL_L.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_HSL_L.TabIndex = 0;
+            this.HTrackBar_HSL_L.TabStop = false;
+            this.HTrackBar_HSL_L.Value = 0D;
             // 
             // Button_HSL
             // 
@@ -1695,177 +1976,6 @@
             this.Button_HSL.UseVisualStyleBackColor = false;
             this.Button_HSL.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
-            // Label_Abbr_HSL_H
-            // 
-            this.Label_Abbr_HSL_H.AutoSize = true;
-            this.Label_Abbr_HSL_H.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_HSL_H.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_HSL_H.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_HSL_H.Location = new System.Drawing.Point(20, 10);
-            this.Label_Abbr_HSL_H.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSL_H.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSL_H.Name = "Label_Abbr_HSL_H";
-            this.Label_Abbr_HSL_H.Size = new System.Drawing.Size(20, 25);
-            this.Label_Abbr_HSL_H.TabIndex = 0;
-            this.Label_Abbr_HSL_H.Text = "H";
-            this.Label_Abbr_HSL_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_HSL_S
-            // 
-            this.Label_Abbr_HSL_S.AutoSize = true;
-            this.Label_Abbr_HSL_S.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_HSL_S.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_HSL_S.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_HSL_S.Location = new System.Drawing.Point(20, 45);
-            this.Label_Abbr_HSL_S.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSL_S.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSL_S.Name = "Label_Abbr_HSL_S";
-            this.Label_Abbr_HSL_S.Size = new System.Drawing.Size(17, 25);
-            this.Label_Abbr_HSL_S.TabIndex = 0;
-            this.Label_Abbr_HSL_S.Text = "S";
-            this.Label_Abbr_HSL_S.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_HSL_L
-            // 
-            this.Label_Abbr_HSL_L.AutoSize = true;
-            this.Label_Abbr_HSL_L.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_HSL_L.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_HSL_L.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_HSL_L.Location = new System.Drawing.Point(20, 80);
-            this.Label_Abbr_HSL_L.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSL_L.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_HSL_L.Name = "Label_Abbr_HSL_L";
-            this.Label_Abbr_HSL_L.Size = new System.Drawing.Size(16, 25);
-            this.Label_Abbr_HSL_L.TabIndex = 0;
-            this.Label_Abbr_HSL_L.Text = "L";
-            this.Label_Abbr_HSL_L.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_HSL_H
-            // 
-            this.Label_HSL_H.AutoSize = true;
-            this.Label_HSL_H.BackColor = System.Drawing.Color.Transparent;
-            this.Label_HSL_H.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_HSL_H.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_HSL_H.Location = new System.Drawing.Point(50, 10);
-            this.Label_HSL_H.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSL_H.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSL_H.Name = "Label_HSL_H";
-            this.Label_HSL_H.Size = new System.Drawing.Size(34, 25);
-            this.Label_HSL_H.TabIndex = 0;
-            this.Label_HSL_H.Text = "Hue";
-            this.Label_HSL_H.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_HSL_S
-            // 
-            this.Label_HSL_S.AutoSize = true;
-            this.Label_HSL_S.BackColor = System.Drawing.Color.Transparent;
-            this.Label_HSL_S.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_HSL_S.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_HSL_S.Location = new System.Drawing.Point(50, 45);
-            this.Label_HSL_S.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSL_S.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSL_S.Name = "Label_HSL_S";
-            this.Label_HSL_S.Size = new System.Drawing.Size(73, 25);
-            this.Label_HSL_S.TabIndex = 0;
-            this.Label_HSL_S.Text = "Saturation";
-            this.Label_HSL_S.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_HSL_L
-            // 
-            this.Label_HSL_L.AutoSize = true;
-            this.Label_HSL_L.BackColor = System.Drawing.Color.Transparent;
-            this.Label_HSL_L.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_HSL_L.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_HSL_L.Location = new System.Drawing.Point(50, 80);
-            this.Label_HSL_L.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSL_L.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_HSL_L.Name = "Label_HSL_L";
-            this.Label_HSL_L.Size = new System.Drawing.Size(67, 25);
-            this.Label_HSL_L.TabIndex = 0;
-            this.Label_HSL_L.Text = "Lightness";
-            this.Label_HSL_L.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // NumEditor_HSL_H
-            // 
-            this.NumEditor_HSL_H.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_HSL_H.Location = new System.Drawing.Point(180, 10);
-            this.NumEditor_HSL_H.Maximum = 100D;
-            this.NumEditor_HSL_H.Minimum = 0D;
-            this.NumEditor_HSL_H.Name = "NumEditor_HSL_H";
-            this.NumEditor_HSL_H.Precision = 0;
-            this.NumEditor_HSL_H.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_HSL_H.TabIndex = 0;
-            this.NumEditor_HSL_H.TabStop = false;
-            this.NumEditor_HSL_H.Value = 0D;
-            // 
-            // NumEditor_HSL_S
-            // 
-            this.NumEditor_HSL_S.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_HSL_S.Location = new System.Drawing.Point(180, 45);
-            this.NumEditor_HSL_S.Maximum = 100D;
-            this.NumEditor_HSL_S.Minimum = 0D;
-            this.NumEditor_HSL_S.Name = "NumEditor_HSL_S";
-            this.NumEditor_HSL_S.Precision = 0;
-            this.NumEditor_HSL_S.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_HSL_S.TabIndex = 0;
-            this.NumEditor_HSL_S.TabStop = false;
-            this.NumEditor_HSL_S.Value = 0D;
-            // 
-            // NumEditor_HSL_L
-            // 
-            this.NumEditor_HSL_L.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_HSL_L.Location = new System.Drawing.Point(180, 80);
-            this.NumEditor_HSL_L.Maximum = 100D;
-            this.NumEditor_HSL_L.Minimum = 0D;
-            this.NumEditor_HSL_L.Name = "NumEditor_HSL_L";
-            this.NumEditor_HSL_L.Precision = 0;
-            this.NumEditor_HSL_L.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_HSL_L.TabIndex = 0;
-            this.NumEditor_HSL_L.TabStop = false;
-            this.NumEditor_HSL_L.Value = 0D;
-            // 
-            // HTrackBar_HSL_H
-            // 
-            this.HTrackBar_HSL_H.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_HSL_H.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_HSL_H.Delta = 5D;
-            this.HTrackBar_HSL_H.Location = new System.Drawing.Point(260, 10);
-            this.HTrackBar_HSL_H.Maximum = 100D;
-            this.HTrackBar_HSL_H.Minimum = 0D;
-            this.HTrackBar_HSL_H.Name = "HTrackBar_HSL_H";
-            this.HTrackBar_HSL_H.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_HSL_H.TabIndex = 0;
-            this.HTrackBar_HSL_H.TabStop = false;
-            this.HTrackBar_HSL_H.Value = 0D;
-            // 
-            // HTrackBar_HSL_S
-            // 
-            this.HTrackBar_HSL_S.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_HSL_S.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_HSL_S.Delta = 5D;
-            this.HTrackBar_HSL_S.Location = new System.Drawing.Point(260, 45);
-            this.HTrackBar_HSL_S.Maximum = 100D;
-            this.HTrackBar_HSL_S.Minimum = 0D;
-            this.HTrackBar_HSL_S.Name = "HTrackBar_HSL_S";
-            this.HTrackBar_HSL_S.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_HSL_S.TabIndex = 0;
-            this.HTrackBar_HSL_S.TabStop = false;
-            this.HTrackBar_HSL_S.Value = 0D;
-            // 
-            // HTrackBar_HSL_L
-            // 
-            this.HTrackBar_HSL_L.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_HSL_L.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_HSL_L.Delta = 5D;
-            this.HTrackBar_HSL_L.Location = new System.Drawing.Point(260, 80);
-            this.HTrackBar_HSL_L.Maximum = 100D;
-            this.HTrackBar_HSL_L.Minimum = 0D;
-            this.HTrackBar_HSL_L.Name = "HTrackBar_HSL_L";
-            this.HTrackBar_HSL_L.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_HSL_L.TabIndex = 0;
-            this.HTrackBar_HSL_L.TabStop = false;
-            this.HTrackBar_HSL_L.Value = 0D;
-            // 
             // Panel_CMYK
             // 
             this.Panel_CMYK.BackColor = System.Drawing.Color.Transparent;
@@ -1876,29 +1986,29 @@
             this.Panel_CMYK.Size = new System.Drawing.Size(640, 180);
             this.Panel_CMYK.TabIndex = 0;
             // 
-            // Button_CMYK
+            // Panel_CMYK_Contents
             // 
-            this.Button_CMYK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Button_CMYK.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Button_CMYK.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Button_CMYK.FlatAppearance.BorderSize = 0;
-            this.Button_CMYK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button_CMYK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Button_CMYK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_CMYK.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Button_CMYK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Button_CMYK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Button_CMYK.ImageIndex = 1;
-            this.Button_CMYK.ImageList = this.ImageList_FoldAndUnfold;
-            this.Button_CMYK.Location = new System.Drawing.Point(0, 0);
-            this.Button_CMYK.Name = "Button_CMYK";
-            this.Button_CMYK.Size = new System.Drawing.Size(640, 30);
-            this.Button_CMYK.TabIndex = 0;
-            this.Button_CMYK.TabStop = false;
-            this.Button_CMYK.Text = "CMYK";
-            this.Button_CMYK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Button_CMYK.UseVisualStyleBackColor = false;
-            this.Button_CMYK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
+            this.Panel_CMYK_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_CMYK_Contents.Controls.Add(this.Label_Abbr_CMYK_C);
+            this.Panel_CMYK_Contents.Controls.Add(this.Label_CMYK_C);
+            this.Panel_CMYK_Contents.Controls.Add(this.NumEditor_CMYK_C);
+            this.Panel_CMYK_Contents.Controls.Add(this.HTrackBar_CMYK_C);
+            this.Panel_CMYK_Contents.Controls.Add(this.Label_Abbr_CMYK_M);
+            this.Panel_CMYK_Contents.Controls.Add(this.Label_CMYK_M);
+            this.Panel_CMYK_Contents.Controls.Add(this.NumEditor_CMYK_M);
+            this.Panel_CMYK_Contents.Controls.Add(this.HTrackBar_CMYK_M);
+            this.Panel_CMYK_Contents.Controls.Add(this.Label_Abbr_CMYK_Y);
+            this.Panel_CMYK_Contents.Controls.Add(this.Label_CMYK_Y);
+            this.Panel_CMYK_Contents.Controls.Add(this.NumEditor_CMYK_Y);
+            this.Panel_CMYK_Contents.Controls.Add(this.HTrackBar_CMYK_Y);
+            this.Panel_CMYK_Contents.Controls.Add(this.Label_Abbr_CMYK_K);
+            this.Panel_CMYK_Contents.Controls.Add(this.Label_CMYK_K);
+            this.Panel_CMYK_Contents.Controls.Add(this.NumEditor_CMYK_K);
+            this.Panel_CMYK_Contents.Controls.Add(this.HTrackBar_CMYK_K);
+            this.Panel_CMYK_Contents.Location = new System.Drawing.Point(0, 30);
+            this.Panel_CMYK_Contents.Name = "Panel_CMYK_Contents";
+            this.Panel_CMYK_Contents.Size = new System.Drawing.Size(640, 150);
+            this.Panel_CMYK_Contents.TabIndex = 0;
             // 
             // Label_Abbr_CMYK_C
             // 
@@ -1915,51 +2025,6 @@
             this.Label_Abbr_CMYK_C.Text = "C";
             this.Label_Abbr_CMYK_C.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Label_Abbr_CMYK_M
-            // 
-            this.Label_Abbr_CMYK_M.AutoSize = true;
-            this.Label_Abbr_CMYK_M.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_CMYK_M.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_CMYK_M.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_CMYK_M.Location = new System.Drawing.Point(20, 45);
-            this.Label_Abbr_CMYK_M.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_CMYK_M.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_CMYK_M.Name = "Label_Abbr_CMYK_M";
-            this.Label_Abbr_CMYK_M.Size = new System.Drawing.Size(22, 25);
-            this.Label_Abbr_CMYK_M.TabIndex = 0;
-            this.Label_Abbr_CMYK_M.Text = "M";
-            this.Label_Abbr_CMYK_M.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_CMYK_Y
-            // 
-            this.Label_Abbr_CMYK_Y.AutoSize = true;
-            this.Label_Abbr_CMYK_Y.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_CMYK_Y.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_CMYK_Y.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_CMYK_Y.Location = new System.Drawing.Point(20, 80);
-            this.Label_Abbr_CMYK_Y.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_CMYK_Y.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_CMYK_Y.Name = "Label_Abbr_CMYK_Y";
-            this.Label_Abbr_CMYK_Y.Size = new System.Drawing.Size(17, 25);
-            this.Label_Abbr_CMYK_Y.TabIndex = 0;
-            this.Label_Abbr_CMYK_Y.Text = "Y";
-            this.Label_Abbr_CMYK_Y.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_CMYK_K
-            // 
-            this.Label_Abbr_CMYK_K.AutoSize = true;
-            this.Label_Abbr_CMYK_K.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_CMYK_K.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_CMYK_K.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_CMYK_K.Location = new System.Drawing.Point(20, 115);
-            this.Label_Abbr_CMYK_K.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_CMYK_K.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_CMYK_K.Name = "Label_Abbr_CMYK_K";
-            this.Label_Abbr_CMYK_K.Size = new System.Drawing.Size(18, 25);
-            this.Label_Abbr_CMYK_K.TabIndex = 0;
-            this.Label_Abbr_CMYK_K.Text = "K";
-            this.Label_Abbr_CMYK_K.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Label_CMYK_C
             // 
             this.Label_CMYK_C.AutoSize = true;
@@ -1974,6 +2039,48 @@
             this.Label_CMYK_C.TabIndex = 0;
             this.Label_CMYK_C.Text = "Cyan";
             this.Label_CMYK_C.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_CMYK_C
+            // 
+            this.NumEditor_CMYK_C.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_CMYK_C.Location = new System.Drawing.Point(180, 10);
+            this.NumEditor_CMYK_C.Maximum = 100D;
+            this.NumEditor_CMYK_C.Minimum = 0D;
+            this.NumEditor_CMYK_C.Name = "NumEditor_CMYK_C";
+            this.NumEditor_CMYK_C.Precision = 0;
+            this.NumEditor_CMYK_C.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_CMYK_C.TabIndex = 0;
+            this.NumEditor_CMYK_C.TabStop = false;
+            this.NumEditor_CMYK_C.Value = 0D;
+            // 
+            // HTrackBar_CMYK_C
+            // 
+            this.HTrackBar_CMYK_C.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_CMYK_C.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_CMYK_C.Delta = 5D;
+            this.HTrackBar_CMYK_C.Location = new System.Drawing.Point(260, 10);
+            this.HTrackBar_CMYK_C.Maximum = 100D;
+            this.HTrackBar_CMYK_C.Minimum = 0D;
+            this.HTrackBar_CMYK_C.Name = "HTrackBar_CMYK_C";
+            this.HTrackBar_CMYK_C.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_CMYK_C.TabIndex = 0;
+            this.HTrackBar_CMYK_C.TabStop = false;
+            this.HTrackBar_CMYK_C.Value = 0D;
+            // 
+            // Label_Abbr_CMYK_M
+            // 
+            this.Label_Abbr_CMYK_M.AutoSize = true;
+            this.Label_Abbr_CMYK_M.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_CMYK_M.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_CMYK_M.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_CMYK_M.Location = new System.Drawing.Point(20, 45);
+            this.Label_Abbr_CMYK_M.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_CMYK_M.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_CMYK_M.Name = "Label_Abbr_CMYK_M";
+            this.Label_Abbr_CMYK_M.Size = new System.Drawing.Size(22, 25);
+            this.Label_Abbr_CMYK_M.TabIndex = 0;
+            this.Label_Abbr_CMYK_M.Text = "M";
+            this.Label_Abbr_CMYK_M.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Label_CMYK_M
             // 
@@ -1990,6 +2097,48 @@
             this.Label_CMYK_M.Text = "Magenta";
             this.Label_CMYK_M.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // NumEditor_CMYK_M
+            // 
+            this.NumEditor_CMYK_M.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_CMYK_M.Location = new System.Drawing.Point(180, 45);
+            this.NumEditor_CMYK_M.Maximum = 100D;
+            this.NumEditor_CMYK_M.Minimum = 0D;
+            this.NumEditor_CMYK_M.Name = "NumEditor_CMYK_M";
+            this.NumEditor_CMYK_M.Precision = 0;
+            this.NumEditor_CMYK_M.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_CMYK_M.TabIndex = 0;
+            this.NumEditor_CMYK_M.TabStop = false;
+            this.NumEditor_CMYK_M.Value = 0D;
+            // 
+            // HTrackBar_CMYK_M
+            // 
+            this.HTrackBar_CMYK_M.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_CMYK_M.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_CMYK_M.Delta = 5D;
+            this.HTrackBar_CMYK_M.Location = new System.Drawing.Point(260, 45);
+            this.HTrackBar_CMYK_M.Maximum = 100D;
+            this.HTrackBar_CMYK_M.Minimum = 0D;
+            this.HTrackBar_CMYK_M.Name = "HTrackBar_CMYK_M";
+            this.HTrackBar_CMYK_M.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_CMYK_M.TabIndex = 0;
+            this.HTrackBar_CMYK_M.TabStop = false;
+            this.HTrackBar_CMYK_M.Value = 0D;
+            // 
+            // Label_Abbr_CMYK_Y
+            // 
+            this.Label_Abbr_CMYK_Y.AutoSize = true;
+            this.Label_Abbr_CMYK_Y.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_CMYK_Y.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_CMYK_Y.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_CMYK_Y.Location = new System.Drawing.Point(20, 80);
+            this.Label_Abbr_CMYK_Y.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_CMYK_Y.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_CMYK_Y.Name = "Label_Abbr_CMYK_Y";
+            this.Label_Abbr_CMYK_Y.Size = new System.Drawing.Size(17, 25);
+            this.Label_Abbr_CMYK_Y.TabIndex = 0;
+            this.Label_Abbr_CMYK_Y.Text = "Y";
+            this.Label_Abbr_CMYK_Y.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Label_CMYK_Y
             // 
             this.Label_CMYK_Y.AutoSize = true;
@@ -2004,6 +2153,48 @@
             this.Label_CMYK_Y.TabIndex = 0;
             this.Label_CMYK_Y.Text = "Yellow";
             this.Label_CMYK_Y.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_CMYK_Y
+            // 
+            this.NumEditor_CMYK_Y.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_CMYK_Y.Location = new System.Drawing.Point(180, 80);
+            this.NumEditor_CMYK_Y.Maximum = 100D;
+            this.NumEditor_CMYK_Y.Minimum = 0D;
+            this.NumEditor_CMYK_Y.Name = "NumEditor_CMYK_Y";
+            this.NumEditor_CMYK_Y.Precision = 0;
+            this.NumEditor_CMYK_Y.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_CMYK_Y.TabIndex = 0;
+            this.NumEditor_CMYK_Y.TabStop = false;
+            this.NumEditor_CMYK_Y.Value = 0D;
+            // 
+            // HTrackBar_CMYK_Y
+            // 
+            this.HTrackBar_CMYK_Y.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_CMYK_Y.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_CMYK_Y.Delta = 5D;
+            this.HTrackBar_CMYK_Y.Location = new System.Drawing.Point(260, 80);
+            this.HTrackBar_CMYK_Y.Maximum = 100D;
+            this.HTrackBar_CMYK_Y.Minimum = 0D;
+            this.HTrackBar_CMYK_Y.Name = "HTrackBar_CMYK_Y";
+            this.HTrackBar_CMYK_Y.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_CMYK_Y.TabIndex = 0;
+            this.HTrackBar_CMYK_Y.TabStop = false;
+            this.HTrackBar_CMYK_Y.Value = 0D;
+            // 
+            // Label_Abbr_CMYK_K
+            // 
+            this.Label_Abbr_CMYK_K.AutoSize = true;
+            this.Label_Abbr_CMYK_K.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_CMYK_K.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_CMYK_K.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_CMYK_K.Location = new System.Drawing.Point(20, 115);
+            this.Label_Abbr_CMYK_K.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_CMYK_K.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_CMYK_K.Name = "Label_Abbr_CMYK_K";
+            this.Label_Abbr_CMYK_K.Size = new System.Drawing.Size(18, 25);
+            this.Label_Abbr_CMYK_K.TabIndex = 0;
+            this.Label_Abbr_CMYK_K.Text = "K";
+            this.Label_Abbr_CMYK_K.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Label_CMYK_K
             // 
@@ -2033,87 +2224,6 @@
             this.NumEditor_CMYK_K.TabStop = false;
             this.NumEditor_CMYK_K.Value = 0D;
             // 
-            // NumEditor_CMYK_C
-            // 
-            this.NumEditor_CMYK_C.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_CMYK_C.Location = new System.Drawing.Point(180, 10);
-            this.NumEditor_CMYK_C.Maximum = 100D;
-            this.NumEditor_CMYK_C.Minimum = 0D;
-            this.NumEditor_CMYK_C.Name = "NumEditor_CMYK_C";
-            this.NumEditor_CMYK_C.Precision = 0;
-            this.NumEditor_CMYK_C.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_CMYK_C.TabIndex = 0;
-            this.NumEditor_CMYK_C.TabStop = false;
-            this.NumEditor_CMYK_C.Value = 0D;
-            // 
-            // NumEditor_CMYK_M
-            // 
-            this.NumEditor_CMYK_M.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_CMYK_M.Location = new System.Drawing.Point(180, 45);
-            this.NumEditor_CMYK_M.Maximum = 100D;
-            this.NumEditor_CMYK_M.Minimum = 0D;
-            this.NumEditor_CMYK_M.Name = "NumEditor_CMYK_M";
-            this.NumEditor_CMYK_M.Precision = 0;
-            this.NumEditor_CMYK_M.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_CMYK_M.TabIndex = 0;
-            this.NumEditor_CMYK_M.TabStop = false;
-            this.NumEditor_CMYK_M.Value = 0D;
-            // 
-            // NumEditor_CMYK_Y
-            // 
-            this.NumEditor_CMYK_Y.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_CMYK_Y.Location = new System.Drawing.Point(180, 80);
-            this.NumEditor_CMYK_Y.Maximum = 100D;
-            this.NumEditor_CMYK_Y.Minimum = 0D;
-            this.NumEditor_CMYK_Y.Name = "NumEditor_CMYK_Y";
-            this.NumEditor_CMYK_Y.Precision = 0;
-            this.NumEditor_CMYK_Y.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_CMYK_Y.TabIndex = 0;
-            this.NumEditor_CMYK_Y.TabStop = false;
-            this.NumEditor_CMYK_Y.Value = 0D;
-            // 
-            // HTrackBar_CMYK_C
-            // 
-            this.HTrackBar_CMYK_C.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_CMYK_C.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_CMYK_C.Delta = 5D;
-            this.HTrackBar_CMYK_C.Location = new System.Drawing.Point(260, 10);
-            this.HTrackBar_CMYK_C.Maximum = 100D;
-            this.HTrackBar_CMYK_C.Minimum = 0D;
-            this.HTrackBar_CMYK_C.Name = "HTrackBar_CMYK_C";
-            this.HTrackBar_CMYK_C.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_CMYK_C.TabIndex = 0;
-            this.HTrackBar_CMYK_C.TabStop = false;
-            this.HTrackBar_CMYK_C.Value = 0D;
-            // 
-            // HTrackBar_CMYK_M
-            // 
-            this.HTrackBar_CMYK_M.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_CMYK_M.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_CMYK_M.Delta = 5D;
-            this.HTrackBar_CMYK_M.Location = new System.Drawing.Point(260, 45);
-            this.HTrackBar_CMYK_M.Maximum = 100D;
-            this.HTrackBar_CMYK_M.Minimum = 0D;
-            this.HTrackBar_CMYK_M.Name = "HTrackBar_CMYK_M";
-            this.HTrackBar_CMYK_M.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_CMYK_M.TabIndex = 0;
-            this.HTrackBar_CMYK_M.TabStop = false;
-            this.HTrackBar_CMYK_M.Value = 0D;
-            // 
-            // HTrackBar_CMYK_Y
-            // 
-            this.HTrackBar_CMYK_Y.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_CMYK_Y.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_CMYK_Y.Delta = 5D;
-            this.HTrackBar_CMYK_Y.Location = new System.Drawing.Point(260, 80);
-            this.HTrackBar_CMYK_Y.Maximum = 100D;
-            this.HTrackBar_CMYK_Y.Minimum = 0D;
-            this.HTrackBar_CMYK_Y.Name = "HTrackBar_CMYK_Y";
-            this.HTrackBar_CMYK_Y.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_CMYK_Y.TabIndex = 0;
-            this.HTrackBar_CMYK_Y.TabStop = false;
-            this.HTrackBar_CMYK_Y.Value = 0D;
-            // 
             // HTrackBar_CMYK_K
             // 
             this.HTrackBar_CMYK_K.BackColor = System.Drawing.Color.Transparent;
@@ -2128,6 +2238,30 @@
             this.HTrackBar_CMYK_K.TabStop = false;
             this.HTrackBar_CMYK_K.Value = 0D;
             // 
+            // Button_CMYK
+            // 
+            this.Button_CMYK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Button_CMYK.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Button_CMYK.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.Button_CMYK.FlatAppearance.BorderSize = 0;
+            this.Button_CMYK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Button_CMYK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.Button_CMYK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Button_CMYK.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Button_CMYK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Button_CMYK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Button_CMYK.ImageIndex = 1;
+            this.Button_CMYK.ImageList = this.ImageList_FoldAndUnfold;
+            this.Button_CMYK.Location = new System.Drawing.Point(0, 0);
+            this.Button_CMYK.Name = "Button_CMYK";
+            this.Button_CMYK.Size = new System.Drawing.Size(640, 30);
+            this.Button_CMYK.TabIndex = 0;
+            this.Button_CMYK.TabStop = false;
+            this.Button_CMYK.Text = "CMYK";
+            this.Button_CMYK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Button_CMYK.UseVisualStyleBackColor = false;
+            this.Button_CMYK.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
+            // 
             // Panel_LAB
             // 
             this.Panel_LAB.BackColor = System.Drawing.Color.Transparent;
@@ -2137,6 +2271,197 @@
             this.Panel_LAB.Name = "Panel_LAB";
             this.Panel_LAB.Size = new System.Drawing.Size(640, 145);
             this.Panel_LAB.TabIndex = 0;
+            // 
+            // Panel_LAB_Contents
+            // 
+            this.Panel_LAB_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_LAB_Contents.Controls.Add(this.Label_Abbr_LAB_L);
+            this.Panel_LAB_Contents.Controls.Add(this.Label_LAB_L);
+            this.Panel_LAB_Contents.Controls.Add(this.NumEditor_LAB_L);
+            this.Panel_LAB_Contents.Controls.Add(this.HTrackBar_LAB_L);
+            this.Panel_LAB_Contents.Controls.Add(this.Label_Abbr_LAB_A);
+            this.Panel_LAB_Contents.Controls.Add(this.Label_LAB_A);
+            this.Panel_LAB_Contents.Controls.Add(this.NumEditor_LAB_A);
+            this.Panel_LAB_Contents.Controls.Add(this.HTrackBar_LAB_A);
+            this.Panel_LAB_Contents.Controls.Add(this.Label_Abbr_LAB_B);
+            this.Panel_LAB_Contents.Controls.Add(this.Label_LAB_B);
+            this.Panel_LAB_Contents.Controls.Add(this.NumEditor_LAB_B);
+            this.Panel_LAB_Contents.Controls.Add(this.HTrackBar_LAB_B);
+            this.Panel_LAB_Contents.Location = new System.Drawing.Point(0, 30);
+            this.Panel_LAB_Contents.Name = "Panel_LAB_Contents";
+            this.Panel_LAB_Contents.Size = new System.Drawing.Size(640, 115);
+            this.Panel_LAB_Contents.TabIndex = 0;
+            // 
+            // Label_Abbr_LAB_L
+            // 
+            this.Label_Abbr_LAB_L.AutoSize = true;
+            this.Label_Abbr_LAB_L.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_LAB_L.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_LAB_L.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_LAB_L.Location = new System.Drawing.Point(20, 10);
+            this.Label_Abbr_LAB_L.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_LAB_L.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_LAB_L.Name = "Label_Abbr_LAB_L";
+            this.Label_Abbr_LAB_L.Size = new System.Drawing.Size(16, 25);
+            this.Label_Abbr_LAB_L.TabIndex = 0;
+            this.Label_Abbr_LAB_L.Text = "L";
+            this.Label_Abbr_LAB_L.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_LAB_L
+            // 
+            this.Label_LAB_L.AutoSize = true;
+            this.Label_LAB_L.BackColor = System.Drawing.Color.Transparent;
+            this.Label_LAB_L.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_LAB_L.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_LAB_L.Location = new System.Drawing.Point(50, 10);
+            this.Label_LAB_L.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_LAB_L.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_LAB_L.Name = "Label_LAB_L";
+            this.Label_LAB_L.Size = new System.Drawing.Size(67, 25);
+            this.Label_LAB_L.TabIndex = 0;
+            this.Label_LAB_L.Text = "Lightness";
+            this.Label_LAB_L.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_LAB_L
+            // 
+            this.NumEditor_LAB_L.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_LAB_L.Location = new System.Drawing.Point(180, 10);
+            this.NumEditor_LAB_L.Maximum = 100D;
+            this.NumEditor_LAB_L.Minimum = 0D;
+            this.NumEditor_LAB_L.Name = "NumEditor_LAB_L";
+            this.NumEditor_LAB_L.Precision = 0;
+            this.NumEditor_LAB_L.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_LAB_L.TabIndex = 0;
+            this.NumEditor_LAB_L.TabStop = false;
+            this.NumEditor_LAB_L.Value = 0D;
+            // 
+            // HTrackBar_LAB_L
+            // 
+            this.HTrackBar_LAB_L.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_LAB_L.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_LAB_L.Delta = 5D;
+            this.HTrackBar_LAB_L.Location = new System.Drawing.Point(260, 10);
+            this.HTrackBar_LAB_L.Maximum = 100D;
+            this.HTrackBar_LAB_L.Minimum = 0D;
+            this.HTrackBar_LAB_L.Name = "HTrackBar_LAB_L";
+            this.HTrackBar_LAB_L.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_LAB_L.TabIndex = 0;
+            this.HTrackBar_LAB_L.TabStop = false;
+            this.HTrackBar_LAB_L.Value = 0D;
+            // 
+            // Label_Abbr_LAB_A
+            // 
+            this.Label_Abbr_LAB_A.AutoSize = true;
+            this.Label_Abbr_LAB_A.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_LAB_A.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_LAB_A.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_LAB_A.Location = new System.Drawing.Point(20, 45);
+            this.Label_Abbr_LAB_A.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_LAB_A.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_LAB_A.Name = "Label_Abbr_LAB_A";
+            this.Label_Abbr_LAB_A.Size = new System.Drawing.Size(17, 25);
+            this.Label_Abbr_LAB_A.TabIndex = 0;
+            this.Label_Abbr_LAB_A.Text = "a";
+            this.Label_Abbr_LAB_A.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_LAB_A
+            // 
+            this.Label_LAB_A.AutoSize = true;
+            this.Label_LAB_A.BackColor = System.Drawing.Color.Transparent;
+            this.Label_LAB_A.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_LAB_A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_LAB_A.Location = new System.Drawing.Point(50, 45);
+            this.Label_LAB_A.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_LAB_A.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_LAB_A.Name = "Label_LAB_A";
+            this.Label_LAB_A.Size = new System.Drawing.Size(75, 25);
+            this.Label_LAB_A.TabIndex = 0;
+            this.Label_LAB_A.Text = "Green-Red";
+            this.Label_LAB_A.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_LAB_A
+            // 
+            this.NumEditor_LAB_A.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_LAB_A.Location = new System.Drawing.Point(180, 45);
+            this.NumEditor_LAB_A.Maximum = 100D;
+            this.NumEditor_LAB_A.Minimum = 0D;
+            this.NumEditor_LAB_A.Name = "NumEditor_LAB_A";
+            this.NumEditor_LAB_A.Precision = 0;
+            this.NumEditor_LAB_A.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_LAB_A.TabIndex = 0;
+            this.NumEditor_LAB_A.TabStop = false;
+            this.NumEditor_LAB_A.Value = 0D;
+            // 
+            // HTrackBar_LAB_A
+            // 
+            this.HTrackBar_LAB_A.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_LAB_A.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_LAB_A.Delta = 5D;
+            this.HTrackBar_LAB_A.Location = new System.Drawing.Point(260, 45);
+            this.HTrackBar_LAB_A.Maximum = 100D;
+            this.HTrackBar_LAB_A.Minimum = 0D;
+            this.HTrackBar_LAB_A.Name = "HTrackBar_LAB_A";
+            this.HTrackBar_LAB_A.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_LAB_A.TabIndex = 0;
+            this.HTrackBar_LAB_A.TabStop = false;
+            this.HTrackBar_LAB_A.Value = 0D;
+            // 
+            // Label_Abbr_LAB_B
+            // 
+            this.Label_Abbr_LAB_B.AutoSize = true;
+            this.Label_Abbr_LAB_B.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_LAB_B.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_LAB_B.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_LAB_B.Location = new System.Drawing.Point(20, 80);
+            this.Label_Abbr_LAB_B.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_LAB_B.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_LAB_B.Name = "Label_Abbr_LAB_B";
+            this.Label_Abbr_LAB_B.Size = new System.Drawing.Size(18, 25);
+            this.Label_Abbr_LAB_B.TabIndex = 0;
+            this.Label_Abbr_LAB_B.Text = "b";
+            this.Label_Abbr_LAB_B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_LAB_B
+            // 
+            this.Label_LAB_B.AutoSize = true;
+            this.Label_LAB_B.BackColor = System.Drawing.Color.Transparent;
+            this.Label_LAB_B.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_LAB_B.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_LAB_B.Location = new System.Drawing.Point(50, 80);
+            this.Label_LAB_B.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_LAB_B.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_LAB_B.Name = "Label_LAB_B";
+            this.Label_LAB_B.Size = new System.Drawing.Size(80, 25);
+            this.Label_LAB_B.TabIndex = 0;
+            this.Label_LAB_B.Text = "Blue-Yellow";
+            this.Label_LAB_B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_LAB_B
+            // 
+            this.NumEditor_LAB_B.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_LAB_B.Location = new System.Drawing.Point(180, 80);
+            this.NumEditor_LAB_B.Maximum = 100D;
+            this.NumEditor_LAB_B.Minimum = 0D;
+            this.NumEditor_LAB_B.Name = "NumEditor_LAB_B";
+            this.NumEditor_LAB_B.Precision = 0;
+            this.NumEditor_LAB_B.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_LAB_B.TabIndex = 0;
+            this.NumEditor_LAB_B.TabStop = false;
+            this.NumEditor_LAB_B.Value = 0D;
+            // 
+            // HTrackBar_LAB_B
+            // 
+            this.HTrackBar_LAB_B.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_LAB_B.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_LAB_B.Delta = 5D;
+            this.HTrackBar_LAB_B.Location = new System.Drawing.Point(260, 80);
+            this.HTrackBar_LAB_B.Maximum = 100D;
+            this.HTrackBar_LAB_B.Minimum = 0D;
+            this.HTrackBar_LAB_B.Name = "HTrackBar_LAB_B";
+            this.HTrackBar_LAB_B.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_LAB_B.TabIndex = 0;
+            this.HTrackBar_LAB_B.TabStop = false;
+            this.HTrackBar_LAB_B.Value = 0D;
             // 
             // Button_LAB
             // 
@@ -2162,177 +2487,6 @@
             this.Button_LAB.UseVisualStyleBackColor = false;
             this.Button_LAB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
-            // Label_Abbr_LAB_L
-            // 
-            this.Label_Abbr_LAB_L.AutoSize = true;
-            this.Label_Abbr_LAB_L.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_LAB_L.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_LAB_L.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_LAB_L.Location = new System.Drawing.Point(20, 10);
-            this.Label_Abbr_LAB_L.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_LAB_L.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_LAB_L.Name = "Label_Abbr_LAB_L";
-            this.Label_Abbr_LAB_L.Size = new System.Drawing.Size(16, 25);
-            this.Label_Abbr_LAB_L.TabIndex = 0;
-            this.Label_Abbr_LAB_L.Text = "L";
-            this.Label_Abbr_LAB_L.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_LAB_A
-            // 
-            this.Label_Abbr_LAB_A.AutoSize = true;
-            this.Label_Abbr_LAB_A.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_LAB_A.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_LAB_A.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_LAB_A.Location = new System.Drawing.Point(20, 45);
-            this.Label_Abbr_LAB_A.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_LAB_A.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_LAB_A.Name = "Label_Abbr_LAB_A";
-            this.Label_Abbr_LAB_A.Size = new System.Drawing.Size(17, 25);
-            this.Label_Abbr_LAB_A.TabIndex = 0;
-            this.Label_Abbr_LAB_A.Text = "a";
-            this.Label_Abbr_LAB_A.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_LAB_B
-            // 
-            this.Label_Abbr_LAB_B.AutoSize = true;
-            this.Label_Abbr_LAB_B.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_LAB_B.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_LAB_B.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_LAB_B.Location = new System.Drawing.Point(20, 80);
-            this.Label_Abbr_LAB_B.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_LAB_B.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_LAB_B.Name = "Label_Abbr_LAB_B";
-            this.Label_Abbr_LAB_B.Size = new System.Drawing.Size(18, 25);
-            this.Label_Abbr_LAB_B.TabIndex = 0;
-            this.Label_Abbr_LAB_B.Text = "b";
-            this.Label_Abbr_LAB_B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_LAB_L
-            // 
-            this.Label_LAB_L.AutoSize = true;
-            this.Label_LAB_L.BackColor = System.Drawing.Color.Transparent;
-            this.Label_LAB_L.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_LAB_L.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_LAB_L.Location = new System.Drawing.Point(50, 10);
-            this.Label_LAB_L.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_LAB_L.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_LAB_L.Name = "Label_LAB_L";
-            this.Label_LAB_L.Size = new System.Drawing.Size(67, 25);
-            this.Label_LAB_L.TabIndex = 0;
-            this.Label_LAB_L.Text = "Lightness";
-            this.Label_LAB_L.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_LAB_A
-            // 
-            this.Label_LAB_A.AutoSize = true;
-            this.Label_LAB_A.BackColor = System.Drawing.Color.Transparent;
-            this.Label_LAB_A.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_LAB_A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_LAB_A.Location = new System.Drawing.Point(50, 45);
-            this.Label_LAB_A.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_LAB_A.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_LAB_A.Name = "Label_LAB_A";
-            this.Label_LAB_A.Size = new System.Drawing.Size(75, 25);
-            this.Label_LAB_A.TabIndex = 0;
-            this.Label_LAB_A.Text = "Green-Red";
-            this.Label_LAB_A.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_LAB_B
-            // 
-            this.Label_LAB_B.AutoSize = true;
-            this.Label_LAB_B.BackColor = System.Drawing.Color.Transparent;
-            this.Label_LAB_B.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_LAB_B.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_LAB_B.Location = new System.Drawing.Point(50, 80);
-            this.Label_LAB_B.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_LAB_B.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_LAB_B.Name = "Label_LAB_B";
-            this.Label_LAB_B.Size = new System.Drawing.Size(80, 25);
-            this.Label_LAB_B.TabIndex = 0;
-            this.Label_LAB_B.Text = "Blue-Yellow";
-            this.Label_LAB_B.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // NumEditor_LAB_L
-            // 
-            this.NumEditor_LAB_L.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_LAB_L.Location = new System.Drawing.Point(180, 10);
-            this.NumEditor_LAB_L.Maximum = 100D;
-            this.NumEditor_LAB_L.Minimum = 0D;
-            this.NumEditor_LAB_L.Name = "NumEditor_LAB_L";
-            this.NumEditor_LAB_L.Precision = 0;
-            this.NumEditor_LAB_L.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_LAB_L.TabIndex = 0;
-            this.NumEditor_LAB_L.TabStop = false;
-            this.NumEditor_LAB_L.Value = 0D;
-            // 
-            // NumEditor_LAB_A
-            // 
-            this.NumEditor_LAB_A.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_LAB_A.Location = new System.Drawing.Point(180, 45);
-            this.NumEditor_LAB_A.Maximum = 100D;
-            this.NumEditor_LAB_A.Minimum = 0D;
-            this.NumEditor_LAB_A.Name = "NumEditor_LAB_A";
-            this.NumEditor_LAB_A.Precision = 0;
-            this.NumEditor_LAB_A.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_LAB_A.TabIndex = 0;
-            this.NumEditor_LAB_A.TabStop = false;
-            this.NumEditor_LAB_A.Value = 0D;
-            // 
-            // NumEditor_LAB_B
-            // 
-            this.NumEditor_LAB_B.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_LAB_B.Location = new System.Drawing.Point(180, 80);
-            this.NumEditor_LAB_B.Maximum = 100D;
-            this.NumEditor_LAB_B.Minimum = 0D;
-            this.NumEditor_LAB_B.Name = "NumEditor_LAB_B";
-            this.NumEditor_LAB_B.Precision = 0;
-            this.NumEditor_LAB_B.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_LAB_B.TabIndex = 0;
-            this.NumEditor_LAB_B.TabStop = false;
-            this.NumEditor_LAB_B.Value = 0D;
-            // 
-            // HTrackBar_LAB_L
-            // 
-            this.HTrackBar_LAB_L.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_LAB_L.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_LAB_L.Delta = 5D;
-            this.HTrackBar_LAB_L.Location = new System.Drawing.Point(260, 10);
-            this.HTrackBar_LAB_L.Maximum = 100D;
-            this.HTrackBar_LAB_L.Minimum = 0D;
-            this.HTrackBar_LAB_L.Name = "HTrackBar_LAB_L";
-            this.HTrackBar_LAB_L.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_LAB_L.TabIndex = 0;
-            this.HTrackBar_LAB_L.TabStop = false;
-            this.HTrackBar_LAB_L.Value = 0D;
-            // 
-            // HTrackBar_LAB_A
-            // 
-            this.HTrackBar_LAB_A.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_LAB_A.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_LAB_A.Delta = 5D;
-            this.HTrackBar_LAB_A.Location = new System.Drawing.Point(260, 45);
-            this.HTrackBar_LAB_A.Maximum = 100D;
-            this.HTrackBar_LAB_A.Minimum = 0D;
-            this.HTrackBar_LAB_A.Name = "HTrackBar_LAB_A";
-            this.HTrackBar_LAB_A.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_LAB_A.TabIndex = 0;
-            this.HTrackBar_LAB_A.TabStop = false;
-            this.HTrackBar_LAB_A.Value = 0D;
-            // 
-            // HTrackBar_LAB_B
-            // 
-            this.HTrackBar_LAB_B.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_LAB_B.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_LAB_B.Delta = 5D;
-            this.HTrackBar_LAB_B.Location = new System.Drawing.Point(260, 80);
-            this.HTrackBar_LAB_B.Maximum = 100D;
-            this.HTrackBar_LAB_B.Minimum = 0D;
-            this.HTrackBar_LAB_B.Name = "HTrackBar_LAB_B";
-            this.HTrackBar_LAB_B.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_LAB_B.TabIndex = 0;
-            this.HTrackBar_LAB_B.TabStop = false;
-            this.HTrackBar_LAB_B.Value = 0D;
-            // 
             // Panel_YUV
             // 
             this.Panel_YUV.BackColor = System.Drawing.Color.Transparent;
@@ -2342,6 +2496,197 @@
             this.Panel_YUV.Name = "Panel_YUV";
             this.Panel_YUV.Size = new System.Drawing.Size(640, 145);
             this.Panel_YUV.TabIndex = 0;
+            // 
+            // Panel_YUV_Contents
+            // 
+            this.Panel_YUV_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.Panel_YUV_Contents.Controls.Add(this.Label_Abbr_YUV_Y);
+            this.Panel_YUV_Contents.Controls.Add(this.Label_YUV_Y);
+            this.Panel_YUV_Contents.Controls.Add(this.NumEditor_YUV_Y);
+            this.Panel_YUV_Contents.Controls.Add(this.HTrackBar_YUV_Y);
+            this.Panel_YUV_Contents.Controls.Add(this.Label_Abbr_YUV_U);
+            this.Panel_YUV_Contents.Controls.Add(this.Label_YUV_U);
+            this.Panel_YUV_Contents.Controls.Add(this.NumEditor_YUV_U);
+            this.Panel_YUV_Contents.Controls.Add(this.HTrackBar_YUV_U);
+            this.Panel_YUV_Contents.Controls.Add(this.Label_Abbr_YUV_V);
+            this.Panel_YUV_Contents.Controls.Add(this.Label_YUV_V);
+            this.Panel_YUV_Contents.Controls.Add(this.NumEditor_YUV_V);
+            this.Panel_YUV_Contents.Controls.Add(this.HTrackBar_YUV_V);
+            this.Panel_YUV_Contents.Location = new System.Drawing.Point(0, 30);
+            this.Panel_YUV_Contents.Name = "Panel_YUV_Contents";
+            this.Panel_YUV_Contents.Size = new System.Drawing.Size(640, 115);
+            this.Panel_YUV_Contents.TabIndex = 0;
+            // 
+            // Label_Abbr_YUV_Y
+            // 
+            this.Label_Abbr_YUV_Y.AutoSize = true;
+            this.Label_Abbr_YUV_Y.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_YUV_Y.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_YUV_Y.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_YUV_Y.Location = new System.Drawing.Point(20, 10);
+            this.Label_Abbr_YUV_Y.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_YUV_Y.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_YUV_Y.Name = "Label_Abbr_YUV_Y";
+            this.Label_Abbr_YUV_Y.Size = new System.Drawing.Size(17, 25);
+            this.Label_Abbr_YUV_Y.TabIndex = 0;
+            this.Label_Abbr_YUV_Y.Text = "Y";
+            this.Label_Abbr_YUV_Y.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_YUV_Y
+            // 
+            this.Label_YUV_Y.AutoSize = true;
+            this.Label_YUV_Y.BackColor = System.Drawing.Color.Transparent;
+            this.Label_YUV_Y.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_YUV_Y.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_YUV_Y.Location = new System.Drawing.Point(50, 10);
+            this.Label_YUV_Y.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_YUV_Y.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_YUV_Y.Name = "Label_YUV_Y";
+            this.Label_YUV_Y.Size = new System.Drawing.Size(76, 25);
+            this.Label_YUV_Y.TabIndex = 0;
+            this.Label_YUV_Y.Text = "Luminance";
+            this.Label_YUV_Y.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_YUV_Y
+            // 
+            this.NumEditor_YUV_Y.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_YUV_Y.Location = new System.Drawing.Point(180, 10);
+            this.NumEditor_YUV_Y.Maximum = 100D;
+            this.NumEditor_YUV_Y.Minimum = 0D;
+            this.NumEditor_YUV_Y.Name = "NumEditor_YUV_Y";
+            this.NumEditor_YUV_Y.Precision = 0;
+            this.NumEditor_YUV_Y.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_YUV_Y.TabIndex = 0;
+            this.NumEditor_YUV_Y.TabStop = false;
+            this.NumEditor_YUV_Y.Value = 0D;
+            // 
+            // HTrackBar_YUV_Y
+            // 
+            this.HTrackBar_YUV_Y.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_YUV_Y.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_YUV_Y.Delta = 5D;
+            this.HTrackBar_YUV_Y.Location = new System.Drawing.Point(260, 10);
+            this.HTrackBar_YUV_Y.Maximum = 100D;
+            this.HTrackBar_YUV_Y.Minimum = 0D;
+            this.HTrackBar_YUV_Y.Name = "HTrackBar_YUV_Y";
+            this.HTrackBar_YUV_Y.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_YUV_Y.TabIndex = 0;
+            this.HTrackBar_YUV_Y.TabStop = false;
+            this.HTrackBar_YUV_Y.Value = 0D;
+            // 
+            // Label_Abbr_YUV_U
+            // 
+            this.Label_Abbr_YUV_U.AutoSize = true;
+            this.Label_Abbr_YUV_U.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_YUV_U.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_YUV_U.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_YUV_U.Location = new System.Drawing.Point(20, 45);
+            this.Label_Abbr_YUV_U.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_YUV_U.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_YUV_U.Name = "Label_Abbr_YUV_U";
+            this.Label_Abbr_YUV_U.Size = new System.Drawing.Size(19, 25);
+            this.Label_Abbr_YUV_U.TabIndex = 0;
+            this.Label_Abbr_YUV_U.Text = "U";
+            this.Label_Abbr_YUV_U.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_YUV_U
+            // 
+            this.Label_YUV_U.AutoSize = true;
+            this.Label_YUV_U.BackColor = System.Drawing.Color.Transparent;
+            this.Label_YUV_U.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_YUV_U.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_YUV_U.Location = new System.Drawing.Point(50, 45);
+            this.Label_YUV_U.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_YUV_U.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_YUV_U.Name = "Label_YUV_U";
+            this.Label_YUV_U.Size = new System.Drawing.Size(121, 25);
+            this.Label_YUV_U.TabIndex = 0;
+            this.Label_YUV_U.Text = "Blue Chrominance";
+            this.Label_YUV_U.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_YUV_U
+            // 
+            this.NumEditor_YUV_U.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_YUV_U.Location = new System.Drawing.Point(180, 45);
+            this.NumEditor_YUV_U.Maximum = 100D;
+            this.NumEditor_YUV_U.Minimum = 0D;
+            this.NumEditor_YUV_U.Name = "NumEditor_YUV_U";
+            this.NumEditor_YUV_U.Precision = 0;
+            this.NumEditor_YUV_U.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_YUV_U.TabIndex = 0;
+            this.NumEditor_YUV_U.TabStop = false;
+            this.NumEditor_YUV_U.Value = 0D;
+            // 
+            // HTrackBar_YUV_U
+            // 
+            this.HTrackBar_YUV_U.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_YUV_U.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_YUV_U.Delta = 5D;
+            this.HTrackBar_YUV_U.Location = new System.Drawing.Point(260, 45);
+            this.HTrackBar_YUV_U.Maximum = 100D;
+            this.HTrackBar_YUV_U.Minimum = 0D;
+            this.HTrackBar_YUV_U.Name = "HTrackBar_YUV_U";
+            this.HTrackBar_YUV_U.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_YUV_U.TabIndex = 0;
+            this.HTrackBar_YUV_U.TabStop = false;
+            this.HTrackBar_YUV_U.Value = 0D;
+            // 
+            // Label_Abbr_YUV_V
+            // 
+            this.Label_Abbr_YUV_V.AutoSize = true;
+            this.Label_Abbr_YUV_V.BackColor = System.Drawing.Color.Transparent;
+            this.Label_Abbr_YUV_V.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_Abbr_YUV_V.ForeColor = System.Drawing.Color.Silver;
+            this.Label_Abbr_YUV_V.Location = new System.Drawing.Point(20, 80);
+            this.Label_Abbr_YUV_V.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_YUV_V.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_Abbr_YUV_V.Name = "Label_Abbr_YUV_V";
+            this.Label_Abbr_YUV_V.Size = new System.Drawing.Size(18, 25);
+            this.Label_Abbr_YUV_V.TabIndex = 0;
+            this.Label_Abbr_YUV_V.Text = "V";
+            this.Label_Abbr_YUV_V.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_YUV_V
+            // 
+            this.Label_YUV_V.AutoSize = true;
+            this.Label_YUV_V.BackColor = System.Drawing.Color.Transparent;
+            this.Label_YUV_V.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_YUV_V.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Label_YUV_V.Location = new System.Drawing.Point(50, 80);
+            this.Label_YUV_V.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_YUV_V.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_YUV_V.Name = "Label_YUV_V";
+            this.Label_YUV_V.Size = new System.Drawing.Size(118, 25);
+            this.Label_YUV_V.TabIndex = 0;
+            this.Label_YUV_V.Text = "Red Chrominance";
+            this.Label_YUV_V.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NumEditor_YUV_V
+            // 
+            this.NumEditor_YUV_V.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.NumEditor_YUV_V.Location = new System.Drawing.Point(180, 80);
+            this.NumEditor_YUV_V.Maximum = 100D;
+            this.NumEditor_YUV_V.Minimum = 0D;
+            this.NumEditor_YUV_V.Name = "NumEditor_YUV_V";
+            this.NumEditor_YUV_V.Precision = 0;
+            this.NumEditor_YUV_V.Size = new System.Drawing.Size(70, 25);
+            this.NumEditor_YUV_V.TabIndex = 0;
+            this.NumEditor_YUV_V.TabStop = false;
+            this.NumEditor_YUV_V.Value = 0D;
+            // 
+            // HTrackBar_YUV_V
+            // 
+            this.HTrackBar_YUV_V.BackColor = System.Drawing.Color.Transparent;
+            this.HTrackBar_YUV_V.Colors = new System.Drawing.Color[0];
+            this.HTrackBar_YUV_V.Delta = 5D;
+            this.HTrackBar_YUV_V.Location = new System.Drawing.Point(260, 80);
+            this.HTrackBar_YUV_V.Maximum = 100D;
+            this.HTrackBar_YUV_V.Minimum = 0D;
+            this.HTrackBar_YUV_V.Name = "HTrackBar_YUV_V";
+            this.HTrackBar_YUV_V.Size = new System.Drawing.Size(360, 25);
+            this.HTrackBar_YUV_V.TabIndex = 0;
+            this.HTrackBar_YUV_V.TabStop = false;
+            this.HTrackBar_YUV_V.Value = 0D;
             // 
             // Button_YUV
             // 
@@ -2366,317 +2711,6 @@
             this.Button_YUV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Button_YUV.UseVisualStyleBackColor = false;
             this.Button_YUV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
-            // 
-            // Label_Abbr_YUV_Y
-            // 
-            this.Label_Abbr_YUV_Y.AutoSize = true;
-            this.Label_Abbr_YUV_Y.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_YUV_Y.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_YUV_Y.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_YUV_Y.Location = new System.Drawing.Point(20, 10);
-            this.Label_Abbr_YUV_Y.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_YUV_Y.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_YUV_Y.Name = "Label_Abbr_YUV_Y";
-            this.Label_Abbr_YUV_Y.Size = new System.Drawing.Size(17, 25);
-            this.Label_Abbr_YUV_Y.TabIndex = 0;
-            this.Label_Abbr_YUV_Y.Text = "Y";
-            this.Label_Abbr_YUV_Y.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_YUV_U
-            // 
-            this.Label_Abbr_YUV_U.AutoSize = true;
-            this.Label_Abbr_YUV_U.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_YUV_U.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_YUV_U.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_YUV_U.Location = new System.Drawing.Point(20, 45);
-            this.Label_Abbr_YUV_U.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_YUV_U.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_YUV_U.Name = "Label_Abbr_YUV_U";
-            this.Label_Abbr_YUV_U.Size = new System.Drawing.Size(19, 25);
-            this.Label_Abbr_YUV_U.TabIndex = 0;
-            this.Label_Abbr_YUV_U.Text = "U";
-            this.Label_Abbr_YUV_U.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_Abbr_YUV_V
-            // 
-            this.Label_Abbr_YUV_V.AutoSize = true;
-            this.Label_Abbr_YUV_V.BackColor = System.Drawing.Color.Transparent;
-            this.Label_Abbr_YUV_V.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_Abbr_YUV_V.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Abbr_YUV_V.Location = new System.Drawing.Point(20, 80);
-            this.Label_Abbr_YUV_V.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_YUV_V.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_Abbr_YUV_V.Name = "Label_Abbr_YUV_V";
-            this.Label_Abbr_YUV_V.Size = new System.Drawing.Size(18, 25);
-            this.Label_Abbr_YUV_V.TabIndex = 0;
-            this.Label_Abbr_YUV_V.Text = "V";
-            this.Label_Abbr_YUV_V.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_YUV_Y
-            // 
-            this.Label_YUV_Y.AutoSize = true;
-            this.Label_YUV_Y.BackColor = System.Drawing.Color.Transparent;
-            this.Label_YUV_Y.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_YUV_Y.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_YUV_Y.Location = new System.Drawing.Point(50, 10);
-            this.Label_YUV_Y.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_YUV_Y.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_YUV_Y.Name = "Label_YUV_Y";
-            this.Label_YUV_Y.Size = new System.Drawing.Size(76, 25);
-            this.Label_YUV_Y.TabIndex = 0;
-            this.Label_YUV_Y.Text = "Luminance";
-            this.Label_YUV_Y.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_YUV_U
-            // 
-            this.Label_YUV_U.AutoSize = true;
-            this.Label_YUV_U.BackColor = System.Drawing.Color.Transparent;
-            this.Label_YUV_U.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_YUV_U.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_YUV_U.Location = new System.Drawing.Point(50, 45);
-            this.Label_YUV_U.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_YUV_U.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_YUV_U.Name = "Label_YUV_U";
-            this.Label_YUV_U.Size = new System.Drawing.Size(121, 25);
-            this.Label_YUV_U.TabIndex = 0;
-            this.Label_YUV_U.Text = "Blue Chrominance";
-            this.Label_YUV_U.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Label_YUV_V
-            // 
-            this.Label_YUV_V.AutoSize = true;
-            this.Label_YUV_V.BackColor = System.Drawing.Color.Transparent;
-            this.Label_YUV_V.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Label_YUV_V.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_YUV_V.Location = new System.Drawing.Point(50, 80);
-            this.Label_YUV_V.MaximumSize = new System.Drawing.Size(0, 25);
-            this.Label_YUV_V.MinimumSize = new System.Drawing.Size(0, 25);
-            this.Label_YUV_V.Name = "Label_YUV_V";
-            this.Label_YUV_V.Size = new System.Drawing.Size(118, 25);
-            this.Label_YUV_V.TabIndex = 0;
-            this.Label_YUV_V.Text = "Red Chrominance";
-            this.Label_YUV_V.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // NumEditor_YUV_Y
-            // 
-            this.NumEditor_YUV_Y.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_YUV_Y.Location = new System.Drawing.Point(180, 10);
-            this.NumEditor_YUV_Y.Maximum = 100D;
-            this.NumEditor_YUV_Y.Minimum = 0D;
-            this.NumEditor_YUV_Y.Name = "NumEditor_YUV_Y";
-            this.NumEditor_YUV_Y.Precision = 0;
-            this.NumEditor_YUV_Y.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_YUV_Y.TabIndex = 0;
-            this.NumEditor_YUV_Y.TabStop = false;
-            this.NumEditor_YUV_Y.Value = 0D;
-            // 
-            // NumEditor_YUV_U
-            // 
-            this.NumEditor_YUV_U.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_YUV_U.Location = new System.Drawing.Point(180, 45);
-            this.NumEditor_YUV_U.Maximum = 100D;
-            this.NumEditor_YUV_U.Minimum = 0D;
-            this.NumEditor_YUV_U.Name = "NumEditor_YUV_U";
-            this.NumEditor_YUV_U.Precision = 0;
-            this.NumEditor_YUV_U.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_YUV_U.TabIndex = 0;
-            this.NumEditor_YUV_U.TabStop = false;
-            this.NumEditor_YUV_U.Value = 0D;
-            // 
-            // NumEditor_YUV_V
-            // 
-            this.NumEditor_YUV_V.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.NumEditor_YUV_V.Location = new System.Drawing.Point(180, 80);
-            this.NumEditor_YUV_V.Maximum = 100D;
-            this.NumEditor_YUV_V.Minimum = 0D;
-            this.NumEditor_YUV_V.Name = "NumEditor_YUV_V";
-            this.NumEditor_YUV_V.Precision = 0;
-            this.NumEditor_YUV_V.Size = new System.Drawing.Size(70, 25);
-            this.NumEditor_YUV_V.TabIndex = 0;
-            this.NumEditor_YUV_V.TabStop = false;
-            this.NumEditor_YUV_V.Value = 0D;
-            // 
-            // HTrackBar_YUV_Y
-            // 
-            this.HTrackBar_YUV_Y.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_YUV_Y.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_YUV_Y.Delta = 5D;
-            this.HTrackBar_YUV_Y.Location = new System.Drawing.Point(260, 10);
-            this.HTrackBar_YUV_Y.Maximum = 100D;
-            this.HTrackBar_YUV_Y.Minimum = 0D;
-            this.HTrackBar_YUV_Y.Name = "HTrackBar_YUV_Y";
-            this.HTrackBar_YUV_Y.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_YUV_Y.TabIndex = 0;
-            this.HTrackBar_YUV_Y.TabStop = false;
-            this.HTrackBar_YUV_Y.Value = 0D;
-            // 
-            // HTrackBar_YUV_U
-            // 
-            this.HTrackBar_YUV_U.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_YUV_U.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_YUV_U.Delta = 5D;
-            this.HTrackBar_YUV_U.Location = new System.Drawing.Point(260, 45);
-            this.HTrackBar_YUV_U.Maximum = 100D;
-            this.HTrackBar_YUV_U.Minimum = 0D;
-            this.HTrackBar_YUV_U.Name = "HTrackBar_YUV_U";
-            this.HTrackBar_YUV_U.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_YUV_U.TabIndex = 0;
-            this.HTrackBar_YUV_U.TabStop = false;
-            this.HTrackBar_YUV_U.Value = 0D;
-            // 
-            // HTrackBar_YUV_V
-            // 
-            this.HTrackBar_YUV_V.BackColor = System.Drawing.Color.Transparent;
-            this.HTrackBar_YUV_V.Colors = new System.Drawing.Color[0];
-            this.HTrackBar_YUV_V.Delta = 5D;
-            this.HTrackBar_YUV_V.Location = new System.Drawing.Point(260, 80);
-            this.HTrackBar_YUV_V.Maximum = 100D;
-            this.HTrackBar_YUV_V.Minimum = 0D;
-            this.HTrackBar_YUV_V.Name = "HTrackBar_YUV_V";
-            this.HTrackBar_YUV_V.Size = new System.Drawing.Size(360, 25);
-            this.HTrackBar_YUV_V.TabIndex = 0;
-            this.HTrackBar_YUV_V.TabStop = false;
-            this.HTrackBar_YUV_V.Value = 0D;
-            // 
-            // Panel_Transparency_Contents
-            // 
-            this.Panel_Transparency_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_Transparency_Contents.Controls.Add(this.Label_Abbr_Opacity);
-            this.Panel_Transparency_Contents.Controls.Add(this.HTrackBar_Alpha);
-            this.Panel_Transparency_Contents.Controls.Add(this.HTrackBar_Opacity);
-            this.Panel_Transparency_Contents.Controls.Add(this.Label_Abbr_Alpha);
-            this.Panel_Transparency_Contents.Controls.Add(this.NumEditor_Alpha);
-            this.Panel_Transparency_Contents.Controls.Add(this.Label_Opacity);
-            this.Panel_Transparency_Contents.Controls.Add(this.NumEditor_Opacity);
-            this.Panel_Transparency_Contents.Controls.Add(this.Label_Alpha);
-            this.Panel_Transparency_Contents.Location = new System.Drawing.Point(0, 30);
-            this.Panel_Transparency_Contents.Name = "Panel_Transparency_Contents";
-            this.Panel_Transparency_Contents.Size = new System.Drawing.Size(640, 80);
-            this.Panel_Transparency_Contents.TabIndex = 0;
-            // 
-            // Panel_RGB_Contents
-            // 
-            this.Panel_RGB_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_RGB_Contents.Controls.Add(this.Label_Abbr_RGB_R);
-            this.Panel_RGB_Contents.Controls.Add(this.HTrackBar_RGB_B);
-            this.Panel_RGB_Contents.Controls.Add(this.HTrackBar_RGB_G);
-            this.Panel_RGB_Contents.Controls.Add(this.HTrackBar_RGB_R);
-            this.Panel_RGB_Contents.Controls.Add(this.Label_Abbr_RGB_G);
-            this.Panel_RGB_Contents.Controls.Add(this.NumEditor_RGB_B);
-            this.Panel_RGB_Contents.Controls.Add(this.Label_Abbr_RGB_B);
-            this.Panel_RGB_Contents.Controls.Add(this.NumEditor_RGB_G);
-            this.Panel_RGB_Contents.Controls.Add(this.Label_RGB_R);
-            this.Panel_RGB_Contents.Controls.Add(this.NumEditor_RGB_R);
-            this.Panel_RGB_Contents.Controls.Add(this.Label_RGB_G);
-            this.Panel_RGB_Contents.Controls.Add(this.Label_RGB_B);
-            this.Panel_RGB_Contents.Location = new System.Drawing.Point(0, 30);
-            this.Panel_RGB_Contents.Name = "Panel_RGB_Contents";
-            this.Panel_RGB_Contents.Size = new System.Drawing.Size(640, 115);
-            this.Panel_RGB_Contents.TabIndex = 0;
-            // 
-            // Panel_HSV_Contents
-            // 
-            this.Panel_HSV_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_HSV_Contents.Controls.Add(this.Label_Abbr_HSV_H);
-            this.Panel_HSV_Contents.Controls.Add(this.HTrackBar_HSV_V);
-            this.Panel_HSV_Contents.Controls.Add(this.HTrackBar_HSV_S);
-            this.Panel_HSV_Contents.Controls.Add(this.Label_Abbr_HSV_S);
-            this.Panel_HSV_Contents.Controls.Add(this.HTrackBar_HSV_H);
-            this.Panel_HSV_Contents.Controls.Add(this.Label_Abbr_HSV_V);
-            this.Panel_HSV_Contents.Controls.Add(this.NumEditor_HSV_V);
-            this.Panel_HSV_Contents.Controls.Add(this.Label_HSV_H);
-            this.Panel_HSV_Contents.Controls.Add(this.NumEditor_HSV_S);
-            this.Panel_HSV_Contents.Controls.Add(this.Label_HSV_S);
-            this.Panel_HSV_Contents.Controls.Add(this.NumEditor_HSV_H);
-            this.Panel_HSV_Contents.Controls.Add(this.Label_HSV_V);
-            this.Panel_HSV_Contents.Location = new System.Drawing.Point(0, 30);
-            this.Panel_HSV_Contents.Name = "Panel_HSV_Contents";
-            this.Panel_HSV_Contents.Size = new System.Drawing.Size(640, 115);
-            this.Panel_HSV_Contents.TabIndex = 0;
-            // 
-            // Panel_HSL_Contents
-            // 
-            this.Panel_HSL_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_HSL_Contents.Controls.Add(this.Label_Abbr_HSL_H);
-            this.Panel_HSL_Contents.Controls.Add(this.HTrackBar_HSL_L);
-            this.Panel_HSL_Contents.Controls.Add(this.HTrackBar_HSL_S);
-            this.Panel_HSL_Contents.Controls.Add(this.Label_Abbr_HSL_S);
-            this.Panel_HSL_Contents.Controls.Add(this.HTrackBar_HSL_H);
-            this.Panel_HSL_Contents.Controls.Add(this.Label_Abbr_HSL_L);
-            this.Panel_HSL_Contents.Controls.Add(this.NumEditor_HSL_L);
-            this.Panel_HSL_Contents.Controls.Add(this.Label_HSL_H);
-            this.Panel_HSL_Contents.Controls.Add(this.NumEditor_HSL_S);
-            this.Panel_HSL_Contents.Controls.Add(this.Label_HSL_S);
-            this.Panel_HSL_Contents.Controls.Add(this.NumEditor_HSL_H);
-            this.Panel_HSL_Contents.Controls.Add(this.Label_HSL_L);
-            this.Panel_HSL_Contents.Location = new System.Drawing.Point(0, 30);
-            this.Panel_HSL_Contents.Name = "Panel_HSL_Contents";
-            this.Panel_HSL_Contents.Size = new System.Drawing.Size(640, 115);
-            this.Panel_HSL_Contents.TabIndex = 0;
-            // 
-            // Panel_CMYK_Contents
-            // 
-            this.Panel_CMYK_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_CMYK_Contents.Controls.Add(this.Label_Abbr_CMYK_C);
-            this.Panel_CMYK_Contents.Controls.Add(this.HTrackBar_CMYK_K);
-            this.Panel_CMYK_Contents.Controls.Add(this.HTrackBar_CMYK_Y);
-            this.Panel_CMYK_Contents.Controls.Add(this.Label_Abbr_CMYK_M);
-            this.Panel_CMYK_Contents.Controls.Add(this.HTrackBar_CMYK_M);
-            this.Panel_CMYK_Contents.Controls.Add(this.Label_Abbr_CMYK_Y);
-            this.Panel_CMYK_Contents.Controls.Add(this.HTrackBar_CMYK_C);
-            this.Panel_CMYK_Contents.Controls.Add(this.Label_Abbr_CMYK_K);
-            this.Panel_CMYK_Contents.Controls.Add(this.NumEditor_CMYK_Y);
-            this.Panel_CMYK_Contents.Controls.Add(this.Label_CMYK_C);
-            this.Panel_CMYK_Contents.Controls.Add(this.NumEditor_CMYK_M);
-            this.Panel_CMYK_Contents.Controls.Add(this.Label_CMYK_M);
-            this.Panel_CMYK_Contents.Controls.Add(this.NumEditor_CMYK_C);
-            this.Panel_CMYK_Contents.Controls.Add(this.Label_CMYK_Y);
-            this.Panel_CMYK_Contents.Controls.Add(this.NumEditor_CMYK_K);
-            this.Panel_CMYK_Contents.Controls.Add(this.Label_CMYK_K);
-            this.Panel_CMYK_Contents.Location = new System.Drawing.Point(0, 30);
-            this.Panel_CMYK_Contents.Name = "Panel_CMYK_Contents";
-            this.Panel_CMYK_Contents.Size = new System.Drawing.Size(640, 150);
-            this.Panel_CMYK_Contents.TabIndex = 0;
-            // 
-            // Panel_LAB_Contents
-            // 
-            this.Panel_LAB_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_LAB_Contents.Controls.Add(this.Label_Abbr_LAB_L);
-            this.Panel_LAB_Contents.Controls.Add(this.HTrackBar_LAB_B);
-            this.Panel_LAB_Contents.Controls.Add(this.HTrackBar_LAB_A);
-            this.Panel_LAB_Contents.Controls.Add(this.Label_Abbr_LAB_A);
-            this.Panel_LAB_Contents.Controls.Add(this.HTrackBar_LAB_L);
-            this.Panel_LAB_Contents.Controls.Add(this.Label_Abbr_LAB_B);
-            this.Panel_LAB_Contents.Controls.Add(this.NumEditor_LAB_B);
-            this.Panel_LAB_Contents.Controls.Add(this.Label_LAB_L);
-            this.Panel_LAB_Contents.Controls.Add(this.NumEditor_LAB_A);
-            this.Panel_LAB_Contents.Controls.Add(this.Label_LAB_A);
-            this.Panel_LAB_Contents.Controls.Add(this.NumEditor_LAB_L);
-            this.Panel_LAB_Contents.Controls.Add(this.Label_LAB_B);
-            this.Panel_LAB_Contents.Location = new System.Drawing.Point(0, 30);
-            this.Panel_LAB_Contents.Name = "Panel_LAB_Contents";
-            this.Panel_LAB_Contents.Size = new System.Drawing.Size(640, 115);
-            this.Panel_LAB_Contents.TabIndex = 0;
-            // 
-            // Panel_YUV_Contents
-            // 
-            this.Panel_YUV_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_YUV_Contents.Controls.Add(this.Label_Abbr_YUV_Y);
-            this.Panel_YUV_Contents.Controls.Add(this.HTrackBar_YUV_V);
-            this.Panel_YUV_Contents.Controls.Add(this.HTrackBar_YUV_U);
-            this.Panel_YUV_Contents.Controls.Add(this.Label_Abbr_YUV_U);
-            this.Panel_YUV_Contents.Controls.Add(this.HTrackBar_YUV_Y);
-            this.Panel_YUV_Contents.Controls.Add(this.Label_Abbr_YUV_V);
-            this.Panel_YUV_Contents.Controls.Add(this.NumEditor_YUV_V);
-            this.Panel_YUV_Contents.Controls.Add(this.Label_YUV_Y);
-            this.Panel_YUV_Contents.Controls.Add(this.NumEditor_YUV_U);
-            this.Panel_YUV_Contents.Controls.Add(this.Label_YUV_U);
-            this.Panel_YUV_Contents.Controls.Add(this.NumEditor_YUV_Y);
-            this.Panel_YUV_Contents.Controls.Add(this.Label_YUV_V);
-            this.Panel_YUV_Contents.Location = new System.Drawing.Point(0, 30);
-            this.Panel_YUV_Contents.Name = "Panel_YUV_Contents";
-            this.Panel_YUV_Contents.Size = new System.Drawing.Size(640, 115);
-            this.Panel_YUV_Contents.TabIndex = 0;
             // 
             // Form_Main
             // 
@@ -2715,24 +2749,24 @@
             this.Panel_RightArea.ResumeLayout(false);
             this.Panel_ColorSpaces.ResumeLayout(false);
             this.Panel_Transparency.ResumeLayout(false);
-            this.Panel_RGB.ResumeLayout(false);
-            this.Panel_HSV.ResumeLayout(false);
-            this.Panel_HSL.ResumeLayout(false);
-            this.Panel_CMYK.ResumeLayout(false);
-            this.Panel_LAB.ResumeLayout(false);
-            this.Panel_YUV.ResumeLayout(false);
             this.Panel_Transparency_Contents.ResumeLayout(false);
             this.Panel_Transparency_Contents.PerformLayout();
+            this.Panel_RGB.ResumeLayout(false);
             this.Panel_RGB_Contents.ResumeLayout(false);
             this.Panel_RGB_Contents.PerformLayout();
+            this.Panel_HSV.ResumeLayout(false);
             this.Panel_HSV_Contents.ResumeLayout(false);
             this.Panel_HSV_Contents.PerformLayout();
+            this.Panel_HSL.ResumeLayout(false);
             this.Panel_HSL_Contents.ResumeLayout(false);
             this.Panel_HSL_Contents.PerformLayout();
+            this.Panel_CMYK.ResumeLayout(false);
             this.Panel_CMYK_Contents.ResumeLayout(false);
             this.Panel_CMYK_Contents.PerformLayout();
+            this.Panel_LAB.ResumeLayout(false);
             this.Panel_LAB_Contents.ResumeLayout(false);
             this.Panel_LAB_Contents.PerformLayout();
+            this.Panel_YUV.ResumeLayout(false);
             this.Panel_YUV_Contents.ResumeLayout(false);
             this.Panel_YUV_Contents.PerformLayout();
             this.ResumeLayout(false);
@@ -2885,7 +2919,7 @@
         private System.Windows.Forms.Label Label_Theme;
         private System.Windows.Forms.ComboBox ComboBox_Theme;
         private System.Windows.Forms.Label Label_ThemeColor;
-        private System.Windows.Forms.Label Label_ThemeColor_EditingColor;
+        private System.Windows.Forms.Label Label_ThemeColor_Customize;
         private System.Windows.Forms.RadioButton RadioButton_ThemeColor_Customize;
         private System.Windows.Forms.RadioButton RadioButton_ThemeColor_Windows;
         private System.Windows.Forms.RadioButton RadioButton_ThemeColor_EditingColor;
@@ -2912,5 +2946,7 @@
         private System.Windows.Forms.Panel Panel_CMYK_Contents;
         private System.Windows.Forms.Panel Panel_LAB_Contents;
         private System.Windows.Forms.Panel Panel_YUV_Contents;
+        private System.Windows.Forms.Label Label_Type;
+        private System.Windows.Forms.Label Label_Type_Val;
     }
 }

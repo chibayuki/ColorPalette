@@ -43,9 +43,14 @@ namespace WinFormApp
         private Com.ColorX _BorderColor;
         private Com.ColorX _TextColor;
 
+        private Com.ColorX _ThemeColor;
+
         private enum _ColorTags
         {
             None = -1,
+
+            Grayscale,
+            Complementary,
 
             Builtin01, Builtin02, Builtin03, Builtin04, Builtin05, Builtin06, Builtin07, Builtin08, Builtin09, Builtin10,
             Builtin11, Builtin12, Builtin13, Builtin14, Builtin15, Builtin16, Builtin17, Builtin18, Builtin19, Builtin20,
@@ -66,7 +71,9 @@ namespace WinFormApp
             Background,
             Label,
             Border,
-            Text
+            Text,
+
+            ThemeColor
         }
 
         private _ColorTags _ColorTag = _ColorTags.None;
@@ -157,8 +164,8 @@ namespace WinFormApp
             Me.Caption = Application.ProductName;
             Me.FormStyle = Com.WinForm.FormStyle.Sizable;
             Me.EnableFullScreen = false;
-            Me.Theme = Com.WinForm.Theme.Colorful;
-            Me.ThemeColor = Com.ColorManipulation.GetRandomColorX().AtSaturation_HSL(Com.Statistics.RandomInteger(30, 70)).AtLightness_LAB(Com.Statistics.RandomInteger(15, 45));
+            Me.Theme = Com.WinForm.Theme.White;
+            Me.ThemeColor = Color.Gray;
             Me.MinimumSize = new Size(1020, 290 + Me.CaptionBarHeight);
 
             Me.Loading += LoadingEvents;
@@ -234,12 +241,93 @@ namespace WinFormApp
             _LabelColor = Me.RecommendColors.Button;
             _BorderColor = Me.RecommendColors.Border_INC;
             _TextColor = Me.RecommendColors.Text_INC;
+
+            _ThemeColor = Me.ThemeColor;
         }
 
         private void LoadedEvents(object sender, EventArgs e)
         {
             Me.OnSizeChanged();
             Me.OnThemeChanged();
+
+            //
+
+            Label_BuiltinColors = new Label[_BuiltinColorsNum];
+
+            const int Lab_B_Sz_W = 24, Lab_B_Sz_H = 24;
+
+            int Lab_B_Off_X = (Panel_Colors_Builtin.Width - Lab_B_Sz_W * _BuiltinColorsNumX) / 2, Lab_B_Off_Y = (Panel_Colors_Builtin.Height - Lab_B_Sz_H * _BuiltinColorsNumY) / 2;
+
+            for (int i = 0; i < _BuiltinColorsNum; i++)
+            {
+                int x = i % _BuiltinColorsNumX;
+                int y = i / _BuiltinColorsNumX;
+
+                Label l = new Label();
+
+                l.BackColor = Color.Transparent;
+                l.Location = new Point(Lab_B_Off_X + x * Lab_B_Sz_W + 1, Lab_B_Off_Y + y * Lab_B_Sz_H + 1);
+                l.Size = new Size(Lab_B_Sz_W - 1, Lab_B_Sz_H - 1);
+                l.Cursor = Cursors.Hand;
+                l.TabIndex = 0;
+                l.MouseDown += Label_BuiltinColors_MouseDown;
+                l.MouseUp += Label_BuiltinColors_MouseUp;
+
+                Panel_Colors_Builtin.Controls.Add(l);
+
+                Label_BuiltinColors[y * _BuiltinColorsNumX + x] = l;
+            }
+
+            //
+
+            Label_CustomizeColors = new Label[_CustomizeColorsNum];
+
+            const int Lab_C_Sz_W = 24, Lab_C_Sz_H = 24;
+
+            int Lab_C_Off_X = (Panel_Colors_Customize.Width - Lab_C_Sz_W * _CustomizeColorsNumX) / 2, Lab_C_Off_Y = (Panel_Colors_Customize.Height - Lab_C_Sz_H * _CustomizeColorsNumY) / 2;
+
+            for (int i = 0; i < _CustomizeColorsNum; i++)
+            {
+                int x = i % _CustomizeColorsNumX;
+                int y = i / _CustomizeColorsNumX;
+
+                Label l = new Label();
+
+                l.BackColor = Color.Transparent;
+                l.Location = new Point(Lab_C_Off_X + x * Lab_C_Sz_W, Lab_C_Off_Y + y * Lab_C_Sz_H);
+                l.Size = new Size(Lab_C_Sz_W, Lab_C_Sz_H);
+                l.Cursor = Cursors.Hand;
+                l.TabIndex = 0;
+                l.MouseDown += Label_CustomizeColors_MouseDown;
+                l.MouseUp += Label_CustomizeColors_MouseUp;
+
+                Panel_Colors_Customize.Controls.Add(l);
+
+                Label_CustomizeColors[y * _CustomizeColorsNumX + x] = l;
+            }
+
+            //
+
+            Label_Background_Val.BackColor = Color.Transparent;
+            Label_Label_Val.BackColor = Color.Transparent;
+            Label_Border_Val.BackColor = Color.Transparent;
+            Label_Text_Val.BackColor = Color.Transparent;
+
+            //
+
+            ComboBox_Theme.SelectedIndexChanged -= ComboBox_Theme_SelectedIndexChanged;
+            ComboBox_Theme.SelectedIndex = (int)Me.Theme;
+            ComboBox_Theme.SelectedIndexChanged += ComboBox_Theme_SelectedIndexChanged;
+
+            RadioButton_ThemeColor_Customize.CheckedChanged -= RadioButton_ThemeColor_Customize_CheckedChanged;
+            RadioButton_ThemeColor_EditingColor.CheckedChanged -= RadioButton_ThemeColor_EditingColor_CheckedChanged;
+            RadioButton_ThemeColor_Windows.CheckedChanged -= RadioButton_ThemeColor_Windows_CheckedChanged;
+            RadioButton_ThemeColor_Customize.Checked = true;
+            RadioButton_ThemeColor_Customize.CheckedChanged += RadioButton_ThemeColor_Customize_CheckedChanged;
+            RadioButton_ThemeColor_EditingColor.CheckedChanged += RadioButton_ThemeColor_EditingColor_CheckedChanged;
+            RadioButton_ThemeColor_Windows.CheckedChanged += RadioButton_ThemeColor_Windows_CheckedChanged;
+
+            Label_ThemeColor_Customize.BackColor = Color.Transparent;
 
             //
 
@@ -410,72 +498,11 @@ namespace WinFormApp
 
             //
 
-            Label_BuiltinColors = new Label[_BuiltinColorsNum];
-
-            const int Lab_B_Sz_W = 24, Lab_B_Sz_H = 24;
-
-            int Lab_B_Off_X = (Panel_Colors_Builtin.Width - Lab_B_Sz_W * _BuiltinColorsNumX) / 2, Lab_B_Off_Y = (Panel_Colors_Builtin.Height - Lab_B_Sz_H * _BuiltinColorsNumY) / 2;
-
-            for (int i = 0; i < _BuiltinColorsNum; i++)
-            {
-                int x = i % _BuiltinColorsNumX;
-                int y = i / _BuiltinColorsNumX;
-
-                Label l = new Label();
-
-                l.BackColor = Color.Transparent;
-                l.Location = new Point(Lab_B_Off_X + x * Lab_B_Sz_W + 1, Lab_B_Off_Y + y * Lab_B_Sz_H + 1);
-                l.Size = new Size(Lab_B_Sz_W - 1, Lab_B_Sz_H - 1);
-                l.TabIndex = 0;
-                l.MouseDown += Label_BuiltinColors_MouseDown;
-                l.MouseUp += Label_BuiltinColors_MouseUp;
-
-                Panel_Colors_Builtin.Controls.Add(l);
-
-                Label_BuiltinColors[y * _BuiltinColorsNumX + x] = l;
-            }
-
-            //
-
-            Label_CustomizeColors = new Label[_CustomizeColorsNum];
-
-            const int Lab_C_Sz_W = 24, Lab_C_Sz_H = 24;
-
-            int Lab_C_Off_X = (Panel_Colors_Customize.Width - Lab_C_Sz_W * _CustomizeColorsNumX) / 2, Lab_C_Off_Y = (Panel_Colors_Customize.Height - Lab_C_Sz_H * _CustomizeColorsNumY) / 2;
-
-            for (int i = 0; i < _CustomizeColorsNum; i++)
-            {
-                int x = i % _CustomizeColorsNumX;
-                int y = i / _CustomizeColorsNumX;
-
-                Label l = new Label();
-
-                l.BackColor = Color.Transparent;
-                l.Location = new Point(Lab_C_Off_X + x * Lab_C_Sz_W, Lab_C_Off_Y + y * Lab_C_Sz_H);
-                l.Size = new Size(Lab_C_Sz_W, Lab_C_Sz_H);
-                l.TabIndex = 0;
-                l.MouseDown += Label_CustomizeColors_MouseDown;
-                l.MouseUp += Label_CustomizeColors_MouseUp;
-
-                Panel_Colors_Customize.Controls.Add(l);
-
-                Label_CustomizeColors[y * _CustomizeColorsNumX + x] = l;
-            }
-
-            //
-
-            Label_Background_Val.BackColor = Color.Transparent;
-            Label_Label_Val.BackColor = Color.Transparent;
-            Label_Border_Val.BackColor = Color.Transparent;
-            Label_Text_Val.BackColor = Color.Transparent;
-
-            //
-
             RegisterEvents();
 
             //
 
-            ChoseColor(_ColorTags.Background);
+            ChoseColor(_ColorTags.Customize01);
 
             //
 
@@ -483,7 +510,7 @@ namespace WinFormApp
 
             //
 
-            Me.Caption = Application.ProductName;
+            Me.OnThemeChanged();
         }
 
         private void ResizeEvents(object sender, EventArgs e)
@@ -578,7 +605,7 @@ namespace WinFormApp
             Panel_View_Contents.BackColor = folderBackColor;
             Panel_Blend_Contents.BackColor = folderBackColor;
             Panel_Pick_Contents.BackColor = folderBackColor;
-            Panel_Theme_Contents.BackColor = folderBackColor;
+            Panel_Appearance_Contents.BackColor = folderBackColor;
             Panel_About_Contents.BackColor = folderBackColor;
 
             Panel_Transparency_Contents.BackColor = folderBackColor;
@@ -596,7 +623,7 @@ namespace WinFormApp
             Button_View.ForeColor = folderButtonForeColor;
             Button_Blend.ForeColor = folderButtonForeColor;
             Button_Pick.ForeColor = folderButtonForeColor;
-            Button_Theme.ForeColor = folderButtonForeColor;
+            Button_Appearance.ForeColor = folderButtonForeColor;
             Button_About.ForeColor = folderButtonForeColor;
 
             Button_Transparency.ForeColor = folderButtonForeColor;
@@ -614,7 +641,7 @@ namespace WinFormApp
             Button_View.BackColor = folderButtonBackColor;
             Button_Blend.BackColor = folderButtonBackColor;
             Button_Pick.BackColor = folderButtonBackColor;
-            Button_Theme.BackColor = folderButtonBackColor;
+            Button_Appearance.BackColor = folderButtonBackColor;
             Button_About.BackColor = folderButtonBackColor;
 
             Button_Transparency.BackColor = folderButtonBackColor;
@@ -632,7 +659,7 @@ namespace WinFormApp
             Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Blend.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Pick.FlatAppearance.BorderColor = folderButtonBorderColor;
-            Button_Theme.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_Appearance.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_About.FlatAppearance.BorderColor = folderButtonBorderColor;
 
             Button_Transparency.FlatAppearance.BorderColor = folderButtonBorderColor;
@@ -650,7 +677,7 @@ namespace WinFormApp
             Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Blend.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Pick.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
-            Button_Theme.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_Appearance.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_About.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
 
             Button_Transparency.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
@@ -668,7 +695,7 @@ namespace WinFormApp
             Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Blend.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Pick.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
-            Button_Theme.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_Appearance.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_About.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
 
             Button_Transparency.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
@@ -678,6 +705,41 @@ namespace WinFormApp
             Button_CMYK.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_LAB.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_YUV.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+
+            //
+
+            Label_Type.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Name.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Grayscale.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Complementary.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+
+            Label_Type_Val.ForeColor = Me.RecommendColors.Text.ToColor();
+            Label_Name_Val.ForeColor = Me.RecommendColors.Text.ToColor();
+            Label_Grayscale_Val2.ForeColor = Me.RecommendColors.Text.ToColor();
+
+            //
+
+            Label_Colors_Builtin.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Colors_Customize.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+
+            //
+
+            Label_Background.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Label.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Border.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Text.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+
+            //
+
+            Label_Theme.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_ThemeColor.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+
+            ComboBox_Theme.ForeColor = Me.RecommendColors.MenuItemText.ToColor();
+            ComboBox_Theme.BackColor = Me.RecommendColors.MenuItemBackground.ToColor();
+
+            RadioButton_ThemeColor_Customize.ForeColor = Me.RecommendColors.Text.ToColor();
+            RadioButton_ThemeColor_EditingColor.ForeColor = Me.RecommendColors.Text.ToColor();
+            RadioButton_ThemeColor_Windows.ForeColor = Me.RecommendColors.Text.ToColor();
 
             //
 
@@ -805,26 +867,27 @@ namespace WinFormApp
 
             //
 
-            Label_Type.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Name.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Grayscale.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Complementary.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-
-            Label_Type_Val.ForeColor = Me.RecommendColors.Text.ToColor();
-            Label_Name_Val.ForeColor = Me.RecommendColors.Text.ToColor();
-            Label_Grayscale_Val2.ForeColor = Me.RecommendColors.Text.ToColor();
-
-            //
-
-            Label_Colors_Builtin.ForeColor = Me.RecommendColors.Text.ToColor();
-            Label_Colors_Customize.ForeColor = Me.RecommendColors.Text.ToColor();
-
-            //
-
-            Label_Background.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Label.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Border.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Text.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            HTrackBar_Opacity.Refresh();
+            HTrackBar_Alpha.Refresh();
+            HTrackBar_RGB_R.Refresh();
+            HTrackBar_RGB_G.Refresh();
+            HTrackBar_RGB_B.Refresh();
+            HTrackBar_HSV_H.Refresh();
+            HTrackBar_HSV_S.Refresh();
+            HTrackBar_HSV_V.Refresh();
+            HTrackBar_HSL_H.Refresh();
+            HTrackBar_HSL_S.Refresh();
+            HTrackBar_HSL_L.Refresh();
+            HTrackBar_CMYK_C.Refresh();
+            HTrackBar_CMYK_M.Refresh();
+            HTrackBar_CMYK_Y.Refresh();
+            HTrackBar_CMYK_K.Refresh();
+            HTrackBar_LAB_L.Refresh();
+            HTrackBar_LAB_A.Refresh();
+            HTrackBar_LAB_B.Refresh();
+            HTrackBar_YUV_Y.Refresh();
+            HTrackBar_YUV_U.Refresh();
+            HTrackBar_YUV_V.Refresh();
 
             //
 
@@ -833,6 +896,7 @@ namespace WinFormApp
             _RepaintCustomizeColorsImage();
             _RepaintViewImage();
             _RepaintDivLabelsImage();
+            _RepaintAppearanceImage();
 
             _RepaintEditingColorsShadowImage();
             _RepaintColorSpacesShadowImage();
@@ -1100,6 +1164,10 @@ namespace WinFormApp
                         case _ColorTags.Text: return _TextColor;
                     }
                 }
+                else if (_ColorTag == _ColorTags.ThemeColor)
+                {
+                    return _ThemeColor;
+                }
 
                 return Com.ColorX.Empty;
             }
@@ -1124,8 +1192,15 @@ namespace WinFormApp
                         case _ColorTags.Text: _TextColor = value; break;
                     }
                 }
+                else if (_ColorTag == _ColorTags.ThemeColor)
+                {
+                    _ThemeColor = value;
+                }
 
-                Me.ThemeColor = value.AtAlpha(255);
+                if (RadioButton_ThemeColor_EditingColor.Checked || (RadioButton_ThemeColor_Customize.Checked && _ColorTag == _ColorTags.ThemeColor))
+                {
+                    Me.ThemeColor = value.AtAlpha(255);
+                }
 
                 _RepaintInfoImage();
 
@@ -1142,6 +1217,10 @@ namespace WinFormApp
                     _RepaintDivImage();
                     _RepaintDivLabelsImage();
                 }
+                else if (_ColorTag == _ColorTags.ThemeColor)
+                {
+                    _RepaintAppearanceImage();
+                }
 
                 //
 
@@ -1151,7 +1230,7 @@ namespace WinFormApp
 
         private void ChoseColor(_ColorTags colorTag)
         {
-            if (_ColorTag != colorTag)
+            if (_ColorTag != colorTag && (colorTag != _ColorTags.Grayscale && colorTag != _ColorTags.Complementary))
             {
                 _ColorTag = colorTag;
 
@@ -1159,7 +1238,10 @@ namespace WinFormApp
 
                 Com.ColorX currentColor = CurrentColor;
 
-                Me.ThemeColor = currentColor.AtAlpha(255);
+                if (RadioButton_ThemeColor_EditingColor.Checked)
+                {
+                    Me.ThemeColor = currentColor.AtAlpha(255);
+                }
 
                 _RepaintInfoImage();
 
@@ -1187,6 +1269,18 @@ namespace WinFormApp
                     case _ColorTags.Label: return _LabelColor;
                     case _ColorTags.Border: return _BorderColor;
                     case _ColorTags.Text: return _TextColor;
+                }
+            }
+            else if (_ColorTag == _ColorTags.ThemeColor)
+            {
+                return _ThemeColor;
+            }
+            else
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.Grayscale: return CurrentColor.GrayscaleColor;
+                    case _ColorTags.Complementary: return CurrentColor.ComplementaryColor;
                 }
             }
 
@@ -1231,6 +1325,17 @@ namespace WinFormApp
 
                     _RepaintDivImage();
                     _RepaintDivLabelsImage();
+                }
+                else if (colorTag == _ColorTags.ThemeColor)
+                {
+                    _ThemeColor = color;
+
+                    if (RadioButton_ThemeColor_Customize.Checked)
+                    {
+                        Me.ThemeColor = color;
+                    }
+
+                    _RepaintAppearanceImage();
                 }
             }
         }
@@ -1459,7 +1564,7 @@ namespace WinFormApp
         {
             if (_MouseDownColorTag != _ColorTags.None)
             {
-                if (_MouseDownColorTag != colorTag && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)))
+                if (_MouseDownColorTag != colorTag && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)) && (colorTag != _ColorTags.Grayscale && colorTag != _ColorTags.Complementary))
                 {
                     SetColor(colorTag, GetColor(_MouseDownColorTag));
                 }
@@ -1476,6 +1581,14 @@ namespace WinFormApp
 
             if (Com.Geometry.ScreenPointIsInControl(pt, Panel_LeftArea))
             {
+                if (Button_Appearance.ImageIndex == 1)
+                {
+                    if (Com.Geometry.ScreenPointIsInControl(pt, Label_ThemeColor_Customize))
+                    {
+                        return _ColorTags.ThemeColor;
+                    }
+                }
+
                 if (Button_View.ImageIndex == 1)
                 {
                     if (Com.Geometry.ScreenPointIsInControl(pt, Label_Background_Val))
@@ -1498,17 +1611,17 @@ namespace WinFormApp
 
                 if (Button_Colors.ImageIndex == 1)
                 {
-                    for (_ColorTags i = _ColorTags.Builtin01; i <= _ColorTags.Builtin92; i++)
+                    for (_ColorTags i = _ColorTags.Customize01; i <= _ColorTags.Customize32; i++)
                     {
-                        if (Com.Geometry.ScreenPointIsInControl(pt, Label_BuiltinColors[i - _ColorTags.Builtin01]))
+                        if (Com.Geometry.ScreenPointIsInControl(pt, Label_CustomizeColors[i - _ColorTags.Customize01]))
                         {
                             return i;
                         }
                     }
 
-                    for (_ColorTags i = _ColorTags.Customize01; i <= _ColorTags.Customize32; i++)
+                    for (_ColorTags i = _ColorTags.Builtin01; i <= _ColorTags.Builtin92; i++)
                     {
-                        if (Com.Geometry.ScreenPointIsInControl(pt, Label_CustomizeColors[i - _ColorTags.Customize01]))
+                        if (Com.Geometry.ScreenPointIsInControl(pt, Label_BuiltinColors[i - _ColorTags.Builtin01]))
                         {
                             return i;
                         }
@@ -1517,6 +1630,54 @@ namespace WinFormApp
             }
 
             return _ColorTags.None;
+        }
+
+        //
+
+        private void Label_Grayscale_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.Grayscale);
+            }
+        }
+
+        private void Label_Grayscale_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_Background_Val))
+                {
+                    CurrentColor = GetColor(_ColorTags.Grayscale);
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        private void Label_Complementary_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.Complementary);
+            }
+        }
+
+        private void Label_Complementary_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_Background_Val))
+                {
+                    CurrentColor = GetColor(_ColorTags.Complementary);
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
         }
 
         //
@@ -1609,6 +1770,7 @@ namespace WinFormApp
 
                                 _RepaintCustomizeColorsImage();
                                 _RepaintDivLabelsImage();
+                                _RepaintAppearanceImage();
 
                                 break;
                             }
@@ -1642,6 +1804,7 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintAppearanceImage();
                 }
                 else
                 {
@@ -1668,6 +1831,7 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintAppearanceImage();
                 }
                 else
                 {
@@ -1694,6 +1858,7 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintAppearanceImage();
                 }
                 else
                 {
@@ -1720,6 +1885,36 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintAppearanceImage();
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        //
+
+        private void Label_ThemeColor_Customize_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.ThemeColor);
+            }
+        }
+
+        private void Label_ThemeColor_Customize_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_ThemeColor_Customize))
+                {
+                    ChoseColor(_ColorTags.ThemeColor);
+
+                    _RepaintCustomizeColorsImage();
+                    _RepaintDivLabelsImage();
+                    _RepaintAppearanceImage();
                 }
                 else
                 {
@@ -1775,8 +1970,8 @@ namespace WinFormApp
                         Panel_View.Top = Panel_Colors.Bottom + 15;
                         Panel_Blend.Top = Panel_View.Bottom + 15;
                         Panel_Pick.Top = Panel_Blend.Bottom + 15;
-                        Panel_Theme.Top = Panel_Pick.Bottom + 15;
-                        Panel_About.Top = Panel_Theme.Bottom + 15;
+                        Panel_Appearance.Top = Panel_Pick.Bottom + 15;
+                        Panel_About.Top = Panel_Appearance.Bottom + 15;
                         Panel_EditingColors.Height = Panel_About.Bottom + Panel_Info.Top;
 
                         //
@@ -1871,7 +2066,7 @@ namespace WinFormApp
 
                 //
 
-                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_View, Panel_Blend, Panel_Pick, Panel_Theme, Panel_About };
+                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_View, Panel_Blend, Panel_Pick, Panel_Appearance, Panel_About };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
@@ -1914,7 +2109,7 @@ namespace WinFormApp
             Com.ColorX currentColor = CurrentColor;
 
             Label_CurrentColor.BackColor = currentColor.ToColor();
-            Label_Type_Val.Text = (currentColor.IsTrueColor ? "真彩色（32 位）" : "浮点色");
+            Label_Type_Val.Text = (currentColor.IsTrueColor ? "32 位真彩色" : "浮点色");
             Label_Name_Val.Text = (currentColor.IsTrueColor ? string.Empty : "(近似) ") + Com.ColorManipulation.GetColorName(currentColor);
             Label_Grayscale_Val.BackColor = currentColor.GrayscaleColor.ToColor();
             Label_Grayscale_Val2.Text = currentColor.GrayscaleColor.Red.ToString("N3");
@@ -2413,6 +2608,100 @@ namespace WinFormApp
 
         //
 
+        private Bitmap _AppearanceImage = null;
+
+        private void _UpdateAppearanceImage()
+        {
+            if (_AppearanceImage != null)
+            {
+                _AppearanceImage.Dispose();
+            }
+
+            _AppearanceImage = new Bitmap(Math.Max(1, Panel_Appearance_Contents.Width), Math.Max(1, Panel_Appearance_Contents.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_AppearanceImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.Default;
+
+                Grap.Clear(Panel_Appearance_Contents.BackColor);
+
+                //
+
+                using (Brush Br = new SolidBrush(_ThemeColor.ToColor()))
+                {
+                    Grap.FillRectangle(Br, Label_ThemeColor_Customize.Bounds);
+                }
+
+                //
+
+                if (_ColorTag == _ColorTags.ThemeColor)
+                {
+                    Com.ColorX crx = _ThemeColor;
+                    Rectangle rect = Label_ThemeColor_Customize.Bounds;
+
+                    //
+
+                    Color crCorner, crBorder;
+
+                    if (crx.Lightness_LAB < 50)
+                    {
+                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.75).AtOpacity(100).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.5).AtOpacity(75).ToColor();
+                    }
+                    else
+                    {
+                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.6).AtOpacity(100).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.4).AtOpacity(75).ToColor();
+                    }
+
+                    using (Brush Br = new SolidBrush(crCorner))
+                    {
+                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + 12, rect.Y), new PointF(rect.X, rect.Y + 12) });
+                    }
+
+                    using (Pen Pn = new Pen(crBorder, 2F))
+                    {
+                        Grap.DrawRectangle(Pn, new Rectangle(rect.X + 1, rect.Y + 1, rect.Width - 2, rect.Height - 2));
+                    }
+                }
+
+                //
+
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Color borderColor = Color.FromArgb(20, Color.Black);
+
+                PaintShadow(Grap, borderColor, Label_ThemeColor_Customize.Bounds, 5);
+            }
+        }
+
+        private void _RepaintAppearanceImage()
+        {
+            _UpdateAppearanceImage();
+
+            if (_AppearanceImage != null)
+            {
+                Panel_Appearance_Contents.CreateGraphics().DrawImage(_AppearanceImage, new Point(0, 0));
+
+                Label_ThemeColor_Customize.Refresh();
+            }
+        }
+
+        private void Panel_Appearance_Contents_Paint(object sender, PaintEventArgs e)
+        {
+            if (_AppearanceImage == null)
+            {
+                _UpdateAppearanceImage();
+            }
+
+            if (_AppearanceImage != null)
+            {
+                e.Graphics.DrawImage(_AppearanceImage, new Point(0, 0));
+            }
+        }
+
+        //
+
         private Bitmap _ColorSpacesShadowImage = null;
 
         private void _UpdateColorSpacesShadowImage()
@@ -2464,6 +2753,30 @@ namespace WinFormApp
             {
                 e.Graphics.DrawImage(_ColorSpacesShadowImage, new Point(0, 0));
             }
+        }
+
+        #endregion
+
+        #region 外观
+
+        private void ComboBox_Theme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Me.Theme = (Com.WinForm.Theme)ComboBox_Theme.SelectedIndex;
+        }
+
+        private void RadioButton_ThemeColor_Customize_CheckedChanged(object sender, EventArgs e)
+        {
+            Me.ThemeColor = _ThemeColor;
+        }
+
+        private void RadioButton_ThemeColor_EditingColor_CheckedChanged(object sender, EventArgs e)
+        {
+            Me.ThemeColor = CurrentColor;
+        }
+
+        private void RadioButton_ThemeColor_Windows_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         #endregion

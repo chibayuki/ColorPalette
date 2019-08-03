@@ -491,6 +491,8 @@ namespace WinFormApp
             set
             {
                 _BorderColor = value;
+
+                Panel_Main.Refresh();
             }
         }
 

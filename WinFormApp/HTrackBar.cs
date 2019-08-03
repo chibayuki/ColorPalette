@@ -403,6 +403,13 @@ namespace WinFormApp
             InitializeComponent();
         }
 
+        public override void Refresh()
+        {
+            _RepaintTrackBarImage();
+
+            base.Refresh();
+        }
+
         #endregion
 
         #region 属性

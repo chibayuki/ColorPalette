@@ -147,6 +147,19 @@
   <metadata name="Label_Name_Val.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="PictureBox_FPName.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PictureBox_FPName.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAJpJREFUOE/NkcsNgCAQRCnBkgx3arMBuqAAz1RhARw4EOCIjlmMEo1r4oGXTEJ2
+        d4af6A/v/ZBSmjb5TYWE9YQejT0TY5yNMUUpVaSUu7BGDT0au4d2P4yt0KPRe9oAa+0udgDAUKtPATnn
+        EQohLFrrw8wOALiKc+5iRtjrI1baAOwMM+sbK/X+VVTmA9P5BFTm80vAWVTuDiFWuiXrvDw/LkoAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
   <metadata name="Label_Grayscale.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -173,7 +186,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC4
-        AQAAAk1TRnQBSQFMAgEBAgEAAXgBCwF4AQsBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AQAAAk1TRnQBSQFMAgEBAgEAARABDAEQAQwBEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABEAMAAQEBAAEgBgABEP8A/wD/AP8AKgADgAH/PAADgAH/A4AB/wOAAf8DgAH/A4AB/wOAAf8DgAH/
         pAADgAH/A4AB/zwAA4AB/wNHAYAMAAOAAf+kAAOAAf8DRwSAAf88AAOAAf8DRwGACAADgAH/pAADgAH/
         BAADRwSAAf88AAOAAf8DRwGABAADgAH/pAADgAH/CAADRwSAAf88AAOAAf8DRwSAAf+kAAOAAf8EAANH
@@ -324,7 +337,6 @@
   <metadata name="PictureBox_AppLogo.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="PictureBox_AppLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -748,6 +760,9 @@
   </metadata>
   <metadata name="Button_YUV.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="ToolTip_FPName.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>221, 17</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

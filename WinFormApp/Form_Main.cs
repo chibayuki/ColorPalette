@@ -717,6 +717,8 @@ namespace WinFormApp
             Label_Name_Val.ForeColor = Me.RecommendColors.Text.ToColor();
             Label_Grayscale_Val2.ForeColor = Me.RecommendColors.Text.ToColor();
 
+            PictureBox_FPName.BackColor = Me.RecommendColors.Background_INC.ToColor();
+
             //
 
             Label_Colors_Builtin.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
@@ -2108,12 +2110,100 @@ namespace WinFormApp
         {
             Com.ColorX currentColor = CurrentColor;
 
+            bool trueColor = currentColor.IsTrueColor;
+
             Label_CurrentColor.BackColor = currentColor.ToColor();
-            Label_Type_Val.Text = (currentColor.IsTrueColor ? "32 位真彩色" : "浮点色");
-            Label_Name_Val.Text = (currentColor.IsTrueColor ? string.Empty : "(近似) ") + Com.ColorManipulation.GetColorName(currentColor);
+            Label_Type_Val.Text = (trueColor ? "32 位真彩色" : "浮点色");
+            Label_Name_Val.Text = (trueColor ? string.Empty : "(近似) ") + Com.ColorManipulation.GetColorName(currentColor);
             Label_Grayscale_Val.BackColor = currentColor.GrayscaleColor.ToColor();
             Label_Grayscale_Val2.Text = currentColor.GrayscaleColor.Red.ToString("N3");
             Label_Complementary_Val.BackColor = currentColor.ComplementaryColor.ToColor();
+
+            if (trueColor)
+            {
+                ToolTip_FPName.RemoveAll();
+
+                PictureBox_FPName.Visible = false;
+            }
+            else
+            {
+                unsafe
+                {
+                    double a = currentColor.Alpha;
+                    double r = currentColor.Red;
+                    double g = currentColor.Green;
+                    double b = currentColor.Blue;
+
+                    string strA = Convert.ToString(*(long*)(&a), 16).ToUpper();
+                    string strR = Convert.ToString(*(long*)(&r), 16).ToUpper();
+                    string strG = Convert.ToString(*(long*)(&g), 16).ToUpper();
+                    string strB = Convert.ToString(*(long*)(&b), 16).ToUpper();
+
+                    if (strA.Length < 16)
+                    {
+                        strA = strA.PadLeft(16, '0');
+                    }
+
+                    if (strR.Length < 16)
+                    {
+                        strR = strR.PadLeft(16, '0');
+                    }
+
+                    if (strG.Length < 16)
+                    {
+                        strG = strG.PadLeft(16, '0');
+                    }
+
+                    if (strB.Length < 16)
+                    {
+                        strB = strB.PadLeft(16, '0');
+                    }
+
+                    StringBuilder strBldr = new StringBuilder();
+                    strBldr.Append('"');
+                    strBldr.Append(currentColor.ARGBHexCode);
+                    strBldr.Append('"');
+                    strBldr.Append(" 是与当前颜色最接近的 32 位真彩色的名称。");
+                    strBldr.Append('\n');
+                    strBldr.Append("精确名称: ");
+                    strBldr.Append(strA.Substring(0, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strA.Substring(4, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strA.Substring(8, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strA.Substring(12, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strR.Substring(0, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strR.Substring(4, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strR.Substring(8, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strR.Substring(12, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strG.Substring(0, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strG.Substring(4, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strG.Substring(8, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strG.Substring(12, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strB.Substring(0, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strB.Substring(4, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strB.Substring(8, 4));
+                    strBldr.Append('-');
+                    strBldr.Append(strB.Substring(12, 4));
+
+                    ToolTip_FPName.SetToolTip(PictureBox_FPName, strBldr.ToString());
+
+                    PictureBox_FPName.Left = Label_Name_Val.Right;
+                    PictureBox_FPName.Visible = true;
+                }
+            }
 
             //
 

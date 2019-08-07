@@ -40,6 +40,7 @@
             this.Label_Type_Val = new System.Windows.Forms.Label();
             this.Label_Name = new System.Windows.Forms.Label();
             this.Label_Name_Val = new System.Windows.Forms.Label();
+            this.PictureBox_FPName = new System.Windows.Forms.PictureBox();
             this.Label_Grayscale = new System.Windows.Forms.Label();
             this.Label_Grayscale_Val = new System.Windows.Forms.Label();
             this.Label_Grayscale_Val2 = new System.Windows.Forms.Label();
@@ -158,6 +159,7 @@
             this.Label_Abbr_YUV_V = new System.Windows.Forms.Label();
             this.Label_YUV_V = new System.Windows.Forms.Label();
             this.Button_YUV = new System.Windows.Forms.Button();
+            this.ToolTip_FPName = new System.Windows.Forms.ToolTip(this.components);
             this.NumEditor_Blend = new WinFormApp.NumEditor();
             this.HTrackBar_Blend = new WinFormApp.HTrackBar();
             this.NumEditor_Opacity = new WinFormApp.NumEditor();
@@ -207,6 +209,7 @@
             this.Panel_EditingColors.SuspendLayout();
             this.Panel_Info.SuspendLayout();
             this.Panel_Info_Contents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_FPName)).BeginInit();
             this.Panel_Colors.SuspendLayout();
             this.Panel_Colors_Contents.SuspendLayout();
             this.Panel_View.SuspendLayout();
@@ -295,6 +298,7 @@
             this.Panel_Info_Contents.Controls.Add(this.Label_Type_Val);
             this.Panel_Info_Contents.Controls.Add(this.Label_Name);
             this.Panel_Info_Contents.Controls.Add(this.Label_Name_Val);
+            this.Panel_Info_Contents.Controls.Add(this.PictureBox_FPName);
             this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale);
             this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale_Val);
             this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale_Val2);
@@ -373,6 +377,19 @@
             this.Label_Name_Val.TabIndex = 0;
             this.Label_Name_Val.Text = "ColorName";
             this.Label_Name_Val.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // PictureBox_FPName
+            // 
+            this.PictureBox_FPName.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBox_FPName.ErrorImage = null;
+            this.PictureBox_FPName.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox_FPName.Image")));
+            this.PictureBox_FPName.InitialImage = null;
+            this.PictureBox_FPName.Location = new System.Drawing.Point(285, 45);
+            this.PictureBox_FPName.Name = "PictureBox_FPName";
+            this.PictureBox_FPName.Size = new System.Drawing.Size(25, 25);
+            this.PictureBox_FPName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.PictureBox_FPName.TabIndex = 1;
+            this.PictureBox_FPName.TabStop = false;
             // 
             // Label_Grayscale
             // 
@@ -2129,6 +2146,12 @@
             this.Button_YUV.UseVisualStyleBackColor = false;
             this.Button_YUV.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_ColorSpaces_MouseDown);
             // 
+            // ToolTip_FPName
+            // 
+            this.ToolTip_FPName.AutoPopDelay = 30000;
+            this.ToolTip_FPName.InitialDelay = 150;
+            this.ToolTip_FPName.ReshowDelay = 150;
+            // 
             // NumEditor_Blend
             // 
             this.NumEditor_Blend.BorderColor = System.Drawing.Color.Black;
@@ -2740,6 +2763,7 @@
             this.Panel_Info.ResumeLayout(false);
             this.Panel_Info_Contents.ResumeLayout(false);
             this.Panel_Info_Contents.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_FPName)).EndInit();
             this.Panel_Colors.ResumeLayout(false);
             this.Panel_Colors_Contents.ResumeLayout(false);
             this.Panel_Colors_Contents.PerformLayout();
@@ -2959,5 +2983,7 @@
         private System.Windows.Forms.Panel Panel_YUV_Contents;
         private System.Windows.Forms.Label Label_Type;
         private System.Windows.Forms.Label Label_Type_Val;
+        private System.Windows.Forms.ToolTip ToolTip_FPName;
+        private System.Windows.Forms.PictureBox PictureBox_FPName;
     }
 }

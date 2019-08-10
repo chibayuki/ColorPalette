@@ -2111,10 +2111,11 @@ namespace WinFormApp
             Com.ColorX currentColor = CurrentColor;
 
             bool trueColor = currentColor.IsTrueColor;
+            string name = Com.ColorManipulation.GetColorName(currentColor);
 
             Label_CurrentColor.BackColor = currentColor.ToColor();
             Label_Type_Val.Text = (trueColor ? "32 位真彩色" : "浮点色");
-            Label_Name_Val.Text = (trueColor ? string.Empty : "(近似) ") + Com.ColorManipulation.GetColorName(currentColor);
+            Label_Name_Val.Text = (trueColor ? name : "(近似) " + name);
             Label_Grayscale_Val.BackColor = currentColor.GrayscaleColor.ToColor();
             Label_Grayscale_Val2.Text = currentColor.GrayscaleColor.Red.ToString("N3");
             Label_Complementary_Val.BackColor = currentColor.ComplementaryColor.ToColor();
@@ -2127,7 +2128,7 @@ namespace WinFormApp
             }
             else
             {
-                ToolTip_FPName.SetToolTip(PictureBox_FPName, string.Concat("\"", currentColor.ARGBHexCode, "\" 是与当前颜色最接近的 32 位真彩色的名称。\n精确名称: ", currentColor.ExactHexCode));
+                ToolTip_FPName.SetToolTip(PictureBox_FPName, string.Concat("\"", name, "\" 是与当前颜色最接近的 32 位真彩色的名称。"));
 
                 PictureBox_FPName.Left = Label_Name_Val.Right;
                 PictureBox_FPName.Visible = true;

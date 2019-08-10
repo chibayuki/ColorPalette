@@ -2127,7 +2127,7 @@ namespace WinFormApp
             }
             else
             {
-                ToolTip_FPName.SetToolTip(PictureBox_FPName, string.Concat("\"", currentColor.ARGBHexCode, "\" 是与当前颜色最接近的 32 位真彩色的名称。\n精确名称: ", currentColor.ExactName));
+                ToolTip_FPName.SetToolTip(PictureBox_FPName, string.Concat("\"", currentColor.ARGBHexCode, "\" 是与当前颜色最接近的 32 位真彩色的名称。\n精确名称: ", currentColor.ExactHexCode));
 
                 PictureBox_FPName.Left = Label_Name_Val.Right;
                 PictureBox_FPName.Visible = true;

@@ -72,11 +72,16 @@
             this.Panel_Blend_Contents = new System.Windows.Forms.Panel();
             this.Label_BlendMethod = new System.Windows.Forms.Label();
             this.ComboBox_BlendMethod = new System.Windows.Forms.ComboBox();
-            this.NumEditor_Blend = new WinFormApp.NumEditor();
-            this.HTrackBar_Blend = new WinFormApp.HTrackBar();
             this.Label_BlendColor1 = new System.Windows.Forms.Label();
             this.Label_BlendResult = new System.Windows.Forms.Label();
             this.Label_BlendColor2 = new System.Windows.Forms.Label();
+            this.Panel_BlendLabels = new System.Windows.Forms.Panel();
+            this.Label_BlendColor1_Val = new System.Windows.Forms.Label();
+            this.Label_BlendResult_Val = new System.Windows.Forms.Label();
+            this.Label_BlendColor2_Val = new System.Windows.Forms.Label();
+            this.Label_BlendColor1Proportion = new System.Windows.Forms.Label();
+            this.NumEditor_Blend = new WinFormApp.NumEditor();
+            this.HTrackBar_Blend = new WinFormApp.HTrackBar();
             this.Button_Blend = new System.Windows.Forms.Button();
             this.Panel_Pick = new System.Windows.Forms.Panel();
             this.Panel_Pick_Contents = new System.Windows.Forms.Panel();
@@ -217,6 +222,7 @@
             this.Panel_DivLabels.SuspendLayout();
             this.Panel_Blend.SuspendLayout();
             this.Panel_Blend_Contents.SuspendLayout();
+            this.Panel_BlendLabels.SuspendLayout();
             this.Panel_Pick.SuspendLayout();
             this.Panel_Pick_Contents.SuspendLayout();
             this.Panel_Appearance.SuspendLayout();
@@ -773,11 +779,13 @@
             this.Panel_Blend_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.Panel_Blend_Contents.Controls.Add(this.Label_BlendMethod);
             this.Panel_Blend_Contents.Controls.Add(this.ComboBox_BlendMethod);
-            this.Panel_Blend_Contents.Controls.Add(this.NumEditor_Blend);
-            this.Panel_Blend_Contents.Controls.Add(this.HTrackBar_Blend);
             this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor1);
             this.Panel_Blend_Contents.Controls.Add(this.Label_BlendResult);
             this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor2);
+            this.Panel_Blend_Contents.Controls.Add(this.Panel_BlendLabels);
+            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor1Proportion);
+            this.Panel_Blend_Contents.Controls.Add(this.NumEditor_Blend);
+            this.Panel_Blend_Contents.Controls.Add(this.HTrackBar_Blend);
             this.Panel_Blend_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Blend_Contents.Name = "Panel_Blend_Contents";
             this.Panel_Blend_Contents.Size = new System.Drawing.Size(440, 115);
@@ -789,7 +797,7 @@
             this.Label_BlendMethod.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendMethod.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendMethod.ForeColor = System.Drawing.Color.Silver;
-            this.Label_BlendMethod.Location = new System.Drawing.Point(20, 10);
+            this.Label_BlendMethod.Location = new System.Drawing.Point(155, 10);
             this.Label_BlendMethod.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_BlendMethod.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_BlendMethod.Name = "Label_BlendMethod";
@@ -803,16 +811,124 @@
             this.ComboBox_BlendMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBox_BlendMethod.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ComboBox_BlendMethod.FormattingEnabled = true;
-            this.ComboBox_BlendMethod.Location = new System.Drawing.Point(90, 10);
+            this.ComboBox_BlendMethod.Items.AddRange(new object[] {
+            "叠加",
+            "混合"});
+            this.ComboBox_BlendMethod.Location = new System.Drawing.Point(235, 10);
             this.ComboBox_BlendMethod.Name = "ComboBox_BlendMethod";
             this.ComboBox_BlendMethod.Size = new System.Drawing.Size(120, 25);
             this.ComboBox_BlendMethod.TabIndex = 0;
             this.ComboBox_BlendMethod.TabStop = false;
             // 
+            // Label_BlendColor1
+            // 
+            this.Label_BlendColor1.AutoSize = true;
+            this.Label_BlendColor1.BackColor = System.Drawing.Color.Transparent;
+            this.Label_BlendColor1.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_BlendColor1.ForeColor = System.Drawing.Color.Silver;
+            this.Label_BlendColor1.Location = new System.Drawing.Point(20, 10);
+            this.Label_BlendColor1.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendColor1.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendColor1.Name = "Label_BlendColor1";
+            this.Label_BlendColor1.Size = new System.Drawing.Size(43, 25);
+            this.Label_BlendColor1.TabIndex = 0;
+            this.Label_BlendColor1.Text = "颜色1";
+            this.Label_BlendColor1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_BlendResult
+            // 
+            this.Label_BlendResult.AutoSize = true;
+            this.Label_BlendResult.BackColor = System.Drawing.Color.Transparent;
+            this.Label_BlendResult.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_BlendResult.ForeColor = System.Drawing.Color.Silver;
+            this.Label_BlendResult.Location = new System.Drawing.Point(20, 45);
+            this.Label_BlendResult.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendResult.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendResult.Name = "Label_BlendResult";
+            this.Label_BlendResult.Size = new System.Drawing.Size(35, 25);
+            this.Label_BlendResult.TabIndex = 0;
+            this.Label_BlendResult.Text = "结果";
+            this.Label_BlendResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Label_BlendColor2
+            // 
+            this.Label_BlendColor2.AutoSize = true;
+            this.Label_BlendColor2.BackColor = System.Drawing.Color.Transparent;
+            this.Label_BlendColor2.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_BlendColor2.ForeColor = System.Drawing.Color.Silver;
+            this.Label_BlendColor2.Location = new System.Drawing.Point(20, 80);
+            this.Label_BlendColor2.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendColor2.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendColor2.Name = "Label_BlendColor2";
+            this.Label_BlendColor2.Size = new System.Drawing.Size(43, 25);
+            this.Label_BlendColor2.TabIndex = 0;
+            this.Label_BlendColor2.Text = "颜色2";
+            this.Label_BlendColor2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Panel_BlendLabels
+            // 
+            this.Panel_BlendLabels.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_BlendLabels.Controls.Add(this.Label_BlendColor1_Val);
+            this.Panel_BlendLabels.Controls.Add(this.Label_BlendResult_Val);
+            this.Panel_BlendLabels.Controls.Add(this.Label_BlendColor2_Val);
+            this.Panel_BlendLabels.Location = new System.Drawing.Point(65, 0);
+            this.Panel_BlendLabels.Name = "Panel_BlendLabels";
+            this.Panel_BlendLabels.Size = new System.Drawing.Size(80, 115);
+            this.Panel_BlendLabels.TabIndex = 0;
+            this.Panel_BlendLabels.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_BlendLabels_Paint);
+            // 
+            // Label_BlendColor1_Val
+            // 
+            this.Label_BlendColor1_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendColor1_Val.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Label_BlendColor1_Val.Location = new System.Drawing.Point(10, 10);
+            this.Label_BlendColor1_Val.Name = "Label_BlendColor1_Val";
+            this.Label_BlendColor1_Val.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendColor1_Val.TabIndex = 0;
+            this.Label_BlendColor1_Val.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Label_BlendColor1_Val_MouseDown);
+            this.Label_BlendColor1_Val.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Label_BlendColor1_Val_MouseUp);
+            // 
+            // Label_BlendResult_Val
+            // 
+            this.Label_BlendResult_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendResult_Val.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Label_BlendResult_Val.Location = new System.Drawing.Point(10, 45);
+            this.Label_BlendResult_Val.Name = "Label_BlendResult_Val";
+            this.Label_BlendResult_Val.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendResult_Val.TabIndex = 0;
+            this.Label_BlendResult_Val.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Label_BlendResult_Val_MouseDown);
+            this.Label_BlendResult_Val.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Label_BlendResult_Val_MouseUp);
+            // 
+            // Label_BlendColor2_Val
+            // 
+            this.Label_BlendColor2_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Label_BlendColor2_Val.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Label_BlendColor2_Val.Location = new System.Drawing.Point(10, 80);
+            this.Label_BlendColor2_Val.Name = "Label_BlendColor2_Val";
+            this.Label_BlendColor2_Val.Size = new System.Drawing.Size(60, 25);
+            this.Label_BlendColor2_Val.TabIndex = 0;
+            this.Label_BlendColor2_Val.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Label_BlendColor2_Val_MouseDown);
+            this.Label_BlendColor2_Val.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Label_BlendColor2_Val_MouseUp);
+            // 
+            // Label_BlendColor1Proportion
+            // 
+            this.Label_BlendColor1Proportion.AutoSize = true;
+            this.Label_BlendColor1Proportion.BackColor = System.Drawing.Color.Transparent;
+            this.Label_BlendColor1Proportion.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Label_BlendColor1Proportion.ForeColor = System.Drawing.Color.Silver;
+            this.Label_BlendColor1Proportion.Location = new System.Drawing.Point(155, 45);
+            this.Label_BlendColor1Proportion.MaximumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendColor1Proportion.MinimumSize = new System.Drawing.Size(0, 25);
+            this.Label_BlendColor1Proportion.Name = "Label_BlendColor1Proportion";
+            this.Label_BlendColor1Proportion.Size = new System.Drawing.Size(69, 25);
+            this.Label_BlendColor1Proportion.TabIndex = 0;
+            this.Label_BlendColor1Proportion.Text = "颜色1占比";
+            this.Label_BlendColor1Proportion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // NumEditor_Blend
             // 
             this.NumEditor_Blend.BorderColor = System.Drawing.Color.Black;
-            this.NumEditor_Blend.Location = new System.Drawing.Point(20, 45);
+            this.NumEditor_Blend.Location = new System.Drawing.Point(235, 45);
             this.NumEditor_Blend.Maximum = 100D;
             this.NumEditor_Blend.Minimum = 0D;
             this.NumEditor_Blend.Name = "NumEditor_Blend";
@@ -827,38 +943,14 @@
             this.HTrackBar_Blend.BackColor = System.Drawing.Color.Transparent;
             this.HTrackBar_Blend.Colors = new System.Drawing.Color[0];
             this.HTrackBar_Blend.Delta = 5D;
-            this.HTrackBar_Blend.Location = new System.Drawing.Point(100, 45);
+            this.HTrackBar_Blend.Location = new System.Drawing.Point(155, 80);
             this.HTrackBar_Blend.Maximum = 100D;
             this.HTrackBar_Blend.Minimum = 0D;
             this.HTrackBar_Blend.Name = "HTrackBar_Blend";
-            this.HTrackBar_Blend.Size = new System.Drawing.Size(320, 25);
+            this.HTrackBar_Blend.Size = new System.Drawing.Size(265, 25);
             this.HTrackBar_Blend.TabIndex = 0;
             this.HTrackBar_Blend.TabStop = false;
             this.HTrackBar_Blend.Value = 0D;
-            // 
-            // Label_BlendColor1
-            // 
-            this.Label_BlendColor1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendColor1.Location = new System.Drawing.Point(100, 80);
-            this.Label_BlendColor1.Name = "Label_BlendColor1";
-            this.Label_BlendColor1.Size = new System.Drawing.Size(60, 25);
-            this.Label_BlendColor1.TabIndex = 0;
-            // 
-            // Label_BlendResult
-            // 
-            this.Label_BlendResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendResult.Location = new System.Drawing.Point(230, 80);
-            this.Label_BlendResult.Name = "Label_BlendResult";
-            this.Label_BlendResult.Size = new System.Drawing.Size(60, 25);
-            this.Label_BlendResult.TabIndex = 0;
-            // 
-            // Label_BlendColor2
-            // 
-            this.Label_BlendColor2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendColor2.Location = new System.Drawing.Point(360, 80);
-            this.Label_BlendColor2.Name = "Label_BlendColor2";
-            this.Label_BlendColor2.Size = new System.Drawing.Size(60, 25);
-            this.Label_BlendColor2.TabIndex = 0;
             // 
             // Button_Blend
             // 
@@ -2768,6 +2860,7 @@
             this.Panel_Blend.ResumeLayout(false);
             this.Panel_Blend_Contents.ResumeLayout(false);
             this.Panel_Blend_Contents.PerformLayout();
+            this.Panel_BlendLabels.ResumeLayout(false);
             this.Panel_Pick.ResumeLayout(false);
             this.Panel_Pick_Contents.ResumeLayout(false);
             this.Panel_Appearance.ResumeLayout(false);
@@ -2943,9 +3036,9 @@
         private NumEditor NumEditor_Blend;
         private HTrackBar HTrackBar_Blend;
         private System.Windows.Forms.Label Label_BlendMethod;
-        private System.Windows.Forms.Label Label_BlendResult;
-        private System.Windows.Forms.Label Label_BlendColor2;
-        private System.Windows.Forms.Label Label_BlendColor1;
+        private System.Windows.Forms.Label Label_BlendResult_Val;
+        private System.Windows.Forms.Label Label_BlendColor2_Val;
+        private System.Windows.Forms.Label Label_BlendColor1_Val;
         private System.Windows.Forms.Label Label_Theme;
         private System.Windows.Forms.ComboBox ComboBox_Theme;
         private System.Windows.Forms.Label Label_ThemeColor;
@@ -2979,5 +3072,10 @@
         private System.Windows.Forms.Label Label_Type_Val;
         private System.Windows.Forms.ToolTip ToolTip_FPName;
         private System.Windows.Forms.PictureBox PictureBox_FPName;
+        private System.Windows.Forms.Label Label_BlendColor1;
+        private System.Windows.Forms.Label Label_BlendResult;
+        private System.Windows.Forms.Label Label_BlendColor2;
+        private System.Windows.Forms.Label Label_BlendColor1Proportion;
+        private System.Windows.Forms.Panel Panel_BlendLabels;
     }
 }

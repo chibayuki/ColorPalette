@@ -43,6 +43,10 @@ namespace WinFormApp
         private Com.ColorX _BorderColor;
         private Com.ColorX _TextColor;
 
+        private Com.ColorX _BlendColor1;
+        private Com.ColorX _BlendColor2;
+        private Com.ColorX _BlendResult;
+
         private Com.ColorX _ThemeColor;
 
         private enum _ColorTags
@@ -72,6 +76,10 @@ namespace WinFormApp
             Label,
             Border,
             Text,
+
+            BlendColor1,
+            BlendColor2,
+            BlendResult,
 
             ThemeColor
         }
@@ -312,6 +320,17 @@ namespace WinFormApp
             Label_Label_Val.BackColor = Color.Transparent;
             Label_Border_Val.BackColor = Color.Transparent;
             Label_Text_Val.BackColor = Color.Transparent;
+
+            //
+
+            Label_BlendColor1_Val.BackColor = Color.Transparent;
+            Label_BlendResult_Val.BackColor = Color.Transparent;
+            Label_BlendColor2_Val.BackColor = Color.Transparent;
+
+            NumEditor_Blend.Font = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            NumEditor_Blend.Minimum = 0;
+            NumEditor_Blend.Maximum = 100;
+            NumEditor_Blend.Precision = 3;
 
             //
 
@@ -733,6 +752,23 @@ namespace WinFormApp
 
             //
 
+            Label_BlendMethod.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_BlendColor1.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_BlendResult.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_BlendColor2.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_BlendColor1Proportion.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+
+            ComboBox_BlendMethod.ForeColor = Me.RecommendColors.MenuItemText.ToColor();
+            ComboBox_BlendMethod.BackColor = Me.RecommendColors.MenuItemBackground.ToColor();
+
+            NumEditor_Blend.ForeColor = Me.RecommendColors.Text.ToColor();
+            NumEditor_Blend.BackColor = Me.RecommendColors.Background_DEC.ToColor();
+            NumEditor_Blend.BorderColor = Me.RecommendColors.Border.ToColor();
+
+            HTrackBar_Blend.Refresh();
+
+            //
+
             Label_Theme.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_ThemeColor.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
 
@@ -898,6 +934,7 @@ namespace WinFormApp
             _RepaintCustomizeColorsImage();
             _RepaintViewImage();
             _RepaintDivLabelsImage();
+            _RepaintBlendLabelsImage();
             _RepaintAppearanceImage();
 
             _RepaintEditingColorsShadowImage();
@@ -1166,6 +1203,15 @@ namespace WinFormApp
                         case _ColorTags.Text: return _TextColor;
                     }
                 }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendResult)
+                {
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.BlendColor1: return _BlendColor1;
+                        case _ColorTags.BlendColor2: return _BlendColor2;
+                        case _ColorTags.BlendResult: return _BlendResult;
+                    }
+                }
                 else if (_ColorTag == _ColorTags.ThemeColor)
                 {
                     return _ThemeColor;
@@ -1194,6 +1240,15 @@ namespace WinFormApp
                         case _ColorTags.Text: _TextColor = value; break;
                     }
                 }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendResult)
+                {
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.BlendColor1: _BlendColor1 = value; break;
+                        case _ColorTags.BlendColor2: _BlendColor2 = value; break;
+                        case _ColorTags.BlendResult: _BlendResult = value; break;
+                    }
+                }
                 else if (_ColorTag == _ColorTags.ThemeColor)
                 {
                     _ThemeColor = value;
@@ -1218,6 +1273,10 @@ namespace WinFormApp
                 {
                     _RepaintDivImage();
                     _RepaintDivLabelsImage();
+                }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendResult)
+                {
+                    _RepaintBlendLabelsImage();
                 }
                 else if (_ColorTag == _ColorTags.ThemeColor)
                 {
@@ -1271,6 +1330,15 @@ namespace WinFormApp
                     case _ColorTags.Label: return _LabelColor;
                     case _ColorTags.Border: return _BorderColor;
                     case _ColorTags.Text: return _TextColor;
+                }
+            }
+            else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendResult)
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.BlendColor1: return _BlendColor1;
+                    case _ColorTags.BlendColor2: return _BlendColor2;
+                    case _ColorTags.BlendResult: return _BlendResult;
                 }
             }
             else if (_ColorTag == _ColorTags.ThemeColor)
@@ -1327,6 +1395,19 @@ namespace WinFormApp
 
                     _RepaintDivImage();
                     _RepaintDivLabelsImage();
+                }
+                else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendResult)
+                {
+                    switch (colorTag)
+                    {
+                        case _ColorTags.BlendColor1: _BlendColor1 = color; break;
+                        case _ColorTags.BlendColor2: _BlendColor2 = color; break;
+                        case _ColorTags.BlendResult: _BlendResult = color; break;
+                    }
+
+                    //
+
+                    _RepaintBlendLabelsImage();
                 }
                 else if (colorTag == _ColorTags.ThemeColor)
                 {
@@ -1566,7 +1647,7 @@ namespace WinFormApp
         {
             if (_MouseDownColorTag != _ColorTags.None)
             {
-                if (_MouseDownColorTag != colorTag && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)) && (colorTag != _ColorTags.Grayscale && colorTag != _ColorTags.Complementary))
+                if (_MouseDownColorTag != colorTag && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)) && (colorTag != _ColorTags.Grayscale && colorTag != _ColorTags.Complementary) && colorTag != _ColorTags.BlendResult)
                 {
                     SetColor(colorTag, GetColor(_MouseDownColorTag));
                 }
@@ -1588,6 +1669,22 @@ namespace WinFormApp
                     if (Com.Geometry.ScreenPointIsInControl(pt, Label_ThemeColor_Customize))
                     {
                         return _ColorTags.ThemeColor;
+                    }
+                }
+
+                if (Button_Blend.ImageIndex == 1)
+                {
+                    if (Com.Geometry.ScreenPointIsInControl(pt, Label_BlendColor1_Val))
+                    {
+                        return _ColorTags.BlendColor1;
+                    }
+                    else if (Com.Geometry.ScreenPointIsInControl(pt, Label_BlendColor2_Val))
+                    {
+                        return _ColorTags.BlendColor2;
+                    }
+                    else if (Com.Geometry.ScreenPointIsInControl(pt, Label_BlendResult_Val))
+                    {
+                        return _ColorTags.BlendResult;
                     }
                 }
 
@@ -1772,6 +1869,7 @@ namespace WinFormApp
 
                                 _RepaintCustomizeColorsImage();
                                 _RepaintDivLabelsImage();
+                                _RepaintBlendLabelsImage();
                                 _RepaintAppearanceImage();
 
                                 break;
@@ -1806,6 +1904,7 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
                     _RepaintAppearanceImage();
                 }
                 else
@@ -1833,6 +1932,7 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
                     _RepaintAppearanceImage();
                 }
                 else
@@ -1860,6 +1960,7 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
                     _RepaintAppearanceImage();
                 }
                 else
@@ -1887,7 +1988,89 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
                     _RepaintAppearanceImage();
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        //
+
+        private void Label_BlendColor1_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.BlendColor1);
+            }
+        }
+
+        private void Label_BlendColor1_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_BlendColor1_Val))
+                {
+                    ChoseColor(_ColorTags.BlendColor1);
+
+                    _RepaintCustomizeColorsImage();
+                    _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
+                    _RepaintAppearanceImage();
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        private void Label_BlendColor2_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.BlendColor2);
+            }
+        }
+
+        private void Label_BlendColor2_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_BlendColor2_Val))
+                {
+                    ChoseColor(_ColorTags.BlendColor2);
+
+                    _RepaintCustomizeColorsImage();
+                    _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
+                    _RepaintAppearanceImage();
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        private void Label_BlendResult_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.BlendResult);
+            }
+        }
+
+        private void Label_BlendResult_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_BlendResult_Val))
+                {
+                    CurrentColor = GetColor(_ColorTags.BlendResult);
                 }
                 else
                 {
@@ -1916,6 +2099,7 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                     _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
                     _RepaintAppearanceImage();
                 }
                 else
@@ -2627,6 +2811,126 @@ namespace WinFormApp
 
         //
 
+        private Bitmap _BlendLabelsImage = null;
+
+        private void _UpdateBlendLabelsImage()
+        {
+            if (_BlendLabelsImage != null)
+            {
+                _BlendLabelsImage.Dispose();
+            }
+
+            _BlendLabelsImage = new Bitmap(Math.Max(1, Panel_BlendLabels.Width), Math.Max(1, Panel_BlendLabels.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_BlendLabelsImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.Default;
+
+                Grap.Clear(Panel_Blend_Contents.BackColor);
+
+                //
+
+                using (Brush Br = new SolidBrush(_BlendColor1.ToColor()))
+                {
+                    Grap.FillRectangle(Br, Label_BlendColor1_Val.Bounds);
+                }
+
+                using (Brush Br = new SolidBrush(_BlendResult.ToColor()))
+                {
+                    Grap.FillRectangle(Br, Label_BlendResult_Val.Bounds);
+                }
+
+                using (Brush Br = new SolidBrush(_BlendColor2.ToColor()))
+                {
+                    Grap.FillRectangle(Br, Label_BlendColor2_Val.Bounds);
+                }
+
+                //
+
+                if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendResult)
+                {
+                    Label ctrl = null;
+                    Com.ColorX crx = Com.ColorX.Empty;
+
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.BlendColor1: ctrl = Label_BlendColor1_Val; crx = _BlendColor1; break;
+                        case _ColorTags.BlendColor2: ctrl = Label_BlendColor2_Val; crx = _BlendColor2; break;
+                        case _ColorTags.BlendResult: ctrl = Label_BlendResult_Val; crx = _BlendResult; break;
+                    }
+
+                    Rectangle rect = ctrl.Bounds;
+
+                    //
+
+                    Color crCorner, crBorder;
+
+                    if (crx.Lightness_LAB < 50)
+                    {
+                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.75).AtOpacity(100).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.5).AtOpacity(75).ToColor();
+                    }
+                    else
+                    {
+                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.6).AtOpacity(100).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.4).AtOpacity(75).ToColor();
+                    }
+
+                    using (Brush Br = new SolidBrush(crCorner))
+                    {
+                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + 12, rect.Y), new PointF(rect.X, rect.Y + 12) });
+                    }
+
+                    using (Pen Pn = new Pen(crBorder, 2F))
+                    {
+                        Grap.DrawRectangle(Pn, new Rectangle(rect.X + 1, rect.Y + 1, rect.Width - 2, rect.Height - 2));
+                    }
+                }
+
+                //
+
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Control[] ctrls = new Control[] { Label_BlendColor1_Val, Label_BlendResult_Val, Label_BlendColor2_Val };
+
+                Color borderColor = Color.FromArgb(20, Color.Black);
+
+                foreach (Control ctrl in ctrls)
+                {
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                }
+            }
+        }
+
+        private void _RepaintBlendLabelsImage()
+        {
+            _UpdateBlendLabelsImage();
+
+            if (_BlendLabelsImage != null)
+            {
+                Panel_BlendLabels.CreateGraphics().DrawImage(_BlendLabelsImage, new Point(0, 0));
+
+                Label_BlendColor1_Val.Refresh();
+                Label_BlendResult_Val.Refresh();
+                Label_BlendColor2_Val.Refresh();
+            }
+        }
+
+        private void Panel_BlendLabels_Paint(object sender, PaintEventArgs e)
+        {
+            if (_BlendLabelsImage == null)
+            {
+                _UpdateBlendLabelsImage();
+            }
+
+            if (_BlendLabelsImage != null)
+            {
+                e.Graphics.DrawImage(_BlendLabelsImage, new Point(0, 0));
+            }
+        }
+
+        //
+
         private Bitmap _AppearanceImage = null;
 
         private void _UpdateAppearanceImage()
@@ -2773,6 +3077,10 @@ namespace WinFormApp
                 e.Graphics.DrawImage(_ColorSpacesShadowImage, new Point(0, 0));
             }
         }
+
+        #endregion
+
+        #region 混色
 
         #endregion
 

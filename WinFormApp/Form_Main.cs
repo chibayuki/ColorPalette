@@ -55,6 +55,7 @@ namespace WinFormApp
 
             Grayscale,
             Complementary,
+            Invert,
 
             Builtin01, Builtin02, Builtin03, Builtin04, Builtin05, Builtin06, Builtin07, Builtin08, Builtin09, Builtin10,
             Builtin11, Builtin12, Builtin13, Builtin14, Builtin15, Builtin16, Builtin17, Builtin18, Builtin19, Builtin20,
@@ -324,8 +325,8 @@ namespace WinFormApp
             //
 
             Label_BlendColor1_Val.BackColor = Color.Transparent;
-            Label_BlendResult_Val.BackColor = Color.Transparent;
             Label_BlendColor2_Val.BackColor = Color.Transparent;
+            Label_BlendResult_Val.BackColor = Color.Transparent;
 
             NumEditor_Blend.Font = new Font("微软雅黑", 9F, FontStyle.Regular, GraphicsUnit.Point, 134);
             NumEditor_Blend.Minimum = 0;
@@ -727,13 +728,14 @@ namespace WinFormApp
 
             //
 
-            Label_Type.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_Name.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Type.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_Grayscale.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_Complementary.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Invert.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
 
-            Label_Type_Val.ForeColor = Me.RecommendColors.Text.ToColor();
             Label_Name_Val.ForeColor = Me.RecommendColors.Text.ToColor();
+            Label_Type_Val.ForeColor = Me.RecommendColors.Text.ToColor();
             Label_Grayscale_Val2.ForeColor = Me.RecommendColors.Text.ToColor();
 
             PictureBox_FPName.BackColor = Me.RecommendColors.Background_INC.ToColor();
@@ -754,8 +756,8 @@ namespace WinFormApp
 
             Label_BlendMethod.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_BlendColor1.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_BlendResult.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_BlendColor2.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_BlendResult.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_BlendColor1Proportion.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
 
             ComboBox_BlendMethod.ForeColor = Me.RecommendColors.MenuItemText.ToColor();
@@ -1291,7 +1293,7 @@ namespace WinFormApp
 
         private void ChoseColor(_ColorTags colorTag)
         {
-            if (_ColorTag != colorTag && (colorTag != _ColorTags.Grayscale && colorTag != _ColorTags.Complementary))
+            if (_ColorTag != colorTag && (!(colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)))
             {
                 _ColorTag = colorTag;
 
@@ -1314,7 +1316,16 @@ namespace WinFormApp
 
         private Com.ColorX GetColor(_ColorTags colorTag)
         {
-            if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
+            if (colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.Grayscale: return CurrentColor.GrayscaleColor;
+                    case _ColorTags.Complementary: return CurrentColor.ComplementaryColor;
+                    case _ColorTags.Invert: return CurrentColor.InvertColor;
+                }
+            }
+            else if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
             {
                 return _BuiltinColors[colorTag - _ColorTags.Builtin01];
             }
@@ -1341,17 +1352,9 @@ namespace WinFormApp
                     case _ColorTags.BlendResult: return _BlendResult;
                 }
             }
-            else if (_ColorTag == _ColorTags.ThemeColor)
+            else if (colorTag == _ColorTags.ThemeColor)
             {
                 return _ThemeColor;
-            }
-            else
-            {
-                switch (colorTag)
-                {
-                    case _ColorTags.Grayscale: return CurrentColor.GrayscaleColor;
-                    case _ColorTags.Complementary: return CurrentColor.ComplementaryColor;
-                }
             }
 
             return Com.ColorX.Empty;
@@ -1647,7 +1650,7 @@ namespace WinFormApp
         {
             if (_MouseDownColorTag != _ColorTags.None)
             {
-                if (_MouseDownColorTag != colorTag && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)) && (colorTag != _ColorTags.Grayscale && colorTag != _ColorTags.Complementary) && colorTag != _ColorTags.BlendResult)
+                if (_MouseDownColorTag != colorTag && (!(colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)) && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)) && colorTag != _ColorTags.BlendResult)
                 {
                     SetColor(colorTag, GetColor(_MouseDownColorTag));
                 }
@@ -1771,6 +1774,29 @@ namespace WinFormApp
                 if (Com.Geometry.PointIsInControl(e.Location, Label_Background_Val))
                 {
                     CurrentColor = GetColor(_ColorTags.Complementary);
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        private void Label_Invert_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.Invert);
+            }
+        }
+
+        private void Label_Invert_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_Background_Val))
+                {
+                    CurrentColor = GetColor(_ColorTags.Invert);
                 }
                 else
                 {
@@ -2294,17 +2320,19 @@ namespace WinFormApp
         {
             Com.ColorX currentColor = CurrentColor;
 
+            bool empty = currentColor.IsEmpty;
             bool trueColor = currentColor.IsTrueColor;
             string name = Com.ColorManipulation.GetColorName(currentColor);
 
             Label_CurrentColor.BackColor = currentColor.ToColor();
-            Label_Type_Val.Text = (trueColor ? "32 位真彩色" : "浮点色");
-            Label_Name_Val.Text = (trueColor ? name : "(近似) " + name);
+            Label_Name_Val.Text = (empty || trueColor ? name : "(近似) " + name);
+            Label_Type_Val.Text = (empty ? "无" : (trueColor ? "32 位真彩色" : "浮点色"));
             Label_Grayscale_Val.BackColor = currentColor.GrayscaleColor.ToColor();
             Label_Grayscale_Val2.Text = currentColor.GrayscaleColor.Red.ToString("N3");
             Label_Complementary_Val.BackColor = currentColor.ComplementaryColor.ToColor();
+            Label_Invert_Val.BackColor = currentColor.InvertColor.ToColor();
 
-            if (trueColor)
+            if (empty || trueColor)
             {
                 ToolTip_FPName.RemoveAll();
 
@@ -2335,7 +2363,7 @@ namespace WinFormApp
 
                 //
 
-                Control[] ctrls = new Control[] { Label_CurrentColor, Label_Grayscale_Val, Label_Complementary_Val };
+                Control[] ctrls = new Control[] { Label_CurrentColor, Label_Grayscale_Val, Label_Complementary_Val, Label_Invert_Val };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 

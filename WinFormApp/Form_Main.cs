@@ -1320,9 +1320,9 @@ namespace WinFormApp
             {
                 switch (colorTag)
                 {
-                    case _ColorTags.Grayscale: return CurrentColor.GrayscaleColor;
-                    case _ColorTags.Complementary: return CurrentColor.ComplementaryColor;
-                    case _ColorTags.Invert: return CurrentColor.InvertColor;
+                    case _ColorTags.Grayscale: return CurrentColor.Grayscale;
+                    case _ColorTags.Complementary: return CurrentColor.Complementary;
+                    case _ColorTags.Invert: return CurrentColor.Invert;
                 }
             }
             else if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
@@ -2327,10 +2327,10 @@ namespace WinFormApp
             Label_CurrentColor.BackColor = currentColor.ToColor();
             Label_Name_Val.Text = (empty || trueColor ? name : "(近似) " + name);
             Label_Type_Val.Text = (empty ? "无" : (trueColor ? "32 位真彩色" : "浮点色"));
-            Label_Grayscale_Val.BackColor = currentColor.GrayscaleColor.ToColor();
-            Label_Grayscale_Val2.Text = currentColor.GrayscaleColor.Red.ToString("N3");
-            Label_Complementary_Val.BackColor = currentColor.ComplementaryColor.ToColor();
-            Label_Invert_Val.BackColor = currentColor.InvertColor.ToColor();
+            Label_Grayscale_Val.BackColor = currentColor.Grayscale.ToColor();
+            Label_Grayscale_Val2.Text = currentColor.Grayscale.Red.ToString("N3");
+            Label_Complementary_Val.BackColor = currentColor.Complementary.ToColor();
+            Label_Invert_Val.BackColor = currentColor.Invert.ToColor();
 
             if (empty || trueColor)
             {
@@ -2425,7 +2425,7 @@ namespace WinFormApp
 
                 //
 
-                using (Pen Pn = new Pen(Me.RecommendColors.Border.GrayscaleColor.ToColor(), 1F))
+                using (Pen Pn = new Pen(Me.RecommendColors.Border.Grayscale.ToColor(), 1F))
                 {
                     foreach (Label ctrl in Label_BuiltinColors)
                     {
@@ -2489,7 +2489,7 @@ namespace WinFormApp
 
                 //
 
-                using (Pen Pn = new Pen(Me.RecommendColors.Border.GrayscaleColor.ToColor(), 1F))
+                using (Pen Pn = new Pen(Me.RecommendColors.Border.Grayscale.ToColor(), 1F))
                 {
                     foreach (Label ctrl in Label_CustomizeColors)
                     {

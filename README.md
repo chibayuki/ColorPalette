@@ -1,4 +1,4 @@
-# 调色板 / ColorPalette
+# 调色板 / Color Palette
 基于Com的颜色编辑程序 / A color editing app based on Com.
 
 ### 许可 / License

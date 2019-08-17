@@ -949,6 +949,7 @@ namespace WinFormApp
             _RepaintViewImage();
             _RepaintDivLabelsImage();
             _RepaintBlendLabelsImage();
+            _RepaintBlendResultsImage();
             _RepaintAppearanceImage();
 
             _RepaintEditingColorsShadowImage();

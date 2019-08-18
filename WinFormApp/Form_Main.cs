@@ -72,11 +72,6 @@ namespace WinFormApp
             Customize21, Customize22, Customize23, Customize24, Customize25, Customize26, Customize27, Customize28, Customize29, Customize30,
             Customize31, Customize32,
 
-            Background,
-            Label,
-            Border,
-            Text,
-
             BlendColor1,
             BlendColor2,
             BlendResultRGB,
@@ -85,6 +80,11 @@ namespace WinFormApp
             BlendResultCMYK,
             BlendResultLAB,
             BlendResultYUV,
+
+            Background,
+            Label,
+            Border,
+            Text,
 
             ThemeColor
         }
@@ -195,8 +195,8 @@ namespace WinFormApp
 
         private void LoadingEvents(object sender, EventArgs e)
         {
-            _HTrackBarColorsTable.Add(_HTrackBarColorsKey.Opacity, new Color[_HTrackBarColorsNum]);
-            _HTrackBarColorsTable.Add(_HTrackBarColorsKey.Alpha, new Color[_HTrackBarColorsNum]);
+            _HTrackBarColorsTable.Add(_HTrackBarColorsKey.Opacity, new Color[2]);
+            _HTrackBarColorsTable.Add(_HTrackBarColorsKey.Alpha, new Color[2]);
             _HTrackBarColorsTable.Add(_HTrackBarColorsKey.RGB_R, new Color[_HTrackBarColorsNum]);
             _HTrackBarColorsTable.Add(_HTrackBarColorsKey.RGB_G, new Color[_HTrackBarColorsNum]);
             _HTrackBarColorsTable.Add(_HTrackBarColorsKey.RGB_B, new Color[_HTrackBarColorsNum]);
@@ -255,6 +255,9 @@ namespace WinFormApp
             _BorderColor = Me.RecommendColors.Border_INC;
             _TextColor = Me.RecommendColors.Text_INC;
 
+            _BlendColor1 = Com.ColorManipulation.GetRandomColorX();
+            _BlendColor2 = _BlendColor1.AtHue_HSV(_BlendColor1.Hue_HSV >= 120 ? _BlendColor1.Hue_HSV - 120 : _BlendColor1.Hue_HSV + 120);
+
             _ThemeColor = Me.ThemeColor;
         }
 
@@ -281,7 +284,6 @@ namespace WinFormApp
                 l.BackColor = Color.Transparent;
                 l.Location = new Point(Lab_B_Off_X + x * Lab_B_Sz_W + 1, Lab_B_Off_Y + y * Lab_B_Sz_H + 1);
                 l.Size = new Size(Lab_B_Sz_W - 1, Lab_B_Sz_H - 1);
-                l.Cursor = Cursors.Hand;
                 l.TabIndex = 0;
                 l.MouseDown += Label_BuiltinColors_MouseDown;
                 l.MouseUp += Label_BuiltinColors_MouseUp;
@@ -531,6 +533,13 @@ namespace WinFormApp
 
             //
 
+            HTrackBar_Blend.ValueChanged += HTrackBar_Blend_ValueChanged;
+            NumEditor_Blend.ValueChanged += NumEditor_Blend_ValueChanged;
+
+            HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
+
+            //
+
             ChoseColor(_ColorTags.Customize01);
 
             //
@@ -631,9 +640,9 @@ namespace WinFormApp
 
             Panel_Info_Contents.BackColor = folderBackColor;
             Panel_Colors_Contents.BackColor = folderBackColor;
-            Panel_View_Contents.BackColor = folderBackColor;
             Panel_Blend_Contents.BackColor = folderBackColor;
             Panel_Pick_Contents.BackColor = folderBackColor;
+            Panel_View_Contents.BackColor = folderBackColor;
             Panel_Appearance_Contents.BackColor = folderBackColor;
             Panel_About_Contents.BackColor = folderBackColor;
 
@@ -649,9 +658,9 @@ namespace WinFormApp
 
             Button_Info.ForeColor = folderButtonForeColor;
             Button_Colors.ForeColor = folderButtonForeColor;
-            Button_View.ForeColor = folderButtonForeColor;
             Button_Blend.ForeColor = folderButtonForeColor;
             Button_Pick.ForeColor = folderButtonForeColor;
+            Button_View.ForeColor = folderButtonForeColor;
             Button_Appearance.ForeColor = folderButtonForeColor;
             Button_About.ForeColor = folderButtonForeColor;
 
@@ -667,9 +676,9 @@ namespace WinFormApp
 
             Button_Info.BackColor = folderButtonBackColor;
             Button_Colors.BackColor = folderButtonBackColor;
-            Button_View.BackColor = folderButtonBackColor;
             Button_Blend.BackColor = folderButtonBackColor;
             Button_Pick.BackColor = folderButtonBackColor;
+            Button_View.BackColor = folderButtonBackColor;
             Button_Appearance.BackColor = folderButtonBackColor;
             Button_About.BackColor = folderButtonBackColor;
 
@@ -685,9 +694,9 @@ namespace WinFormApp
 
             Button_Info.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Colors.FlatAppearance.BorderColor = folderButtonBorderColor;
-            Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Blend.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Pick.FlatAppearance.BorderColor = folderButtonBorderColor;
+            Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Appearance.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_About.FlatAppearance.BorderColor = folderButtonBorderColor;
 
@@ -703,9 +712,9 @@ namespace WinFormApp
 
             Button_Info.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Colors.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
-            Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Blend.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Pick.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
+            Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Appearance.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_About.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
 
@@ -721,9 +730,9 @@ namespace WinFormApp
 
             Button_Info.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Colors.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
-            Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Blend.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Pick.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
+            Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Appearance.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_About.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
 
@@ -756,13 +765,6 @@ namespace WinFormApp
 
             //
 
-            Label_Background.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Label.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Border.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-            Label_Text.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
-
-            //
-
             Label_BlendColor1.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_BlendColor2.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
             Label_BlendResult.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
@@ -780,6 +782,13 @@ namespace WinFormApp
             NumEditor_Blend.BorderColor = Me.RecommendColors.Border.ToColor();
 
             HTrackBar_Blend.Refresh();
+
+            //
+
+            Label_Background.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Label.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Border.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_Text.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
 
             //
 
@@ -1090,12 +1099,15 @@ namespace WinFormApp
             Color[] Colors_YUV_U = _HTrackBarColorsTable[_HTrackBarColorsKey.YUV_U] as Color[];
             Color[] Colors_YUV_V = _HTrackBarColorsTable[_HTrackBarColorsKey.YUV_V] as Color[];
 
+            Colors_Opacity[0] = color.AtOpacity(0).ToColor();
+            Colors_Opacity[1] = color.AtOpacity(100).ToColor();
+            Colors_Alpha[0] = color.AtAlpha(0).ToColor();
+            Colors_Alpha[1] = color.AtAlpha(255).ToColor();
+
             for (int i = 0; i < _HTrackBarColorsNum; i++)
             {
                 double Pct = (double)i / (_HTrackBarColorsNum - 1);
 
-                Colors_Opacity[i] = color.AtOpacity(Pct * 100).ToColor();
-                Colors_Alpha[i] = color.AtAlpha(Pct * 255).ToColor();
                 Colors_RGB_R[i] = color.AtRed(Pct * 255).ToColor();
                 Colors_RGB_G[i] = color.AtGreen(Pct * 255).ToColor();
                 Colors_RGB_B[i] = color.AtBlue(Pct * 255).ToColor();
@@ -1208,6 +1220,14 @@ namespace WinFormApp
                 {
                     return _CustomizeColors[_ColorTag - _ColorTags.Customize01];
                 }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
+                {
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.BlendColor1: return _BlendColor1;
+                        case _ColorTags.BlendColor2: return _BlendColor2;
+                    }
+                }
                 else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
                 {
                     switch (_ColorTag)
@@ -1216,14 +1236,6 @@ namespace WinFormApp
                         case _ColorTags.Label: return _LabelColor;
                         case _ColorTags.Border: return _BorderColor;
                         case _ColorTags.Text: return _TextColor;
-                    }
-                }
-                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
-                {
-                    switch (_ColorTag)
-                    {
-                        case _ColorTags.BlendColor1: return _BlendColor1;
-                        case _ColorTags.BlendColor2: return _BlendColor2;
                     }
                 }
                 else if (_ColorTag == _ColorTags.ThemeColor)
@@ -1244,6 +1256,14 @@ namespace WinFormApp
                 {
                     _CustomizeColors[_ColorTag - _ColorTags.Customize01] = value;
                 }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
+                {
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.BlendColor1: _BlendColor1 = value; break;
+                        case _ColorTags.BlendColor2: _BlendColor2 = value; break;
+                    }
+                }
                 else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
                 {
                     switch (_ColorTag)
@@ -1252,14 +1272,6 @@ namespace WinFormApp
                         case _ColorTags.Label: _LabelColor = value; break;
                         case _ColorTags.Border: _BorderColor = value; break;
                         case _ColorTags.Text: _TextColor = value; break;
-                    }
-                }
-                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
-                {
-                    switch (_ColorTag)
-                    {
-                        case _ColorTags.BlendColor1: _BlendColor1 = value; break;
-                        case _ColorTags.BlendColor2: _BlendColor2 = value; break;
                     }
                 }
                 else if (_ColorTag == _ColorTags.ThemeColor)
@@ -1282,14 +1294,22 @@ namespace WinFormApp
                 {
                     _RepaintCustomizeColorsImage();
                 }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
+                {
+                    _RepaintBlendLabelsImage();
+                    _RepaintBlendResultsImage();
+
+                    //
+
+                    if (_ColorTag == _ColorTags.BlendColor1)
+                    {
+                        HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
+                    }
+                }
                 else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
                 {
                     _RepaintDivImage();
                     _RepaintDivLabelsImage();
-                }
-                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
-                {
-                    _RepaintBlendLabelsImage();
                 }
                 else if (_ColorTag == _ColorTags.ThemeColor)
                 {
@@ -1344,6 +1364,26 @@ namespace WinFormApp
             {
                 return _CustomizeColors[colorTag - _ColorTags.Customize01];
             }
+            else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendColor2)
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.BlendColor1: return _BlendColor1;
+                    case _ColorTags.BlendColor2: return _BlendColor2;
+                }
+            }
+            else if (colorTag >= _ColorTags.BlendResultRGB && colorTag <= _ColorTags.BlendResultYUV)
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.BlendResultRGB: return Com.ColorManipulation.BlendByRGB(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultHSV: return Com.ColorManipulation.BlendByHSV(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultHSL: return Com.ColorManipulation.BlendByHSL(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultCMYK: return Com.ColorManipulation.BlendByCMYK(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultLAB: return Com.ColorManipulation.BlendByLAB(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultYUV: return Com.ColorManipulation.BlendByYUV(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                }
+            }
             else if (colorTag >= _ColorTags.Background && colorTag <= _ColorTags.Text)
             {
                 switch (colorTag)
@@ -1352,20 +1392,6 @@ namespace WinFormApp
                     case _ColorTags.Label: return _LabelColor;
                     case _ColorTags.Border: return _BorderColor;
                     case _ColorTags.Text: return _TextColor;
-                }
-            }
-            else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendResultYUV)
-            {
-                switch (colorTag)
-                {
-                    case _ColorTags.BlendColor1: return _BlendColor1;
-                    case _ColorTags.BlendColor2: return _BlendColor2;
-                    case _ColorTags.BlendResultRGB: return Com.ColorManipulation.BlendByRGB(_BlendColor1, _BlendColor2, NumEditor_Blend.Value);
-                    case _ColorTags.BlendResultHSV: return Com.ColorManipulation.BlendByHSV(_BlendColor1, _BlendColor2, NumEditor_Blend.Value);
-                    case _ColorTags.BlendResultHSL: return Com.ColorManipulation.BlendByHSL(_BlendColor1, _BlendColor2, NumEditor_Blend.Value);
-                    case _ColorTags.BlendResultCMYK: return Com.ColorManipulation.BlendByCMYK(_BlendColor1, _BlendColor2, NumEditor_Blend.Value);
-                    case _ColorTags.BlendResultLAB: return Com.ColorManipulation.BlendByLAB(_BlendColor1, _BlendColor2, NumEditor_Blend.Value);
-                    case _ColorTags.BlendResultYUV: return Com.ColorManipulation.BlendByYUV(_BlendColor1, _BlendColor2, NumEditor_Blend.Value);
                 }
             }
             else if (colorTag == _ColorTags.ThemeColor)
@@ -1400,6 +1426,26 @@ namespace WinFormApp
 
                     _RepaintCustomizeColorsImage();
                 }
+                else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendColor2)
+                {
+                    switch (colorTag)
+                    {
+                        case _ColorTags.BlendColor1: _BlendColor1 = color; break;
+                        case _ColorTags.BlendColor2: _BlendColor2 = color; break;
+                    }
+
+                    //
+
+                    _RepaintBlendLabelsImage();
+                    _RepaintBlendResultsImage();
+
+                    //
+
+                    if (colorTag == _ColorTags.BlendColor1)
+                    {
+                        HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
+                    }
+                }
                 else if (colorTag >= _ColorTags.Background && colorTag <= _ColorTags.Text)
                 {
                     switch (colorTag)
@@ -1414,18 +1460,6 @@ namespace WinFormApp
 
                     _RepaintDivImage();
                     _RepaintDivLabelsImage();
-                }
-                else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendColor2)
-                {
-                    switch (colorTag)
-                    {
-                        case _ColorTags.BlendColor1: _BlendColor1 = color; break;
-                        case _ColorTags.BlendColor2: _BlendColor2 = color; break;
-                    }
-
-                    //
-
-                    _RepaintBlendLabelsImage();
                 }
                 else if (colorTag == _ColorTags.ThemeColor)
                 {
@@ -1690,6 +1724,26 @@ namespace WinFormApp
                     }
                 }
 
+                if (Button_View.ImageIndex == 1)
+                {
+                    if (Com.Geometry.ScreenPointIsInControl(pt, Label_Background_Val))
+                    {
+                        return _ColorTags.Background;
+                    }
+                    else if (Com.Geometry.ScreenPointIsInControl(pt, Label_Label_Val))
+                    {
+                        return _ColorTags.Label;
+                    }
+                    else if (Com.Geometry.ScreenPointIsInControl(pt, Label_Border_Val))
+                    {
+                        return _ColorTags.Border;
+                    }
+                    else if (Com.Geometry.ScreenPointIsInControl(pt, Label_Text_Val))
+                    {
+                        return _ColorTags.Text;
+                    }
+                }
+
                 if (Button_Blend.ImageIndex == 1)
                 {
                     if (Com.Geometry.ScreenPointIsInControl(pt, Label_BlendColor1_Val))
@@ -1723,26 +1777,6 @@ namespace WinFormApp
                     else if (Com.Geometry.ScreenPointIsInControl(pt, Label_BlendResultYUV_Val))
                     {
                         return _ColorTags.BlendResultYUV;
-                    }
-                }
-
-                if (Button_View.ImageIndex == 1)
-                {
-                    if (Com.Geometry.ScreenPointIsInControl(pt, Label_Background_Val))
-                    {
-                        return _ColorTags.Background;
-                    }
-                    else if (Com.Geometry.ScreenPointIsInControl(pt, Label_Label_Val))
-                    {
-                        return _ColorTags.Label;
-                    }
-                    else if (Com.Geometry.ScreenPointIsInControl(pt, Label_Border_Val))
-                    {
-                        return _ColorTags.Border;
-                    }
-                    else if (Com.Geometry.ScreenPointIsInControl(pt, Label_Text_Val))
-                    {
-                        return _ColorTags.Text;
                     }
                 }
 
@@ -1947,120 +1981,6 @@ namespace WinFormApp
 
         //
 
-        private void Label_Background_Val_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                MouseDownColor(_ColorTags.Background);
-            }
-        }
-
-        private void Label_Background_Val_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (Com.Geometry.PointIsInControl(e.Location, Label_Background_Val))
-                {
-                    ChoseColor(_ColorTags.Background);
-
-                    _RepaintCustomizeColorsImage();
-                    _RepaintDivLabelsImage();
-                    _RepaintBlendLabelsImage();
-                    _RepaintAppearanceImage();
-                }
-                else
-                {
-                    MouseUpColor(GetColorTagOfCursorPosition());
-                }
-            }
-        }
-
-        private void Label_Label_Val_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                MouseDownColor(_ColorTags.Label);
-            }
-        }
-
-        private void Label_Label_Val_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (Com.Geometry.PointIsInControl(e.Location, Label_Label_Val))
-                {
-                    ChoseColor(_ColorTags.Label);
-
-                    _RepaintCustomizeColorsImage();
-                    _RepaintDivLabelsImage();
-                    _RepaintBlendLabelsImage();
-                    _RepaintAppearanceImage();
-                }
-                else
-                {
-                    MouseUpColor(GetColorTagOfCursorPosition());
-                }
-            }
-        }
-
-        private void Label_Border_Val_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                MouseDownColor(_ColorTags.Border);
-            }
-        }
-
-        private void Label_Border_Val_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (Com.Geometry.PointIsInControl(e.Location, Label_Border_Val))
-                {
-                    ChoseColor(_ColorTags.Border);
-
-                    _RepaintCustomizeColorsImage();
-                    _RepaintDivLabelsImage();
-                    _RepaintBlendLabelsImage();
-                    _RepaintAppearanceImage();
-                }
-                else
-                {
-                    MouseUpColor(GetColorTagOfCursorPosition());
-                }
-            }
-        }
-
-        private void Label_Text_Val_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                MouseDownColor(_ColorTags.Text);
-            }
-        }
-
-        private void Label_Text_Val_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if (Com.Geometry.PointIsInControl(e.Location, Label_Text_Val))
-                {
-                    ChoseColor(_ColorTags.Text);
-
-                    _RepaintCustomizeColorsImage();
-                    _RepaintDivLabelsImage();
-                    _RepaintBlendLabelsImage();
-                    _RepaintAppearanceImage();
-                }
-                else
-                {
-                    MouseUpColor(GetColorTagOfCursorPosition());
-                }
-            }
-        }
-
-        //
-
         private void Label_BlendColor1_Val_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -2257,6 +2177,120 @@ namespace WinFormApp
 
         //
 
+        private void Label_Background_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.Background);
+            }
+        }
+
+        private void Label_Background_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_Background_Val))
+                {
+                    ChoseColor(_ColorTags.Background);
+
+                    _RepaintCustomizeColorsImage();
+                    _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
+                    _RepaintAppearanceImage();
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        private void Label_Label_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.Label);
+            }
+        }
+
+        private void Label_Label_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_Label_Val))
+                {
+                    ChoseColor(_ColorTags.Label);
+
+                    _RepaintCustomizeColorsImage();
+                    _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
+                    _RepaintAppearanceImage();
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        private void Label_Border_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.Border);
+            }
+        }
+
+        private void Label_Border_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_Border_Val))
+                {
+                    ChoseColor(_ColorTags.Border);
+
+                    _RepaintCustomizeColorsImage();
+                    _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
+                    _RepaintAppearanceImage();
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        private void Label_Text_Val_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                MouseDownColor(_ColorTags.Text);
+            }
+        }
+
+        private void Label_Text_Val_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Com.Geometry.PointIsInControl(e.Location, Label_Text_Val))
+                {
+                    ChoseColor(_ColorTags.Text);
+
+                    _RepaintCustomizeColorsImage();
+                    _RepaintDivLabelsImage();
+                    _RepaintBlendLabelsImage();
+                    _RepaintAppearanceImage();
+                }
+                else
+                {
+                    MouseUpColor(GetColorTagOfCursorPosition());
+                }
+            }
+        }
+
+        //
+
         private void Label_ThemeColor_Customize_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -2329,10 +2363,10 @@ namespace WinFormApp
                         //
 
                         Panel_Colors.Top = Panel_Info.Bottom + 15;
-                        Panel_View.Top = Panel_Colors.Bottom + 15;
-                        Panel_Blend.Top = Panel_View.Bottom + 15;
+                        Panel_Blend.Top = Panel_Colors.Bottom + 15;
                         Panel_Pick.Top = Panel_Blend.Bottom + 15;
-                        Panel_Appearance.Top = Panel_Pick.Bottom + 15;
+                        Panel_View.Top = Panel_Pick.Bottom + 15;
+                        Panel_Appearance.Top = Panel_View.Bottom + 15;
                         Panel_About.Top = Panel_Appearance.Bottom + 15;
                         Panel_EditingColors.Height = Panel_About.Bottom + Panel_Info.Top;
 
@@ -2428,7 +2462,7 @@ namespace WinFormApp
 
                 //
 
-                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_View, Panel_Blend, Panel_Pick, Panel_Appearance, Panel_About };
+                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_Blend, Panel_Pick, Panel_View, Panel_Appearance, Panel_About };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
@@ -2724,6 +2758,185 @@ namespace WinFormApp
 
         //
 
+        private Bitmap _BlendLabelsImage = null;
+
+        private void _UpdateBlendLabelsImage()
+        {
+            if (_BlendLabelsImage != null)
+            {
+                _BlendLabelsImage.Dispose();
+            }
+
+            _BlendLabelsImage = new Bitmap(Math.Max(1, Panel_BlendLabels.Width), Math.Max(1, Panel_BlendLabels.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_BlendLabelsImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.Default;
+
+                Grap.Clear(Panel_Blend_Contents.BackColor);
+
+                //
+
+                using (Brush Br = new SolidBrush(_BlendColor1.ToColor()))
+                {
+                    Grap.FillRectangle(Br, Label_BlendColor1_Val.Bounds);
+                }
+
+                using (Brush Br = new SolidBrush(_BlendColor2.ToColor()))
+                {
+                    Grap.FillRectangle(Br, Label_BlendColor2_Val.Bounds);
+                }
+
+                //
+
+                if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
+                {
+                    Label ctrl = null;
+                    Com.ColorX crx = Com.ColorX.Empty;
+
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.BlendColor1: ctrl = Label_BlendColor1_Val; crx = _BlendColor1; break;
+                        case _ColorTags.BlendColor2: ctrl = Label_BlendColor2_Val; crx = _BlendColor2; break;
+                    }
+
+                    Rectangle rect = ctrl.Bounds;
+
+                    //
+
+                    Color crCorner, crBorder;
+
+                    if (crx.Lightness_LAB < 50)
+                    {
+                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.75).AtOpacity(100).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.5).AtOpacity(75).ToColor();
+                    }
+                    else
+                    {
+                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.6).AtOpacity(100).ToColor();
+                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.4).AtOpacity(75).ToColor();
+                    }
+
+                    using (Brush Br = new SolidBrush(crCorner))
+                    {
+                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + 12, rect.Y), new PointF(rect.X, rect.Y + 12) });
+                    }
+
+                    using (Pen Pn = new Pen(crBorder, 2F))
+                    {
+                        Grap.DrawRectangle(Pn, new Rectangle(rect.X + 1, rect.Y + 1, rect.Width - 2, rect.Height - 2));
+                    }
+                }
+
+                //
+
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Control[] ctrls = new Control[] { Label_BlendColor1_Val, Label_BlendColor2_Val };
+
+                Color borderColor = Color.FromArgb(20, Color.Black);
+
+                foreach (Control ctrl in ctrls)
+                {
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                }
+            }
+        }
+
+        private void _RepaintBlendLabelsImage()
+        {
+            _UpdateBlendLabelsImage();
+
+            if (_BlendLabelsImage != null)
+            {
+                Panel_BlendLabels.CreateGraphics().DrawImage(_BlendLabelsImage, new Point(0, 0));
+
+                Label_BlendColor1_Val.Refresh();
+                Label_BlendColor2_Val.Refresh();
+            }
+        }
+
+        private void Panel_BlendLabels_Paint(object sender, PaintEventArgs e)
+        {
+            if (_BlendLabelsImage == null)
+            {
+                _UpdateBlendLabelsImage();
+            }
+
+            if (_BlendLabelsImage != null)
+            {
+                e.Graphics.DrawImage(_BlendLabelsImage, new Point(0, 0));
+            }
+        }
+
+        //
+
+        private Bitmap _BlendResultsImage = null;
+
+        private void _UpdateBlendResultsImage()
+        {
+            Label_BlendResultRGB_Val.BackColor = GetColor(_ColorTags.BlendResultRGB).ToColor();
+            Label_BlendResultHSV_Val.BackColor = GetColor(_ColorTags.BlendResultHSV).ToColor();
+            Label_BlendResultHSL_Val.BackColor = GetColor(_ColorTags.BlendResultHSL).ToColor();
+            Label_BlendResultCMYK_Val.BackColor = GetColor(_ColorTags.BlendResultCMYK).ToColor();
+            Label_BlendResultLAB_Val.BackColor = GetColor(_ColorTags.BlendResultLAB).ToColor();
+            Label_BlendResultYUV_Val.BackColor = GetColor(_ColorTags.BlendResultYUV).ToColor();
+
+            //
+
+            if (_BlendResultsImage != null)
+            {
+                _BlendResultsImage.Dispose();
+            }
+
+            _BlendResultsImage = new Bitmap(Math.Max(1, Panel_BlendResults.Width), Math.Max(1, Panel_BlendResults.Height));
+
+            using (Graphics Grap = Graphics.FromImage(_BlendResultsImage))
+            {
+                Grap.SmoothingMode = SmoothingMode.Default;
+
+                Grap.Clear(Panel_Blend_Contents.BackColor);
+
+                //
+
+                Grap.SmoothingMode = SmoothingMode.AntiAlias;
+
+                Control[] ctrls = new Control[] { Label_BlendResultRGB_Val, Label_BlendResultHSV_Val, Label_BlendResultHSL_Val, Label_BlendResultCMYK_Val, Label_BlendResultLAB_Val, Label_BlendResultYUV_Val };
+
+                Color borderColor = Color.FromArgb(20, Color.Black);
+
+                foreach (Control ctrl in ctrls)
+                {
+                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                }
+            }
+        }
+
+        private void _RepaintBlendResultsImage()
+        {
+            _UpdateBlendResultsImage();
+
+            if (_BlendResultsImage != null)
+            {
+                Panel_BlendResults.CreateGraphics().DrawImage(_BlendResultsImage, new Point(0, 0));
+            }
+        }
+
+        private void Panel_BlendResults_Paint(object sender, PaintEventArgs e)
+        {
+            if (_BlendResultsImage == null)
+            {
+                _UpdateBlendResultsImage();
+            }
+
+            if (_BlendResultsImage != null)
+            {
+                e.Graphics.DrawImage(_BlendResultsImage, new Point(0, 0));
+            }
+        }
+
+        //
+
         private Bitmap _ViewImage = null;
 
         private void _UpdateViewImage()
@@ -2989,185 +3202,6 @@ namespace WinFormApp
 
         //
 
-        private Bitmap _BlendLabelsImage = null;
-
-        private void _UpdateBlendLabelsImage()
-        {
-            if (_BlendLabelsImage != null)
-            {
-                _BlendLabelsImage.Dispose();
-            }
-
-            _BlendLabelsImage = new Bitmap(Math.Max(1, Panel_BlendLabels.Width), Math.Max(1, Panel_BlendLabels.Height));
-
-            using (Graphics Grap = Graphics.FromImage(_BlendLabelsImage))
-            {
-                Grap.SmoothingMode = SmoothingMode.Default;
-
-                Grap.Clear(Panel_Blend_Contents.BackColor);
-
-                //
-
-                using (Brush Br = new SolidBrush(_BlendColor1.ToColor()))
-                {
-                    Grap.FillRectangle(Br, Label_BlendColor1_Val.Bounds);
-                }
-
-                using (Brush Br = new SolidBrush(_BlendColor2.ToColor()))
-                {
-                    Grap.FillRectangle(Br, Label_BlendColor2_Val.Bounds);
-                }
-
-                //
-
-                if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
-                {
-                    Label ctrl = null;
-                    Com.ColorX crx = Com.ColorX.Empty;
-
-                    switch (_ColorTag)
-                    {
-                        case _ColorTags.BlendColor1: ctrl = Label_BlendColor1_Val; crx = _BlendColor1; break;
-                        case _ColorTags.BlendColor2: ctrl = Label_BlendColor2_Val; crx = _BlendColor2; break;
-                    }
-
-                    Rectangle rect = ctrl.Bounds;
-
-                    //
-
-                    Color crCorner, crBorder;
-
-                    if (crx.Lightness_LAB < 50)
-                    {
-                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.75).AtOpacity(100).ToColor();
-                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, +0.5).AtOpacity(75).ToColor();
-                    }
-                    else
-                    {
-                        crCorner = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.6).AtOpacity(100).ToColor();
-                        crBorder = Com.ColorManipulation.ShiftLightnessByHSL(crx, -0.4).AtOpacity(75).ToColor();
-                    }
-
-                    using (Brush Br = new SolidBrush(crCorner))
-                    {
-                        Grap.FillPolygon(Br, new PointF[] { new PointF(rect.X, rect.Y), new PointF(rect.X + 12, rect.Y), new PointF(rect.X, rect.Y + 12) });
-                    }
-
-                    using (Pen Pn = new Pen(crBorder, 2F))
-                    {
-                        Grap.DrawRectangle(Pn, new Rectangle(rect.X + 1, rect.Y + 1, rect.Width - 2, rect.Height - 2));
-                    }
-                }
-
-                //
-
-                Grap.SmoothingMode = SmoothingMode.AntiAlias;
-
-                Control[] ctrls = new Control[] { Label_BlendColor1_Val, Label_BlendColor2_Val };
-
-                Color borderColor = Color.FromArgb(20, Color.Black);
-
-                foreach (Control ctrl in ctrls)
-                {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
-                }
-            }
-        }
-
-        private void _RepaintBlendLabelsImage()
-        {
-            _UpdateBlendLabelsImage();
-
-            if (_BlendLabelsImage != null)
-            {
-                Panel_BlendLabels.CreateGraphics().DrawImage(_BlendLabelsImage, new Point(0, 0));
-
-                Label_BlendColor1_Val.Refresh();
-                Label_BlendColor2_Val.Refresh();
-            }
-        }
-
-        private void Panel_BlendLabels_Paint(object sender, PaintEventArgs e)
-        {
-            if (_BlendLabelsImage == null)
-            {
-                _UpdateBlendLabelsImage();
-            }
-
-            if (_BlendLabelsImage != null)
-            {
-                e.Graphics.DrawImage(_BlendLabelsImage, new Point(0, 0));
-            }
-        }
-
-        //
-
-        private Bitmap _BlendResultsImage = null;
-
-        private void _UpdateBlendResultsImage()
-        {
-            Label_BlendResultRGB_Val.BackColor = GetColor(_ColorTags.BlendResultRGB).ToColor();
-            Label_BlendResultHSV_Val.BackColor = GetColor(_ColorTags.BlendResultHSV).ToColor();
-            Label_BlendResultHSL_Val.BackColor = GetColor(_ColorTags.BlendResultHSL).ToColor();
-            Label_BlendResultCMYK_Val.BackColor = GetColor(_ColorTags.BlendResultCMYK).ToColor();
-            Label_BlendResultLAB_Val.BackColor = GetColor(_ColorTags.BlendResultLAB).ToColor();
-            Label_BlendResultYUV_Val.BackColor = GetColor(_ColorTags.BlendResultYUV).ToColor();
-
-            //
-
-            if (_BlendResultsImage != null)
-            {
-                _BlendResultsImage.Dispose();
-            }
-
-            _BlendResultsImage = new Bitmap(Math.Max(1, Panel_BlendResults.Width), Math.Max(1, Panel_BlendResults.Height));
-
-            using (Graphics Grap = Graphics.FromImage(_BlendResultsImage))
-            {
-                Grap.SmoothingMode = SmoothingMode.Default;
-
-                Grap.Clear(Panel_Blend_Contents.BackColor);
-
-                //
-
-                Grap.SmoothingMode = SmoothingMode.AntiAlias;
-
-                Control[] ctrls = new Control[] { Label_BlendResultRGB_Val, Label_BlendResultHSV_Val, Label_BlendResultHSL_Val, Label_BlendResultCMYK_Val, Label_BlendResultLAB_Val, Label_BlendResultYUV_Val };
-
-                Color borderColor = Color.FromArgb(20, Color.Black);
-
-                foreach (Control ctrl in ctrls)
-                {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
-                }
-            }
-        }
-
-        private void _RepaintBlendResultsImage()
-        {
-            _UpdateBlendResultsImage();
-
-            if (_BlendResultsImage != null)
-            {
-                Panel_BlendResults.CreateGraphics().DrawImage(_BlendResultsImage, new Point(0, 0));
-            }
-        }
-
-        private void Panel_BlendResults_Paint(object sender, PaintEventArgs e)
-        {
-            if (_BlendResultsImage == null)
-            {
-                _UpdateBlendResultsImage();
-            }
-
-            if (_BlendResultsImage != null)
-            {
-                e.Graphics.DrawImage(_BlendResultsImage, new Point(0, 0));
-            }
-        }
-
-        //
-
         private Bitmap _AppearanceImage = null;
 
         private void _UpdateAppearanceImage()
@@ -3318,6 +3352,40 @@ namespace WinFormApp
         #endregion
 
         #region 混色
+
+        private void HTrackBar_Blend_ValueChanged(object sender, EventArgs e)
+        {
+            HTrackBar_Blend.ValueChanged -= HTrackBar_Blend_ValueChanged;
+            NumEditor_Blend.ValueChanged -= NumEditor_Blend_ValueChanged;
+
+            //
+
+            NumEditor_Blend.Value = HTrackBar_Blend.Value;
+
+            _RepaintBlendResultsImage();
+
+            //
+
+            HTrackBar_Blend.ValueChanged += HTrackBar_Blend_ValueChanged;
+            NumEditor_Blend.ValueChanged += NumEditor_Blend_ValueChanged;
+        }
+
+        private void NumEditor_Blend_ValueChanged(object sender, EventArgs e)
+        {
+            HTrackBar_Blend.ValueChanged -= HTrackBar_Blend_ValueChanged;
+            NumEditor_Blend.ValueChanged -= NumEditor_Blend_ValueChanged;
+
+            //
+
+            HTrackBar_Blend.Value = NumEditor_Blend.Value;
+
+            _RepaintBlendResultsImage();
+
+            //
+
+            HTrackBar_Blend.ValueChanged += HTrackBar_Blend_ValueChanged;
+            NumEditor_Blend.ValueChanged += NumEditor_Blend_ValueChanged;
+        }
 
         #endregion
 

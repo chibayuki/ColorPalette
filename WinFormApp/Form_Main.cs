@@ -20,6 +20,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Collections;
+using System.Diagnostics;
 using System.Drawing.Drawing2D;
 
 namespace WinFormApp
@@ -48,6 +49,7 @@ namespace WinFormApp
 
         private Com.ColorX _ThemeColor;
 
+        // 颜色标签
         private enum _ColorTags
         {
             None = -1,
@@ -344,6 +346,11 @@ namespace WinFormApp
             NumEditor_Blend.Maximum = 100;
             NumEditor_Blend.Precision = 3;
 
+            HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
+
+            NumEditor_Blend.ValueChanged += NumEditor_Blend_ValueChanged;
+            HTrackBar_Blend.ValueChanged += HTrackBar_Blend_ValueChanged;
+
             //
 
             ComboBox_Theme.SelectedIndexChanged -= ComboBox_Theme_SelectedIndexChanged;
@@ -359,6 +366,13 @@ namespace WinFormApp
             RadioButton_ThemeColor_Windows.CheckedChanged += RadioButton_ThemeColor_Windows_CheckedChanged;
 
             Label_ThemeColor_Customize.BackColor = Color.Transparent;
+
+            //
+
+            Label_AppName.Text = Application.ProductName;
+            Label_AppVersion.Text = Application.ProductVersion;
+
+            Label_AppVersion.Left = Label_AppName.Right + 10;
 
             //
 
@@ -533,13 +547,6 @@ namespace WinFormApp
 
             //
 
-            HTrackBar_Blend.ValueChanged += HTrackBar_Blend_ValueChanged;
-            NumEditor_Blend.ValueChanged += NumEditor_Blend_ValueChanged;
-
-            HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
-
-            //
-
             ChoseColor(_ColorTags.Customize01);
 
             //
@@ -644,7 +651,6 @@ namespace WinFormApp
             Panel_Pick_Contents.BackColor = folderBackColor;
             Panel_View_Contents.BackColor = folderBackColor;
             Panel_Appearance_Contents.BackColor = folderBackColor;
-            Panel_About_Contents.BackColor = folderBackColor;
 
             Panel_Transparency_Contents.BackColor = folderBackColor;
             Panel_RGB_Contents.BackColor = folderBackColor;
@@ -662,7 +668,6 @@ namespace WinFormApp
             Button_Pick.ForeColor = folderButtonForeColor;
             Button_View.ForeColor = folderButtonForeColor;
             Button_Appearance.ForeColor = folderButtonForeColor;
-            Button_About.ForeColor = folderButtonForeColor;
 
             Button_Transparency.ForeColor = folderButtonForeColor;
             Button_RGB.ForeColor = folderButtonForeColor;
@@ -680,7 +685,6 @@ namespace WinFormApp
             Button_Pick.BackColor = folderButtonBackColor;
             Button_View.BackColor = folderButtonBackColor;
             Button_Appearance.BackColor = folderButtonBackColor;
-            Button_About.BackColor = folderButtonBackColor;
 
             Button_Transparency.BackColor = folderButtonBackColor;
             Button_RGB.BackColor = folderButtonBackColor;
@@ -698,7 +702,6 @@ namespace WinFormApp
             Button_Pick.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Appearance.FlatAppearance.BorderColor = folderButtonBorderColor;
-            Button_About.FlatAppearance.BorderColor = folderButtonBorderColor;
 
             Button_Transparency.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_RGB.FlatAppearance.BorderColor = folderButtonBorderColor;
@@ -716,7 +719,6 @@ namespace WinFormApp
             Button_Pick.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Appearance.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
-            Button_About.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
 
             Button_Transparency.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_RGB.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
@@ -734,7 +736,6 @@ namespace WinFormApp
             Button_Pick.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Appearance.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
-            Button_About.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
 
             Button_Transparency.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_RGB.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
@@ -756,7 +757,7 @@ namespace WinFormApp
             Label_Type_Val.ForeColor = Me.RecommendColors.Text.ToColor();
             Label_Grayscale_Val2.ForeColor = Me.RecommendColors.Text.ToColor();
 
-            PictureBox_FPName.BackColor = Me.RecommendColors.Background_INC.ToColor();
+            PictureBox_NameTip.BackColor = Me.RecommendColors.Background_INC.ToColor();
 
             //
 
@@ -801,6 +802,16 @@ namespace WinFormApp
             RadioButton_ThemeColor_Customize.ForeColor = Me.RecommendColors.Text.ToColor();
             RadioButton_ThemeColor_EditingColor.ForeColor = Me.RecommendColors.Text.ToColor();
             RadioButton_ThemeColor_Windows.ForeColor = Me.RecommendColors.Text.ToColor();
+
+            //
+
+            Label_AppName.ForeColor = Me.RecommendColors.Text_DEC.ToColor();
+            Label_AppVersion.ForeColor = Me.RecommendColors.Text.ToColor();
+            Label_Copyright.ForeColor = Me.RecommendColors.Text.ToColor();
+            Label_GitHub_Part1.ForeColor = Label_GitHub_Base.ForeColor = Label_GitHub_Part2.ForeColor = Label_GitHub_Release.ForeColor = Me.RecommendColors.Text.ToColor();
+
+            Com.WinForm.ControlSubstitution.LabelAsButton(Label_GitHub_Base, Label_GitHub_Base_Click, Color.Transparent, Me.RecommendColors.Button_DEC.ToColor(), Me.RecommendColors.Button_INC.ToColor(), new Font("微软雅黑", 9.75F, FontStyle.Underline, GraphicsUnit.Point, 134), new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134), new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134));
+            Com.WinForm.ControlSubstitution.LabelAsButton(Label_GitHub_Release, Label_GitHub_Release_Click, Color.Transparent, Me.RecommendColors.Button_DEC.ToColor(), Me.RecommendColors.Button_INC.ToColor(), new Font("微软雅黑", 9.75F, FontStyle.Underline, GraphicsUnit.Point, 134), new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134), new Font("微软雅黑", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 134));
 
             //
 
@@ -969,6 +980,282 @@ namespace WinFormApp
 
         #region 通用功能
 
+        // 获取或设置已选择的颜色
+        private Com.ColorX CurrentColor
+        {
+            get
+            {
+                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
+                {
+                    return _BuiltinColors[_ColorTag - _ColorTags.Builtin01];
+                }
+                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                {
+                    return _CustomizeColors[_ColorTag - _ColorTags.Customize01];
+                }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
+                {
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.BlendColor1: return _BlendColor1;
+                        case _ColorTags.BlendColor2: return _BlendColor2;
+                    }
+                }
+                else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
+                {
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.Background: return _BackgroundColor;
+                        case _ColorTags.Label: return _LabelColor;
+                        case _ColorTags.Border: return _BorderColor;
+                        case _ColorTags.Text: return _TextColor;
+                    }
+                }
+                else if (_ColorTag == _ColorTags.ThemeColor)
+                {
+                    return _ThemeColor;
+                }
+
+                return Com.ColorX.Empty;
+            }
+
+            set
+            {
+                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
+                {
+                    _BuiltinColors[_ColorTag - _ColorTags.Builtin01] = value;
+                }
+                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                {
+                    _CustomizeColors[_ColorTag - _ColorTags.Customize01] = value;
+                }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
+                {
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.BlendColor1: _BlendColor1 = value; break;
+                        case _ColorTags.BlendColor2: _BlendColor2 = value; break;
+                    }
+                }
+                else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
+                {
+                    switch (_ColorTag)
+                    {
+                        case _ColorTags.Background: _BackgroundColor = value; break;
+                        case _ColorTags.Label: _LabelColor = value; break;
+                        case _ColorTags.Border: _BorderColor = value; break;
+                        case _ColorTags.Text: _TextColor = value; break;
+                    }
+                }
+                else if (_ColorTag == _ColorTags.ThemeColor)
+                {
+                    _ThemeColor = value;
+                }
+
+                if (RadioButton_ThemeColor_EditingColor.Checked || (RadioButton_ThemeColor_Customize.Checked && _ColorTag == _ColorTags.ThemeColor))
+                {
+                    Me.ThemeColor = value.AtAlpha(255);
+                }
+
+                _RepaintInfoImage();
+
+                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
+                {
+                    _RepaintBuiltinColorsImage();
+                }
+                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                {
+                    _RepaintCustomizeColorsImage();
+                }
+                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
+                {
+                    _RepaintBlendLabelsImage();
+                    _RepaintBlendResultsImage();
+
+                    //
+
+                    if (_ColorTag == _ColorTags.BlendColor1)
+                    {
+                        HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
+                    }
+                }
+                else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
+                {
+                    _RepaintDivImage();
+                    _RepaintDivLabelsImage();
+                }
+                else if (_ColorTag == _ColorTags.ThemeColor)
+                {
+                    _RepaintAppearanceImage();
+                }
+
+                //
+
+                UpdateTrackBarAndNumEditor(value);
+            }
+        }
+
+        // 选择指定的颜色
+        private void ChoseColor(_ColorTags colorTag)
+        {
+            if (_ColorTag != colorTag && (!(colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)))
+            {
+                _ColorTag = colorTag;
+
+                //
+
+                Com.ColorX currentColor = CurrentColor;
+
+                if (RadioButton_ThemeColor_EditingColor.Checked)
+                {
+                    Me.ThemeColor = currentColor.AtAlpha(255);
+                }
+
+                _RepaintInfoImage();
+
+                //
+
+                UpdateTrackBarAndNumEditor(currentColor);
+            }
+        }
+
+        // 获取指定的颜色
+        private Com.ColorX GetColor(_ColorTags colorTag)
+        {
+            if (colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.Grayscale: return CurrentColor.Grayscale;
+                    case _ColorTags.Complementary: return CurrentColor.Complementary;
+                    case _ColorTags.Invert: return CurrentColor.Invert;
+                }
+            }
+            else if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
+            {
+                return _BuiltinColors[colorTag - _ColorTags.Builtin01];
+            }
+            else if (colorTag >= _ColorTags.Customize01 && colorTag <= _ColorTags.Customize32)
+            {
+                return _CustomizeColors[colorTag - _ColorTags.Customize01];
+            }
+            else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendColor2)
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.BlendColor1: return _BlendColor1;
+                    case _ColorTags.BlendColor2: return _BlendColor2;
+                }
+            }
+            else if (colorTag >= _ColorTags.BlendResultRGB && colorTag <= _ColorTags.BlendResultYUV)
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.BlendResultRGB: return Com.ColorManipulation.BlendByRGB(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultHSV: return Com.ColorManipulation.BlendByHSV(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultHSL: return Com.ColorManipulation.BlendByHSL(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultCMYK: return Com.ColorManipulation.BlendByCMYK(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultLAB: return Com.ColorManipulation.BlendByLAB(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                    case _ColorTags.BlendResultYUV: return Com.ColorManipulation.BlendByYUV(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
+                }
+            }
+            else if (colorTag >= _ColorTags.Background && colorTag <= _ColorTags.Text)
+            {
+                switch (colorTag)
+                {
+                    case _ColorTags.Background: return _BackgroundColor;
+                    case _ColorTags.Label: return _LabelColor;
+                    case _ColorTags.Border: return _BorderColor;
+                    case _ColorTags.Text: return _TextColor;
+                }
+            }
+            else if (colorTag == _ColorTags.ThemeColor)
+            {
+                return _ThemeColor;
+            }
+
+            return Com.ColorX.Empty;
+        }
+
+        // 设置指定的颜色
+        private void SetColor(_ColorTags colorTag, Com.ColorX color)
+        {
+            if (colorTag == _ColorTag)
+            {
+                CurrentColor = color;
+            }
+            else
+            {
+                if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
+                {
+                    _BuiltinColors[colorTag - _ColorTags.Builtin01] = color;
+
+                    //
+
+                    _RepaintBuiltinColorsImage();
+                }
+                else if (colorTag >= _ColorTags.Customize01 && colorTag <= _ColorTags.Customize32)
+                {
+                    _CustomizeColors[colorTag - _ColorTags.Customize01] = color;
+
+                    //
+
+                    _RepaintCustomizeColorsImage();
+                }
+                else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendColor2)
+                {
+                    switch (colorTag)
+                    {
+                        case _ColorTags.BlendColor1: _BlendColor1 = color; break;
+                        case _ColorTags.BlendColor2: _BlendColor2 = color; break;
+                    }
+
+                    //
+
+                    _RepaintBlendLabelsImage();
+                    _RepaintBlendResultsImage();
+
+                    //
+
+                    if (colorTag == _ColorTags.BlendColor1)
+                    {
+                        HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
+                    }
+                }
+                else if (colorTag >= _ColorTags.Background && colorTag <= _ColorTags.Text)
+                {
+                    switch (colorTag)
+                    {
+                        case _ColorTags.Background: _BackgroundColor = color; break;
+                        case _ColorTags.Label: _LabelColor = color; break;
+                        case _ColorTags.Border: _BorderColor = color; break;
+                        case _ColorTags.Text: _TextColor = color; break;
+                    }
+
+                    //
+
+                    _RepaintDivImage();
+                    _RepaintDivLabelsImage();
+                }
+                else if (colorTag == _ColorTags.ThemeColor)
+                {
+                    _ThemeColor = color;
+
+                    if (RadioButton_ThemeColor_Customize.Checked)
+                    {
+                        Me.ThemeColor = color;
+                    }
+
+                    _RepaintAppearanceImage();
+                }
+            }
+        }
+
+        #endregion
+
+        #region 颜色编辑
+
+        // 注册 HTrackBar、NumEditor 事件
         private void RegisterEvents()
         {
             HTrackBar_Opacity.ValueChanged += HTrackBar_ValueChanged;
@@ -1018,6 +1305,7 @@ namespace WinFormApp
             NumEditor_YUV_V.ValueChanged += NumEditor_ValueChanged;
         }
 
+        // 取消注册 HTrackBar、NumEditor 事件
         private void UnregisterEvents()
         {
             HTrackBar_Opacity.ValueChanged -= HTrackBar_ValueChanged;
@@ -1071,6 +1359,7 @@ namespace WinFormApp
 
         private Control _CurrentTrackBarOrNumEditor = null;
 
+        // 更新 HTrackBar、NumEditor 的外观与值
         private void UpdateTrackBarAndNumEditor(Com.ColorX color)
         {
             UnregisterEvents();
@@ -1207,277 +1496,6 @@ namespace WinFormApp
         }
 
         //
-
-        private Com.ColorX CurrentColor
-        {
-            get
-            {
-                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
-                {
-                    return _BuiltinColors[_ColorTag - _ColorTags.Builtin01];
-                }
-                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
-                {
-                    return _CustomizeColors[_ColorTag - _ColorTags.Customize01];
-                }
-                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
-                {
-                    switch (_ColorTag)
-                    {
-                        case _ColorTags.BlendColor1: return _BlendColor1;
-                        case _ColorTags.BlendColor2: return _BlendColor2;
-                    }
-                }
-                else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
-                {
-                    switch (_ColorTag)
-                    {
-                        case _ColorTags.Background: return _BackgroundColor;
-                        case _ColorTags.Label: return _LabelColor;
-                        case _ColorTags.Border: return _BorderColor;
-                        case _ColorTags.Text: return _TextColor;
-                    }
-                }
-                else if (_ColorTag == _ColorTags.ThemeColor)
-                {
-                    return _ThemeColor;
-                }
-
-                return Com.ColorX.Empty;
-            }
-
-            set
-            {
-                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
-                {
-                    _BuiltinColors[_ColorTag - _ColorTags.Builtin01] = value;
-                }
-                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
-                {
-                    _CustomizeColors[_ColorTag - _ColorTags.Customize01] = value;
-                }
-                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
-                {
-                    switch (_ColorTag)
-                    {
-                        case _ColorTags.BlendColor1: _BlendColor1 = value; break;
-                        case _ColorTags.BlendColor2: _BlendColor2 = value; break;
-                    }
-                }
-                else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
-                {
-                    switch (_ColorTag)
-                    {
-                        case _ColorTags.Background: _BackgroundColor = value; break;
-                        case _ColorTags.Label: _LabelColor = value; break;
-                        case _ColorTags.Border: _BorderColor = value; break;
-                        case _ColorTags.Text: _TextColor = value; break;
-                    }
-                }
-                else if (_ColorTag == _ColorTags.ThemeColor)
-                {
-                    _ThemeColor = value;
-                }
-
-                if (RadioButton_ThemeColor_EditingColor.Checked || (RadioButton_ThemeColor_Customize.Checked && _ColorTag == _ColorTags.ThemeColor))
-                {
-                    Me.ThemeColor = value.AtAlpha(255);
-                }
-
-                _RepaintInfoImage();
-
-                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
-                {
-                    _RepaintBuiltinColorsImage();
-                }
-                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
-                {
-                    _RepaintCustomizeColorsImage();
-                }
-                else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
-                {
-                    _RepaintBlendLabelsImage();
-                    _RepaintBlendResultsImage();
-
-                    //
-
-                    if (_ColorTag == _ColorTags.BlendColor1)
-                    {
-                        HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
-                    }
-                }
-                else if (_ColorTag >= _ColorTags.Background && _ColorTag <= _ColorTags.Text)
-                {
-                    _RepaintDivImage();
-                    _RepaintDivLabelsImage();
-                }
-                else if (_ColorTag == _ColorTags.ThemeColor)
-                {
-                    _RepaintAppearanceImage();
-                }
-
-                //
-
-                UpdateTrackBarAndNumEditor(value);
-            }
-        }
-
-        private void ChoseColor(_ColorTags colorTag)
-        {
-            if (_ColorTag != colorTag && (!(colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)))
-            {
-                _ColorTag = colorTag;
-
-                //
-
-                Com.ColorX currentColor = CurrentColor;
-
-                if (RadioButton_ThemeColor_EditingColor.Checked)
-                {
-                    Me.ThemeColor = currentColor.AtAlpha(255);
-                }
-
-                _RepaintInfoImage();
-
-                //
-
-                UpdateTrackBarAndNumEditor(currentColor);
-            }
-        }
-
-        private Com.ColorX GetColor(_ColorTags colorTag)
-        {
-            if (colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)
-            {
-                switch (colorTag)
-                {
-                    case _ColorTags.Grayscale: return CurrentColor.Grayscale;
-                    case _ColorTags.Complementary: return CurrentColor.Complementary;
-                    case _ColorTags.Invert: return CurrentColor.Invert;
-                }
-            }
-            else if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
-            {
-                return _BuiltinColors[colorTag - _ColorTags.Builtin01];
-            }
-            else if (colorTag >= _ColorTags.Customize01 && colorTag <= _ColorTags.Customize32)
-            {
-                return _CustomizeColors[colorTag - _ColorTags.Customize01];
-            }
-            else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendColor2)
-            {
-                switch (colorTag)
-                {
-                    case _ColorTags.BlendColor1: return _BlendColor1;
-                    case _ColorTags.BlendColor2: return _BlendColor2;
-                }
-            }
-            else if (colorTag >= _ColorTags.BlendResultRGB && colorTag <= _ColorTags.BlendResultYUV)
-            {
-                switch (colorTag)
-                {
-                    case _ColorTags.BlendResultRGB: return Com.ColorManipulation.BlendByRGB(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
-                    case _ColorTags.BlendResultHSV: return Com.ColorManipulation.BlendByHSV(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
-                    case _ColorTags.BlendResultHSL: return Com.ColorManipulation.BlendByHSL(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
-                    case _ColorTags.BlendResultCMYK: return Com.ColorManipulation.BlendByCMYK(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
-                    case _ColorTags.BlendResultLAB: return Com.ColorManipulation.BlendByLAB(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
-                    case _ColorTags.BlendResultYUV: return Com.ColorManipulation.BlendByYUV(_BlendColor1, _BlendColor2, NumEditor_Blend.Value * 0.01);
-                }
-            }
-            else if (colorTag >= _ColorTags.Background && colorTag <= _ColorTags.Text)
-            {
-                switch (colorTag)
-                {
-                    case _ColorTags.Background: return _BackgroundColor;
-                    case _ColorTags.Label: return _LabelColor;
-                    case _ColorTags.Border: return _BorderColor;
-                    case _ColorTags.Text: return _TextColor;
-                }
-            }
-            else if (colorTag == _ColorTags.ThemeColor)
-            {
-                return _ThemeColor;
-            }
-
-            return Com.ColorX.Empty;
-        }
-
-        private void SetColor(_ColorTags colorTag, Com.ColorX color)
-        {
-            if (colorTag == _ColorTag)
-            {
-                CurrentColor = color;
-            }
-            else
-            {
-                if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
-                {
-                    _BuiltinColors[colorTag - _ColorTags.Builtin01] = color;
-
-                    //
-
-                    _RepaintBuiltinColorsImage();
-                }
-                else if (colorTag >= _ColorTags.Customize01 && colorTag <= _ColorTags.Customize32)
-                {
-                    _CustomizeColors[colorTag - _ColorTags.Customize01] = color;
-
-                    //
-
-                    _RepaintCustomizeColorsImage();
-                }
-                else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendColor2)
-                {
-                    switch (colorTag)
-                    {
-                        case _ColorTags.BlendColor1: _BlendColor1 = color; break;
-                        case _ColorTags.BlendColor2: _BlendColor2 = color; break;
-                    }
-
-                    //
-
-                    _RepaintBlendLabelsImage();
-                    _RepaintBlendResultsImage();
-
-                    //
-
-                    if (colorTag == _ColorTags.BlendColor1)
-                    {
-                        HTrackBar_Blend.Colors = new Color[] { Color.Transparent, _BlendColor1.ToColor() };
-                    }
-                }
-                else if (colorTag >= _ColorTags.Background && colorTag <= _ColorTags.Text)
-                {
-                    switch (colorTag)
-                    {
-                        case _ColorTags.Background: _BackgroundColor = color; break;
-                        case _ColorTags.Label: _LabelColor = color; break;
-                        case _ColorTags.Border: _BorderColor = color; break;
-                        case _ColorTags.Text: _TextColor = color; break;
-                    }
-
-                    //
-
-                    _RepaintDivImage();
-                    _RepaintDivLabelsImage();
-                }
-                else if (colorTag == _ColorTags.ThemeColor)
-                {
-                    _ThemeColor = color;
-
-                    if (RadioButton_ThemeColor_Customize.Checked)
-                    {
-                        Me.ThemeColor = color;
-                    }
-
-                    _RepaintAppearanceImage();
-                }
-            }
-        }
-
-        #endregion
-
-        #region 颜色编辑
 
         private void HTrackBar_ValueChanged(object sender, EventArgs e)
         {
@@ -1685,31 +1703,34 @@ namespace WinFormApp
 
         #region 颜色选择
 
-        private _ColorTags _MouseDownColorTag = _ColorTags.None;
+        private _ColorTags _CopyColorTag = _ColorTags.None;
 
-        private void MouseDownColor(_ColorTags colorTag)
+        // 选择指定的颜色用于复制
+        private void CopyColor(_ColorTags colorTag)
         {
             if (colorTag != _ColorTags.None)
             {
-                _MouseDownColorTag = colorTag;
+                _CopyColorTag = colorTag;
             }
         }
 
-        private void MouseUpColor(_ColorTags colorTag)
+        // 将复制的颜色粘贴到指定的颜色
+        private void PasteColor(_ColorTags colorTag)
         {
-            if (_MouseDownColorTag != _ColorTags.None)
+            if (_CopyColorTag != _ColorTags.None)
             {
-                if (_MouseDownColorTag != colorTag && (!(colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)) && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)) && !(colorTag >= _ColorTags.BlendResultRGB && colorTag <= _ColorTags.BlendResultYUV))
+                if (_CopyColorTag != colorTag && (!(colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)) && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)) && !(colorTag >= _ColorTags.BlendResultRGB && colorTag <= _ColorTags.BlendResultYUV))
                 {
-                    SetColor(colorTag, GetColor(_MouseDownColorTag));
+                    SetColor(colorTag, GetColor(_CopyColorTag));
                 }
 
-                _MouseDownColorTag = _ColorTags.None;
+                _CopyColorTag = _ColorTags.None;
             }
         }
 
         //
 
+        // 获取鼠标所在位置的颜色标签
         private _ColorTags GetColorTagOfCursorPosition()
         {
             Point pt = Cursor.Position;
@@ -1809,7 +1830,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.Grayscale);
+                CopyColor(_ColorTags.Grayscale);
             }
         }
 
@@ -1823,7 +1844,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -1832,7 +1853,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.Complementary);
+                CopyColor(_ColorTags.Complementary);
             }
         }
 
@@ -1846,7 +1867,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -1855,7 +1876,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.Invert);
+                CopyColor(_ColorTags.Invert);
             }
         }
 
@@ -1869,7 +1890,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -1888,7 +1909,7 @@ namespace WinFormApp
                 {
                     if (object.ReferenceEquals(l, Label_BuiltinColors[i - _ColorTags.Builtin01]))
                     {
-                        MouseDownColor(i);
+                        CopyColor(i);
 
                         break;
                     }
@@ -1918,7 +1939,7 @@ namespace WinFormApp
                     }
                     else
                     {
-                        MouseUpColor(GetColorTagOfCursorPosition());
+                        PasteColor(GetColorTagOfCursorPosition());
                     }
                 }
             }
@@ -1938,7 +1959,7 @@ namespace WinFormApp
                 {
                     if (object.ReferenceEquals(l, Label_CustomizeColors[i - _ColorTags.Customize01]))
                     {
-                        MouseDownColor(i);
+                        CopyColor(i);
 
                         break;
                     }
@@ -1973,7 +1994,7 @@ namespace WinFormApp
                     }
                     else
                     {
-                        MouseUpColor(GetColorTagOfCursorPosition());
+                        PasteColor(GetColorTagOfCursorPosition());
                     }
                 }
             }
@@ -1985,7 +2006,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.BlendColor1);
+                CopyColor(_ColorTags.BlendColor1);
             }
         }
 
@@ -2004,7 +2025,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2013,7 +2034,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.BlendColor2);
+                CopyColor(_ColorTags.BlendColor2);
             }
         }
 
@@ -2032,7 +2053,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2041,7 +2062,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.BlendResultRGB);
+                CopyColor(_ColorTags.BlendResultRGB);
             }
         }
 
@@ -2055,7 +2076,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2064,7 +2085,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.BlendResultHSV);
+                CopyColor(_ColorTags.BlendResultHSV);
             }
         }
 
@@ -2078,7 +2099,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2087,7 +2108,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.BlendResultHSL);
+                CopyColor(_ColorTags.BlendResultHSL);
             }
         }
 
@@ -2101,7 +2122,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2110,7 +2131,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.BlendResultCMYK);
+                CopyColor(_ColorTags.BlendResultCMYK);
             }
         }
 
@@ -2124,7 +2145,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2133,7 +2154,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.BlendResultLAB);
+                CopyColor(_ColorTags.BlendResultLAB);
             }
         }
 
@@ -2147,7 +2168,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2156,7 +2177,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.BlendResultYUV);
+                CopyColor(_ColorTags.BlendResultYUV);
             }
         }
 
@@ -2170,7 +2191,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2181,7 +2202,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.Background);
+                CopyColor(_ColorTags.Background);
             }
         }
 
@@ -2200,7 +2221,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2209,7 +2230,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.Label);
+                CopyColor(_ColorTags.Label);
             }
         }
 
@@ -2228,7 +2249,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2237,7 +2258,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.Border);
+                CopyColor(_ColorTags.Border);
             }
         }
 
@@ -2256,7 +2277,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2265,7 +2286,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.Text);
+                CopyColor(_ColorTags.Text);
             }
         }
 
@@ -2284,7 +2305,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2295,7 +2316,7 @@ namespace WinFormApp
         {
             if (e.Button == MouseButtons.Left)
             {
-                MouseDownColor(_ColorTags.ThemeColor);
+                CopyColor(_ColorTags.ThemeColor);
             }
         }
 
@@ -2314,7 +2335,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    MouseUpColor(GetColorTagOfCursorPosition());
+                    PasteColor(GetColorTagOfCursorPosition());
                 }
             }
         }
@@ -2323,6 +2344,7 @@ namespace WinFormApp
 
         #region 卡片控制
 
+        // 反转卡片折叠状态
         private void ReverseFolderState(Button button, Panel panel)
         {
             if (button.ImageIndex == 0)
@@ -2462,7 +2484,7 @@ namespace WinFormApp
 
                 //
 
-                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_Blend, Panel_Pick, Panel_View, Panel_Appearance, Panel_About };
+                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_Blend, Panel_Pick, Panel_View, Panel_Appearance };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
@@ -2518,16 +2540,16 @@ namespace WinFormApp
 
             if (empty || trueColor)
             {
-                ToolTip_FPName.RemoveAll();
+                ToolTip_NameTip.RemoveAll();
 
-                PictureBox_FPName.Visible = false;
+                PictureBox_NameTip.Visible = false;
             }
             else
             {
-                ToolTip_FPName.SetToolTip(PictureBox_FPName, string.Concat("\"", name, "\" 是与当前颜色最接近的 32 位真彩色的名称。"));
+                ToolTip_NameTip.SetToolTip(PictureBox_NameTip, string.Concat("\"", name, "\" 是与当前颜色最接近的 32 位真彩色的名称。"));
 
-                PictureBox_FPName.Left = Label_Name_Val.Right;
-                PictureBox_FPName.Visible = true;
+                PictureBox_NameTip.Left = Label_Name_Val.Right;
+                PictureBox_NameTip.Visible = true;
             }
 
             //
@@ -3409,6 +3431,20 @@ namespace WinFormApp
         private void RadioButton_ThemeColor_Windows_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        #endregion
+
+        #region 关于
+
+        private void Label_GitHub_Base_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"https://github.com/chibayuki/ColorPalette");
+        }
+
+        private void Label_GitHub_Release_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"https://github.com/chibayuki/ColorPalette/releases/latest");
         }
 
         #endregion

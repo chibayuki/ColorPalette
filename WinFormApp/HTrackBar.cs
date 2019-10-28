@@ -2,7 +2,7 @@
 Copyright © 2019 chibayuki@foxmail.com
 
 调色板 (ColorPalette)
-Version 1.0.2000.0.R1.190525-0000
+Version 1.0.2000.0.R1.191028-0000
 
 This file is part of "调色板" (ColorPalette)
 
@@ -20,6 +20,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Drawing.Drawing2D;
+
+using ColorManipulation = Com.ColorManipulation;
+using Geometry = Com.Geometry;
 
 namespace WinFormApp
 {
@@ -96,7 +99,7 @@ namespace WinFormApp
 
                 //
 
-                Color BarBorderColor = Com.ColorManipulation.ShiftLightnessByHSL(meaningfulBackColor, -0.3);
+                Color BarBorderColor = ColorManipulation.ShiftLightnessByHSL(meaningfulBackColor, -0.3);
 
                 using (Pen Pn = new Pen(Color.FromArgb(64, BarBorderColor), 2))
                 {
@@ -142,7 +145,7 @@ namespace WinFormApp
 
                 //
 
-                if (Com.Geometry.CursorIsInControl(Panel_Main) || _MousePressed)
+                if (Geometry.CursorIsInControl(Panel_Main) || _MousePressed)
                 {
                     using (Brush Br = new SolidBrush(Color.FromArgb(64, Color.White)))
                     {
@@ -152,7 +155,7 @@ namespace WinFormApp
 
                 //
 
-                Color SliderBorderColor = Com.ColorManipulation.ShiftLightnessByHSL(meaningfulBackColor, -0.6);
+                Color SliderBorderColor = ColorManipulation.ShiftLightnessByHSL(meaningfulBackColor, -0.6);
 
                 Color SliderColor;
 
@@ -177,7 +180,7 @@ namespace WinFormApp
 
                         double Prop = (Pct - SubPct) * (ColorNum - 1);
 
-                        SliderColor = Com.ColorManipulation.BlendByRGB(_Colors[ColorIndex], _Colors[ColorIndex - 1], Prop);
+                        SliderColor = ColorManipulation.BlendByRGB(_Colors[ColorIndex], _Colors[ColorIndex - 1], Prop);
                     }
                 }
                 else
@@ -185,7 +188,7 @@ namespace WinFormApp
                     SliderColor = meaningfulBackColor;
                 }
 
-                SliderColor = Com.ColorManipulation.ShiftLightnessByHSL(SliderColor, +0.6);
+                SliderColor = ColorManipulation.ShiftLightnessByHSL(SliderColor, +0.6);
 
                 float SliderX = (_Minimum == _Maximum ? trackBarBounds.X : (float)(trackBarBounds.X + (_Value - _Minimum) / (_Maximum - _Minimum) * trackBarBounds.Width));
                 float SliderHeight = 0.2F * wholeBounds.Height;
@@ -347,7 +350,7 @@ namespace WinFormApp
                 }
                 else
                 {
-                    _Value = Math.Max(_Minimum, Math.Min(_Minimum + (Com.Geometry.GetCursorPositionOfControl(Panel_Main).X - trackBarBounds.X) / trackBarBounds.Width * (_Maximum - _Minimum), _Maximum));
+                    _Value = Math.Max(_Minimum, Math.Min(_Minimum + (Geometry.GetCursorPositionOfControl(Panel_Main).X - trackBarBounds.X) / trackBarBounds.Width * (_Maximum - _Minimum), _Maximum));
                 }
 
                 _RepaintTrackBarImage();

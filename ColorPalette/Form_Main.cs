@@ -1,8 +1,8 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-Copyright © 2019 chibayuki@foxmail.com
+Copyright © 2020 chibayuki@foxmail.com
 
 调色板 (ColorPalette)
-Version 1.0.2000.0.R1.191028-0000
+Version 1.0.66.1000.M1.201017-0000
 
 This file is part of "调色板" (ColorPalette)
 
@@ -31,29 +31,29 @@ using FormManager = Com.WinForm.FormManager;
 using FormStyle = Com.WinForm.FormStyle;
 using Theme = Com.WinForm.Theme;
 
-namespace WinFormApp
+namespace ColorPalette
 {
     public partial class Form_Main : Form
     {
         #region 私有成员与内部成员
 
-        private const int _BuiltinColorsNum = 92;
-        private const int _BuiltinColorsNumX = 16;
-        private const int _BuiltinColorsNumY = 6;
+        private const int _BuiltinColorsNum = 252;
+        private const int _BuiltinColorsNumX = 18;
+        private const int _BuiltinColorsNumY = 14;
         private ColorX[] _BuiltinColors = new ColorX[_BuiltinColorsNum];
 
-        private const int _CustomizeColorsNum = 32;
-        private const int _CustomizeColorsNumX = 16;
+        private const int _CustomizeColorsNum = 36;
+        private const int _CustomizeColorsNumX = 18;
         private const int _CustomizeColorsNumY = 2;
         private ColorX[] _CustomizeColors = new ColorX[_CustomizeColorsNum];
+
+        private ColorX _BlendColor1;
+        private ColorX _BlendColor2;
 
         private ColorX _BackgroundColor;
         private ColorX _LabelColor;
         private ColorX _BorderColor;
         private ColorX _TextColor;
-
-        private ColorX _BlendColor1;
-        private ColorX _BlendColor2;
 
         private ColorX _ThemeColor;
 
@@ -66,21 +66,11 @@ namespace WinFormApp
             Complementary,
             Invert,
 
-            Builtin01, Builtin02, Builtin03, Builtin04, Builtin05, Builtin06, Builtin07, Builtin08, Builtin09, Builtin10,
-            Builtin11, Builtin12, Builtin13, Builtin14, Builtin15, Builtin16, Builtin17, Builtin18, Builtin19, Builtin20,
-            Builtin21, Builtin22, Builtin23, Builtin24, Builtin25, Builtin26, Builtin27, Builtin28, Builtin29, Builtin30,
-            Builtin31, Builtin32, Builtin33, Builtin34, Builtin35, Builtin36, Builtin37, Builtin38, Builtin39, Builtin40,
-            Builtin41, Builtin42, Builtin43, Builtin44, Builtin45, Builtin46, Builtin47, Builtin48, Builtin49, Builtin50,
-            Builtin51, Builtin52, Builtin53, Builtin54, Builtin55, Builtin56, Builtin57, Builtin58, Builtin59, Builtin60,
-            Builtin61, Builtin62, Builtin63, Builtin64, Builtin65, Builtin66, Builtin67, Builtin68, Builtin69, Builtin70,
-            Builtin71, Builtin72, Builtin73, Builtin74, Builtin75, Builtin76, Builtin77, Builtin78, Builtin79, Builtin80,
-            Builtin81, Builtin82, Builtin83, Builtin84, Builtin85, Builtin86, Builtin87, Builtin88, Builtin89, Builtin90,
-            Builtin91, Builtin92,
+            BuiltinFirst,
+            BuiltinLast = BuiltinFirst + _BuiltinColorsNum - 1,
 
-            Customize01, Customize02, Customize03, Customize04, Customize05, Customize06, Customize07, Customize08, Customize09, Customize10,
-            Customize11, Customize12, Customize13, Customize14, Customize15, Customize16, Customize17, Customize18, Customize19, Customize20,
-            Customize21, Customize22, Customize23, Customize24, Customize25, Customize26, Customize27, Customize28, Customize29, Customize30,
-            Customize31, Customize32,
+            CustomizeFirst,
+            CustomizeLast = CustomizeFirst + _CustomizeColorsNum - 1,
 
             BlendColor1,
             BlendColor2,
@@ -103,40 +93,40 @@ namespace WinFormApp
 
         //
 
-        private Hashtable _HTrackBarColorsTable = new Hashtable();
-
         private const int _HTrackBarColorsNum = 11;
 
-        private static class _HTrackBarColorsKey
+        private enum _HTrackBarColorsKey
         {
-            public static readonly object Opacity = new object();
-            public static readonly object Alpha = new object();
+            Opacity,
+            Alpha,
 
-            public static readonly object RGB_R = new object();
-            public static readonly object RGB_G = new object();
-            public static readonly object RGB_B = new object();
+            RGB_R,
+            RGB_G,
+            RGB_B,
 
-            public static readonly object HSV_H = new object();
-            public static readonly object HSV_S = new object();
-            public static readonly object HSV_V = new object();
+            HSV_H,
+            HSV_S,
+            HSV_V,
 
-            public static readonly object HSL_H = new object();
-            public static readonly object HSL_S = new object();
-            public static readonly object HSL_L = new object();
+            HSL_H,
+            HSL_S,
+            HSL_L,
 
-            public static readonly object CMYK_C = new object();
-            public static readonly object CMYK_M = new object();
-            public static readonly object CMYK_Y = new object();
-            public static readonly object CMYK_K = new object();
+            CMYK_C,
+            CMYK_M,
+            CMYK_Y,
+            CMYK_K,
 
-            public static readonly object LAB_L = new object();
-            public static readonly object LAB_A = new object();
-            public static readonly object LAB_B = new object();
+            LAB_L,
+            LAB_A,
+            LAB_B,
 
-            public static readonly object YUV_Y = new object();
-            public static readonly object YUV_U = new object();
-            public static readonly object YUV_V = new object();
+            YUV_Y,
+            YUV_U,
+            YUV_V,
         }
+
+        private Dictionary<_HTrackBarColorsKey, Color[]> _HTrackBarColorsTable = null;
 
         #endregion
 
@@ -205,6 +195,8 @@ namespace WinFormApp
 
         private void LoadingEvents(object sender, EventArgs e)
         {
+            _HTrackBarColorsTable = new Dictionary<_HTrackBarColorsKey, Color[]>();
+
             _HTrackBarColorsTable.Add(_HTrackBarColorsKey.Opacity, new Color[2]);
             _HTrackBarColorsTable.Add(_HTrackBarColorsKey.Alpha, new Color[2]);
             _HTrackBarColorsTable.Add(_HTrackBarColorsKey.RGB_R, new Color[_HTrackBarColorsNum]);
@@ -229,29 +221,156 @@ namespace WinFormApp
 
             //
 
-            double[] hues = new double[_BuiltinColorsNumX] { 355, 25, 37, 57, 79, 130, 147, 177, 199, 206, 213, 238, 279, 306, 327, 339 };
-            double[] vals1 = new double[_BuiltinColorsNumY] { 75, 62.5, 50, 37.5, 25, 0 };
-            double[] vals2 = new double[_BuiltinColorsNumX] { 0, 19, 33, 44, 54, 63, 71, 79, 86, 93, 100, 0, 0, 0, 0, 0 };
+            string[] webColorHex = { "00", "33", "66", "99", "CC", "FF" };
+            /*string[] grayscaleColorHex = {
+                "FF", "F0", "E0", "D0", "C0", "B0", "A0", "90", "80",
+                "00", "10", "20", "30", "40", "50", "60", "70" };*/
+            string[] grayscaleColorHex = {
+                "FF", "F0", "E0", "C0", "A0", "80",
+                "60", "40", "20", "10", "00" };
 
             for (int i = 0; i < _BuiltinColorsNum; i++)
             {
-                int x = i % _BuiltinColorsNumX;
-                int y = i / _BuiltinColorsNumX;
+                if (i < 216)
+                {
+                    int x = i % _BuiltinColorsNumX, y = i / _BuiltinColorsNumX;
+                    int blockX = x / 6, blockY = y / 6;
 
-                if (y < _BuiltinColorsNumY - 1)
-                {
-                    _BuiltinColors[y * _BuiltinColorsNumX + x] = ColorX.FromHSL(hues[x], 100, vals1[y]);
+                    int r, g, b;
+
+                    if (blockX == 0 && blockY == 1) r = 0;
+                    else if (blockX == 0 && blockY == 0) r = 1;
+                    else if (blockX == 1 && blockY == 0) r = 2;
+                    else if (blockX == 1 && blockY == 1) r = 3;
+                    else if (blockX == 2 && blockY == 1) r = 4;
+                    else r = 5;
+
+                    if (x < 6) g = x;
+                    else if (x < 12) g = 11 - x;
+                    else g = x - 12;
+
+                    if (y < 6) b = y;
+                    else if (y < 12) b = 11 - y;
+                    else b = y - 12;
+
+                    _BuiltinColors[i] = ColorX.FromHexCode(webColorHex[r] + webColorHex[g] + webColorHex[b]);
                 }
-                else
+                /*else if (i < 216 + 18)
                 {
-                    if (i < _BuiltinColorsNum - 1)
+                    int index;
+
+                    if (i < 216 + 9)
                     {
-                        _BuiltinColors[y * _BuiltinColorsNumX + x] = ColorX.FromHSL(0, 0, vals2[x]);
+                        index = i;
                     }
                     else
                     {
-                        _BuiltinColors[y * _BuiltinColorsNumX + x] = ColorX.Transparent;
+                        index = i + 9;
+                    }*/
+                else if (i < 216 + 24)
+                {
+                    int index;
+
+                    if (i < 216 + 12)
+                    {
+                        index = i;
                     }
+                    else
+                    {
+                        index = i + 6;
+                    }
+
+                    switch (i - 216)
+                    {
+                        /*case 0: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 0); break;
+                        case 1: _BuiltinColors[index] = ColorX.FromRGB(255, 85, 0); break;
+                        case 2: _BuiltinColors[index] = ColorX.FromRGB(255, 170, 0); break;
+
+                        case 3: _BuiltinColors[index] = ColorX.FromRGB(255, 255, 0); break;
+                        case 4: _BuiltinColors[index] = ColorX.FromRGB(170, 255, 0); break;
+                        case 5: _BuiltinColors[index] = ColorX.FromRGB(85, 255, 0); break;
+
+                        case 6: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 0); break;
+                        case 7: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 85); break;
+                        case 8: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 170); break;
+
+                        case 9: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 255); break;
+                        case 10: _BuiltinColors[index] = ColorX.FromRGB(0, 170, 255); break;
+                        case 11: _BuiltinColors[index] = ColorX.FromRGB(0, 85, 255); break;
+
+                        case 12: _BuiltinColors[index] = ColorX.FromRGB(0, 0, 255); break;
+                        case 13: _BuiltinColors[index] = ColorX.FromRGB(85, 0, 255); break;
+                        case 14: _BuiltinColors[index] = ColorX.FromRGB(170, 0, 255); break;
+
+                        case 15: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 255); break;
+                        case 16: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 170); break;
+                        case 17: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 85); break;*/
+
+                        case 0: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 0); break;
+                        case 1: _BuiltinColors[index] = ColorX.FromRGB(255, 64, 0); break;
+                        case 2: _BuiltinColors[index] = ColorX.FromRGB(255, 128, 0); break;
+                        case 3: _BuiltinColors[index] = ColorX.FromRGB(255, 192, 0); break;
+
+                        case 4: _BuiltinColors[index] = ColorX.FromRGB(255, 255, 0); break;
+                        case 5: _BuiltinColors[index] = ColorX.FromRGB(192, 255, 0); break;
+                        case 6: _BuiltinColors[index] = ColorX.FromRGB(128, 255, 0); break;
+                        case 7: _BuiltinColors[index] = ColorX.FromRGB(64, 255, 0); break;
+
+                        case 8: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 0); break;
+                        case 9: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 64); break;
+                        case 10: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 128); break;
+                        case 11: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 192); break;
+
+                        case 12: _BuiltinColors[index] = ColorX.FromRGB(0, 255, 255); break;
+                        case 13: _BuiltinColors[index] = ColorX.FromRGB(0, 192, 255); break;
+                        case 14: _BuiltinColors[index] = ColorX.FromRGB(0, 128, 255); break;
+                        case 15: _BuiltinColors[index] = ColorX.FromRGB(0, 64, 255); break;
+
+                        case 16: _BuiltinColors[index] = ColorX.FromRGB(0, 0, 255); break;
+                        case 17: _BuiltinColors[index] = ColorX.FromRGB(64, 0, 255); break;
+                        case 18: _BuiltinColors[index] = ColorX.FromRGB(128, 0, 255); break;
+                        case 19: _BuiltinColors[index] = ColorX.FromRGB(192, 0, 255); break;
+
+                        case 20: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 255); break;
+                        case 21: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 192); break;
+                        case 22: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 128); break;
+                        case 23: _BuiltinColors[index] = ColorX.FromRGB(255, 0, 64); break;
+                    }
+                }
+                /*else if (i < 216 + 18 + grayscaleColorHex.Length)
+                {
+                    string grayscale = grayscaleColorHex[i - 216 - 18];
+
+                    int index;
+
+                    if (i < 216 + 18 + 9)
+                    {
+                        index = i - 9;
+                    }
+                    else
+                    {
+                        index = i;
+                    }*/
+                else if (i < 216 + 24 + grayscaleColorHex.Length)
+                {
+                    string grayscale = grayscaleColorHex[i - 216 - 24];
+
+                    int index;
+
+                    if (i < 216 + 24 + 6)
+                    {
+                        index = i - 12;
+                    }
+                    else
+                    {
+                        index = i;
+                    }
+
+                    _BuiltinColors[index] = ColorX.FromHexCode(grayscale + grayscale + grayscale);
+                }
+                else
+                {
+                    _BuiltinColors[i] = ColorX.Transparent;
                 }
             }
 
@@ -282,6 +401,8 @@ namespace WinFormApp
 
             const int Lab_B_Sz_W = 24, Lab_B_Sz_H = 24;
 
+            Panel_Colors_Builtin.Height = Lab_B_Sz_H * _BuiltinColorsNumY + 10;
+
             int Lab_B_Off_X = (Panel_Colors_Builtin.Width - Lab_B_Sz_W * _BuiltinColorsNumX) / 2, Lab_B_Off_Y = (Panel_Colors_Builtin.Height - Lab_B_Sz_H * _BuiltinColorsNumY) / 2;
 
             for (int i = 0; i < _BuiltinColorsNum; i++)
@@ -309,6 +430,8 @@ namespace WinFormApp
 
             const int Lab_C_Sz_W = 24, Lab_C_Sz_H = 24;
 
+            Panel_Colors_Customize.Height = Lab_C_Sz_H * _CustomizeColorsNumY + 10;
+
             int Lab_C_Off_X = (Panel_Colors_Customize.Width - Lab_C_Sz_W * _CustomizeColorsNumX) / 2, Lab_C_Off_Y = (Panel_Colors_Customize.Height - Lab_C_Sz_H * _CustomizeColorsNumY) / 2;
 
             for (int i = 0; i < _CustomizeColorsNum; i++)
@@ -330,6 +453,18 @@ namespace WinFormApp
 
                 Label_CustomizeColors[y * _CustomizeColorsNumX + x] = l;
             }
+
+            //
+
+            Label_Colors_Customize.Top = Panel_Colors_Builtin.Bottom + 10;
+            Panel_Colors_Customize.Top = Label_Colors_Customize.Bottom;
+            Panel_Colors_Contents.Height = Panel_Colors_Customize.Bottom + 10;
+            Panel_Colors.Height = Panel_Colors_Contents.Bottom;
+            Panel_Blend.Top = Panel_Colors.Bottom + 15;
+            Panel_View.Top = Panel_Blend.Bottom + 15;
+            Panel_Appearance.Top = Panel_View.Bottom + 15;
+            Panel_About.Top = Panel_Appearance.Bottom + 15;
+            Panel_EditingColors.Height = Panel_About.Bottom + 20;
 
             //
 
@@ -555,7 +690,7 @@ namespace WinFormApp
 
             //
 
-            ChoseColor(_ColorTags.Customize01);
+            ChoseColor(_ColorTags.CustomizeFirst);
 
             //
 
@@ -656,7 +791,6 @@ namespace WinFormApp
             Panel_Info_Contents.BackColor = folderBackColor;
             Panel_Colors_Contents.BackColor = folderBackColor;
             Panel_Blend_Contents.BackColor = folderBackColor;
-            Panel_Pick_Contents.BackColor = folderBackColor;
             Panel_View_Contents.BackColor = folderBackColor;
             Panel_Appearance_Contents.BackColor = folderBackColor;
 
@@ -673,7 +807,6 @@ namespace WinFormApp
             Button_Info.ForeColor = folderButtonForeColor;
             Button_Colors.ForeColor = folderButtonForeColor;
             Button_Blend.ForeColor = folderButtonForeColor;
-            Button_Pick.ForeColor = folderButtonForeColor;
             Button_View.ForeColor = folderButtonForeColor;
             Button_Appearance.ForeColor = folderButtonForeColor;
 
@@ -690,7 +823,6 @@ namespace WinFormApp
             Button_Info.BackColor = folderButtonBackColor;
             Button_Colors.BackColor = folderButtonBackColor;
             Button_Blend.BackColor = folderButtonBackColor;
-            Button_Pick.BackColor = folderButtonBackColor;
             Button_View.BackColor = folderButtonBackColor;
             Button_Appearance.BackColor = folderButtonBackColor;
 
@@ -707,7 +839,6 @@ namespace WinFormApp
             Button_Info.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Colors.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Blend.FlatAppearance.BorderColor = folderButtonBorderColor;
-            Button_Pick.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_View.FlatAppearance.BorderColor = folderButtonBorderColor;
             Button_Appearance.FlatAppearance.BorderColor = folderButtonBorderColor;
 
@@ -724,7 +855,6 @@ namespace WinFormApp
             Button_Info.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Colors.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Blend.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
-            Button_Pick.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_View.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
             Button_Appearance.FlatAppearance.MouseOverBackColor = folderButtonMouseOverBackColor;
 
@@ -741,7 +871,6 @@ namespace WinFormApp
             Button_Info.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Colors.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Blend.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
-            Button_Pick.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_View.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
             Button_Appearance.FlatAppearance.MouseDownBackColor = folderButtonMouseDownBackColor;
 
@@ -764,8 +893,6 @@ namespace WinFormApp
             Label_Name_Val.ForeColor = Me.RecommendColors.Text.ToColor();
             Label_Type_Val.ForeColor = Me.RecommendColors.Text.ToColor();
             Label_Grayscale_Val2.ForeColor = Me.RecommendColors.Text.ToColor();
-
-            PictureBox_NameTip.BackColor = Me.RecommendColors.Background_INC.ToColor();
 
             //
 
@@ -993,13 +1120,13 @@ namespace WinFormApp
         {
             get
             {
-                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
+                if (_ColorTag >= _ColorTags.BuiltinFirst && _ColorTag <= _ColorTags.BuiltinLast)
                 {
-                    return _BuiltinColors[_ColorTag - _ColorTags.Builtin01];
+                    return _BuiltinColors[_ColorTag - _ColorTags.BuiltinFirst];
                 }
-                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                else if (_ColorTag >= _ColorTags.CustomizeFirst && _ColorTag <= _ColorTags.CustomizeLast)
                 {
-                    return _CustomizeColors[_ColorTag - _ColorTags.Customize01];
+                    return _CustomizeColors[_ColorTag - _ColorTags.CustomizeFirst];
                 }
                 else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
                 {
@@ -1029,13 +1156,13 @@ namespace WinFormApp
 
             set
             {
-                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
+                if (_ColorTag >= _ColorTags.BuiltinFirst && _ColorTag <= _ColorTags.BuiltinLast)
                 {
-                    _BuiltinColors[_ColorTag - _ColorTags.Builtin01] = value;
+                    _BuiltinColors[_ColorTag - _ColorTags.BuiltinFirst] = value;
                 }
-                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                else if (_ColorTag >= _ColorTags.CustomizeFirst && _ColorTag <= _ColorTags.CustomizeLast)
                 {
-                    _CustomizeColors[_ColorTag - _ColorTags.Customize01] = value;
+                    _CustomizeColors[_ColorTag - _ColorTags.CustomizeFirst] = value;
                 }
                 else if (_ColorTag >= _ColorTags.BlendColor1 && _ColorTag <= _ColorTags.BlendColor2)
                 {
@@ -1067,11 +1194,11 @@ namespace WinFormApp
 
                 _RepaintInfoImage();
 
-                if (_ColorTag >= _ColorTags.Builtin01 && _ColorTag <= _ColorTags.Builtin92)
+                if (_ColorTag >= _ColorTags.BuiltinFirst && _ColorTag <= _ColorTags.BuiltinLast)
                 {
                     _RepaintBuiltinColorsImage();
                 }
-                else if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                else if (_ColorTag >= _ColorTags.CustomizeFirst && _ColorTag <= _ColorTags.CustomizeLast)
                 {
                     _RepaintCustomizeColorsImage();
                 }
@@ -1139,13 +1266,13 @@ namespace WinFormApp
                     case _ColorTags.Invert: return CurrentColor.Invert;
                 }
             }
-            else if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
+            else if (colorTag >= _ColorTags.BuiltinFirst && colorTag <= _ColorTags.BuiltinLast)
             {
-                return _BuiltinColors[colorTag - _ColorTags.Builtin01];
+                return _BuiltinColors[colorTag - _ColorTags.BuiltinFirst];
             }
-            else if (colorTag >= _ColorTags.Customize01 && colorTag <= _ColorTags.Customize32)
+            else if (colorTag >= _ColorTags.CustomizeFirst && colorTag <= _ColorTags.CustomizeLast)
             {
-                return _CustomizeColors[colorTag - _ColorTags.Customize01];
+                return _CustomizeColors[colorTag - _ColorTags.CustomizeFirst];
             }
             else if (colorTag >= _ColorTags.BlendColor1 && colorTag <= _ColorTags.BlendColor2)
             {
@@ -1194,17 +1321,17 @@ namespace WinFormApp
             }
             else
             {
-                if (colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)
+                if (colorTag >= _ColorTags.BuiltinFirst && colorTag <= _ColorTags.BuiltinLast)
                 {
-                    _BuiltinColors[colorTag - _ColorTags.Builtin01] = color;
+                    _BuiltinColors[colorTag - _ColorTags.BuiltinFirst] = color;
 
                     //
 
                     _RepaintBuiltinColorsImage();
                 }
-                else if (colorTag >= _ColorTags.Customize01 && colorTag <= _ColorTags.Customize32)
+                else if (colorTag >= _ColorTags.CustomizeFirst && colorTag <= _ColorTags.CustomizeLast)
                 {
-                    _CustomizeColors[colorTag - _ColorTags.Customize01] = color;
+                    _CustomizeColors[colorTag - _ColorTags.CustomizeFirst] = color;
 
                     //
 
@@ -1727,7 +1854,7 @@ namespace WinFormApp
         {
             if (_CopyColorTag != _ColorTags.None)
             {
-                if (_CopyColorTag != colorTag && (!(colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)) && (!(colorTag >= _ColorTags.Builtin01 && colorTag <= _ColorTags.Builtin92)) && !(colorTag >= _ColorTags.BlendResultRGB && colorTag <= _ColorTags.BlendResultYUV))
+                if (_CopyColorTag != colorTag && (!(colorTag >= _ColorTags.Grayscale && colorTag <= _ColorTags.Invert)) && (!(colorTag >= _ColorTags.BuiltinFirst && colorTag <= _ColorTags.BuiltinLast)) && !(colorTag >= _ColorTags.BlendResultRGB && colorTag <= _ColorTags.BlendResultYUV))
                 {
                     SetColor(colorTag, GetColor(_CopyColorTag));
                 }
@@ -1811,17 +1938,17 @@ namespace WinFormApp
 
                 if (Button_Colors.ImageIndex == 1)
                 {
-                    for (_ColorTags i = _ColorTags.Customize01; i <= _ColorTags.Customize32; i++)
+                    for (_ColorTags i = _ColorTags.CustomizeFirst; i <= _ColorTags.CustomizeLast; i++)
                     {
-                        if (Geometry.ScreenPointIsInControl(pt, Label_CustomizeColors[i - _ColorTags.Customize01]))
+                        if (Geometry.ScreenPointIsInControl(pt, Label_CustomizeColors[i - _ColorTags.CustomizeFirst]))
                         {
                             return i;
                         }
                     }
 
-                    for (_ColorTags i = _ColorTags.Builtin01; i <= _ColorTags.Builtin92; i++)
+                    for (_ColorTags i = _ColorTags.BuiltinFirst; i <= _ColorTags.BuiltinLast; i++)
                     {
-                        if (Geometry.ScreenPointIsInControl(pt, Label_BuiltinColors[i - _ColorTags.Builtin01]))
+                        if (Geometry.ScreenPointIsInControl(pt, Label_BuiltinColors[i - _ColorTags.BuiltinFirst]))
                         {
                             return i;
                         }
@@ -1913,9 +2040,9 @@ namespace WinFormApp
 
             if (l != null && e.Button == MouseButtons.Left)
             {
-                for (_ColorTags i = _ColorTags.Builtin01; i <= _ColorTags.Builtin92; i++)
+                for (_ColorTags i = _ColorTags.BuiltinFirst; i <= _ColorTags.BuiltinLast; i++)
                 {
-                    if (object.ReferenceEquals(l, Label_BuiltinColors[i - _ColorTags.Builtin01]))
+                    if (object.ReferenceEquals(l, Label_BuiltinColors[i - _ColorTags.BuiltinFirst]))
                     {
                         CopyColor(i);
 
@@ -1935,11 +2062,11 @@ namespace WinFormApp
                 {
                     if (Geometry.PointIsInControl(e.Location, l))
                     {
-                        for (_ColorTags i = _ColorTags.Builtin01; i <= _ColorTags.Builtin92; i++)
+                        for (_ColorTags i = _ColorTags.BuiltinFirst; i <= _ColorTags.BuiltinLast; i++)
                         {
-                            if (object.ReferenceEquals(l, Label_BuiltinColors[i - _ColorTags.Builtin01]))
+                            if (object.ReferenceEquals(l, Label_BuiltinColors[i - _ColorTags.BuiltinFirst]))
                             {
-                                CurrentColor = _BuiltinColors[i - _ColorTags.Builtin01];
+                                CurrentColor = _BuiltinColors[i - _ColorTags.BuiltinFirst];
 
                                 break;
                             }
@@ -1963,9 +2090,9 @@ namespace WinFormApp
 
             if (l != null && e.Button == MouseButtons.Left)
             {
-                for (_ColorTags i = _ColorTags.Customize01; i <= _ColorTags.Customize32; i++)
+                for (_ColorTags i = _ColorTags.CustomizeFirst; i <= _ColorTags.CustomizeLast; i++)
                 {
-                    if (object.ReferenceEquals(l, Label_CustomizeColors[i - _ColorTags.Customize01]))
+                    if (object.ReferenceEquals(l, Label_CustomizeColors[i - _ColorTags.CustomizeFirst]))
                     {
                         CopyColor(i);
 
@@ -1985,9 +2112,9 @@ namespace WinFormApp
                 {
                     if (Geometry.PointIsInControl(e.Location, l))
                     {
-                        for (_ColorTags i = _ColorTags.Customize01; i <= _ColorTags.Customize32; i++)
+                        for (_ColorTags i = _ColorTags.CustomizeFirst; i <= _ColorTags.CustomizeLast; i++)
                         {
-                            if (object.ReferenceEquals(l, Label_CustomizeColors[i - _ColorTags.Customize01]))
+                            if (object.ReferenceEquals(l, Label_CustomizeColors[i - _ColorTags.CustomizeFirst]))
                             {
                                 ChoseColor(i);
 
@@ -2394,8 +2521,7 @@ namespace WinFormApp
 
                         Panel_Colors.Top = Panel_Info.Bottom + 15;
                         Panel_Blend.Top = Panel_Colors.Bottom + 15;
-                        Panel_Pick.Top = Panel_Blend.Bottom + 15;
-                        Panel_View.Top = Panel_Pick.Bottom + 15;
+                        Panel_View.Top = Panel_Blend.Bottom + 15;
                         Panel_Appearance.Top = Panel_View.Bottom + 15;
                         Panel_About.Top = Panel_Appearance.Bottom + 15;
                         Panel_EditingColors.Height = Panel_About.Bottom + Panel_Info.Top;
@@ -2452,7 +2578,7 @@ namespace WinFormApp
 
         #region 背景绘图
 
-        private static void PaintShadow(Graphics graphics, Color color, Rectangle bounds, int radius)
+        private static void _PaintShadow(Graphics graphics, Color color, Rectangle bounds, int radius)
         {
             for (int i = 0; i < radius; i++)
             {
@@ -2492,13 +2618,13 @@ namespace WinFormApp
 
                 //
 
-                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_Blend, Panel_Pick, Panel_View, Panel_Appearance };
+                Control[] ctrls = new Control[] { Panel_Info, Panel_Colors, Panel_Blend, Panel_View, Panel_Appearance };
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
                 foreach (Control ctrl in ctrls)
                 {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                    _PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }
@@ -2546,20 +2672,6 @@ namespace WinFormApp
             Label_Complementary_Val.BackColor = currentColor.Complementary.ToColor();
             Label_Invert_Val.BackColor = currentColor.Invert.ToColor();
 
-            if (empty || trueColor)
-            {
-                ToolTip_NameTip.RemoveAll();
-
-                PictureBox_NameTip.Visible = false;
-            }
-            else
-            {
-                ToolTip_NameTip.SetToolTip(PictureBox_NameTip, string.Concat("\"", name, "\" 是与当前颜色最接近的 32 位真彩色的名称。"));
-
-                PictureBox_NameTip.Left = Label_Name_Val.Right;
-                PictureBox_NameTip.Visible = true;
-            }
-
             //
 
             if (_InfoImage != null)
@@ -2583,7 +2695,7 @@ namespace WinFormApp
 
                 foreach (Control ctrl in ctrls)
                 {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                    _PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }
@@ -2713,10 +2825,10 @@ namespace WinFormApp
 
                 //
 
-                if (_ColorTag >= _ColorTags.Customize01 && _ColorTag <= _ColorTags.Customize32)
+                if (_ColorTag >= _ColorTags.CustomizeFirst && _ColorTag <= _ColorTags.CustomizeLast)
                 {
-                    Label ctrl = Label_CustomizeColors[_ColorTag - _ColorTags.Customize01];
-                    ColorX crx = _CustomizeColors[_ColorTag - _ColorTags.Customize01];
+                    Label ctrl = Label_CustomizeColors[_ColorTag - _ColorTags.CustomizeFirst];
+                    ColorX crx = _CustomizeColors[_ColorTag - _ColorTags.CustomizeFirst];
 
                     Rectangle rect = ctrl.Bounds;
 
@@ -2751,7 +2863,7 @@ namespace WinFormApp
 
                     Color borderColor = Color.FromArgb(30, Color.Black);
 
-                    PaintShadow(Grap, borderColor, rect, 8);
+                    _PaintShadow(Grap, borderColor, rect, 8);
                 }
             }
         }
@@ -2868,7 +2980,7 @@ namespace WinFormApp
 
                 foreach (Control ctrl in ctrls)
                 {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                    _PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }
@@ -2937,7 +3049,7 @@ namespace WinFormApp
 
                 foreach (Control ctrl in ctrls)
                 {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                    _PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }
@@ -2990,7 +3102,7 @@ namespace WinFormApp
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
-                PaintShadow(Grap, borderColor, Panel_Div.Bounds, 5);
+                _PaintShadow(Grap, borderColor, Panel_Div.Bounds, 5);
             }
         }
 
@@ -3197,7 +3309,7 @@ namespace WinFormApp
 
                 foreach (Control ctrl in ctrls)
                 {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                    _PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }
@@ -3295,7 +3407,7 @@ namespace WinFormApp
 
                 Color borderColor = Color.FromArgb(20, Color.Black);
 
-                PaintShadow(Grap, borderColor, Label_ThemeColor_Customize.Bounds, 5);
+                _PaintShadow(Grap, borderColor, Label_ThemeColor_Customize.Bounds, 5);
             }
         }
 
@@ -3351,7 +3463,7 @@ namespace WinFormApp
 
                 foreach (Control ctrl in ctrls)
                 {
-                    PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
+                    _PaintShadow(Grap, borderColor, ctrl.Bounds, 5);
                 }
             }
         }

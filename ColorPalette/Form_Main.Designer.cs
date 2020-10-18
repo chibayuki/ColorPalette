@@ -1,4 +1,4 @@
-﻿namespace WinFormApp
+﻿namespace ColorPalette
 {
     partial class Form_Main
     {
@@ -40,7 +40,6 @@
             this.Label_Name_Val = new System.Windows.Forms.Label();
             this.Label_Type = new System.Windows.Forms.Label();
             this.Label_Type_Val = new System.Windows.Forms.Label();
-            this.PictureBox_NameTip = new System.Windows.Forms.PictureBox();
             this.Label_Grayscale = new System.Windows.Forms.Label();
             this.Label_Grayscale_Val = new System.Windows.Forms.Label();
             this.Label_Grayscale_Val2 = new System.Windows.Forms.Label();
@@ -80,10 +79,6 @@
             this.Label_BlendResultLAB_Val = new System.Windows.Forms.Label();
             this.Label_BlendResultYUV_Val = new System.Windows.Forms.Label();
             this.Button_Blend = new System.Windows.Forms.Button();
-            this.Panel_Pick = new System.Windows.Forms.Panel();
-            this.Panel_Pick_Contents = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Button_Pick = new System.Windows.Forms.Button();
             this.Panel_View = new System.Windows.Forms.Panel();
             this.Panel_View_Contents = new System.Windows.Forms.Panel();
             this.Panel_Div = new System.Windows.Forms.Panel();
@@ -181,65 +176,61 @@
             this.Label_Abbr_YUV_V = new System.Windows.Forms.Label();
             this.Label_YUV_V = new System.Windows.Forms.Label();
             this.Button_YUV = new System.Windows.Forms.Button();
-            this.ToolTip_NameTip = new System.Windows.Forms.ToolTip(this.components);
-            this.NumEditor_Blend = new WinFormApp.NumEditor();
-            this.HTrackBar_Blend = new WinFormApp.HTrackBar();
-            this.NumEditor_Opacity = new WinFormApp.NumEditor();
-            this.HTrackBar_Opacity = new WinFormApp.HTrackBar();
-            this.NumEditor_Alpha = new WinFormApp.NumEditor();
-            this.HTrackBar_Alpha = new WinFormApp.HTrackBar();
-            this.NumEditor_RGB_R = new WinFormApp.NumEditor();
-            this.HTrackBar_RGB_R = new WinFormApp.HTrackBar();
-            this.NumEditor_RGB_G = new WinFormApp.NumEditor();
-            this.HTrackBar_RGB_G = new WinFormApp.HTrackBar();
-            this.NumEditor_RGB_B = new WinFormApp.NumEditor();
-            this.HTrackBar_RGB_B = new WinFormApp.HTrackBar();
-            this.NumEditor_HSV_H = new WinFormApp.NumEditor();
-            this.HTrackBar_HSV_H = new WinFormApp.HTrackBar();
-            this.NumEditor_HSV_S = new WinFormApp.NumEditor();
-            this.HTrackBar_HSV_S = new WinFormApp.HTrackBar();
-            this.NumEditor_HSV_V = new WinFormApp.NumEditor();
-            this.HTrackBar_HSV_V = new WinFormApp.HTrackBar();
-            this.NumEditor_HSL_H = new WinFormApp.NumEditor();
-            this.HTrackBar_HSL_H = new WinFormApp.HTrackBar();
-            this.NumEditor_HSL_S = new WinFormApp.NumEditor();
-            this.HTrackBar_HSL_S = new WinFormApp.HTrackBar();
-            this.NumEditor_HSL_L = new WinFormApp.NumEditor();
-            this.HTrackBar_HSL_L = new WinFormApp.HTrackBar();
-            this.NumEditor_CMYK_C = new WinFormApp.NumEditor();
-            this.HTrackBar_CMYK_C = new WinFormApp.HTrackBar();
-            this.NumEditor_CMYK_M = new WinFormApp.NumEditor();
-            this.HTrackBar_CMYK_M = new WinFormApp.HTrackBar();
-            this.NumEditor_CMYK_Y = new WinFormApp.NumEditor();
-            this.HTrackBar_CMYK_Y = new WinFormApp.HTrackBar();
-            this.NumEditor_CMYK_K = new WinFormApp.NumEditor();
-            this.HTrackBar_CMYK_K = new WinFormApp.HTrackBar();
-            this.NumEditor_LAB_L = new WinFormApp.NumEditor();
-            this.HTrackBar_LAB_L = new WinFormApp.HTrackBar();
-            this.NumEditor_LAB_A = new WinFormApp.NumEditor();
-            this.HTrackBar_LAB_A = new WinFormApp.HTrackBar();
-            this.NumEditor_LAB_B = new WinFormApp.NumEditor();
-            this.HTrackBar_LAB_B = new WinFormApp.HTrackBar();
-            this.NumEditor_YUV_Y = new WinFormApp.NumEditor();
-            this.HTrackBar_YUV_Y = new WinFormApp.HTrackBar();
-            this.NumEditor_YUV_U = new WinFormApp.NumEditor();
-            this.HTrackBar_YUV_U = new WinFormApp.HTrackBar();
-            this.NumEditor_YUV_V = new WinFormApp.NumEditor();
-            this.HTrackBar_YUV_V = new WinFormApp.HTrackBar();
+            this.NumEditor_Blend = new ColorPalette.NumEditor();
+            this.HTrackBar_Blend = new ColorPalette.HTrackBar();
+            this.NumEditor_Opacity = new ColorPalette.NumEditor();
+            this.HTrackBar_Opacity = new ColorPalette.HTrackBar();
+            this.NumEditor_Alpha = new ColorPalette.NumEditor();
+            this.HTrackBar_Alpha = new ColorPalette.HTrackBar();
+            this.NumEditor_RGB_R = new ColorPalette.NumEditor();
+            this.HTrackBar_RGB_R = new ColorPalette.HTrackBar();
+            this.NumEditor_RGB_G = new ColorPalette.NumEditor();
+            this.HTrackBar_RGB_G = new ColorPalette.HTrackBar();
+            this.NumEditor_RGB_B = new ColorPalette.NumEditor();
+            this.HTrackBar_RGB_B = new ColorPalette.HTrackBar();
+            this.NumEditor_HSV_H = new ColorPalette.NumEditor();
+            this.HTrackBar_HSV_H = new ColorPalette.HTrackBar();
+            this.NumEditor_HSV_S = new ColorPalette.NumEditor();
+            this.HTrackBar_HSV_S = new ColorPalette.HTrackBar();
+            this.NumEditor_HSV_V = new ColorPalette.NumEditor();
+            this.HTrackBar_HSV_V = new ColorPalette.HTrackBar();
+            this.NumEditor_HSL_H = new ColorPalette.NumEditor();
+            this.HTrackBar_HSL_H = new ColorPalette.HTrackBar();
+            this.NumEditor_HSL_S = new ColorPalette.NumEditor();
+            this.HTrackBar_HSL_S = new ColorPalette.HTrackBar();
+            this.NumEditor_HSL_L = new ColorPalette.NumEditor();
+            this.HTrackBar_HSL_L = new ColorPalette.HTrackBar();
+            this.NumEditor_CMYK_C = new ColorPalette.NumEditor();
+            this.HTrackBar_CMYK_C = new ColorPalette.HTrackBar();
+            this.NumEditor_CMYK_M = new ColorPalette.NumEditor();
+            this.HTrackBar_CMYK_M = new ColorPalette.HTrackBar();
+            this.NumEditor_CMYK_Y = new ColorPalette.NumEditor();
+            this.HTrackBar_CMYK_Y = new ColorPalette.HTrackBar();
+            this.NumEditor_CMYK_K = new ColorPalette.NumEditor();
+            this.HTrackBar_CMYK_K = new ColorPalette.HTrackBar();
+            this.NumEditor_LAB_L = new ColorPalette.NumEditor();
+            this.HTrackBar_LAB_L = new ColorPalette.HTrackBar();
+            this.NumEditor_LAB_A = new ColorPalette.NumEditor();
+            this.HTrackBar_LAB_A = new ColorPalette.HTrackBar();
+            this.NumEditor_LAB_B = new ColorPalette.NumEditor();
+            this.HTrackBar_LAB_B = new ColorPalette.HTrackBar();
+            this.NumEditor_YUV_Y = new ColorPalette.NumEditor();
+            this.HTrackBar_YUV_Y = new ColorPalette.HTrackBar();
+            this.NumEditor_YUV_U = new ColorPalette.NumEditor();
+            this.HTrackBar_YUV_U = new ColorPalette.HTrackBar();
+            this.NumEditor_YUV_V = new ColorPalette.NumEditor();
+            this.HTrackBar_YUV_V = new ColorPalette.HTrackBar();
             this.Panel_Main.SuspendLayout();
             this.Panel_LeftArea.SuspendLayout();
             this.Panel_EditingColors.SuspendLayout();
             this.Panel_Info.SuspendLayout();
             this.Panel_Info_Contents.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_NameTip)).BeginInit();
             this.Panel_Colors.SuspendLayout();
             this.Panel_Colors_Contents.SuspendLayout();
             this.Panel_Blend.SuspendLayout();
             this.Panel_Blend_Contents.SuspendLayout();
             this.Panel_BlendLabels.SuspendLayout();
             this.Panel_BlendResults.SuspendLayout();
-            this.Panel_Pick.SuspendLayout();
-            this.Panel_Pick_Contents.SuspendLayout();
             this.Panel_View.SuspendLayout();
             this.Panel_View_Contents.SuspendLayout();
             this.Panel_DivLabels.SuspendLayout();
@@ -273,7 +264,7 @@
             this.Panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Main.Location = new System.Drawing.Point(0, 0);
             this.Panel_Main.Name = "Panel_Main";
-            this.Panel_Main.Size = new System.Drawing.Size(1200, 625);
+            this.Panel_Main.Size = new System.Drawing.Size(1260, 625);
             this.Panel_Main.TabIndex = 0;
             this.Panel_Main.Visible = false;
             // 
@@ -284,7 +275,7 @@
             this.Panel_LeftArea.Controls.Add(this.Panel_EditingColors);
             this.Panel_LeftArea.Location = new System.Drawing.Point(0, 0);
             this.Panel_LeftArea.Name = "Panel_LeftArea";
-            this.Panel_LeftArea.Size = new System.Drawing.Size(500, 625);
+            this.Panel_LeftArea.Size = new System.Drawing.Size(560, 625);
             this.Panel_LeftArea.TabIndex = 0;
             // 
             // Panel_EditingColors
@@ -293,13 +284,12 @@
             this.Panel_EditingColors.Controls.Add(this.Panel_Info);
             this.Panel_EditingColors.Controls.Add(this.Panel_Colors);
             this.Panel_EditingColors.Controls.Add(this.Panel_Blend);
-            this.Panel_EditingColors.Controls.Add(this.Panel_Pick);
             this.Panel_EditingColors.Controls.Add(this.Panel_View);
             this.Panel_EditingColors.Controls.Add(this.Panel_Appearance);
             this.Panel_EditingColors.Controls.Add(this.Panel_About);
             this.Panel_EditingColors.Location = new System.Drawing.Point(0, 0);
             this.Panel_EditingColors.Name = "Panel_EditingColors";
-            this.Panel_EditingColors.Size = new System.Drawing.Size(480, 1385);
+            this.Panel_EditingColors.Size = new System.Drawing.Size(540, 1180);
             this.Panel_EditingColors.TabIndex = 0;
             this.Panel_EditingColors.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_EditingColors_Paint);
             // 
@@ -310,7 +300,7 @@
             this.Panel_Info.Controls.Add(this.Button_Info);
             this.Panel_Info.Location = new System.Drawing.Point(20, 20);
             this.Panel_Info.Name = "Panel_Info";
-            this.Panel_Info.Size = new System.Drawing.Size(440, 215);
+            this.Panel_Info.Size = new System.Drawing.Size(500, 215);
             this.Panel_Info.TabIndex = 0;
             // 
             // Panel_Info_Contents
@@ -321,7 +311,6 @@
             this.Panel_Info_Contents.Controls.Add(this.Label_Name_Val);
             this.Panel_Info_Contents.Controls.Add(this.Label_Type);
             this.Panel_Info_Contents.Controls.Add(this.Label_Type_Val);
-            this.Panel_Info_Contents.Controls.Add(this.PictureBox_NameTip);
             this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale);
             this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale_Val);
             this.Panel_Info_Contents.Controls.Add(this.Label_Grayscale_Val2);
@@ -331,16 +320,16 @@
             this.Panel_Info_Contents.Controls.Add(this.Label_Invert_Val);
             this.Panel_Info_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Info_Contents.Name = "Panel_Info_Contents";
-            this.Panel_Info_Contents.Size = new System.Drawing.Size(440, 185);
+            this.Panel_Info_Contents.Size = new System.Drawing.Size(500, 185);
             this.Panel_Info_Contents.TabIndex = 0;
             this.Panel_Info_Contents.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Info_Contents_Paint);
             // 
             // Label_CurrentColor
             // 
             this.Label_CurrentColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_CurrentColor.Location = new System.Drawing.Point(305, 60);
+            this.Label_CurrentColor.Location = new System.Drawing.Point(315, 10);
             this.Label_CurrentColor.Name = "Label_CurrentColor";
-            this.Label_CurrentColor.Size = new System.Drawing.Size(115, 115);
+            this.Label_CurrentColor.Size = new System.Drawing.Size(165, 165);
             this.Label_CurrentColor.TabIndex = 0;
             // 
             // Label_Name
@@ -402,19 +391,6 @@
             this.Label_Type_Val.TabIndex = 0;
             this.Label_Type_Val.Text = "ColorType";
             this.Label_Type_Val.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // PictureBox_NameTip
-            // 
-            this.PictureBox_NameTip.BackColor = System.Drawing.Color.Transparent;
-            this.PictureBox_NameTip.ErrorImage = null;
-            this.PictureBox_NameTip.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox_NameTip.Image")));
-            this.PictureBox_NameTip.InitialImage = null;
-            this.PictureBox_NameTip.Location = new System.Drawing.Point(145, 10);
-            this.PictureBox_NameTip.Name = "PictureBox_NameTip";
-            this.PictureBox_NameTip.Size = new System.Drawing.Size(25, 25);
-            this.PictureBox_NameTip.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.PictureBox_NameTip.TabIndex = 1;
-            this.PictureBox_NameTip.TabStop = false;
             // 
             // Label_Grayscale
             // 
@@ -522,7 +498,7 @@
             this.Button_Info.ImageList = this.ImageList_FoldAndUnfold;
             this.Button_Info.Location = new System.Drawing.Point(0, 0);
             this.Button_Info.Name = "Button_Info";
-            this.Button_Info.Size = new System.Drawing.Size(440, 30);
+            this.Button_Info.Size = new System.Drawing.Size(500, 30);
             this.Button_Info.TabIndex = 0;
             this.Button_Info.TabStop = false;
             this.Button_Info.Text = "摘要";
@@ -544,7 +520,7 @@
             this.Panel_Colors.Controls.Add(this.Button_Colors);
             this.Panel_Colors.Location = new System.Drawing.Point(20, 250);
             this.Panel_Colors.Name = "Panel_Colors";
-            this.Panel_Colors.Size = new System.Drawing.Size(440, 315);
+            this.Panel_Colors.Size = new System.Drawing.Size(500, 200);
             this.Panel_Colors.TabIndex = 0;
             // 
             // Panel_Colors_Contents
@@ -556,7 +532,7 @@
             this.Panel_Colors_Contents.Controls.Add(this.Panel_Colors_Customize);
             this.Panel_Colors_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Colors_Contents.Name = "Panel_Colors_Contents";
-            this.Panel_Colors_Contents.Size = new System.Drawing.Size(440, 285);
+            this.Panel_Colors_Contents.Size = new System.Drawing.Size(500, 170);
             this.Panel_Colors_Contents.TabIndex = 0;
             // 
             // Label_Colors_Builtin
@@ -579,7 +555,7 @@
             this.Panel_Colors_Builtin.BackColor = System.Drawing.Color.Transparent;
             this.Panel_Colors_Builtin.Location = new System.Drawing.Point(20, 30);
             this.Panel_Colors_Builtin.Name = "Panel_Colors_Builtin";
-            this.Panel_Colors_Builtin.Size = new System.Drawing.Size(400, 155);
+            this.Panel_Colors_Builtin.Size = new System.Drawing.Size(460, 50);
             this.Panel_Colors_Builtin.TabIndex = 0;
             this.Panel_Colors_Builtin.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Builtin_Paint);
             // 
@@ -589,7 +565,7 @@
             this.Label_Colors_Customize.BackColor = System.Drawing.Color.Transparent;
             this.Label_Colors_Customize.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Colors_Customize.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Colors_Customize.Location = new System.Drawing.Point(20, 195);
+            this.Label_Colors_Customize.Location = new System.Drawing.Point(20, 90);
             this.Label_Colors_Customize.MaximumSize = new System.Drawing.Size(0, 20);
             this.Label_Colors_Customize.MinimumSize = new System.Drawing.Size(0, 20);
             this.Label_Colors_Customize.Name = "Label_Colors_Customize";
@@ -601,9 +577,9 @@
             // Panel_Colors_Customize
             // 
             this.Panel_Colors_Customize.BackColor = System.Drawing.Color.Transparent;
-            this.Panel_Colors_Customize.Location = new System.Drawing.Point(20, 215);
+            this.Panel_Colors_Customize.Location = new System.Drawing.Point(20, 110);
             this.Panel_Colors_Customize.Name = "Panel_Colors_Customize";
-            this.Panel_Colors_Customize.Size = new System.Drawing.Size(400, 60);
+            this.Panel_Colors_Customize.Size = new System.Drawing.Size(460, 50);
             this.Panel_Colors_Customize.TabIndex = 0;
             this.Panel_Colors_Customize.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Colors_Customize_Paint);
             // 
@@ -623,7 +599,7 @@
             this.Button_Colors.ImageList = this.ImageList_FoldAndUnfold;
             this.Button_Colors.Location = new System.Drawing.Point(0, 0);
             this.Button_Colors.Name = "Button_Colors";
-            this.Button_Colors.Size = new System.Drawing.Size(440, 30);
+            this.Button_Colors.Size = new System.Drawing.Size(500, 30);
             this.Button_Colors.TabIndex = 0;
             this.Button_Colors.TabStop = false;
             this.Button_Colors.Text = "颜色";
@@ -636,16 +612,14 @@
             this.Panel_Blend.BackColor = System.Drawing.Color.Transparent;
             this.Panel_Blend.Controls.Add(this.Panel_Blend_Contents);
             this.Panel_Blend.Controls.Add(this.Button_Blend);
-            this.Panel_Blend.Location = new System.Drawing.Point(20, 580);
+            this.Panel_Blend.Location = new System.Drawing.Point(20, 465);
             this.Panel_Blend.Name = "Panel_Blend";
-            this.Panel_Blend.Size = new System.Drawing.Size(440, 200);
+            this.Panel_Blend.Size = new System.Drawing.Size(500, 200);
             this.Panel_Blend.TabIndex = 0;
             // 
             // Panel_Blend_Contents
             // 
             this.Panel_Blend_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor1);
-            this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor2);
             this.Panel_Blend_Contents.Controls.Add(this.Panel_BlendLabels);
             this.Panel_Blend_Contents.Controls.Add(this.Label_BlendColor1Proportion);
             this.Panel_Blend_Contents.Controls.Add(this.NumEditor_Blend);
@@ -654,7 +628,7 @@
             this.Panel_Blend_Contents.Controls.Add(this.Panel_BlendResults);
             this.Panel_Blend_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Blend_Contents.Name = "Panel_Blend_Contents";
-            this.Panel_Blend_Contents.Size = new System.Drawing.Size(440, 170);
+            this.Panel_Blend_Contents.Size = new System.Drawing.Size(500, 170);
             this.Panel_Blend_Contents.TabIndex = 0;
             // 
             // Label_BlendColor1
@@ -663,7 +637,7 @@
             this.Label_BlendColor1.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendColor1.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendColor1.ForeColor = System.Drawing.Color.Silver;
-            this.Label_BlendColor1.Location = new System.Drawing.Point(20, 10);
+            this.Label_BlendColor1.Location = new System.Drawing.Point(0, 10);
             this.Label_BlendColor1.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_BlendColor1.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_BlendColor1.Name = "Label_BlendColor1";
@@ -678,7 +652,7 @@
             this.Label_BlendColor2.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendColor2.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendColor2.ForeColor = System.Drawing.Color.Silver;
-            this.Label_BlendColor2.Location = new System.Drawing.Point(20, 45);
+            this.Label_BlendColor2.Location = new System.Drawing.Point(135, 10);
             this.Label_BlendColor2.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_BlendColor2.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_BlendColor2.Name = "Label_BlendColor2";
@@ -690,11 +664,13 @@
             // Panel_BlendLabels
             // 
             this.Panel_BlendLabels.BackColor = System.Drawing.Color.Transparent;
+            this.Panel_BlendLabels.Controls.Add(this.Label_BlendColor1);
             this.Panel_BlendLabels.Controls.Add(this.Label_BlendColor1_Val);
+            this.Panel_BlendLabels.Controls.Add(this.Label_BlendColor2);
             this.Panel_BlendLabels.Controls.Add(this.Label_BlendColor2_Val);
-            this.Panel_BlendLabels.Location = new System.Drawing.Point(80, 0);
+            this.Panel_BlendLabels.Location = new System.Drawing.Point(20, 0);
             this.Panel_BlendLabels.Name = "Panel_BlendLabels";
-            this.Panel_BlendLabels.Size = new System.Drawing.Size(80, 80);
+            this.Panel_BlendLabels.Size = new System.Drawing.Size(265, 45);
             this.Panel_BlendLabels.TabIndex = 0;
             this.Panel_BlendLabels.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_BlendLabels_Paint);
             // 
@@ -702,7 +678,7 @@
             // 
             this.Label_BlendColor1_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Label_BlendColor1_Val.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Label_BlendColor1_Val.Location = new System.Drawing.Point(10, 10);
+            this.Label_BlendColor1_Val.Location = new System.Drawing.Point(60, 10);
             this.Label_BlendColor1_Val.Name = "Label_BlendColor1_Val";
             this.Label_BlendColor1_Val.Size = new System.Drawing.Size(60, 25);
             this.Label_BlendColor1_Val.TabIndex = 0;
@@ -713,7 +689,7 @@
             // 
             this.Label_BlendColor2_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Label_BlendColor2_Val.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Label_BlendColor2_Val.Location = new System.Drawing.Point(10, 45);
+            this.Label_BlendColor2_Val.Location = new System.Drawing.Point(195, 10);
             this.Label_BlendColor2_Val.Name = "Label_BlendColor2_Val";
             this.Label_BlendColor2_Val.Size = new System.Drawing.Size(60, 25);
             this.Label_BlendColor2_Val.TabIndex = 0;
@@ -726,7 +702,7 @@
             this.Label_BlendColor1Proportion.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendColor1Proportion.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendColor1Proportion.ForeColor = System.Drawing.Color.Silver;
-            this.Label_BlendColor1Proportion.Location = new System.Drawing.Point(170, 10);
+            this.Label_BlendColor1Proportion.Location = new System.Drawing.Point(20, 50);
             this.Label_BlendColor1Proportion.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_BlendColor1Proportion.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_BlendColor1Proportion.Name = "Label_BlendColor1Proportion";
@@ -765,9 +741,9 @@
             this.Panel_BlendResults.Controls.Add(this.Label_BlendResultCMYK_Val);
             this.Panel_BlendResults.Controls.Add(this.Label_BlendResultLAB_Val);
             this.Panel_BlendResults.Controls.Add(this.Label_BlendResultYUV_Val);
-            this.Panel_BlendResults.Location = new System.Drawing.Point(80, 80);
+            this.Panel_BlendResults.Location = new System.Drawing.Point(70, 80);
             this.Panel_BlendResults.Name = "Panel_BlendResults";
-            this.Panel_BlendResults.Size = new System.Drawing.Size(340, 80);
+            this.Panel_BlendResults.Size = new System.Drawing.Size(410, 80);
             this.Panel_BlendResults.TabIndex = 0;
             this.Panel_BlendResults.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_BlendResults_Paint);
             // 
@@ -777,14 +753,14 @@
             this.Label_BlendResultRGB.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendResultRGB.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendResultRGB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_BlendResultRGB.Location = new System.Drawing.Point(70, 10);
+            this.Label_BlendResultRGB.Location = new System.Drawing.Point(10, 10);
             this.Label_BlendResultRGB.MaximumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultRGB.MinimumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultRGB.Name = "Label_BlendResultRGB";
             this.Label_BlendResultRGB.Size = new System.Drawing.Size(50, 25);
             this.Label_BlendResultRGB.TabIndex = 0;
             this.Label_BlendResultRGB.Text = "RGB";
-            this.Label_BlendResultRGB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Label_BlendResultRGB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Label_BlendResultHSV
             // 
@@ -792,14 +768,14 @@
             this.Label_BlendResultHSV.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendResultHSV.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendResultHSV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_BlendResultHSV.Location = new System.Drawing.Point(180, 10);
+            this.Label_BlendResultHSV.Location = new System.Drawing.Point(145, 10);
             this.Label_BlendResultHSV.MaximumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultHSV.MinimumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultHSV.Name = "Label_BlendResultHSV";
             this.Label_BlendResultHSV.Size = new System.Drawing.Size(50, 25);
             this.Label_BlendResultHSV.TabIndex = 0;
             this.Label_BlendResultHSV.Text = "HSV";
-            this.Label_BlendResultHSV.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Label_BlendResultHSV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Label_BlendResultHSL
             // 
@@ -807,14 +783,14 @@
             this.Label_BlendResultHSL.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendResultHSL.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendResultHSL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_BlendResultHSL.Location = new System.Drawing.Point(290, 10);
+            this.Label_BlendResultHSL.Location = new System.Drawing.Point(280, 10);
             this.Label_BlendResultHSL.MaximumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultHSL.MinimumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultHSL.Name = "Label_BlendResultHSL";
             this.Label_BlendResultHSL.Size = new System.Drawing.Size(50, 25);
             this.Label_BlendResultHSL.TabIndex = 0;
             this.Label_BlendResultHSL.Text = "HSL";
-            this.Label_BlendResultHSL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Label_BlendResultHSL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Label_BlendResultCMYK
             // 
@@ -822,14 +798,14 @@
             this.Label_BlendResultCMYK.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendResultCMYK.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendResultCMYK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_BlendResultCMYK.Location = new System.Drawing.Point(70, 46);
+            this.Label_BlendResultCMYK.Location = new System.Drawing.Point(10, 46);
             this.Label_BlendResultCMYK.MaximumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultCMYK.MinimumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultCMYK.Name = "Label_BlendResultCMYK";
             this.Label_BlendResultCMYK.Size = new System.Drawing.Size(50, 25);
             this.Label_BlendResultCMYK.TabIndex = 0;
             this.Label_BlendResultCMYK.Text = "CMYK";
-            this.Label_BlendResultCMYK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Label_BlendResultCMYK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Label_BlendResultLAB
             // 
@@ -837,14 +813,14 @@
             this.Label_BlendResultLAB.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendResultLAB.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendResultLAB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_BlendResultLAB.Location = new System.Drawing.Point(180, 46);
+            this.Label_BlendResultLAB.Location = new System.Drawing.Point(145, 46);
             this.Label_BlendResultLAB.MaximumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultLAB.MinimumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultLAB.Name = "Label_BlendResultLAB";
             this.Label_BlendResultLAB.Size = new System.Drawing.Size(50, 25);
             this.Label_BlendResultLAB.TabIndex = 0;
             this.Label_BlendResultLAB.Text = "Lab";
-            this.Label_BlendResultLAB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Label_BlendResultLAB.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Label_BlendResultYUV
             // 
@@ -852,19 +828,19 @@
             this.Label_BlendResultYUV.BackColor = System.Drawing.Color.Transparent;
             this.Label_BlendResultYUV.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_BlendResultYUV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.Label_BlendResultYUV.Location = new System.Drawing.Point(290, 46);
+            this.Label_BlendResultYUV.Location = new System.Drawing.Point(280, 46);
             this.Label_BlendResultYUV.MaximumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultYUV.MinimumSize = new System.Drawing.Size(50, 25);
             this.Label_BlendResultYUV.Name = "Label_BlendResultYUV";
             this.Label_BlendResultYUV.Size = new System.Drawing.Size(50, 25);
             this.Label_BlendResultYUV.TabIndex = 0;
             this.Label_BlendResultYUV.Text = "YUV";
-            this.Label_BlendResultYUV.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Label_BlendResultYUV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Label_BlendResultRGB_Val
             // 
             this.Label_BlendResultRGB_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendResultRGB_Val.Location = new System.Drawing.Point(10, 10);
+            this.Label_BlendResultRGB_Val.Location = new System.Drawing.Point(70, 10);
             this.Label_BlendResultRGB_Val.Name = "Label_BlendResultRGB_Val";
             this.Label_BlendResultRGB_Val.Size = new System.Drawing.Size(60, 25);
             this.Label_BlendResultRGB_Val.TabIndex = 0;
@@ -874,7 +850,7 @@
             // Label_BlendResultHSV_Val
             // 
             this.Label_BlendResultHSV_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendResultHSV_Val.Location = new System.Drawing.Point(120, 10);
+            this.Label_BlendResultHSV_Val.Location = new System.Drawing.Point(205, 10);
             this.Label_BlendResultHSV_Val.Name = "Label_BlendResultHSV_Val";
             this.Label_BlendResultHSV_Val.Size = new System.Drawing.Size(60, 25);
             this.Label_BlendResultHSV_Val.TabIndex = 0;
@@ -884,7 +860,7 @@
             // Label_BlendResultHSL_Val
             // 
             this.Label_BlendResultHSL_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendResultHSL_Val.Location = new System.Drawing.Point(230, 10);
+            this.Label_BlendResultHSL_Val.Location = new System.Drawing.Point(340, 10);
             this.Label_BlendResultHSL_Val.Name = "Label_BlendResultHSL_Val";
             this.Label_BlendResultHSL_Val.Size = new System.Drawing.Size(60, 25);
             this.Label_BlendResultHSL_Val.TabIndex = 0;
@@ -894,7 +870,7 @@
             // Label_BlendResultCMYK_Val
             // 
             this.Label_BlendResultCMYK_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendResultCMYK_Val.Location = new System.Drawing.Point(10, 46);
+            this.Label_BlendResultCMYK_Val.Location = new System.Drawing.Point(70, 46);
             this.Label_BlendResultCMYK_Val.Name = "Label_BlendResultCMYK_Val";
             this.Label_BlendResultCMYK_Val.Size = new System.Drawing.Size(60, 25);
             this.Label_BlendResultCMYK_Val.TabIndex = 0;
@@ -904,7 +880,7 @@
             // Label_BlendResultLAB_Val
             // 
             this.Label_BlendResultLAB_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendResultLAB_Val.Location = new System.Drawing.Point(120, 46);
+            this.Label_BlendResultLAB_Val.Location = new System.Drawing.Point(205, 46);
             this.Label_BlendResultLAB_Val.Name = "Label_BlendResultLAB_Val";
             this.Label_BlendResultLAB_Val.Size = new System.Drawing.Size(60, 25);
             this.Label_BlendResultLAB_Val.TabIndex = 0;
@@ -914,7 +890,7 @@
             // Label_BlendResultYUV_Val
             // 
             this.Label_BlendResultYUV_Val.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Label_BlendResultYUV_Val.Location = new System.Drawing.Point(230, 46);
+            this.Label_BlendResultYUV_Val.Location = new System.Drawing.Point(340, 46);
             this.Label_BlendResultYUV_Val.Name = "Label_BlendResultYUV_Val";
             this.Label_BlendResultYUV_Val.Size = new System.Drawing.Size(60, 25);
             this.Label_BlendResultYUV_Val.TabIndex = 0;
@@ -937,7 +913,7 @@
             this.Button_Blend.ImageList = this.ImageList_FoldAndUnfold;
             this.Button_Blend.Location = new System.Drawing.Point(0, 0);
             this.Button_Blend.Name = "Button_Blend";
-            this.Button_Blend.Size = new System.Drawing.Size(440, 30);
+            this.Button_Blend.Size = new System.Drawing.Size(500, 30);
             this.Button_Blend.TabIndex = 0;
             this.Button_Blend.TabStop = false;
             this.Button_Blend.Text = "混色";
@@ -945,65 +921,14 @@
             this.Button_Blend.UseVisualStyleBackColor = false;
             this.Button_Blend.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
             // 
-            // Panel_Pick
-            // 
-            this.Panel_Pick.BackColor = System.Drawing.Color.Transparent;
-            this.Panel_Pick.Controls.Add(this.Panel_Pick_Contents);
-            this.Panel_Pick.Controls.Add(this.Button_Pick);
-            this.Panel_Pick.Location = new System.Drawing.Point(20, 795);
-            this.Panel_Pick.Name = "Panel_Pick";
-            this.Panel_Pick.Size = new System.Drawing.Size(440, 75);
-            this.Panel_Pick.TabIndex = 0;
-            // 
-            // Panel_Pick_Contents
-            // 
-            this.Panel_Pick_Contents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.Panel_Pick_Contents.Controls.Add(this.label1);
-            this.Panel_Pick_Contents.Location = new System.Drawing.Point(0, 30);
-            this.Panel_Pick_Contents.Name = "Panel_Pick_Contents";
-            this.Panel_Pick_Contents.Size = new System.Drawing.Size(440, 45);
-            this.Panel_Pick_Contents.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(20, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 25);
-            this.label1.TabIndex = 0;
-            // 
-            // Button_Pick
-            // 
-            this.Button_Pick.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Button_Pick.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Button_Pick.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.Button_Pick.FlatAppearance.BorderSize = 0;
-            this.Button_Pick.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Button_Pick.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.Button_Pick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Button_Pick.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Button_Pick.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Button_Pick.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Button_Pick.ImageIndex = 1;
-            this.Button_Pick.ImageList = this.ImageList_FoldAndUnfold;
-            this.Button_Pick.Location = new System.Drawing.Point(0, 0);
-            this.Button_Pick.Name = "Button_Pick";
-            this.Button_Pick.Size = new System.Drawing.Size(440, 30);
-            this.Button_Pick.TabIndex = 0;
-            this.Button_Pick.TabStop = false;
-            this.Button_Pick.Text = "拾色";
-            this.Button_Pick.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Button_Pick.UseVisualStyleBackColor = false;
-            this.Button_Pick.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button_EditingColors_MouseDown);
-            // 
             // Panel_View
             // 
             this.Panel_View.BackColor = System.Drawing.Color.Transparent;
             this.Panel_View.Controls.Add(this.Panel_View_Contents);
             this.Panel_View.Controls.Add(this.Button_View);
-            this.Panel_View.Location = new System.Drawing.Point(20, 885);
+            this.Panel_View.Location = new System.Drawing.Point(20, 680);
             this.Panel_View.Name = "Panel_View";
-            this.Panel_View.Size = new System.Drawing.Size(440, 180);
+            this.Panel_View.Size = new System.Drawing.Size(500, 180);
             this.Panel_View.TabIndex = 0;
             // 
             // Panel_View_Contents
@@ -1017,7 +942,7 @@
             this.Panel_View_Contents.Controls.Add(this.Panel_DivLabels);
             this.Panel_View_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_View_Contents.Name = "Panel_View_Contents";
-            this.Panel_View_Contents.Size = new System.Drawing.Size(440, 150);
+            this.Panel_View_Contents.Size = new System.Drawing.Size(500, 150);
             this.Panel_View_Contents.TabIndex = 0;
             this.Panel_View_Contents.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_View_Contents_Paint);
             // 
@@ -1036,7 +961,7 @@
             this.Label_Background.BackColor = System.Drawing.Color.Transparent;
             this.Label_Background.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Background.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Background.Location = new System.Drawing.Point(230, 10);
+            this.Label_Background.Location = new System.Drawing.Point(235, 10);
             this.Label_Background.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_Background.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_Background.Name = "Label_Background";
@@ -1051,7 +976,7 @@
             this.Label_Label.BackColor = System.Drawing.Color.Transparent;
             this.Label_Label.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Label.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Label.Location = new System.Drawing.Point(230, 45);
+            this.Label_Label.Location = new System.Drawing.Point(235, 45);
             this.Label_Label.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_Label.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_Label.Name = "Label_Label";
@@ -1066,7 +991,7 @@
             this.Label_Border.BackColor = System.Drawing.Color.Transparent;
             this.Label_Border.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Border.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Border.Location = new System.Drawing.Point(230, 80);
+            this.Label_Border.Location = new System.Drawing.Point(235, 80);
             this.Label_Border.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_Border.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_Border.Name = "Label_Border";
@@ -1081,7 +1006,7 @@
             this.Label_Text.BackColor = System.Drawing.Color.Transparent;
             this.Label_Text.Font = new System.Drawing.Font("微软雅黑", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Label_Text.ForeColor = System.Drawing.Color.Silver;
-            this.Label_Text.Location = new System.Drawing.Point(230, 115);
+            this.Label_Text.Location = new System.Drawing.Point(235, 115);
             this.Label_Text.MaximumSize = new System.Drawing.Size(0, 25);
             this.Label_Text.MinimumSize = new System.Drawing.Size(0, 25);
             this.Label_Text.Name = "Label_Text";
@@ -1097,7 +1022,7 @@
             this.Panel_DivLabels.Controls.Add(this.Label_Text_Val);
             this.Panel_DivLabels.Controls.Add(this.Label_Border_Val);
             this.Panel_DivLabels.Controls.Add(this.Label_Label_Val);
-            this.Panel_DivLabels.Location = new System.Drawing.Point(265, 0);
+            this.Panel_DivLabels.Location = new System.Drawing.Point(270, 0);
             this.Panel_DivLabels.Name = "Panel_DivLabels";
             this.Panel_DivLabels.Size = new System.Drawing.Size(80, 150);
             this.Panel_DivLabels.TabIndex = 0;
@@ -1163,7 +1088,7 @@
             this.Button_View.ImageList = this.ImageList_FoldAndUnfold;
             this.Button_View.Location = new System.Drawing.Point(0, 0);
             this.Button_View.Name = "Button_View";
-            this.Button_View.Size = new System.Drawing.Size(440, 30);
+            this.Button_View.Size = new System.Drawing.Size(500, 30);
             this.Button_View.TabIndex = 0;
             this.Button_View.TabStop = false;
             this.Button_View.Text = "视图";
@@ -1176,9 +1101,9 @@
             this.Panel_Appearance.BackColor = System.Drawing.Color.Transparent;
             this.Panel_Appearance.Controls.Add(this.Panel_Appearance_Contents);
             this.Panel_Appearance.Controls.Add(this.Button_Appearance);
-            this.Panel_Appearance.Location = new System.Drawing.Point(20, 1080);
+            this.Panel_Appearance.Location = new System.Drawing.Point(20, 875);
             this.Panel_Appearance.Name = "Panel_Appearance";
-            this.Panel_Appearance.Size = new System.Drawing.Size(440, 180);
+            this.Panel_Appearance.Size = new System.Drawing.Size(500, 180);
             this.Panel_Appearance.TabIndex = 0;
             // 
             // Panel_Appearance_Contents
@@ -1193,7 +1118,7 @@
             this.Panel_Appearance_Contents.Controls.Add(this.RadioButton_ThemeColor_Windows);
             this.Panel_Appearance_Contents.Location = new System.Drawing.Point(0, 30);
             this.Panel_Appearance_Contents.Name = "Panel_Appearance_Contents";
-            this.Panel_Appearance_Contents.Size = new System.Drawing.Size(440, 150);
+            this.Panel_Appearance_Contents.Size = new System.Drawing.Size(500, 150);
             this.Panel_Appearance_Contents.TabIndex = 0;
             this.Panel_Appearance_Contents.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_Appearance_Contents_Paint);
             // 
@@ -1312,7 +1237,7 @@
             this.Button_Appearance.ImageList = this.ImageList_FoldAndUnfold;
             this.Button_Appearance.Location = new System.Drawing.Point(0, 0);
             this.Button_Appearance.Name = "Button_Appearance";
-            this.Button_Appearance.Size = new System.Drawing.Size(440, 30);
+            this.Button_Appearance.Size = new System.Drawing.Size(500, 30);
             this.Button_Appearance.TabIndex = 0;
             this.Button_Appearance.TabStop = false;
             this.Button_Appearance.Text = "外观";
@@ -1331,9 +1256,9 @@
             this.Panel_About.Controls.Add(this.Label_AppVersion);
             this.Panel_About.Controls.Add(this.Label_AppName);
             this.Panel_About.Controls.Add(this.PictureBox_AppLogo);
-            this.Panel_About.Location = new System.Drawing.Point(20, 1275);
+            this.Panel_About.Location = new System.Drawing.Point(20, 1070);
             this.Panel_About.Name = "Panel_About";
-            this.Panel_About.Size = new System.Drawing.Size(440, 90);
+            this.Panel_About.Size = new System.Drawing.Size(500, 90);
             this.Panel_About.TabIndex = 0;
             // 
             // Label_GitHub_Part1
@@ -1394,7 +1319,7 @@
             this.Label_Copyright.Name = "Label_Copyright";
             this.Label_Copyright.Size = new System.Drawing.Size(272, 19);
             this.Label_Copyright.TabIndex = 0;
-            this.Label_Copyright.Text = "Copyright © 2019 chibayuki@foxmail.com";
+            this.Label_Copyright.Text = "Copyright © 2020 chibayuki@foxmail.com";
             // 
             // Label_AppVersion
             // 
@@ -1438,7 +1363,7 @@
             this.Panel_RightArea.AutoScroll = true;
             this.Panel_RightArea.BackColor = System.Drawing.Color.Transparent;
             this.Panel_RightArea.Controls.Add(this.Panel_ColorSpaces);
-            this.Panel_RightArea.Location = new System.Drawing.Point(500, 0);
+            this.Panel_RightArea.Location = new System.Drawing.Point(560, 0);
             this.Panel_RightArea.Name = "Panel_RightArea";
             this.Panel_RightArea.Size = new System.Drawing.Size(700, 625);
             this.Panel_RightArea.TabIndex = 0;
@@ -2470,7 +2395,7 @@
             // NumEditor_Blend
             // 
             this.NumEditor_Blend.BorderColor = System.Drawing.Color.Black;
-            this.NumEditor_Blend.Location = new System.Drawing.Point(260, 10);
+            this.NumEditor_Blend.Location = new System.Drawing.Point(110, 50);
             this.NumEditor_Blend.Maximum = 100D;
             this.NumEditor_Blend.Minimum = 0D;
             this.NumEditor_Blend.Name = "NumEditor_Blend";
@@ -2485,11 +2410,11 @@
             this.HTrackBar_Blend.BackColor = System.Drawing.Color.Transparent;
             this.HTrackBar_Blend.Colors = new System.Drawing.Color[0];
             this.HTrackBar_Blend.Delta = 5D;
-            this.HTrackBar_Blend.Location = new System.Drawing.Point(170, 45);
+            this.HTrackBar_Blend.Location = new System.Drawing.Point(190, 50);
             this.HTrackBar_Blend.Maximum = 100D;
             this.HTrackBar_Blend.Minimum = 0D;
             this.HTrackBar_Blend.Name = "HTrackBar_Blend";
-            this.HTrackBar_Blend.Size = new System.Drawing.Size(250, 25);
+            this.HTrackBar_Blend.Size = new System.Drawing.Size(290, 25);
             this.HTrackBar_Blend.TabIndex = 0;
             this.HTrackBar_Blend.TabStop = false;
             this.HTrackBar_Blend.Value = 50D;
@@ -3066,7 +2991,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1200, 625);
+            this.ClientSize = new System.Drawing.Size(1260, 625);
             this.Controls.Add(this.Panel_Main);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -3078,7 +3003,6 @@
             this.Panel_Info.ResumeLayout(false);
             this.Panel_Info_Contents.ResumeLayout(false);
             this.Panel_Info_Contents.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox_NameTip)).EndInit();
             this.Panel_Colors.ResumeLayout(false);
             this.Panel_Colors_Contents.ResumeLayout(false);
             this.Panel_Colors_Contents.PerformLayout();
@@ -3086,10 +3010,9 @@
             this.Panel_Blend_Contents.ResumeLayout(false);
             this.Panel_Blend_Contents.PerformLayout();
             this.Panel_BlendLabels.ResumeLayout(false);
+            this.Panel_BlendLabels.PerformLayout();
             this.Panel_BlendResults.ResumeLayout(false);
             this.Panel_BlendResults.PerformLayout();
-            this.Panel_Pick.ResumeLayout(false);
-            this.Panel_Pick_Contents.ResumeLayout(false);
             this.Panel_View.ResumeLayout(false);
             this.Panel_View_Contents.ResumeLayout(false);
             this.Panel_View_Contents.PerformLayout();
@@ -3274,9 +3197,6 @@
         private System.Windows.Forms.RadioButton RadioButton_ThemeColor_Customize;
         private System.Windows.Forms.RadioButton RadioButton_ThemeColor_Windows;
         private System.Windows.Forms.RadioButton RadioButton_ThemeColor_EditingColor;
-        private System.Windows.Forms.Panel Panel_Pick;
-        private System.Windows.Forms.Button Button_Pick;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label Label_Colors_Builtin;
         private System.Windows.Forms.Label Label_Colors_Customize;
         private System.Windows.Forms.Panel Panel_Colors_Builtin;
@@ -3286,7 +3206,6 @@
         private System.Windows.Forms.Panel Panel_Colors_Contents;
         private System.Windows.Forms.Panel Panel_View_Contents;
         private System.Windows.Forms.Panel Panel_Blend_Contents;
-        private System.Windows.Forms.Panel Panel_Pick_Contents;
         private System.Windows.Forms.Panel Panel_Appearance_Contents;
         private System.Windows.Forms.Panel Panel_Transparency_Contents;
         private System.Windows.Forms.Panel Panel_RGB_Contents;
@@ -3297,8 +3216,6 @@
         private System.Windows.Forms.Panel Panel_YUV_Contents;
         private System.Windows.Forms.Label Label_Type;
         private System.Windows.Forms.Label Label_Type_Val;
-        private System.Windows.Forms.ToolTip ToolTip_NameTip;
-        private System.Windows.Forms.PictureBox PictureBox_NameTip;
         private System.Windows.Forms.Label Label_BlendColor1;
         private System.Windows.Forms.Label Label_BlendResult;
         private System.Windows.Forms.Label Label_BlendColor2;

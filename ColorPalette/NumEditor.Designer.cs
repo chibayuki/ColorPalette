@@ -1,4 +1,4 @@
-﻿namespace WinFormApp
+﻿namespace ColorPalette
 {
     partial class NumEditor
     {

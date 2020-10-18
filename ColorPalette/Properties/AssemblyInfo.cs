@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("调色板")]
-[assembly: AssemblyCopyright("Copyright © 2019 chibayuki@foxmail.com")]
+[assembly: AssemblyCopyright("Copyright © 2020 chibayuki@foxmail.com")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("94fa867c-320f-4c3b-96f5-4debc6019b35")]
+[assembly: Guid("50462c7e-1c55-4381-b043-9404113af388")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
@@ -29,8 +29,8 @@ using System.Runtime.InteropServices;
 //      生成号
 //      修订号
 //
-// 可以指定所有值，也可以使用以下所示的 "*" 预置版本号和修订号
-// 方法是按如下所示使用“*”: :
+//可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
+//通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.2000.0")]
-[assembly: AssemblyFileVersion("1.0.2000.0")]
+[assembly: AssemblyVersion("1.0.66.1000")]
+[assembly: AssemblyFileVersion("1.0.66.1000")]

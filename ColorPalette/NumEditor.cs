@@ -1,8 +1,8 @@
 ﻿/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-Copyright © 2019 chibayuki@foxmail.com
+Copyright © 2020 chibayuki@foxmail.com
 
 调色板 (ColorPalette)
-Version 1.0.2000.0.R1.190525-0000
+Version 1.0.66.1000.M1.201017-0000
 
 This file is part of "调色板" (ColorPalette)
 
@@ -21,7 +21,7 @@ using System.Windows.Forms;
 
 using System.Text.RegularExpressions;
 
-namespace WinFormApp
+namespace ColorPalette
 {
     public partial class NumEditor : UserControl
     {

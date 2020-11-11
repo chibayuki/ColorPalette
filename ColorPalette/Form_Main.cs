@@ -2,7 +2,7 @@
 Copyright © 2020 chibayuki@foxmail.com
 
 调色板 (ColorPalette)
-Version 1.0.66.1000.M1.201017-0000
+Version 1.0.68.1000.M1.201101-1400
 
 This file is part of "调色板" (ColorPalette)
 
@@ -695,6 +695,7 @@ namespace ColorPalette
             //
 
             Panel_Main.Visible = true;
+            Panel_Main.Focus();
 
             //
 

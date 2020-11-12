@@ -3,3 +3,5 @@
 
 ### 许可 / License
 调色板基于[GPLv3](WinFormApp/LicenseInfo/GPLv3.txt)发布 / Color Palette is released under [GPLv3](WinFormApp/LicenseInfo/GPLv3.txt).
+
+![ScreenShot](ScreenShot.png)
